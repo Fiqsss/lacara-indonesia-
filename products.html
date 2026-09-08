@@ -1,0 +1,848 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Our Products — FISHMARKET.ID</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap"
+    rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+  <style>
+    :root {
+      --green: #083f3b;
+      --green2: #0d625b;
+      --cream: #f7f4ee;
+      --gold: #c7a66a;
+      --text: #183633
+    }
+
+    body {
+      font-family: "DM Sans", sans-serif;
+      color: var(--text)
+    }
+
+    h1,
+    h2,
+    h3 {
+      font-family: "Playfair Display", serif
+    }
+
+    .navbar {
+      background: #fff;
+      border-bottom: 1px solid #eee
+    }
+
+    .brand {
+      font-weight: 700;
+      letter-spacing: .12em;
+      color: var(--green) !important
+    }
+
+    .nav-link {
+      font-weight: 600;
+      color: #31504c !important
+    }
+
+    .top-btn {
+      background: var(--green);
+      color: #fff;
+      border-radius: 3px;
+      padding: .75rem 1.2rem;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: .85rem
+    }
+
+    .lang {
+      border: 1px solid #d8e1de;
+      background: white;
+      padding: .45rem .7rem;
+      font-weight: 700
+    }
+
+    .lang.active {
+      background: var(--green);
+      color: white
+    }
+
+    .hero {
+      background: linear-gradient(90deg, rgba(3, 37, 34, .88), rgba(3, 37, 34, .35)), url("https://images.unsplash.com/photo-1544943910-4c1dc44aab44?auto=format&fit=crop&w=2200&q=90") center/cover;
+      min-height: 480px;
+      color: #fff;
+      display: flex;
+      align-items: center
+    }
+
+    .hero h1 {
+      font-size: clamp(3rem, 7vw, 5.8rem)
+    }
+
+    .eyebrow,
+    .label {
+      font-size: .7rem;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      font-weight: 800;
+      color: #8bcfc2
+    }
+
+    .catalog {
+      padding: 100px 0;
+      background: var(--cream)
+    }
+
+    .section-title {
+      font-size: clamp(2.5rem, 5vw, 4.5rem);
+      color: var(--green);
+      line-height: 1.05
+    }
+
+    .product {
+      height: 100%;
+      background: #fff;
+      border: 1px solid #e8e3d9;
+      transition: .3s
+    }
+
+    .product:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 18px 45px #083f3b18
+    }
+
+    .photo {
+      height: 300px;
+      background-size: cover;
+      background-position: center
+    }
+
+    .body {
+      padding: 28px
+    }
+
+    .body h3 {
+      font-size: 1.8rem;
+      color: var(--green)
+    }
+
+    .body p {
+      color: #697b77;
+      line-height: 1.8;
+      font-size: .9rem
+    }
+
+    .tag {
+      display: inline-block;
+      background: #edf4f1;
+      color: var(--green);
+      font-size: .68rem;
+      font-weight: 800;
+      padding: .4rem .6rem;
+      margin: 0 .2rem .4rem 0
+    }
+
+    .cta {
+      background: var(--green);
+      color: white;
+      padding: 80px 0
+    }
+
+    .cta h2 {
+      font-size: clamp(2.5rem, 5vw, 4.2rem)
+    }
+
+    footer {
+      background: #062f2c;
+      color: #bfd0cc;
+      padding: 60px 0 25px
+    }
+
+    .footer-title {
+      color: #fff;
+      font-weight: 700;
+      letter-spacing: .1em
+    }
+
+    .footer-link {
+      display: block;
+      color: #bfd0cc;
+      text-decoration: none;
+      margin: .5rem 0
+    }
+
+    .filter button {
+      border: 1px solid #cbd8d4;
+      background: #fff;
+      padding: .7rem 1rem;
+      margin: .2rem;
+      font-weight: 700;
+      color: var(--green)
+    }
+
+    .filter button.active,
+    .filter button:hover {
+      background: var(--green);
+      color: #fff
+    }
+
+    .wa {
+      position: fixed;
+      right: 20px;
+      bottom: 20px;
+      background: #18a878;
+      color: #fff;
+      border-radius: 50%;
+      width: 55px;
+      height: 55px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      z-index: 5
+    }
+
+    .modal-product .modal-content {
+      border: 0;
+      border-radius: 0;
+      overflow: hidden;
+      background: #fff
+    }
+
+    .modal-product .modal-body {
+      padding: 0
+    }
+
+    .modal-product-img {
+      width: 100%;
+      max-height: 78vh;
+      object-fit: cover;
+      display: block
+    }
+
+    .modal-product .btn-close {
+      position: absolute;
+      right: 18px;
+      top: 18px;
+      z-index: 3;
+      background: #fff;
+      border-radius: 50%;
+      padding: .7rem;
+      opacity: 1;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, .15)
+    }
+
+    .modal-product-info {
+      padding: 22px 25px 25px
+    }
+
+    .modal-product-info h3 {
+      color: var(--green);
+      font-size: 2rem;
+      margin-bottom: .4rem
+    }
+
+    @media(max-width:575px) {
+      .modal-product-img {
+        max-height: 60vh
+      }
+
+      .modal-product-info h3 {
+        font-size: 1.55rem
+      }
+    }
+  </style>
+  <style>
+    .category-number {
+      font-size: .75rem;
+      letter-spacing: .2em;
+      font-weight: 800;
+      color: var(--gold);
+      margin-bottom: 8px
+    }
+
+    .category-desc {
+      max-width: 720px;
+      color: #697b77;
+      line-height: 1.8
+    }
+
+    .product-category {
+      scroll-margin-top: 90px
+    }
+
+    .fishes-section {
+      border-top: 1px solid #dfe7e3
+    }
+
+    .image-hint {
+      position: absolute;
+      right: 15px;
+      bottom: 15px;
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, .92);
+      color: var(--green);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: .25s
+    }
+
+    .photo:hover .image-hint {
+      opacity: 1
+    }
+
+    .photo {
+      position: relative
+    }
+  </style>
+  <style>
+    .catalog-filter {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px
+    }
+
+    .catalog-filter-btn {
+      border: 1px solid #cbd9d5;
+      background: #fff;
+      color: var(--green);
+      padding: .72rem 1.35rem;
+      font-size: .78rem;
+      font-weight: 800;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      transition: .25s;
+      cursor: pointer
+    }
+
+    .catalog-filter-btn:hover {
+      background: #edf5f2
+    }
+
+    .catalog-filter-btn.active {
+      background: var(--green);
+      border-color: var(--green);
+      color: #fff
+    }
+
+    .product-category.filter-hide {
+      display: none !important
+    }
+
+    .product-category.filter-show {
+      display: block;
+      animation: categoryFade .45s ease
+    }
+
+    @keyframes categoryFade {
+      from {
+        opacity: 0;
+        transform: translateY(12px)
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0)
+      }
+    }
+
+    @media(max-width:575px) {
+      .catalog-filter {
+        width: 100%
+      }
+
+      .catalog-filter-btn {
+        flex: 1;
+        padding: .65rem .7rem;
+        font-size: .68rem
+      }
+    }
+  </style>
+  <style>
+    /* Unified navigation hover + active states */
+    .navbar .nav-link {
+      position: relative;
+      border-radius: 6px;
+      transition: background-color .22s ease, color .22s ease, transform .22s ease;
+    }
+
+    .navbar .nav-link:hover,
+    .navbar .nav-link:focus-visible {
+      background: #e8f2ef;
+      color: var(--green) !important;
+    }
+
+    .navbar .nav-link.active {
+      background: var(--green);
+      color: #fff !important;
+    }
+
+    .navbar .nav-link.active:hover {
+      background: var(--green);
+      color: #fff !important
+    }
+
+    .navbar .dropdown-toggle.active {
+      background: var(--green);
+      color: #fff !important
+    }
+
+    .navbar .dropdown-menu .dropdown-item {
+      border-radius: 5px;
+      transition: background-color .2s ease, color .2s ease;
+    }
+
+    .navbar .dropdown-menu .dropdown-item:hover,
+    .navbar .dropdown-menu .dropdown-item:focus {
+      background: #e8f2ef;
+      color: var(--green);
+    }
+
+    .navbar .dropdown-menu .dropdown-item.active {
+      background: var(--green);
+      color: #fff;
+    }
+
+    /* Mobile / sidebar navigation */
+    .mobile-menu>a,
+    .mobile-product-toggle {
+      border-radius: 7px !important;
+      transition: background-color .22s ease, color .22s ease, padding-left .22s ease;
+    }
+
+    .mobile-menu>a:hover,
+    .mobile-menu>a:focus-visible,
+    .mobile-product-toggle:hover,
+    .mobile-product-toggle:focus-visible {
+      background: #e8f2ef !important;
+      color: var(--green) !important;
+      padding-left: 12px;
+    }
+
+    .mobile-menu>a.active,
+    .mobile-product-toggle.active {
+      background: var(--green) !important;
+      color: #fff !important;
+      padding-left: 12px;
+    }
+
+    .mobile-product-sub a {
+      border-radius: 5px;
+      transition: background-color .2s ease, color .2s ease, padding-left .2s ease;
+    }
+
+    .mobile-product-sub a:hover,
+    .mobile-product-sub a:focus-visible {
+      background: #e8f2ef;
+      color: var(--green);
+      padding-left: 14px;
+    }
+
+    .mobile-product-sub a.active {
+      background: var(--green);
+      color: #fff;
+      border-left-color: var(--green);
+      padding-left: 14px;
+    }
+
+    /* Legacy sidebar */
+    .sidebar-item,
+    .sidebar-parent {
+      border-radius: 7px !important;
+      transition: background-color .22s ease, color .22s ease, padding-left .22s ease;
+    }
+
+    .sidebar-item:hover,
+    .sidebar-parent:hover {
+      background: #e8f2ef !important;
+      color: var(--green) !important;
+      padding-left: 20px;
+    }
+
+    .sidebar-item.active,
+    .sidebar-parent.active {
+      background: var(--green) !important;
+      color: #fff !important;
+      padding-left: 20px;
+    }
+
+    .sidebar-sub a {
+      border-radius: 5px;
+      transition: background-color .2s ease, color .2s ease, padding-left .2s ease;
+    }
+
+    .sidebar-sub a:hover {
+      background: #e8f2ef;
+      color: var(--green);
+      padding-left: 18px;
+    }
+
+    .sidebar-sub a.active {
+      background: var(--green);
+      color: #fff;
+      border-left-color: var(--green);
+      padding-left: 18px;
+    }
+  </style>
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg sticky-top">
+    <div class="container py-2">
+      <a class="navbar-brand brand" href="fishmarket-bilingual-carousel.html">FISHMARKET<span
+          style="color:var(--gold)">.ID</span></a>
+      <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#menu"><i
+          class="bi bi-list fs-2"></i></button>
+      <div class="collapse navbar-collapse" id="menu">
+        <ul class="navbar-nav ms-auto align-items-lg-center">
+          <li><a class="nav-link" href="fishmarket-bilingual-carousel.html">Home</a></li>
+          <li><a class="nav-link" href="fishmarket-bilingual-carousel.html#about">About us</a></li>
+          <li><a class="nav-link" href="products.html">Our Products</a></li>
+          <li><a class="nav-link" href="fishmarket-bilingual-carousel.html#gallery">Our Gallery</a></li>
+          <li><a class="nav-link" href="fishmarket-bilingual-carousel.html#contact">Contact us</a></li>
+          <li class="ms-lg-2 mt-2 mt-lg-0"><a class="top-btn" href="https://wa.me/6281763377777">+62 817 633 7777</a>
+          </li>
+          <li class="ms-lg-2 mt-2 mt-lg-0"><button id="en" class="lang active"
+              onclick="setLang('en')">EN</button><button id="id" class="lang" onclick="setLang('id')">ID</button></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <header class="hero">
+    <div class="container">
+      <div class="eyebrow mb-3" data-k="eyebrow">Our Products</div>
+      <h1 data-k="title">Premium Seafood<br>From Indonesia</h1>
+      <p class="lead mt-4" style="max-width:650px" data-k="desc">Carefully sourced, expertly processed, and prepared for
+        international markets.</p>
+    </div>
+  </header>
+  <section class="catalog">
+    <div class="container">
+      <div class="text-center mb-5">
+        <div class="label" style="color:var(--green2)" data-k="label">Product Catalogue</div>
+        <h2 class="section-title mt-2" data-k="heading">Our Finest Products</h2>
+        <div class="catalog-filter mt-4" role="tablist" aria-label="Product categories">
+          <button class="catalog-filter-btn active" type="button" data-filter="all"
+            onclick="filterCategory('all',this)">All</button>
+          <button class="catalog-filter-btn" type="button" data-filter="bawang"
+            onclick="filterCategory('bawang',this)">Bawang</button>
+          <button class="catalog-filter-btn" type="button" data-filter="fishes"
+            onclick="filterCategory('fishes',this)">Fishes</button>
+        </div>
+      </div>
+
+      <!-- BAWANG -->
+      <section id="bawang" class="product-category mb-5 pb-5">
+        <div class="category-head row align-items-end mb-4">
+          <div class="col-lg-8">
+            <div class="label" style="color:var(--green2)" data-k="onionLabel">Bawang</div>
+            <h2 class="section-title mt-2" data-k="onionTitle">Premium Indonesian Onions</h2>
+            <p class="category-desc mt-3" data-k="onionDesc">Selected Indonesian onions, carefully sorted and prepared
+              for wholesale and food-service customers.</p>
+          </div>
+        </div>
+        <div class="row g-4">
+          <div class="col-md-6 col-lg-4">
+            <div class="product">
+              <div class="photo" role="button" tabindex="0" data-bs-toggle="modal" data-bs-target="#imagePreviewModal"
+                data-image="https://images.unsplash.com/photo-1587049352846-4a222e784d38?auto=format&fit=crop&w=1000&q=90"
+                style="background-image:url('https://images.unsplash.com/photo-1587049352846-4a222e784d38?auto=format&fit=crop&w=1000&q=90');cursor:zoom-in"
+                onclick="openPreview(this)"><span class="image-hint"><i class="bi bi-arrows-fullscreen"></i></span>
+              </div>
+              <div class="body">
+                <h3>Red Onion</h3>
+                <p data-k="redOnion">Fresh Indonesian red onion with firm texture and balanced aroma.</p><span
+                  class="tag">FRESH</span><span class="tag">WHOLESALE</span>
+                <div class="mt-3"><a href="https://wa.me/6281763377777?text=I%20am%20interested%20in%20Red%20Onion"
+                    class="top-btn" data-k="quote">Request Quote</a></div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4">
+            <div class="product">
+              <div class="photo" role="button" tabindex="0" data-bs-toggle="modal" data-bs-target="#imagePreviewModal"
+                data-image="https://images.unsplash.com/photo-1618512496248-a07fe83aa8cb?auto=format&fit=crop&w=1000&q=90"
+                style="background-image:url('https://images.unsplash.com/photo-1618512496248-a07fe83aa8cb?auto=format&fit=crop&w=1000&q=90');cursor:zoom-in"
+                onclick="openPreview(this)"><span class="image-hint"><i class="bi bi-arrows-fullscreen"></i></span>
+              </div>
+              <div class="body">
+                <h3>Garlic</h3>
+                <p data-k="garlic">Quality garlic selected for consistent size, freshness and strong natural flavor.</p>
+                <span class="tag">FRESH</span><span class="tag">SORTED</span>
+                <div class="mt-3"><a href="https://wa.me/6281763377777?text=I%20am%20interested%20in%20Garlic"
+                    class="top-btn" data-k="quote">Request Quote</a></div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4">
+            <div class="product">
+              <div class="photo" role="button" tabindex="0" data-bs-toggle="modal" data-bs-target="#imagePreviewModal"
+                data-image="https://images.unsplash.com/photo-1518977676601-b53f82aba655?auto=format&fit=crop&w=1000&q=90"
+                style="background-image:url('https://images.unsplash.com/photo-1518977676601-b53f82aba655?auto=format&fit=crop&w=1000&q=90');cursor:zoom-in"
+                onclick="openPreview(this)"><span class="image-hint"><i class="bi bi-arrows-fullscreen"></i></span>
+              </div>
+              <div class="body">
+                <h3>Shallot</h3>
+                <p data-k="shallot">Premium shallots with clean skin and rich aroma, prepared for commercial buyers.</p>
+                <span class="tag">PREMIUM</span><span class="tag">WHOLESALE</span>
+                <div class="mt-3"><a href="https://wa.me/6281763377777?text=I%20am%20interested%20in%20Shallot"
+                    class="top-btn" data-k="quote">Request Quote</a></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- FISHES -->
+      <section id="fishes" class="product-category fishes-section pt-5">
+        <div class="category-head row align-items-end mb-4">
+          <div class="col-lg-8">
+            <div class="category-number">02</div>
+            <div class="label" style="color:var(--green2)" data-k="fishLabel">Fishes</div>
+            <h2 class="section-title mt-2" data-k="fishTitle">Premium Seafood</h2>
+            <p class="category-desc mt-3" data-k="fishDesc">Carefully sourced fresh and frozen seafood from Indonesia,
+              prepared to meet international quality standards.</p>
+          </div>
+        </div>
+        <div class="row g-4">
+          <div class="col-md-6 col-lg-4">
+            <div class="product">
+              <div class="photo" role="button" tabindex="0" data-bs-toggle="modal" data-bs-target="#imagePreviewModal"
+                data-image="https://images.unsplash.com/photo-1544943910-4c1dc44aab44?auto=format&fit=crop&w=1000&q=90"
+                style="background-image:url('https://images.unsplash.com/photo-1544943910-4c1dc44aab44?auto=format&fit=crop&w=1000&q=90');cursor:zoom-in"
+                onclick="openPreview(this)"><span class="image-hint"><i class="bi bi-arrows-fullscreen"></i></span>
+              </div>
+              <div class="body">
+                <h3>Tuna</h3>
+                <p data-k="tuna">Sashimi-grade tuna with clean taste and delicate texture. Available fresh and frozen.
+                </p><span class="tag">SASHIMI GRADE</span><span class="tag">FRESH / FROZEN</span>
+                <div class="mt-3"><a href="https://wa.me/6281763377777?text=I%20am%20interested%20in%20Tuna"
+                    class="top-btn" data-k="quote">Request Quote</a></div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4">
+            <div class="product">
+              <div class="photo" role="button" tabindex="0" data-bs-toggle="modal" data-bs-target="#imagePreviewModal"
+                data-image="https://images.unsplash.com/photo-1534948750767-7d8a8a6bba9b?auto=format&fit=crop&w=1000&q=90"
+                style="background-image:url('https://images.unsplash.com/photo-1534948750767-7d8a8a6bba9b?auto=format&fit=crop&w=1000&q=90');cursor:zoom-in"
+                onclick="openPreview(this)"><span class="image-hint"><i class="bi bi-arrows-fullscreen"></i></span>
+              </div>
+              <div class="body">
+                <h3>Red Snapper</h3>
+                <p data-k="snapper">Premium WGGS and fillet, carefully processed and prepared for export customers.</p>
+                <span class="tag">WGGS</span><span class="tag">FILLET</span>
+                <div class="mt-3"><a href="https://wa.me/6281763377777?text=I%20am%20interested%20in%20Red%20Snapper"
+                    class="top-btn" data-k="quote">Request Quote</a></div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4">
+            <div class="product">
+              <div class="photo" role="button" tabindex="0" data-bs-toggle="modal" data-bs-target="#imagePreviewModal"
+                data-image="https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=1000&q=90"
+                style="background-image:url('https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=1000&q=90');cursor:zoom-in"
+                onclick="openPreview(this)"><span class="image-hint"><i class="bi bi-arrows-fullscreen"></i></span>
+              </div>
+              <div class="body">
+                <h3>Octopus</h3>
+                <p data-k="octopus">Frozen octopus flower, baby octopus and other premium cuts prepared for worldwide
+                  customers.</p><span class="tag">FLOWER</span><span class="tag">BABY OCTOPUS</span>
+                <div class="mt-3"><a href="https://wa.me/6281763377777?text=I%20am%20interested%20in%20Octopus"
+                    class="top-btn" data-k="quote">Request Quote</a></div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4">
+            <div class="product">
+              <div class="photo" role="button" tabindex="0" data-bs-toggle="modal" data-bs-target="#imagePreviewModal"
+                data-image="https://images.unsplash.com/photo-1559737558-2f5a35f4523b?auto=format&fit=crop&w=1000&q=90"
+                style="background-image:url('https://images.unsplash.com/photo-1559737558-2f5a35f4523b?auto=format&fit=crop&w=1000&q=90');cursor:zoom-in"
+                onclick="openPreview(this)"><span class="image-hint"><i class="bi bi-arrows-fullscreen"></i></span>
+              </div>
+              <div class="body">
+                <h3>Mahi Mahi</h3>
+                <p data-k="mahi">Firm white flesh, mild flavor, and carefully trimmed cuts for food-service
+                  applications.</p><span class="tag">WILD CAUGHT</span><span class="tag">FROZEN</span>
+                <div class="mt-3"><a href="https://wa.me/6281763377777?text=I%20am%20interested%20in%20Mahi%20Mahi"
+                    class="top-btn" data-k="quote">Request Quote</a></div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4">
+            <div class="product">
+              <div class="photo" role="button" tabindex="0" data-bs-toggle="modal" data-bs-target="#imagePreviewModal"
+                data-image="https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?auto=format&fit=crop&w=1000&q=90"
+                style="background-image:url('https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?auto=format&fit=crop&w=1000&q=90');cursor:zoom-in"
+                onclick="openPreview(this)"><span class="image-hint"><i class="bi bi-arrows-fullscreen"></i></span>
+              </div>
+              <div class="body">
+                <h3>King Fish</h3>
+                <p data-k="king">Meaty white flesh with rich flavor, suitable for grilling, frying, baking and food
+                  service.</p><span class="tag">PREMIUM</span><span class="tag">FROZEN</span>
+                <div class="mt-3"><a href="https://wa.me/6281763377777?text=I%20am%20interested%20in%20King%20Fish"
+                    class="top-btn" data-k="quote">Request Quote</a></div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4">
+            <div class="product">
+              <div class="photo" role="button" tabindex="0" data-bs-toggle="modal" data-bs-target="#imagePreviewModal"
+                data-image="https://images.unsplash.com/photo-1544551763-77ef2d0cfc6c?auto=format&fit=crop&w=1000&q=90"
+                style="background-image:url('https://images.unsplash.com/photo-1544551763-77ef2d0cfc6c?auto=format&fit=crop&w=1000&q=90');cursor:zoom-in"
+                onclick="openPreview(this)"><span class="image-hint"><i class="bi bi-arrows-fullscreen"></i></span>
+              </div>
+              <div class="body">
+                <h3>Grouper</h3>
+                <p data-k="grouper">Firm, moist white flesh with delicate flavor. Available as hand-trimmed fillet.</p>
+                <span class="tag">FILLET</span><span class="tag">HAND TRIMMED</span>
+                <div class="mt-3"><a href="https://wa.me/6281763377777?text=I%20am%20interested%20in%20Grouper"
+                    class="top-btn" data-k="quote">Request Quote</a></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </section>
+  <section class="cta">
+    <div class="container">
+      <div class="row align-items-center g-4">
+        <div class="col-lg-8">
+          <div class="eyebrow" data-k="ctaey">Ready to Order?</div>
+          <h2 class="mt-3" data-k="ctatitle">Let's Build Your Seafood Supply.</h2>
+          <p class="mt-3" data-k="ctadesc">Tell us your product, quantity, specification and destination. Our team will
+            help prepare the right supply solution.</p>
+        </div>
+        <div class="col-lg-4 text-lg-end"><a class="btn btn-light px-4 py-3 fw-bold" href="https://wa.me/6281763377777"
+            data-k="contact">Get in Touch</a></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="modal fade modal-product" id="imagePreviewModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-xl">
+      <div class="modal-content">
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <div class="modal-body">
+          <img id="previewImage" class="modal-product-img" src="" alt="Product preview">
+          <div class="modal-product-info">
+            <h3 id="previewTitle">Product</h3>
+            <p id="previewDescription" class="mb-0"></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer>
+    <div class="container">
+      <div class="footer-title fs-4 ">FISHMARKET.ID</div>
+      <p class="mt-3">Premium fresh and frozen seafood from Indonesia.</p>
+      <hr style="border-color:#35605b">
+      <small class="text-center">Copyright © 2015 FISH MARKET, All rights reserved.</small>
+    </div>
+  </footer>
+  <a class="wa" href="https://wa.me/6281763377777"><i class="bi bi-whatsapp"></i></a>
+  <script>
+    const t = { en: { eyebrow: "Our Products", title: "Premium Seafood<br>From Indonesia", desc: "Carefully sourced, expertly processed, and prepared for international markets.", label: "Product Catalogue", heading: "Our Finest Seafood", all: "All", fish: "Fish", shellfish: "Shellfish", tuna: "Sashimi-grade tuna with clean taste and delicate texture. Available fresh and frozen.", snapper: "Premium WGGS and fillet, carefully processed and prepared for export customers.", octopus: "Frozen octopus flower, baby octopus and other premium cuts prepared for worldwide customers.", mahi: "Firm white flesh, mild flavor, and carefully trimmed cuts for food-service applications.", king: "Meaty white flesh with rich flavor, suitable for grilling, frying, baking and food service.", grouper: "Firm, moist white flesh with delicate flavor. Available as hand-trimmed fillet.", quote: "Request Quote", ctaey: "Ready to Order?", ctatitle: "Let's Build Your Seafood Supply.", ctadesc: "Tell us your product, quantity, specification and destination. Our team will help prepare the right supply solution.", contact: "Get in Touch" }, id: { eyebrow: "Produk Kami", title: "Seafood Premium<br>Dari Indonesia", desc: "Bersumber secara bertanggung jawab, diproses secara profesional, dan disiapkan untuk pasar internasional.", label: "Katalog Produk", heading: "Seafood Terbaik Kami", all: "Semua", fish: "Ikan", shellfish: "Seafood", tuna: "Tuna grade sashimi dengan rasa bersih dan tekstur lembut. Tersedia fresh dan frozen.", snapper: "WGGS dan fillet premium yang diproses dengan teliti untuk kebutuhan ekspor.", octopus: "Gurita flower beku, baby octopus, dan potongan premium lainnya untuk pelanggan global.", mahi: "Daging putih yang firm dengan rasa ringan dan potongan yang diproses untuk food-service.", king: "Daging putih yang tebal dengan rasa kaya, cocok untuk grill, goreng, panggang, dan food-service.", grouper: "Daging putih yang lembut dan firm dengan rasa delicat. Tersedia dalam bentuk fillet.", quote: "Minta Penawaran", ctaey: "Siap Memesan?", ctatitle: "Mari Bangun Pasokan Seafood Anda.", ctadesc: "Beritahu produk, jumlah, spesifikasi, dan tujuan pengiriman Anda. Tim kami siap membantu.", contact: "Hubungi Kami" } };
+
+    function openPreview(el) {
+      const modalImg = document.getElementById("previewImage");
+      const title = el.closest(".product").querySelector("h3")?.innerText || "Product";
+      const desc = el.closest(".product").querySelector("[data-k]")?.innerText || "";
+      modalImg.src = el.dataset.image;
+      modalImg.alt = title;
+      document.getElementById("previewTitle").innerText = title;
+      document.getElementById("previewDescription").innerText = desc;
+    }
+    function setLang(l) { document.querySelectorAll("[data-k]").forEach(e => e.innerHTML = t[l][e.dataset.k]); document.getElementById("en").classList.toggle("active", l === "en"); document.getElementById("id").classList.toggle("active", l === "id"); localStorage.setItem("product-lang", l) }
+    function filterProducts(cat, b) { document.querySelectorAll(".filter button").forEach(x => x.classList.remove("active")); b.classList.add("active"); document.querySelectorAll(".product-item").forEach(x => x.style.display = cat === "all" || x.classList.contains(cat) ? "" : "none") }
+    setLang(localStorage.getItem("product-lang") || "en");
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    function filterCategory(category, button) {
+      document.querySelectorAll(".catalog-filter-btn").forEach(b => b.classList.remove("active"));
+      button.classList.add("active");
+      const bawang = document.getElementById("bawang");
+      const fishes = document.getElementById("fishes");
+      bawang.classList.remove("filter-hide", "filter-show");
+      fishes.classList.remove("filter-hide", "filter-show");
+      if (category === "all") {
+        bawang.classList.add("filter-show");
+        fishes.classList.add("filter-show");
+      } else if (category === "bawang") {
+        bawang.classList.add("filter-show");
+        fishes.classList.add("filter-hide");
+        setTimeout(() => bawang.scrollIntoView({ behavior: "smooth", block: "start" }), 50);
+      } else {
+        fishes.classList.add("filter-show");
+        bawang.classList.add("filter-hide");
+        setTimeout(() => fishes.scrollIntoView({ behavior: "smooth", block: "start" }), 50);
+      }
+    }
+  </script>
+  <script>
+    (function () {
+      function pathName(href) {
+        try { return new URL(href, location.href).pathname.split('/').pop() || 'index'; }
+        catch (e) { return ''; }
+      }
+      function setActiveNav() {
+        const currentFile = location.pathname.split('/').pop() || 'fishmarket-home-updated.html';
+        const hash = location.hash;
+
+        document.querySelectorAll('.navbar .nav-link, .mobile-menu>a, .sidebar-item, .sidebar-sub a, .mobile-product-sub a').forEach(el => {
+          el.classList.remove('active');
+          const href = el.getAttribute('href');
+          if (!href || href === '#') return;
+
+          const sameFile = pathName(href) === currentFile;
+          const sameHash = href.includes('#') && href.split('#')[1] === hash.replace('#', '');
+
+          if (sameFile && (sameHash || (!href.includes('#') && !hash))) {
+            el.classList.add('active');
+          }
+        });
+
+        // Home on homepage
+        if (!hash && (currentFile.includes('fishmarket-home') || currentFile === '')) {
+          document.querySelectorAll('a[href="#home"]').forEach(a => a.classList.add('active'));
+        }
+
+        // Section-based active state on homepage
+        if (hash) {
+          document.querySelectorAll('a[href="' + hash + '"]').forEach(a => a.classList.add('active'));
+        }
+
+        // Product dropdown becomes active when on products page
+        if (currentFile === 'products.html') {
+          document.querySelectorAll('.navbar .dropdown-toggle, .mobile-product-toggle, .sidebar-parent').forEach(el => el.classList.add('active'));
+        }
+      }
+
+      document.addEventListener('DOMContentLoaded', setActiveNav);
+      window.addEventListener('hashchange', setActiveNav);
+
+      // Smooth section navigation + active state
+      document.addEventListener('click', function (e) {
+        const link = e.target.closest('a[href^="#"]');
+        if (!link) return;
+        const target = document.querySelector(link.getAttribute('href'));
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          history.replaceState(null, '', link.getAttribute('href'));
+          setTimeout(setActiveNav, 100);
+        }
+      });
+    })();
+  </script>
+</body>
+
+</html>
