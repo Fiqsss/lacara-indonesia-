@@ -18,7 +18,7 @@ const translations = {
         hero_desc:
             "Since 2015, LACARA INDONESIA has proudly delivered Indonesia's finest seafood to tables around the world. We specialize in premium fresh and frozen seafood, responsibly sourced from Indonesia's pristine waters.",
         hero_products: "Explore Products",
-        get_touch: "Get in Touch",
+        get_touch: "Get in Touch | Order Now",
         about_label: "About LACARA INDONESIA",
         about_title: "Quality Fish & Onions,<br>From Indonesia to the World",
         about_p1:
@@ -67,7 +67,7 @@ const translations = {
         cta_title: "Let's Bring the Best of Indonesia to Your Table.",
         cta_desc:
             "Experience premium, sustainably sourced seafood. Contact us today to place your order or learn more about our products.",
-        cta_button: "Get in Touch",
+        cta_button: "GET IN TOUCH | ORDER NOW",
         gallery_label: "Our Gallery",
         gallery_title: "Capturing the Freshness of the Ocean",
         gallery_desc:

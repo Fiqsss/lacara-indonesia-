@@ -12,8 +12,8 @@
     rel="stylesheet" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style2.css" />
   <script src="js/language.js"></script>
-  <link rel="stylesheet" href="css/style.css" />
 
 </head>
 
@@ -75,7 +75,7 @@
     aria-hidden="true">
     <div class="offcanvas-header">
       <div class="brand logo-brand mobile-logo-brand" id="mobileNavLabel">
-        <img src="fishmarket-logo.png" alt="LACARA INDONESIA logo" />
+        <img src="img/logo 2.png" alt="LACARA INDONESIA logo" />
       </div>
       <button type="button" class="btn-close" aria-label="Close"></button>
     </div>
@@ -243,20 +243,23 @@
   <section id="cta" class="lacara-cta">
     <div class="container">
       <div class="lacara-cta-inner">
-        <div class="lacara-cta-copy">
-          <div class="lacara-cta-eyebrow label" data-i18n="cta_eyebrow">
-            READY TO TASTE THE OCEAN’S FINEST?
+        <div class="lacara-cta-copy text-center d-flex justify-content-center">
+          <div class="">
+            <!-- <div class="lacara-cta-eyebrow label" data-i18n="cta_eyebrow">
+              READY TO TASTE THE OCEAN’S FINEST?
+            </div> -->
+            <h2 class="lacara-cta-title" data-i18n="cta_title">
+              Let’s Bring the Best of Indonesia to Your Table.
+            </h2>
+            <p class="lacara-cta-desc" data-i18n="cta_desc">
+              Experience premium, sustainably sourced seafood. Contact us today
+              to place your order or learn more about our products.
+            </p>
+
           </div>
-          <h2 class="lacara-cta-title" data-i18n="cta_title">
-            Let’s Bring the Best of Indonesia to Your Table.
-          </h2>
-          <p class="lacara-cta-desc" data-i18n="cta_desc">
-            Experience premium, sustainably sourced seafood. Contact us today
-            to place your order or learn more about our products.
-          </p>
         </div>
-        <div class="lacara-cta-button-wrap">
-          <a href="#contact" class="lacara-cta-button" data-i18n="cta_button">Get in Touch <i
+        <div class="lacara-cta-button-wrap d-flex justify-content-center justify-content-lg-center">
+          <a href="#contact" class="lacara-cta-button" data-i18n="cta_button">Get in Touch | Order Now<i
               class="bi bi-arrow-up-right"></i></a>
         </div>
       </div>
@@ -265,41 +268,14 @@
 
   <section id="contact" class="contact-section">
     <div class="container">
+      <div class="contact-intro-inner text-center mb-5">
+        <h2 class="contact-title" data-i18n="contact_title">
+          Contact Us
+        </h2>
+        <div class="contact-line text-center"></div>
+      </div>
       <div class="row align-items-stretch">
-        <div class="col-lg-5">
-          <div class="contact-intro d-flex align-items-center justify-content-center">
-            <div class="mask">
-              <div class="eyebrow">GET IN TOUCH</div>
-              <h2 class="contact-title" data-i18n="contact_title">
-                Contact Us
-              </h2>
-              <div class="contact-line"></div>
-              <div class="contact-details">
-                <div class="contact-detail">
-                  <span class="contact-icon"><i class="bi bi-telephone-fill"></i></span>
-                  <div>
-                    <small>PHONE</small><strong>+62 817 633 7777</strong>
-                  </div>
-                </div>
-                <div class="contact-detail">
-                  <span class="contact-icon"><i class="bi bi-envelope-fill"></i></span>
-                  <div>
-                    <small>EMAIL</small><strong>info@fishmarket.id</strong>
-                  </div>
-                </div>
-                <div class="contact-detail">
-                  <span class="contact-icon"><i class="bi bi-geo-alt-fill"></i></span>
-                  <div>
-                    <small>ADDRESS</small><strong>Kompleks Pelabuhan Benoa
-                      Jl. Ikan Tuna III No. 1B
-                      Bali – Indonesia 80223</strong>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-6 offset-lg-1">
+        <div class="col-lg-6 ">
           <p class="text-white" data-i18n="contact_desc">
             Please send your messages/comments/inquiries here.
           </p>
@@ -318,9 +294,9 @@
                   data-i18n-placeholder="contact_message" required></textarea>
               </div>
               <div class="col-12">
-                <div class="captcha-row">
-                  <span id="captchaQuestion">4 + 0 = ?</span><input class="contact-input captcha-input"
-                    id="captchaAnswer" type="number" placeholder="Answer*" required />
+                <div class="captcha-box">
+                  <span id="captchaQuestion">1 + 1 = ?</span>
+                  <input type="text" id="captchaAnswer" class="contact-input" autocomplete="off">
                 </div>
               </div>
               <div class="col-12">
@@ -333,11 +309,40 @@
             </div>
           </form>
         </div>
+        <div class="contact-batas"></div>
+        <div class="col-lg-5 offset-lg-1">
+          <div class="contact-intro ">
+            <div class="contact-details">
+              <h2>Lacara Indonesia</h2>
+              <div class="contact-detail">
+                <span class="contact-icon"><i class="bi bi-telephone-fill"></i></span>
+                <div>
+                  <small>PHONE</small><strong>+62 817 633 7777</strong>
+                </div>
+              </div>
+              <div class="contact-detail">
+                <span class="contact-icon"><i class="bi bi-envelope-fill"></i></span>
+                <div>
+                  <small>EMAIL</small><strong>lacaraindonesia.id</strong>
+                </div>
+              </div>
+              <div class="contact-detail">
+                <span class="contact-icon"><i class="bi bi-geo-alt-fill"></i></span>
+                <div>
+                  <small>ADDRESS</small><strong>Kompleks Pelabuhan Benoa
+                    Jl. Ikan Tuna III No. 1B
+                    Bali – Indonesia 80223</strong>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <section id="gallery" class="gallery">
+  <!-- <section id="gallery" class="gallery">
     <div class="container">
       <div class="row align-items-end mb-5">
         <div class="col-lg-8">
@@ -360,32 +365,27 @@
         <div class="g5"></div>
       </div>
     </div>
-  </section>
+  </section> -->
 
   <footer>
     <div class="container">
-      <div class="row g-5">
-        <div class="col-lg-5">
+      <div class="row ">
+        <div class="col-lg-5 ">
           <div class="footer-title footer-logo">
-            <img src="fishmarket-logo.png" alt="LACARA INDONESIA logo" />
+            <img src="img/logo 2.png" alt="LACARA INDONESIA logo" />
           </div>
           <p class="mt-3">
             Premium fresh and frozen seafood from Indonesia, responsibly
             sourced and prepared for global markets.
           </p>
         </div>
-        <div class="col-6 col-lg-2">
+        <div class="col-12 col-lg-3  offset-1">
           <h6 class="text-white" data-i18n="footer_overview">Overview</h6>
           <a class="footer-link" href="#about">About us</a><a class="footer-link" href="#products">Our
             Products</a><a class="footer-link" href="#gallery">Our Gallery</a><a class="footer-link"
             href="#contact">Contact us</a>
         </div>
-        <div class="col-6 col-lg-2">
-          <h6 class="text-white" data-i18n="footer_contact">Contact</h6>
-          <a class="footer-link" href="tel:+6281763377777">+62 817 633 7777</a><a class="footer-link"
-            href="mailto:info@fishmarket.id">info@fishmarket.id</a>
-        </div>
-        <div class="col-lg-3">
+        <div class="col-12 col-lg-3">
           <h6 class="text-white" data-i18n="footer_location">Location</h6>
           <p>
             PT. MUARA ANGKE JAYA<br />Muara Angke, Penjaringan<br />Jakarta,
@@ -393,7 +393,7 @@
           </p>
         </div>
       </div>
-      <hr style="border-color: #444444" />
+      <!-- <hr style="border-color: #444444" /> -->
     </div>
     <section id="location" class="location-section">
       <div class="container">
