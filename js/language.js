@@ -20,7 +20,7 @@ const translations = {
         hero_products: "Explore Products",
         get_touch: "Get in Touch | Order Now",
         about_label: "About LACARA INDONESIA",
-        about_title: "Quality Fish & Onions,<br>From Indonesia to the World",
+        about_title: "Quality Fish &Onions,<br>From Indonesia to the World",
         about_p1:
             "Founded in 2015, LACARA INDONESIA has established itself as a seafood producer and wholesaler focused on premium-quality seafood. We source responsibly and combine years of industry expertise with modern processing and packaging facilities.",
         about_p2:

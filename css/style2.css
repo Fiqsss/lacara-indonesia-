@@ -1556,7 +1556,7 @@ footer hr {
 
   pointer-events: none;
 
-  background-image: url("../img/assets/Artboard1.png");
+  background-image: url("/img/assets/Artboard1.png");
   background-size: cover;
   /* background-repeat: repeat; */
 
