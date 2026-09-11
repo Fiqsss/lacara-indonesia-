@@ -670,13 +670,13 @@ section.intro {
 .home-products::before {
   content: "";
   position: absolute;
-  background-image: url("/img/assets/white-concrete-wall.jpg");
+  inset: 0;
+  background-image: url("/img/assets/whiteconcretewall.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
   pointer-events: none;
   z-index: -2;
-  inset: 0;
 }
 
 .product-feature-card {
