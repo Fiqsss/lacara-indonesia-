@@ -945,7 +945,7 @@
     content: "";
     position: absolute;
     inset: 0;
-    background-image: url("/img/assets/whiteconcretewall.jpg");
+    background-image: url("img/assets/whiteconcretewall.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
