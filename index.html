@@ -20,7 +20,7 @@
 <body>
   <nav class="navbar navbar-expand-lg sticky-top">
     <div class="container py-2">
-      <a class="navbar-brand brand logo-brand" href="#home" aria-label="LACARA INDONESIA"><img src="img/logo 2.png"
+      <a class="navbar-brand brand logo-brand" href="/" aria-label="LACARA INDONESIA"><img src="img/logo 2.png"
           alt="LACARA INDONESIA logo" /></a>
 
       <button class="navbar-toggler border-0 shadow-none" type="button" aria-controls="mobileNav" aria-expanded="false"
@@ -31,7 +31,7 @@
       <div class="collapse navbar-collapse" id="desktopNav">
         <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-1">
           <li class="nav-item">
-            <a class="nav-link" href="#home" data-i18n="nav_home">Home</a>
+            <a class="nav-link" href="/" data-i18n="nav_home">Home</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#about" data-i18n="nav_about">About Us</a>
@@ -42,19 +42,16 @@
               aria-expanded="false" data-i18n="nav_products">Product</a>
             <ul class="dropdown-menu dropdown-menu-end border-0 shadow-sm">
               <li>
-                <a class="dropdown-item" href="products.html" data-i18n="nav_onion">Bawang</a>
+                <a class="dropdown-item" href="/product.html" data-i18n="nav_onion">Bawang</a>
               </li>
               <li>
-                <a class="dropdown-item" href="products.html#fishes" data-i18n="nav_fishes">Fishes</a>
+                <a class="dropdown-item" href="/product.html" data-i18n="nav_fishes">Fishes</a>
               </li>
             </ul>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#contact" data-i18n="nav_contact">Contact</a>
           </li>
-          <!-- <li class="nav-item">
-            <a class="nav-link" href="#gallery" data-i18n="nav_gallery">Gallery</a>
-          </li> -->
           <li class="nav-item ms-lg-2 mt-2 mt-lg-0">
             <div class="lang-switch">
               <button type="button" id="langEN" onclick="setLanguage('en')">
@@ -89,8 +86,8 @@
           <i class="bi bi-chevron-down" id="mobileProductChevron"></i>
         </button>
         <div class="mobile-product-sub" id="mobileProductSub">
-          <a href="products.html" data-i18n="nav_onion">Bawang</a>
-          <a href="products.html#fishes" data-i18n="nav_fishes">Fishes</a>
+          <a href="product.html" data-i18n="nav_onion">Bawang</a>
+          <a href="product.html#fishes" data-i18n="nav_fishes">Fishes</a>
         </div>
         <a href="#contact" data-i18n="nav_contact">Contact</a>
         <!-- <a href="#gallery" data-i18n="nav_gallery">Gallery</a> -->
@@ -379,10 +376,18 @@
         </div>
         <div class="col-12 col-lg-3  offset-lg-1 my-4 my-lg-0">
           <h6 class="text-white pb-2" data-i18n="footer_overview">Overview</h6>
-          <a class="footer-link" href="#about"><p>About us</p></a>
-          <a class="footer-link" href="#products"><p>Our Products</p></a>
-          <a class="footer-link" href="#gallery"><p>Our Gallery</p></a>
-          <a class="footer-link"href="#contact"><p>Contact us</p></a>
+          <a class="footer-link" href="#about">
+            <p>About us</p>
+          </a>
+          <a class="footer-link" href="#products">
+            <p>Our Products</p>
+          </a>
+          <a class="footer-link" href="#gallery">
+            <p>Our Gallery</p>
+          </a>
+          <a class="footer-link" href="#contact">
+            <p>Contact us</p>
+          </a>
         </div>
         <div class="col-12 col-lg-3 mt-2 mb-4 my-lg-0">
           <h6 class="text-white pb-2" data-i18n="footer_location">Location</h6>
