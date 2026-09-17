@@ -1438,7 +1438,7 @@
     position: absolute;
     inset: 0;
     pointer-events: none;
-    background-image: url("/img/assets/Artboard1.png");
+    background-image: url("../img/assets/Artboard1.png");
     background-size: cover;
     opacity: 0.1;
     z-index: -2;
