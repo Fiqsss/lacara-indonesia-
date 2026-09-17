@@ -999,6 +999,13 @@
   .cta {
     background: #f7f7f7 !important;
   }
+  .onion-feature {
+    background-image: linear-gradient(180deg,
+        rgba(8, 63, 59, 0) 50%,
+        rgba(8, 63, 59, 0.16)),
+      url("https://images.unsplash.com/photo-1618512496248-a07fe83aa8cb?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+  }
+
   .fish-feature {
     background-image: linear-gradient(180deg,
         rgba(8, 63, 59, 0) 50%,
