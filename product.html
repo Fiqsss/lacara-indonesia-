@@ -1,16 +1,19 @@
 <!DOCTYPE html>
 
 <html lang="en">
+
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width,initial-scale=1" name="viewport"/>
-<title>Our Products — LACARA INDONESIA</title>
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Cormorant+Garamond:wght@500;600;700&amp;display=swap" rel="stylesheet"/>
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
-<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet"/>
-<!-- <link rel="stylesheet" href="css/product.css" /> -->
-<!-- <script src="js/product.js"></script> -->
-<style>
+  <meta charset="utf-8" />
+  <meta content="width=device-width,initial-scale=1" name="viewport" />
+  <title>Our Products — LACARA INDONESIA</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Cormorant+Garamond:wght@500;600;700&amp;display=swap"
+    rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" />
+  <!-- <link rel="stylesheet" href="css/product.css" /> -->
+  <!-- <script src="js/product.js"></script> -->
+  <style>
     /* =========================================================
    LACARA INDONESIA — ORGANIZED STYLESHEET
    Structure:
@@ -983,7 +986,7 @@
           rgba(0, 0, 0, 0.45) 0%,
           rgba(0, 0, 0, 0.30) 52%,
           rgba(0, 0, 0, 0.20) 100%),
-        url("../img/assets/whiteshapeonion.png");
+        url("/img/assets/whiteshapeonion.png");
       opacity: 20%;
       background-size: cover;
       background-position: center;
@@ -1216,13 +1219,13 @@
 
     /* HARD LIMIT: show only first 6 product cards before Load More */
     /* Load More: JS controls which product columns are visible. */
-    #bawang > .row.g-4 > div.product-column-hidden,
-    #fishes > .row.g-4 > div.product-column-hidden {
+    #bawang>.row.g-4>div.product-column-hidden,
+    #fishes>.row.g-4>div.product-column-hidden {
       display: none !important;
     }
 
-    #bawang > .row.g-4 > div.load-more-visible,
-    #fishes > .row.g-4 > div.load-more-visible {
+    #bawang>.row.g-4>div.load-more-visible,
+    #fishes>.row.g-4>div.load-more-visible {
       display: block !important;
     }
 
@@ -1722,7 +1725,7 @@
           rgba(0, 0, 0, 0.45) 0%,
           rgba(0, 0, 0, 0.30) 52%,
           rgba(0, 0, 0, 0.20) 100%),
-        url("../img/assets/chase-baker-yvb8NrIhIFI-unsplash.jpg");
+        url("img/assets/chase-baker-yvb8NrIhIFI-unsplash.jpg");
       background-repeat: no-repeat;
       background-size: cover;
       background-position: center;
@@ -2646,287 +2649,363 @@
     }
   </style>
 </head>
+
 <body>
-<nav class="navbar navbar-expand-lg sticky-top">
-<div class="container py-2">
-<a aria-label="LACARA INDONESIA" class="navbar-brand brand logo-brand" href="/"><img alt="LACARA INDONESIA logo" src="img/logo 2.png"/></a>
-<button aria-controls="mobileNav" aria-expanded="false" aria-label="Open menu" class="navbar-toggler border-0 shadow-none" type="button">
-<i class="bi bi-list fs-2"></i>
-</button>
-<div class="collapse navbar-collapse" id="desktopNav">
-<ul class="navbar-nav ms-auto align-items-lg-center gap-lg-1">
-<li class="nav-item">
-<a class="nav-link" data-i18n="nav_home" href="/">Home</a>
-</li>
-<li class="nav-item">
-<a class="nav-link" data-i18n="nav_about" href="/#about">About Us</a>
-</li>
-<li class="nav-item dropdown">
-<a aria-expanded="false" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" data-i18n="nav_products" href="#products" role="button">Product</a>
-<ul class="dropdown-menu dropdown-menu-end border-0 shadow-sm">
-<li>
-<a class="dropdown-item" data-i18n="nav_onion" href="product.html#bawang">Bawang</a>
-</li>
-<li>
-<a class="dropdown-item" data-i18n="nav_fishes" href="product.html#fishes">Fishes</a>
-</li>
-</ul>
-</li>
-<li class="nav-item">
-<a class="nav-link" data-i18n="nav_contact" href="#contact">Contact Us</a>
-</li>
-<li class="nav-item ms-lg-2 mt-2 mt-lg-0">
-<button aria-label="Open shopping cart" class="cart-btn" onclick="openCart()" type="button">
-<i class="bi bi-bag me-1"></i>
-<span data-cart-nav-label="">Cart</span>
-<span class="cart-count" id="cartCount">0</span>
-</button>
-</li>
-<li class="nav-item ms-lg-2 mt-2 mt-lg-0">
-<div class="lang-switch">
-<button id="langEN" onclick="setLang('en')" type="button">
+  <nav class="navbar navbar-expand-lg sticky-top">
+    <div class="container py-2">
+      <a aria-label="LACARA INDONESIA" class="navbar-brand brand logo-brand" href="/"><img alt="LACARA INDONESIA logo"
+          src="img/logo 2.png" /></a>
+      <button aria-controls="mobileNav" aria-expanded="false" aria-label="Open menu"
+        class="navbar-toggler border-0 shadow-none" type="button">
+        <i class="bi bi-list fs-2"></i>
+      </button>
+      <div class="collapse navbar-collapse" id="desktopNav">
+        <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-1">
+          <li class="nav-item">
+            <a class="nav-link" data-i18n="nav_home" href="/">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-i18n="nav_about" href="/#about">About Us</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a aria-expanded="false" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" data-i18n="nav_products"
+              href="#products" role="button">Product</a>
+            <ul class="dropdown-menu dropdown-menu-end border-0 shadow-sm">
+              <li>
+                <a class="dropdown-item" data-i18n="nav_onion" href="product.html#bawang">Bawang</a>
+              </li>
+              <li>
+                <a class="dropdown-item" data-i18n="nav_fishes" href="product.html#fishes">Fishes</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-i18n="nav_contact" href="#contact">Contact Us</a>
+          </li>
+          <li class="nav-item ms-lg-2 mt-2 mt-lg-0">
+            <button aria-label="Open shopping cart" class="cart-btn" onclick="openCart()" type="button">
+              <i class="bi bi-bag me-1"></i>
+              <span data-cart-nav-label="">Cart</span>
+              <span class="cart-count" id="cartCount">0</span>
+            </button>
+          </li>
+          <li class="nav-item ms-lg-2 mt-2 mt-lg-0">
+            <div class="lang-switch">
+              <button id="langEN" onclick="setLang('en')" type="button">
                 EN
               </button>
-<button class="active" id="langID" onclick="setLang('id')" type="button">
+              <button class="active" id="langID" onclick="setLang('id')" type="button">
                 ID
               </button>
-</div>
-</li>
-</ul>
-</div>
-</div>
-</nav>
-<!-- Mobile Navigation -->
-<div aria-hidden="true" aria-labelledby="mobileNavLabel" class="offcanvas offcanvas-end mobile-nav" id="mobileNav" tabindex="-1">
-<div class="offcanvas-header">
-<div class="brand logo-brand mobile-logo-brand" id="mobileNavLabel">
-<img alt="LACARA INDONESIA logo" src="img/logo 2.png"/>
-</div>
-<button aria-label="Close" class="btn-close" id="mobileNavClose" type="button"></button>
-</div>
-<div class="offcanvas-body">
-<div class="mobile-menu">
-<a data-i18n="nav_home" href="/">Home</a>
-<a data-i18n="nav_about" href="/#about">About Us</a>
-<button aria-expanded="false" class="mobile-product-toggle active" onclick="toggleMobileProducts()" type="button">
-<span data-i18n="nav_products">Product</span>
-<i class="bi bi-chevron-down" id="mobileProductChevron"></i>
-</button>
-<div class="mobile-product-sub" id="mobileProductSub">
-<a data-i18n="nav_onion" href="product.html#bawang">Bawang</a>
-<a data-i18n="nav_fishes" href="product.html#fishes">Fishes</a>
-</div>
-<a data-i18n="nav_contact" href="#contact">Contact</a>
-<!-- <a href="#gallery" data-i18n="nav_gallery">Gallery</a> -->
-</div>
-<div class="mobile-bottom">
-<button class="mobile-cart-btn" onclick="closeMobileNavAndOpenCart()" type="button">
-<span><i class="bi bi-bag me-2"></i><span data-mobile-cart-label="">Shopping Cart</span></span>
-<span class="mobile-cart-count" id="mobileCartCount">0</span>
-</button>
-<div class="lang-switch mb-3">
-<button id="mobileEN" onclick="setLang('en')" type="button">
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!-- Mobile Navigation -->
+  <div aria-hidden="true" aria-labelledby="mobileNavLabel" class="offcanvas offcanvas-end mobile-nav" id="mobileNav"
+    tabindex="-1">
+    <div class="offcanvas-header">
+      <div class="brand logo-brand mobile-logo-brand" id="mobileNavLabel">
+        <img alt="LACARA INDONESIA logo" src="img/logo 2.png" />
+      </div>
+      <button aria-label="Close" class="btn-close" id="mobileNavClose" type="button"></button>
+    </div>
+    <div class="offcanvas-body">
+      <div class="mobile-menu">
+        <a data-i18n="nav_home" href="/">Home</a>
+        <a data-i18n="nav_about" href="/#about">About Us</a>
+        <button aria-expanded="false" class="mobile-product-toggle active" onclick="toggleMobileProducts()"
+          type="button">
+          <span data-i18n="nav_products">Product</span>
+          <i class="bi bi-chevron-down" id="mobileProductChevron"></i>
+        </button>
+        <div class="mobile-product-sub" id="mobileProductSub">
+          <a data-i18n="nav_onion" href="product.html#bawang">Bawang</a>
+          <a data-i18n="nav_fishes" href="product.html#fishes">Fishes</a>
+        </div>
+        <a data-i18n="nav_contact" href="#contact">Contact</a>
+        <!-- <a href="#gallery" data-i18n="nav_gallery">Gallery</a> -->
+      </div>
+      <div class="mobile-bottom">
+        <button class="mobile-cart-btn" onclick="closeMobileNavAndOpenCart()" type="button">
+          <span><i class="bi bi-bag me-2"></i><span data-mobile-cart-label="">Shopping Cart</span></span>
+          <span class="mobile-cart-count" id="mobileCartCount">0</span>
+        </button>
+        <div class="lang-switch mb-3">
+          <button id="mobileEN" onclick="setLang('en')" type="button">
             EN
           </button>
-<button class="active" id="mobileID" onclick="setLang('id')" type="button">
+          <button class="active" id="mobileID" onclick="setLang('id')" type="button">
             ID
           </button>
-</div>
-</div>
-</div>
-</div>
-<div aria-hidden="true" class="mobile-nav-backdrop" id="mobileNavBackdrop"></div>
-<header class="hero">
-<div class="container">
-<div class="eyebrow mb-3" data-k="eyebrow">Product</div>
-<h1 data-k="title">Premium Seafood<br/>From Indonesia</h1>
-<p class="lead mt-4" data-k="desc" style="max-width:650px">Carefully sourced, expertly processed, and prepared for
+        </div>
+      </div>
+    </div>
+  </div>
+  <div aria-hidden="true" class="mobile-nav-backdrop" id="mobileNavBackdrop"></div>
+  <header class="hero">
+    <div class="container">
+      <div class="eyebrow mb-3" data-k="eyebrow">Product</div>
+      <h1 data-k="title">Premium Seafood<br />From Indonesia</h1>
+      <p class="lead mt-4" data-k="desc" style="max-width:650px">Carefully sourced, expertly processed, and prepared for
         international markets.</p>
-</div>
-</header>
-<section class="catalog">
-<div class="container">
-<div class="text-center mb-5">
-<div aria-label="Product categories" class="catalog-filter mt-4" role="tablist">
-<button class="catalog-filter-btn active" data-filter="all" onclick="filterCategory('all',this)" type="button">All</button>
-<button class="catalog-filter-btn" data-filter="bawang" onclick="filterCategory('bawang',this)" type="button">Bawang</button>
-<button class="catalog-filter-btn" data-filter="fishes" onclick="filterCategory('fishes',this)" type="button">Fishes</button>
-</div>
-</div>
-<!-- BAWANG -->
-<section class="product-category mb-5 pb-5" id="bawang">
-<div class="category-head row align-items-end mb-4">
-<div class="col-lg-8">
-<div class="label" data-k="onionLabel" style="color:var(--green2)">Bawang</div>
-<h2 class="section-title mt-2" data-k="onionTitle">Premium Indonesian Onions</h2>
-<p class="category-desc mt-3" data-k="onionDesc">Selected Indonesian onions, carefully sorted and prepared
+    </div>
+  </header>
+  <section class="catalog">
+    <div class="container">
+      <div class="text-center mb-5">
+        <div aria-label="Product categories" class="catalog-filter mt-4" role="tablist">
+          <button class="catalog-filter-btn active" data-filter="all" onclick="filterCategory('all',this)"
+            type="button">All</button>
+          <button class="catalog-filter-btn" data-filter="bawang" onclick="filterCategory('bawang',this)"
+            type="button">Bawang</button>
+          <button class="catalog-filter-btn" data-filter="fishes" onclick="filterCategory('fishes',this)"
+            type="button">Fishes</button>
+        </div>
+      </div>
+      <!-- BAWANG -->
+      <section class="product-category mb-5 pb-5" id="bawang">
+        <div class="category-head row align-items-end mb-4">
+          <div class="col-lg-8">
+            <div class="label" data-k="onionLabel" style="color:var(--green2)">Bawang</div>
+            <h2 class="section-title mt-2" data-k="onionTitle">Premium Indonesian Onions</h2>
+            <p class="category-desc mt-3" data-k="onionDesc">Selected Indonesian onions, carefully sorted and prepared
               for wholesale and food-service customers.</p>
-</div>
-</div>
-<div class="row g-4">
-<div class="col-md-6 col-lg-4">
-<div class="product product-item">
-<div class="photo" data-bs-target="#imagePreviewModal" data-bs-toggle="modal" data-image="https://images.unsplash.com/photo-1587049352846-4a222e784d38?auto=format&amp;fit=crop&amp;w=1000&amp;q=90" onclick="openPreview(this)" role="button" style="background-image:url('https://images.unsplash.com/photo-1587049352846-4a222e784d38?auto=format&amp;fit=crop&amp;w=1000&amp;q=90');cursor:zoom-in" tabindex="0"><span class="image-hint"><i class="bi bi-arrows-fullscreen"></i></span>
-</div>
-<div class="body">
-<h3 data-product-name-en="Red Onion" data-product-name-id="Bawang Merah">Red Onion</h3>
-<p data-product-desc-en="Fresh Indonesian red onion with firm texture, balanced aroma, clean skin, and consistent quality, carefully selected for wholesale and food-service customers." data-product-desc-id="Bawang merah Indonesia segar dengan tekstur firm, aroma seimbang, kulit bersih, dan kualitas konsisten, dipilih dengan teliti untuk kebutuhan wholesale dan food-service.">
+          </div>
+        </div>
+        <div class="row g-4">
+          <div class="col-md-6 col-lg-4">
+            <div class="product product-item">
+              <div class="photo" data-bs-target="#imagePreviewModal" data-bs-toggle="modal"
+                data-image="https://images.unsplash.com/photo-1587049352846-4a222e784d38?auto=format&amp;fit=crop&amp;w=1000&amp;q=90"
+                onclick="openPreview(this)" role="button"
+                style="background-image:url('https://images.unsplash.com/photo-1587049352846-4a222e784d38?auto=format&amp;fit=crop&amp;w=1000&amp;q=90');cursor:zoom-in"
+                tabindex="0"><span class="image-hint"><i class="bi bi-arrows-fullscreen"></i></span>
+              </div>
+              <div class="body">
+                <h3 data-product-name-en="Red Onion" data-product-name-id="Bawang Merah">Red Onion</h3>
+                <p data-product-desc-en="Fresh Indonesian red onion with firm texture, balanced aroma, clean skin, and consistent quality, carefully selected for wholesale and food-service customers."
+                  data-product-desc-id="Bawang merah Indonesia segar dengan tekstur firm, aroma seimbang, kulit bersih, dan kualitas konsisten, dipilih dengan teliti untuk kebutuhan wholesale dan food-service.">
                   Fresh Indonesian red onion with firm texture, balanced aroma, clean skin, and consistent quality,
-                  carefully selected for wholesale and food-service customers.</p><span class="tag">FRESH</span><span class="tag">WHOLESALE</span>
-<div class="mt-3">
-<button class="top-btn cart-add-btn" data-product="Red Onion" onclick="addToCart(this)" type="button">
-<i class="bi bi-bag-plus me-1"></i><span data-cart-add-label="">Add to Cart</span>
-</button>
-</div>
-</div>
-</div>
-</div>
-<div class="col-md-6 col-lg-4">
-<div class="product product-item">
-<div class="photo" data-bs-target="#imagePreviewModal" data-bs-toggle="modal" data-image="https://images.unsplash.com/photo-1618512496248-a07fe83aa8cb?auto=format&amp;fit=crop&amp;w=1000&amp;q=90" onclick="openPreview(this)" role="button" style="background-image:url('https://images.unsplash.com/photo-1618512496248-a07fe83aa8cb?auto=format&amp;fit=crop&amp;w=1000&amp;q=90');cursor:zoom-in" tabindex="0"><span class="image-hint"><i class="bi bi-arrows-fullscreen"></i></span>
-</div>
-<div class="body">
-<h3 data-product-name-en="Garlic" data-product-name-id="Bawang Putih">Garlic</h3>
-<p data-product-desc-en="Quality garlic selected for consistent size, freshness, strong natural flavor, clean appearance, and reliable performance across commercial kitchens and food-service operations." data-product-desc-id="Bawang putih berkualitas dengan ukuran konsisten, kesegaran terjaga, aroma alami kuat, tampilan bersih, dan performa yang andal untuk dapur komersial serta kebutuhan food-service.">
+                  carefully selected for wholesale and food-service customers.</p><span class="tag">FRESH</span><span
+                  class="tag">WHOLESALE</span>
+                <div class="mt-3">
+                  <button class="top-btn cart-add-btn" data-product="Red Onion" onclick="addToCart(this)" type="button">
+                    <i class="bi bi-bag-plus me-1"></i><span data-cart-add-label="">Add to Cart</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4">
+            <div class="product product-item">
+              <div class="photo" data-bs-target="#imagePreviewModal" data-bs-toggle="modal"
+                data-image="https://images.unsplash.com/photo-1618512496248-a07fe83aa8cb?auto=format&amp;fit=crop&amp;w=1000&amp;q=90"
+                onclick="openPreview(this)" role="button"
+                style="background-image:url('https://images.unsplash.com/photo-1618512496248-a07fe83aa8cb?auto=format&amp;fit=crop&amp;w=1000&amp;q=90');cursor:zoom-in"
+                tabindex="0"><span class="image-hint"><i class="bi bi-arrows-fullscreen"></i></span>
+              </div>
+              <div class="body">
+                <h3 data-product-name-en="Garlic" data-product-name-id="Bawang Putih">Garlic</h3>
+                <p data-product-desc-en="Quality garlic selected for consistent size, freshness, strong natural flavor, clean appearance, and reliable performance across commercial kitchens and food-service operations."
+                  data-product-desc-id="Bawang putih berkualitas dengan ukuran konsisten, kesegaran terjaga, aroma alami kuat, tampilan bersih, dan performa yang andal untuk dapur komersial serta kebutuhan food-service.">
                   Quality garlic selected for consistent size, freshness, strong natural flavor, clean appearance, and
-                  reliable performance across commercial kitchens and food-service operations.</p><span class="tag">FRESH</span><span class="tag">SORTED</span>
-<div class="mt-3">
-<button class="top-btn cart-add-btn" data-product="Garlic" onclick="addToCart(this)" type="button">
-<i class="bi bi-bag-plus me-1"></i><span data-cart-add-label="">Add to Cart</span>
-</button>
-</div>
-</div>
-</div>
-</div>
-<div class="col-md-6 col-lg-4">
-<div class="product product-item">
-<div class="photo" data-bs-target="#imagePreviewModal" data-bs-toggle="modal" data-image="https://images.unsplash.com/photo-1518977676601-b53f82aba655?auto=format&amp;fit=crop&amp;w=1000&amp;q=90" onclick="openPreview(this)" role="button" style="background-image:url('https://images.unsplash.com/photo-1518977676601-b53f82aba655?auto=format&amp;fit=crop&amp;w=1000&amp;q=90');cursor:zoom-in" tabindex="0"><span class="image-hint"><i class="bi bi-arrows-fullscreen"></i></span>
-</div>
-<div class="body">
-<h3 data-product-name-en="Shallot" data-product-name-id="Bawang Bombai">Shallot</h3>
-<p data-product-desc-en="Premium shallots with clean skin, rich aroma, firm texture, consistent sizing, and carefully sorted quality for commercial buyers and professional food-service applications." data-product-desc-id="Bawang bombai premium dengan kulit bersih, aroma kaya, tekstur firm, ukuran konsisten, dan kualitas tersortir untuk pembeli komersial serta kebutuhan food-service profesional.">
+                  reliable performance across commercial kitchens and food-service operations.</p><span
+                  class="tag">FRESH</span><span class="tag">SORTED</span>
+                <div class="mt-3">
+                  <button class="top-btn cart-add-btn" data-product="Garlic" onclick="addToCart(this)" type="button">
+                    <i class="bi bi-bag-plus me-1"></i><span data-cart-add-label="">Add to Cart</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4">
+            <div class="product product-item">
+              <div class="photo" data-bs-target="#imagePreviewModal" data-bs-toggle="modal"
+                data-image="https://images.unsplash.com/photo-1518977676601-b53f82aba655?auto=format&amp;fit=crop&amp;w=1000&amp;q=90"
+                onclick="openPreview(this)" role="button"
+                style="background-image:url('https://images.unsplash.com/photo-1518977676601-b53f82aba655?auto=format&amp;fit=crop&amp;w=1000&amp;q=90');cursor:zoom-in"
+                tabindex="0"><span class="image-hint"><i class="bi bi-arrows-fullscreen"></i></span>
+              </div>
+              <div class="body">
+                <h3 data-product-name-en="Shallot" data-product-name-id="Bawang Bombai">Shallot</h3>
+                <p data-product-desc-en="Premium shallots with clean skin, rich aroma, firm texture, consistent sizing, and carefully sorted quality for commercial buyers and professional food-service applications."
+                  data-product-desc-id="Bawang bombai premium dengan kulit bersih, aroma kaya, tekstur firm, ukuran konsisten, dan kualitas tersortir untuk pembeli komersial serta kebutuhan food-service profesional.">
                   Premium shallots with clean skin, rich aroma, firm texture, consistent sizing, and carefully sorted
-                  quality for commercial buyers and professional food-service applications.</p><span class="tag">PREMIUM</span><span class="tag">WHOLESALE</span>
-<div class="mt-3">
-<button class="top-btn cart-add-btn" data-product="Shallot" onclick="addToCart(this)" type="button">
-<i class="bi bi-bag-plus me-1"></i><span data-cart-add-label="">Add to Cart</span>
-</button>
-</div>
-</div>
-</div>
-</div>
-<div class="col-md-6 col-lg-4">
-<div class="product product-item">
-<div class="photo" data-bs-target="#imagePreviewModal" data-bs-toggle="modal" data-image="https://images.unsplash.com/photo-1508747703725-719777637510?auto=format&amp;fit=crop&amp;w=1000&amp;q=90" onclick="openPreview(this)" role="button" style="background-image:url('https://images.unsplash.com/photo-1508747703725-719777637510?auto=format&amp;fit=crop&amp;w=1000&amp;q=90');cursor:zoom-in" tabindex="0"><span class="image-hint"><i class="bi bi-arrows-fullscreen"></i></span>
-</div>
-<div class="body">
-<h3 data-product-name-en="White Onion" data-product-name-id="Bawang Putih Besar">White Onion</h3>
-<p data-product-desc-en="Crisp white onions selected for food-service and commercial applications." data-product-desc-id="Bawang putih besar yang renyah, dipilih untuk kebutuhan food-service dan komersial.">
-                  Crisp white onions selected for food-service and commercial applications.</p><span class="tag">FRESH</span><span class="tag">FOOD SERVICE</span>
-<div class="mt-3">
-<button class="top-btn cart-add-btn" data-product="White Onion" onclick="addToCart(this)" type="button">
-<i class="bi bi-bag-plus me-1"></i><span data-cart-add-label="">Add to Cart</span>
-</button>
-</div>
-</div>
-</div>
-</div>
-<div class="col-md-6 col-lg-4">
-<div class="product product-item">
-<div class="photo" data-bs-target="#imagePreviewModal" data-bs-toggle="modal" data-image="https://images.unsplash.com/photo-1603046891744-76e6300c7f7e?auto=format&amp;fit=crop&amp;w=1000&amp;q=90" onclick="openPreview(this)" role="button" style="background-image:url('https://images.unsplash.com/photo-1603046891744-76e6300c7f7e?auto=format&amp;fit=crop&amp;w=1000&amp;q=90');cursor:zoom-in" tabindex="0"><span class="image-hint"><i class="bi bi-arrows-fullscreen"></i></span>
-</div>
-<div class="body">
-<h3 data-product-name-en="Yellow Onion" data-product-name-id="Bawang Kuning">Yellow Onion</h3>
-<p data-product-desc-en="Versatile yellow onions with firm layers and balanced flavor." data-product-desc-id="Bawang kuning serbaguna dengan lapisan firm dan rasa yang seimbang.">Versatile
-                  yellow onions with firm layers and balanced flavor.</p><span class="tag">FRESH</span><span class="tag">WHOLESALE</span>
-<div class="mt-3">
-<button class="top-btn cart-add-btn" data-product="Yellow Onion" onclick="addToCart(this)" type="button">
-<i class="bi bi-bag-plus me-1"></i><span data-cart-add-label="">Add to Cart</span>
-</button>
-</div>
-</div>
-</div>
-</div>
-<div class="col-md-6 col-lg-4">
-<div class="product product-item">
-<div class="photo" data-bs-target="#imagePreviewModal" data-bs-toggle="modal" data-image="https://images.unsplash.com/photo-1552334405-4929564a7c6d?auto=format&amp;fit=crop&amp;w=1000&amp;q=90" onclick="openPreview(this)" role="button" style="background-image:url('https://images.unsplash.com/photo-1552334405-4929564a7c6d?auto=format&amp;fit=crop&amp;w=1000&amp;q=90');cursor:zoom-in" tabindex="0"><span class="image-hint"><i class="bi bi-arrows-fullscreen"></i></span>
-</div>
-<div class="body">
-<h3 data-product-name-en="Spring Onion" data-product-name-id="Daun Bawang">Spring Onion</h3>
-<p data-product-desc-en="Fresh spring onions prepared for culinary and food-service requirements." data-product-desc-id="Daun bawang segar yang disiapkan untuk kebutuhan kuliner dan food-service.">
-                  Fresh spring onions prepared for culinary and food-service requirements.</p><span class="tag">FRESH</span><span class="tag">SORTED</span>
-<div class="mt-3">
-<button class="top-btn cart-add-btn" data-product="Spring Onion" onclick="addToCart(this)" type="button">
-<i class="bi bi-bag-plus me-1"></i><span data-cart-add-label="">Add to Cart</span>
-</button>
-</div>
-</div>
-</div>
-</div>
-<div class="col-md-6 col-lg-4">
-<div class="product product-item">
-<div class="photo" data-bs-target="#imagePreviewModal" data-bs-toggle="modal" data-image="https://images.unsplash.com/photo-1518977956815-dee006e8cae3?auto=format&amp;fit=crop&amp;w=1000&amp;q=90" onclick="openPreview(this)" role="button" style="background-image:url('https://images.unsplash.com/photo-1518977956815-dee006e8cae3?auto=format&amp;fit=crop&amp;w=1000&amp;q=90');cursor:zoom-in" tabindex="0"><span class="image-hint"><i class="bi bi-arrows-fullscreen"></i></span>
-</div>
-<div class="body">
-<h3 data-product-name-en="Pearl Onion" data-product-name-id="Bawang Mutiara">Pearl Onion</h3>
-<p data-product-desc-en="Small premium onions with clean appearance and consistent sizing." data-product-desc-id="Bawang mutiara premium dengan tampilan bersih dan ukuran yang konsisten.">Small
-                  premium onions with clean appearance and consistent sizing.</p><span class="tag">PREMIUM</span><span class="tag">SORTED</span>
-<div class="mt-3">
-<button class="top-btn cart-add-btn" data-product="Pearl Onion" onclick="addToCart(this)" type="button">
-<i class="bi bi-bag-plus me-1"></i><span data-cart-add-label="">Add to Cart</span>
-</button>
-</div>
-</div>
-</div>
-</div>
-<div class="col-md-6 col-lg-4">
-<div class="product product-item">
-<div class="photo" data-bs-target="#imagePreviewModal" data-bs-toggle="modal" data-image="https://images.unsplash.com/photo-1540148426945-6cf22a6b2383?auto=format&amp;fit=crop&amp;w=1000&amp;q=90" onclick="openPreview(this)" role="button" style="background-image:url('https://images.unsplash.com/photo-1540148426945-6cf22a6b2383?auto=format&amp;fit=crop&amp;w=1000&amp;q=90');cursor:zoom-in" tabindex="0"><span class="image-hint"><i class="bi bi-arrows-fullscreen"></i></span>
-</div>
-<div class="body">
-<h3 data-product-name-en="Garlic Bulb" data-product-name-id="Umbi Bawang Putih">Garlic Bulb</h3>
-<p data-product-desc-en="Selected garlic bulbs with strong aroma and commercial-grade presentation." data-product-desc-id="Umbi bawang putih pilihan dengan aroma kuat dan tampilan berkualitas komersial.">
-                  Selected garlic bulbs with strong aroma and commercial-grade presentation.</p><span class="tag">PREMIUM</span><span class="tag">WHOLESALE</span>
-<div class="mt-3">
-<button class="top-btn cart-add-btn" data-product="Garlic Bulb" onclick="addToCart(this)" type="button">
-<i class="bi bi-bag-plus me-1"></i><span data-cart-add-label="">Add to Cart</span>
-</button>
-</div>
-</div>
-</div>
-</div>
-<div class="col-md-6 col-lg-4">
-<div class="product product-item">
-<div class="photo" data-bs-target="#imagePreviewModal" data-bs-toggle="modal" data-image="https://images.unsplash.com/photo-1596040033229-a9821ebd058d?auto=format&amp;fit=crop&amp;w=1000&amp;q=90" onclick="openPreview(this)" role="button" style="background-image:url('https://images.unsplash.com/photo-1596040033229-a9821ebd058d?auto=format&amp;fit=crop&amp;w=1000&amp;q=90');cursor:zoom-in" tabindex="0"><span class="image-hint"><i class="bi bi-arrows-fullscreen"></i></span>
-</div>
-<div class="body">
-<h3 data-product-name-en="Red Shallot" data-product-name-id="Bawang Merah Premium">Red Shallot</h3>
-<p data-product-desc-en="Indonesian red shallots with rich aroma and clean, firm layers." data-product-desc-id="Bawang merah Indonesia dengan aroma kaya dan lapisan yang bersih serta firm.">
-                  Indonesian red shallots with rich aroma and clean, firm layers.</p><span class="tag">PREMIUM</span><span class="tag">FRESH</span>
-<div class="mt-3">
-<button class="top-btn cart-add-btn" data-product="Red Shallot" onclick="addToCart(this)" type="button">
-<i class="bi bi-bag-plus me-1"></i><span data-cart-add-label="">Add to Cart</span>
-</button>
-</div>
-</div>
-</div>
-</div>
-<div class="col-md-6 col-lg-4">
-<div class="product product-item">
-<div class="photo" data-bs-target="#imagePreviewModal" data-bs-toggle="modal" data-image="https://images.unsplash.com/photo-1618512496248-a07fe83aa8cb?auto=format&amp;fit=crop&amp;w=1000&amp;q=90" onclick="openPreview(this)" role="button" style="background-image:url('https://images.unsplash.com/photo-1618512496248-a07fe83aa8cb?auto=format&amp;fit=crop&amp;w=1000&amp;q=90');cursor:zoom-in" tabindex="0"><span class="image-hint"><i class="bi bi-arrows-fullscreen"></i></span>
-</div>
-<div class="body">
-<h3 data-product-name-en="Mixed Onions" data-product-name-id="Bawang Campuran">Mixed Onions</h3>
-<p data-product-desc-en="Selected onion varieties prepared for wholesale and food-service buyers." data-product-desc-id="Pilihan berbagai jenis bawang yang disiapkan untuk pembeli wholesale dan food-service.">
-                  Selected onion varieties prepared for wholesale and food-service buyers.</p><span class="tag">WHOLESALE</span><span class="tag">FOOD SERVICE</span>
-<div class="mt-3">
-<button class="top-btn cart-add-btn" data-product="Mixed Onions" onclick="addToCart(this)" type="button">
-<i class="bi bi-bag-plus me-1"></i><span data-cart-add-label="">Add to Cart</span>
-</button>
-</div>
-</div>
-</div>
-</div>
+                  quality for commercial buyers and professional food-service applications.</p><span
+                  class="tag">PREMIUM</span><span class="tag">WHOLESALE</span>
+                <div class="mt-3">
+                  <button class="top-btn cart-add-btn" data-product="Shallot" onclick="addToCart(this)" type="button">
+                    <i class="bi bi-bag-plus me-1"></i><span data-cart-add-label="">Add to Cart</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4">
+            <div class="product product-item">
+              <div class="photo" data-bs-target="#imagePreviewModal" data-bs-toggle="modal"
+                data-image="https://images.unsplash.com/photo-1508747703725-719777637510?auto=format&amp;fit=crop&amp;w=1000&amp;q=90"
+                onclick="openPreview(this)" role="button"
+                style="background-image:url('https://images.unsplash.com/photo-1508747703725-719777637510?auto=format&amp;fit=crop&amp;w=1000&amp;q=90');cursor:zoom-in"
+                tabindex="0"><span class="image-hint"><i class="bi bi-arrows-fullscreen"></i></span>
+              </div>
+              <div class="body">
+                <h3 data-product-name-en="White Onion" data-product-name-id="Bawang Putih Besar">White Onion</h3>
+                <p data-product-desc-en="Crisp white onions selected for food-service and commercial applications."
+                  data-product-desc-id="Bawang putih besar yang renyah, dipilih untuk kebutuhan food-service dan komersial.">
+                  Crisp white onions selected for food-service and commercial applications.</p><span
+                  class="tag">FRESH</span><span class="tag">FOOD SERVICE</span>
+                <div class="mt-3">
+                  <button class="top-btn cart-add-btn" data-product="White Onion" onclick="addToCart(this)"
+                    type="button">
+                    <i class="bi bi-bag-plus me-1"></i><span data-cart-add-label="">Add to Cart</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4">
+            <div class="product product-item">
+              <div class="photo" data-bs-target="#imagePreviewModal" data-bs-toggle="modal"
+                data-image="https://images.unsplash.com/photo-1603046891744-76e6300c7f7e?auto=format&amp;fit=crop&amp;w=1000&amp;q=90"
+                onclick="openPreview(this)" role="button"
+                style="background-image:url('https://images.unsplash.com/photo-1603046891744-76e6300c7f7e?auto=format&amp;fit=crop&amp;w=1000&amp;q=90');cursor:zoom-in"
+                tabindex="0"><span class="image-hint"><i class="bi bi-arrows-fullscreen"></i></span>
+              </div>
+              <div class="body">
+                <h3 data-product-name-en="Yellow Onion" data-product-name-id="Bawang Kuning">Yellow Onion</h3>
+                <p data-product-desc-en="Versatile yellow onions with firm layers and balanced flavor."
+                  data-product-desc-id="Bawang kuning serbaguna dengan lapisan firm dan rasa yang seimbang.">Versatile
+                  yellow onions with firm layers and balanced flavor.</p><span class="tag">FRESH</span><span
+                  class="tag">WHOLESALE</span>
+                <div class="mt-3">
+                  <button class="top-btn cart-add-btn" data-product="Yellow Onion" onclick="addToCart(this)"
+                    type="button">
+                    <i class="bi bi-bag-plus me-1"></i><span data-cart-add-label="">Add to Cart</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4">
+            <div class="product product-item">
+              <div class="photo" data-bs-target="#imagePreviewModal" data-bs-toggle="modal"
+                data-image="https://images.unsplash.com/photo-1552334405-4929564a7c6d?auto=format&amp;fit=crop&amp;w=1000&amp;q=90"
+                onclick="openPreview(this)" role="button"
+                style="background-image:url('https://images.unsplash.com/photo-1552334405-4929564a7c6d?auto=format&amp;fit=crop&amp;w=1000&amp;q=90');cursor:zoom-in"
+                tabindex="0"><span class="image-hint"><i class="bi bi-arrows-fullscreen"></i></span>
+              </div>
+              <div class="body">
+                <h3 data-product-name-en="Spring Onion" data-product-name-id="Daun Bawang">Spring Onion</h3>
+                <p data-product-desc-en="Fresh spring onions prepared for culinary and food-service requirements."
+                  data-product-desc-id="Daun bawang segar yang disiapkan untuk kebutuhan kuliner dan food-service.">
+                  Fresh spring onions prepared for culinary and food-service requirements.</p><span
+                  class="tag">FRESH</span><span class="tag">SORTED</span>
+                <div class="mt-3">
+                  <button class="top-btn cart-add-btn" data-product="Spring Onion" onclick="addToCart(this)"
+                    type="button">
+                    <i class="bi bi-bag-plus me-1"></i><span data-cart-add-label="">Add to Cart</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4">
+            <div class="product product-item">
+              <div class="photo" data-bs-target="#imagePreviewModal" data-bs-toggle="modal"
+                data-image="https://images.unsplash.com/photo-1518977956815-dee006e8cae3?auto=format&amp;fit=crop&amp;w=1000&amp;q=90"
+                onclick="openPreview(this)" role="button"
+                style="background-image:url('https://images.unsplash.com/photo-1518977956815-dee006e8cae3?auto=format&amp;fit=crop&amp;w=1000&amp;q=90');cursor:zoom-in"
+                tabindex="0"><span class="image-hint"><i class="bi bi-arrows-fullscreen"></i></span>
+              </div>
+              <div class="body">
+                <h3 data-product-name-en="Pearl Onion" data-product-name-id="Bawang Mutiara">Pearl Onion</h3>
+                <p data-product-desc-en="Small premium onions with clean appearance and consistent sizing."
+                  data-product-desc-id="Bawang mutiara premium dengan tampilan bersih dan ukuran yang konsisten.">Small
+                  premium onions with clean appearance and consistent sizing.</p><span class="tag">PREMIUM</span><span
+                  class="tag">SORTED</span>
+                <div class="mt-3">
+                  <button class="top-btn cart-add-btn" data-product="Pearl Onion" onclick="addToCart(this)"
+                    type="button">
+                    <i class="bi bi-bag-plus me-1"></i><span data-cart-add-label="">Add to Cart</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4">
+            <div class="product product-item">
+              <div class="photo" data-bs-target="#imagePreviewModal" data-bs-toggle="modal"
+                data-image="https://images.unsplash.com/photo-1540148426945-6cf22a6b2383?auto=format&amp;fit=crop&amp;w=1000&amp;q=90"
+                onclick="openPreview(this)" role="button"
+                style="background-image:url('https://images.unsplash.com/photo-1540148426945-6cf22a6b2383?auto=format&amp;fit=crop&amp;w=1000&amp;q=90');cursor:zoom-in"
+                tabindex="0"><span class="image-hint"><i class="bi bi-arrows-fullscreen"></i></span>
+              </div>
+              <div class="body">
+                <h3 data-product-name-en="Garlic Bulb" data-product-name-id="Umbi Bawang Putih">Garlic Bulb</h3>
+                <p data-product-desc-en="Selected garlic bulbs with strong aroma and commercial-grade presentation."
+                  data-product-desc-id="Umbi bawang putih pilihan dengan aroma kuat dan tampilan berkualitas komersial.">
+                  Selected garlic bulbs with strong aroma and commercial-grade presentation.</p><span
+                  class="tag">PREMIUM</span><span class="tag">WHOLESALE</span>
+                <div class="mt-3">
+                  <button class="top-btn cart-add-btn" data-product="Garlic Bulb" onclick="addToCart(this)"
+                    type="button">
+                    <i class="bi bi-bag-plus me-1"></i><span data-cart-add-label="">Add to Cart</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4">
+            <div class="product product-item">
+              <div class="photo" data-bs-target="#imagePreviewModal" data-bs-toggle="modal"
+                data-image="https://images.unsplash.com/photo-1596040033229-a9821ebd058d?auto=format&amp;fit=crop&amp;w=1000&amp;q=90"
+                onclick="openPreview(this)" role="button"
+                style="background-image:url('https://images.unsplash.com/photo-1596040033229-a9821ebd058d?auto=format&amp;fit=crop&amp;w=1000&amp;q=90');cursor:zoom-in"
+                tabindex="0"><span class="image-hint"><i class="bi bi-arrows-fullscreen"></i></span>
+              </div>
+              <div class="body">
+                <h3 data-product-name-en="Red Shallot" data-product-name-id="Bawang Merah Premium">Red Shallot</h3>
+                <p data-product-desc-en="Indonesian red shallots with rich aroma and clean, firm layers."
+                  data-product-desc-id="Bawang merah Indonesia dengan aroma kaya dan lapisan yang bersih serta firm.">
+                  Indonesian red shallots with rich aroma and clean, firm layers.</p><span
+                  class="tag">PREMIUM</span><span class="tag">FRESH</span>
+                <div class="mt-3">
+                  <button class="top-btn cart-add-btn" data-product="Red Shallot" onclick="addToCart(this)"
+                    type="button">
+                    <i class="bi bi-bag-plus me-1"></i><span data-cart-add-label="">Add to Cart</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4">
+            <div class="product product-item">
+              <div class="photo" data-bs-target="#imagePreviewModal" data-bs-toggle="modal"
+                data-image="https://images.unsplash.com/photo-1618512496248-a07fe83aa8cb?auto=format&amp;fit=crop&amp;w=1000&amp;q=90"
+                onclick="openPreview(this)" role="button"
+                style="background-image:url('https://images.unsplash.com/photo-1618512496248-a07fe83aa8cb?auto=format&amp;fit=crop&amp;w=1000&amp;q=90');cursor:zoom-in"
+                tabindex="0"><span class="image-hint"><i class="bi bi-arrows-fullscreen"></i></span>
+              </div>
+              <div class="body">
+                <h3 data-product-name-en="Mixed Onions" data-product-name-id="Bawang Campuran">Mixed Onions</h3>
+                <p data-product-desc-en="Selected onion varieties prepared for wholesale and food-service buyers."
+                  data-product-desc-id="Pilihan berbagai jenis bawang yang disiapkan untuk pembeli wholesale dan food-service.">
+                  Selected onion varieties prepared for wholesale and food-service buyers.</p><span
+                  class="tag">WHOLESALE</span><span class="tag">FOOD SERVICE</span>
+                <div class="mt-3">
+                  <button class="top-btn cart-add-btn" data-product="Mixed Onions" onclick="addToCart(this)"
+                    type="button">
+                    <i class="bi bi-bag-plus me-1"></i><span data-cart-add-label="">Add to Cart</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
 
 
 
@@ -2937,189 +3016,251 @@
 
 
 
-</div>
-<div class="load-more-wrap text-center mt-5">
-<button class="load-more-btn" data-category="bawang" onclick="loadMoreProducts('bawang', this)" type="button">
+        </div>
+        <div class="load-more-wrap text-center mt-5">
+          <button class="load-more-btn" data-category="bawang" onclick="loadMoreProducts('bawang', this)" type="button">
             Load More
           </button>
-</div>
-</section>
-<!-- FISHES -->
-<section class="product-category fishes-section mb-5 pb-5" id="fishes">
-<div class="category-head row align-items-end mb-4">
-<div class="col-lg-8">
-<div class="label" data-k="fishLabel" style="color:var(--green2)">Fishes</div>
-<h2 class="section-title mt-2" data-k="fishTitle">Premium Seafood</h2>
-<p class="category-desc mt-3" data-k="fishDesc">Carefully sourced fresh and frozen seafood from Indonesia,
+        </div>
+      </section>
+      <!-- FISHES -->
+      <section class="product-category fishes-section mb-5 pb-5" id="fishes">
+        <div class="category-head row align-items-end mb-4">
+          <div class="col-lg-8">
+            <div class="label" data-k="fishLabel" style="color:var(--green2)">Fishes</div>
+            <h2 class="section-title mt-2" data-k="fishTitle">Premium Seafood</h2>
+            <p class="category-desc mt-3" data-k="fishDesc">Carefully sourced fresh and frozen seafood from Indonesia,
               prepared to meet international quality standards.</p>
-</div>
-</div>
-<div class="row g-4">
-<div class="col-md-6 col-lg-4">
-<div class="product product-item">
-<div class="photo" data-bs-target="#imagePreviewModal" data-bs-toggle="modal" data-image="https://images.unsplash.com/photo-1544943910-4c1dc44aab44?auto=format&amp;fit=crop&amp;w=1000&amp;q=90" onclick="openPreview(this)" role="button" style="background-image:url('https://images.unsplash.com/photo-1544943910-4c1dc44aab44?auto=format&amp;fit=crop&amp;w=1000&amp;q=90');cursor:zoom-in" tabindex="0"><span class="image-hint"><i class="bi bi-arrows-fullscreen"></i></span>
-</div>
-<div class="body">
-<h3 data-product-name-en="Tuna" data-product-name-id="Tuna">Tuna</h3>
-<p data-product-desc-en="Sashimi-grade tuna with clean taste and delicate texture. Available fresh and frozen." data-product-desc-id="Tuna grade sashimi dengan rasa bersih dan tekstur lembut. Tersedia fresh dan frozen.">
-                  Sashimi-grade tuna with clean taste and delicate texture. Available fresh and frozen.</p><span class="tag">SASHIMI GRADE</span><span class="tag">FRESH / FROZEN</span>
-<div class="mt-3">
-<button class="top-btn cart-add-btn" data-product="Tuna" onclick="addToCart(this)" type="button">
-<i class="bi bi-bag-plus me-1"></i><span data-cart-add-label="">Add to Cart</span>
-</button>
-</div>
-</div>
-</div>
-</div>
-<div class="col-md-6 col-lg-4">
-<div class="product product-item">
-<div class="photo" data-bs-target="#imagePreviewModal" data-bs-toggle="modal" data-image="https://images.unsplash.com/photo-1534948750767-7d8a8a6bba9b?auto=format&amp;fit=crop&amp;w=1000&amp;q=90" onclick="openPreview(this)" role="button" style="background-image:url('https://images.unsplash.com/photo-1534948750767-7d8a8a6bba9b?auto=format&amp;fit=crop&amp;w=1000&amp;q=90');cursor:zoom-in" tabindex="0"><span class="image-hint"><i class="bi bi-arrows-fullscreen"></i></span>
-</div>
-<div class="body">
-<h3 data-product-name-en="Red Snapper" data-product-name-id="Kakap Merah">Red Snapper</h3>
-<p data-product-desc-en="Premium red snapper available as WGGS and fillet, carefully processed, portioned, chilled, and prepared to meet demanding export quality requirements for international customers." data-product-desc-id="Kakap merah premium tersedia dalam bentuk WGGS dan fillet, diproses, dipotong, didinginkan, dan disiapkan dengan teliti untuk memenuhi standar ekspor pelanggan internasional.">
+          </div>
+        </div>
+        <div class="row g-4">
+          <div class="col-md-6 col-lg-4">
+            <div class="product product-item">
+              <div class="photo" data-bs-target="#imagePreviewModal" data-bs-toggle="modal"
+                data-image="https://images.unsplash.com/photo-1544943910-4c1dc44aab44?auto=format&amp;fit=crop&amp;w=1000&amp;q=90"
+                onclick="openPreview(this)" role="button"
+                style="background-image:url('https://images.unsplash.com/photo-1544943910-4c1dc44aab44?auto=format&amp;fit=crop&amp;w=1000&amp;q=90');cursor:zoom-in"
+                tabindex="0"><span class="image-hint"><i class="bi bi-arrows-fullscreen"></i></span>
+              </div>
+              <div class="body">
+                <h3 data-product-name-en="Tuna" data-product-name-id="Tuna">Tuna</h3>
+                <p data-product-desc-en="Sashimi-grade tuna with clean taste and delicate texture. Available fresh and frozen."
+                  data-product-desc-id="Tuna grade sashimi dengan rasa bersih dan tekstur lembut. Tersedia fresh dan frozen.">
+                  Sashimi-grade tuna with clean taste and delicate texture. Available fresh and frozen.</p><span
+                  class="tag">SASHIMI GRADE</span><span class="tag">FRESH / FROZEN</span>
+                <div class="mt-3">
+                  <button class="top-btn cart-add-btn" data-product="Tuna" onclick="addToCart(this)" type="button">
+                    <i class="bi bi-bag-plus me-1"></i><span data-cart-add-label="">Add to Cart</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4">
+            <div class="product product-item">
+              <div class="photo" data-bs-target="#imagePreviewModal" data-bs-toggle="modal"
+                data-image="https://images.unsplash.com/photo-1534948750767-7d8a8a6bba9b?auto=format&amp;fit=crop&amp;w=1000&amp;q=90"
+                onclick="openPreview(this)" role="button"
+                style="background-image:url('https://images.unsplash.com/photo-1534948750767-7d8a8a6bba9b?auto=format&amp;fit=crop&amp;w=1000&amp;q=90');cursor:zoom-in"
+                tabindex="0"><span class="image-hint"><i class="bi bi-arrows-fullscreen"></i></span>
+              </div>
+              <div class="body">
+                <h3 data-product-name-en="Red Snapper" data-product-name-id="Kakap Merah">Red Snapper</h3>
+                <p data-product-desc-en="Premium red snapper available as WGGS and fillet, carefully processed, portioned, chilled, and prepared to meet demanding export quality requirements for international customers."
+                  data-product-desc-id="Kakap merah premium tersedia dalam bentuk WGGS dan fillet, diproses, dipotong, didinginkan, dan disiapkan dengan teliti untuk memenuhi standar ekspor pelanggan internasional.">
                   Premium red snapper available as WGGS and fillet, carefully processed, portioned, chilled, and
-                  prepared to meet demanding export quality requirements for international customers.</p><span class="tag">WGGS</span><span class="tag">FILLET</span>
-<div class="mt-3">
-<button class="top-btn cart-add-btn" data-product="Red Snapper" onclick="addToCart(this)" type="button">
-<i class="bi bi-bag-plus me-1"></i><span data-cart-add-label="">Add to Cart</span>
-</button>
-</div>
-</div>
-</div>
-</div>
-<div class="col-md-6 col-lg-4">
-<div class="product product-item">
-<div class="photo" data-bs-target="#imagePreviewModal" data-bs-toggle="modal" data-image="https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&amp;fit=crop&amp;w=1000&amp;q=90" onclick="openPreview(this)" role="button" style="background-image:url('https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&amp;fit=crop&amp;w=1000&amp;q=90');cursor:zoom-in" tabindex="0"><span class="image-hint"><i class="bi bi-arrows-fullscreen"></i></span>
-</div>
-<div class="body">
-<h3 data-product-name-en="Octopus" data-product-name-id="Gurita">Octopus</h3>
-<p data-product-desc-en="Frozen octopus flower, baby octopus, and other premium cuts prepared with careful handling, consistent sizing, and reliable quality for restaurants, distributors, and worldwide food-service customers." data-product-desc-id="Gurita flower beku, baby octopus, dan potongan premium lainnya disiapkan dengan penanganan teliti, ukuran konsisten, dan kualitas andal untuk restoran, distributor, serta pelanggan food-service global.">
+                  prepared to meet demanding export quality requirements for international customers.</p><span
+                  class="tag">WGGS</span><span class="tag">FILLET</span>
+                <div class="mt-3">
+                  <button class="top-btn cart-add-btn" data-product="Red Snapper" onclick="addToCart(this)"
+                    type="button">
+                    <i class="bi bi-bag-plus me-1"></i><span data-cart-add-label="">Add to Cart</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4">
+            <div class="product product-item">
+              <div class="photo" data-bs-target="#imagePreviewModal" data-bs-toggle="modal"
+                data-image="https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&amp;fit=crop&amp;w=1000&amp;q=90"
+                onclick="openPreview(this)" role="button"
+                style="background-image:url('https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&amp;fit=crop&amp;w=1000&amp;q=90');cursor:zoom-in"
+                tabindex="0"><span class="image-hint"><i class="bi bi-arrows-fullscreen"></i></span>
+              </div>
+              <div class="body">
+                <h3 data-product-name-en="Octopus" data-product-name-id="Gurita">Octopus</h3>
+                <p data-product-desc-en="Frozen octopus flower, baby octopus, and other premium cuts prepared with careful handling, consistent sizing, and reliable quality for restaurants, distributors, and worldwide food-service customers."
+                  data-product-desc-id="Gurita flower beku, baby octopus, dan potongan premium lainnya disiapkan dengan penanganan teliti, ukuran konsisten, dan kualitas andal untuk restoran, distributor, serta pelanggan food-service global.">
                   Frozen octopus flower, baby octopus, and other premium cuts prepared with careful handling, consistent
                   sizing, and reliable quality for restaurants, distributors, and worldwide food-service customers.</p>
-<span class="tag">FLOWER</span><span class="tag">BABY OCTOPUS</span>
-<div class="mt-3">
-<button class="top-btn cart-add-btn" data-product="Octopus" onclick="addToCart(this)" type="button">
-<i class="bi bi-bag-plus me-1"></i><span data-cart-add-label="">Add to Cart</span>
-</button>
-</div>
-</div>
-</div>
-</div>
-<div class="col-md-6 col-lg-4">
-<div class="product product-item">
-<div class="photo" data-bs-target="#imagePreviewModal" data-bs-toggle="modal" data-image="https://images.unsplash.com/photo-1559737558-2f5a35f4523b?auto=format&amp;fit=crop&amp;w=1000&amp;q=90" onclick="openPreview(this)" role="button" style="background-image:url('https://images.unsplash.com/photo-1559737558-2f5a35f4523b?auto=format&amp;fit=crop&amp;w=1000&amp;q=90');cursor:zoom-in" tabindex="0"><span class="image-hint"><i class="bi bi-arrows-fullscreen"></i></span>
-</div>
-<div class="body">
-<h3 data-product-name-en="Mahi Mahi" data-product-name-id="Mahi Mahi">Mahi Mahi</h3>
-<p data-product-desc-en="Firm white flesh, mild flavor, and carefully trimmed cuts for food-service applications." data-product-desc-id="Daging putih firm dengan rasa ringan dan potongan yang diproses untuk kebutuhan food-service.">
-                  Firm white flesh, mild flavor, and carefully trimmed cuts for food-service applications.</p><span class="tag">WILD CAUGHT</span><span class="tag">FROZEN</span>
-<div class="mt-3">
-<button class="top-btn cart-add-btn" data-product="Mahi Mahi" onclick="addToCart(this)" type="button">
-<i class="bi bi-bag-plus me-1"></i><span data-cart-add-label="">Add to Cart</span>
-</button>
-</div>
-</div>
-</div>
-</div>
-<div class="col-md-6 col-lg-4">
-<div class="product product-item">
-<div class="photo" data-bs-target="#imagePreviewModal" data-bs-toggle="modal" data-image="https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?auto=format&amp;fit=crop&amp;w=1000&amp;q=90" onclick="openPreview(this)" role="button" style="background-image:url('https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?auto=format&amp;fit=crop&amp;w=1000&amp;q=90');cursor:zoom-in" tabindex="0"><span class="image-hint"><i class="bi bi-arrows-fullscreen"></i></span>
-</div>
-<div class="body">
-<h3 data-product-name-en="King Fish" data-product-name-id="Ikan Tenggiri">King Fish</h3>
-<p data-product-desc-en="Meaty white flesh with rich flavor and firm texture, carefully prepared for grilling, frying, baking, portioning, and premium food-service applications in commercial kitchens." data-product-desc-id="Daging putih tebal dengan rasa kaya dan tekstur firm, disiapkan dengan teliti untuk grill, goreng, panggang, portioning, dan kebutuhan food-service premium di dapur komersial.">
+                <span class="tag">FLOWER</span><span class="tag">BABY OCTOPUS</span>
+                <div class="mt-3">
+                  <button class="top-btn cart-add-btn" data-product="Octopus" onclick="addToCart(this)" type="button">
+                    <i class="bi bi-bag-plus me-1"></i><span data-cart-add-label="">Add to Cart</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4">
+            <div class="product product-item">
+              <div class="photo" data-bs-target="#imagePreviewModal" data-bs-toggle="modal"
+                data-image="https://images.unsplash.com/photo-1559737558-2f5a35f4523b?auto=format&amp;fit=crop&amp;w=1000&amp;q=90"
+                onclick="openPreview(this)" role="button"
+                style="background-image:url('https://images.unsplash.com/photo-1559737558-2f5a35f4523b?auto=format&amp;fit=crop&amp;w=1000&amp;q=90');cursor:zoom-in"
+                tabindex="0"><span class="image-hint"><i class="bi bi-arrows-fullscreen"></i></span>
+              </div>
+              <div class="body">
+                <h3 data-product-name-en="Mahi Mahi" data-product-name-id="Mahi Mahi">Mahi Mahi</h3>
+                <p data-product-desc-en="Firm white flesh, mild flavor, and carefully trimmed cuts for food-service applications."
+                  data-product-desc-id="Daging putih firm dengan rasa ringan dan potongan yang diproses untuk kebutuhan food-service.">
+                  Firm white flesh, mild flavor, and carefully trimmed cuts for food-service applications.</p><span
+                  class="tag">WILD CAUGHT</span><span class="tag">FROZEN</span>
+                <div class="mt-3">
+                  <button class="top-btn cart-add-btn" data-product="Mahi Mahi" onclick="addToCart(this)" type="button">
+                    <i class="bi bi-bag-plus me-1"></i><span data-cart-add-label="">Add to Cart</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4">
+            <div class="product product-item">
+              <div class="photo" data-bs-target="#imagePreviewModal" data-bs-toggle="modal"
+                data-image="https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?auto=format&amp;fit=crop&amp;w=1000&amp;q=90"
+                onclick="openPreview(this)" role="button"
+                style="background-image:url('https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?auto=format&amp;fit=crop&amp;w=1000&amp;q=90');cursor:zoom-in"
+                tabindex="0"><span class="image-hint"><i class="bi bi-arrows-fullscreen"></i></span>
+              </div>
+              <div class="body">
+                <h3 data-product-name-en="King Fish" data-product-name-id="Ikan Tenggiri">King Fish</h3>
+                <p data-product-desc-en="Meaty white flesh with rich flavor and firm texture, carefully prepared for grilling, frying, baking, portioning, and premium food-service applications in commercial kitchens."
+                  data-product-desc-id="Daging putih tebal dengan rasa kaya dan tekstur firm, disiapkan dengan teliti untuk grill, goreng, panggang, portioning, dan kebutuhan food-service premium di dapur komersial.">
                   Meaty white flesh with rich flavor and firm texture, carefully prepared for grilling, frying, baking,
-                  portioning, and premium food-service applications in commercial kitchens.</p><span class="tag">PREMIUM</span><span class="tag">FROZEN</span>
-<div class="mt-3">
-<button class="top-btn cart-add-btn" data-product="King Fish" onclick="addToCart(this)" type="button">
-<i class="bi bi-bag-plus me-1"></i><span data-cart-add-label="">Add to Cart</span>
-</button>
-</div>
-</div>
-</div>
-</div>
-<div class="col-md-6 col-lg-4">
-<div class="product product-item">
-<div class="photo" data-bs-target="#imagePreviewModal" data-bs-toggle="modal" data-image="https://images.unsplash.com/photo-1544551763-77ef2d0cfc6c?auto=format&amp;fit=crop&amp;w=1000&amp;q=90" onclick="openPreview(this)" role="button" style="background-image:url('https://images.unsplash.com/photo-1544551763-77ef2d0cfc6c?auto=format&amp;fit=crop&amp;w=1000&amp;q=90');cursor:zoom-in" tabindex="0"><span class="image-hint"><i class="bi bi-arrows-fullscreen"></i></span>
-</div>
-<div class="body">
-<h3 data-product-name-en="Grouper" data-product-name-id="Ikan Kerapu">Grouper</h3>
-<p data-product-desc-en="Firm, moist white flesh with delicate flavor, clean presentation, and carefully trimmed portions, suitable for restaurants, premium food-service operations, and international seafood buyers." data-product-desc-id="Daging putih yang firm dan lembut dengan rasa delicat, tampilan bersih, serta potongan yang dirapikan dengan teliti untuk restoran, food-service premium, dan pembeli seafood internasional.">
+                  portioning, and premium food-service applications in commercial kitchens.</p><span
+                  class="tag">PREMIUM</span><span class="tag">FROZEN</span>
+                <div class="mt-3">
+                  <button class="top-btn cart-add-btn" data-product="King Fish" onclick="addToCart(this)" type="button">
+                    <i class="bi bi-bag-plus me-1"></i><span data-cart-add-label="">Add to Cart</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4">
+            <div class="product product-item">
+              <div class="photo" data-bs-target="#imagePreviewModal" data-bs-toggle="modal"
+                data-image="https://images.unsplash.com/photo-1544551763-77ef2d0cfc6c?auto=format&amp;fit=crop&amp;w=1000&amp;q=90"
+                onclick="openPreview(this)" role="button"
+                style="background-image:url('https://images.unsplash.com/photo-1544551763-77ef2d0cfc6c?auto=format&amp;fit=crop&amp;w=1000&amp;q=90');cursor:zoom-in"
+                tabindex="0"><span class="image-hint"><i class="bi bi-arrows-fullscreen"></i></span>
+              </div>
+              <div class="body">
+                <h3 data-product-name-en="Grouper" data-product-name-id="Ikan Kerapu">Grouper</h3>
+                <p data-product-desc-en="Firm, moist white flesh with delicate flavor, clean presentation, and carefully trimmed portions, suitable for restaurants, premium food-service operations, and international seafood buyers."
+                  data-product-desc-id="Daging putih yang firm dan lembut dengan rasa delicat, tampilan bersih, serta potongan yang dirapikan dengan teliti untuk restoran, food-service premium, dan pembeli seafood internasional.">
                   Firm, moist white flesh with delicate flavor, clean presentation, and carefully trimmed portions,
-                  suitable for restaurants, premium food-service operations, and international seafood buyers.</p><span class="tag">FILLET</span><span class="tag">HAND TRIMMED</span>
-<div class="mt-3">
-<button class="top-btn cart-add-btn" data-product="Grouper" onclick="addToCart(this)" type="button">
-<i class="bi bi-bag-plus me-1"></i><span data-cart-add-label="">Add to Cart</span>
-</button>
-</div>
-</div>
-</div>
-</div>
-<div class="col-md-6 col-lg-4">
-<div class="product product-item">
-<div class="photo" data-bs-target="#imagePreviewModal" data-bs-toggle="modal" data-image="https://images.unsplash.com/photo-1534766438357-2b270b1dbb6b?auto=format&amp;fit=crop&amp;w=1000&amp;q=90" onclick="openPreview(this)" role="button" style="background-image:url('https://images.unsplash.com/photo-1534766438357-2b270b1dbb6b?auto=format&amp;fit=crop&amp;w=1000&amp;q=90');cursor:zoom-in" tabindex="0"><span class="image-hint"><i class="bi bi-arrows-fullscreen"></i></span>
-</div>
-<div class="body">
-<h3 data-product-name-en="Yellowfin Tuna" data-product-name-id="Tuna Sirip Kuning">Yellowfin Tuna</h3>
-<p data-product-desc-en="Premium yellowfin tuna with firm texture, clean flavor and export-ready preparation." data-product-desc-id="Tuna sirip kuning premium dengan tekstur firm, rasa bersih, dan persiapan siap ekspor.">
-                  Premium yellowfin tuna with firm texture, clean flavor and export-ready preparation.</p><span class="tag">PREMIUM</span><span class="tag">FROZEN</span>
-<div class="mt-3">
-<button class="top-btn cart-add-btn" data-product="Yellowfin Tuna" onclick="addToCart(this)" type="button">
-<i class="bi bi-bag-plus me-1"></i><span data-cart-add-label="">Add to Cart</span>
-</button>
-</div>
-</div>
-</div>
-</div>
-<div class="col-md-6 col-lg-4">
-<div class="product product-item">
-<div class="photo" data-bs-target="#imagePreviewModal" data-bs-toggle="modal" data-image="https://images.unsplash.com/photo-1544943910-4c1dc44aab44?auto=format&amp;fit=crop&amp;w=1000&amp;q=90" onclick="openPreview(this)" role="button" style="background-image:url('https://images.unsplash.com/photo-1544943910-4c1dc44aab44?auto=format&amp;fit=crop&amp;w=1000&amp;q=90');cursor:zoom-in" tabindex="0"><span class="image-hint"><i class="bi bi-arrows-fullscreen"></i></span>
-</div>
-<div class="body">
-<h3 data-product-name-en="Mackerel" data-product-name-id="Ikan Kembung">Mackerel</h3>
-<p data-product-desc-en="Fresh and frozen mackerel selected for consistent quality and food-service use." data-product-desc-id="Ikan kembung fresh dan frozen yang dipilih untuk kualitas konsisten dan kebutuhan food-service.">
-                  Fresh and frozen mackerel selected for consistent quality and food-service use.</p><span class="tag">FRESH / FROZEN</span><span class="tag">WHOLE</span>
-<div class="mt-3">
-<button class="top-btn cart-add-btn" data-product="Mackerel" onclick="addToCart(this)" type="button">
-<i class="bi bi-bag-plus me-1"></i><span data-cart-add-label="">Add to Cart</span>
-</button>
-</div>
-</div>
-</div>
-</div>
-<div class="col-md-6 col-lg-4">
-<div class="product product-item">
-<div class="photo" data-bs-target="#imagePreviewModal" data-bs-toggle="modal" data-image="https://images.unsplash.com/photo-1498654896293-37aacf113fd9?auto=format&amp;fit=crop&amp;w=1000&amp;q=90" onclick="openPreview(this)" role="button" style="background-image:url('https://images.unsplash.com/photo-1498654896293-37aacf113fd9?auto=format&amp;fit=crop&amp;w=1000&amp;q=90');cursor:zoom-in" tabindex="0"><span class="image-hint"><i class="bi bi-arrows-fullscreen"></i></span>
-</div>
-<div class="body">
-<h3 data-product-name-en="Barramundi" data-product-name-id="Kakap Putih">Barramundi</h3>
-<p data-product-desc-en="Mild, firm white-fleshed fish prepared for wholesale and international customers." data-product-desc-id="Ikan dengan daging putih firm dan rasa ringan, disiapkan untuk pembeli wholesale dan internasional.">
-                  Mild, firm white-fleshed fish prepared for wholesale and international customers.</p><span class="tag">PREMIUM</span><span class="tag">FILLET</span>
-<div class="mt-3">
-<button class="top-btn cart-add-btn" data-product="Barramundi" onclick="addToCart(this)" type="button">
-<i class="bi bi-bag-plus me-1"></i><span data-cart-add-label="">Add to Cart</span>
-</button>
-</div>
-</div>
-</div>
-</div>
-<div class="col-md-6 col-lg-4">
-<div class="product product-item">
-<div class="photo" data-bs-target="#imagePreviewModal" data-bs-toggle="modal" data-image="https://images.unsplash.com/photo-1534766438357-2b270b1dbb6b?auto=format&amp;fit=crop&amp;w=1000&amp;q=90" onclick="openPreview(this)" role="button" style="background-image:url('https://images.unsplash.com/photo-1534766438357-2b270b1dbb6b?auto=format&amp;fit=crop&amp;w=1000&amp;q=90');cursor:zoom-in" tabindex="0"><span class="image-hint"><i class="bi bi-arrows-fullscreen"></i></span>
-</div>
-<div class="body">
-<h3 data-product-name-en="Cobia" data-product-name-id="Cobia">Cobia</h3>
-<p data-product-desc-en="Firm white flesh and mild flavor, suitable for premium food-service applications." data-product-desc-id="Daging putih firm dengan rasa ringan, cocok untuk kebutuhan food-service premium.">
-                  Firm white flesh and mild flavor, suitable for premium food-service applications.</p><span class="tag">PREMIUM</span><span class="tag">FROZEN</span>
-<div class="mt-3">
-<button class="top-btn cart-add-btn" data-product="Cobia" onclick="addToCart(this)" type="button">
-<i class="bi bi-bag-plus me-1"></i><span data-cart-add-label="">Add to Cart</span>
-</button>
-</div>
-</div>
-</div>
-</div>
+                  suitable for restaurants, premium food-service operations, and international seafood buyers.</p><span
+                  class="tag">FILLET</span><span class="tag">HAND TRIMMED</span>
+                <div class="mt-3">
+                  <button class="top-btn cart-add-btn" data-product="Grouper" onclick="addToCart(this)" type="button">
+                    <i class="bi bi-bag-plus me-1"></i><span data-cart-add-label="">Add to Cart</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4">
+            <div class="product product-item">
+              <div class="photo" data-bs-target="#imagePreviewModal" data-bs-toggle="modal"
+                data-image="https://images.unsplash.com/photo-1534766438357-2b270b1dbb6b?auto=format&amp;fit=crop&amp;w=1000&amp;q=90"
+                onclick="openPreview(this)" role="button"
+                style="background-image:url('https://images.unsplash.com/photo-1534766438357-2b270b1dbb6b?auto=format&amp;fit=crop&amp;w=1000&amp;q=90');cursor:zoom-in"
+                tabindex="0"><span class="image-hint"><i class="bi bi-arrows-fullscreen"></i></span>
+              </div>
+              <div class="body">
+                <h3 data-product-name-en="Yellowfin Tuna" data-product-name-id="Tuna Sirip Kuning">Yellowfin Tuna</h3>
+                <p data-product-desc-en="Premium yellowfin tuna with firm texture, clean flavor and export-ready preparation."
+                  data-product-desc-id="Tuna sirip kuning premium dengan tekstur firm, rasa bersih, dan persiapan siap ekspor.">
+                  Premium yellowfin tuna with firm texture, clean flavor and export-ready preparation.</p><span
+                  class="tag">PREMIUM</span><span class="tag">FROZEN</span>
+                <div class="mt-3">
+                  <button class="top-btn cart-add-btn" data-product="Yellowfin Tuna" onclick="addToCart(this)"
+                    type="button">
+                    <i class="bi bi-bag-plus me-1"></i><span data-cart-add-label="">Add to Cart</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4">
+            <div class="product product-item">
+              <div class="photo" data-bs-target="#imagePreviewModal" data-bs-toggle="modal"
+                data-image="https://images.unsplash.com/photo-1544943910-4c1dc44aab44?auto=format&amp;fit=crop&amp;w=1000&amp;q=90"
+                onclick="openPreview(this)" role="button"
+                style="background-image:url('https://images.unsplash.com/photo-1544943910-4c1dc44aab44?auto=format&amp;fit=crop&amp;w=1000&amp;q=90');cursor:zoom-in"
+                tabindex="0"><span class="image-hint"><i class="bi bi-arrows-fullscreen"></i></span>
+              </div>
+              <div class="body">
+                <h3 data-product-name-en="Mackerel" data-product-name-id="Ikan Kembung">Mackerel</h3>
+                <p data-product-desc-en="Fresh and frozen mackerel selected for consistent quality and food-service use."
+                  data-product-desc-id="Ikan kembung fresh dan frozen yang dipilih untuk kualitas konsisten dan kebutuhan food-service.">
+                  Fresh and frozen mackerel selected for consistent quality and food-service use.</p><span
+                  class="tag">FRESH / FROZEN</span><span class="tag">WHOLE</span>
+                <div class="mt-3">
+                  <button class="top-btn cart-add-btn" data-product="Mackerel" onclick="addToCart(this)" type="button">
+                    <i class="bi bi-bag-plus me-1"></i><span data-cart-add-label="">Add to Cart</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4">
+            <div class="product product-item">
+              <div class="photo" data-bs-target="#imagePreviewModal" data-bs-toggle="modal"
+                data-image="https://images.unsplash.com/photo-1498654896293-37aacf113fd9?auto=format&amp;fit=crop&amp;w=1000&amp;q=90"
+                onclick="openPreview(this)" role="button"
+                style="background-image:url('https://images.unsplash.com/photo-1498654896293-37aacf113fd9?auto=format&amp;fit=crop&amp;w=1000&amp;q=90');cursor:zoom-in"
+                tabindex="0"><span class="image-hint"><i class="bi bi-arrows-fullscreen"></i></span>
+              </div>
+              <div class="body">
+                <h3 data-product-name-en="Barramundi" data-product-name-id="Kakap Putih">Barramundi</h3>
+                <p data-product-desc-en="Mild, firm white-fleshed fish prepared for wholesale and international customers."
+                  data-product-desc-id="Ikan dengan daging putih firm dan rasa ringan, disiapkan untuk pembeli wholesale dan internasional.">
+                  Mild, firm white-fleshed fish prepared for wholesale and international customers.</p><span
+                  class="tag">PREMIUM</span><span class="tag">FILLET</span>
+                <div class="mt-3">
+                  <button class="top-btn cart-add-btn" data-product="Barramundi" onclick="addToCart(this)"
+                    type="button">
+                    <i class="bi bi-bag-plus me-1"></i><span data-cart-add-label="">Add to Cart</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4">
+            <div class="product product-item">
+              <div class="photo" data-bs-target="#imagePreviewModal" data-bs-toggle="modal"
+                data-image="https://images.unsplash.com/photo-1534766438357-2b270b1dbb6b?auto=format&amp;fit=crop&amp;w=1000&amp;q=90"
+                onclick="openPreview(this)" role="button"
+                style="background-image:url('https://images.unsplash.com/photo-1534766438357-2b270b1dbb6b?auto=format&amp;fit=crop&amp;w=1000&amp;q=90');cursor:zoom-in"
+                tabindex="0"><span class="image-hint"><i class="bi bi-arrows-fullscreen"></i></span>
+              </div>
+              <div class="body">
+                <h3 data-product-name-en="Cobia" data-product-name-id="Cobia">Cobia</h3>
+                <p data-product-desc-en="Firm white flesh and mild flavor, suitable for premium food-service applications."
+                  data-product-desc-id="Daging putih firm dengan rasa ringan, cocok untuk kebutuhan food-service premium.">
+                  Firm white flesh and mild flavor, suitable for premium food-service applications.</p><span
+                  class="tag">PREMIUM</span><span class="tag">FROZEN</span>
+                <div class="mt-3">
+                  <button class="top-btn cart-add-btn" data-product="Cobia" onclick="addToCart(this)" type="button">
+                    <i class="bi bi-bag-plus me-1"></i><span data-cart-add-label="">Add to Cart</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
 
 
 
@@ -3130,204 +3271,219 @@
 
 
 
-</div>
-<div class="load-more-wrap text-center mt-5">
-<button class="load-more-btn" data-category="fishes" onclick="loadMoreProducts('fishes', this)" type="button">
+        </div>
+        <div class="load-more-wrap text-center mt-5">
+          <button class="load-more-btn" data-category="fishes" onclick="loadMoreProducts('fishes', this)" type="button">
             Load More
           </button>
-</div>
-</section>
-</div>
-</section>
-<div aria-hidden="true" class="modal fade modal-product" id="imagePreviewModal" tabindex="-1">
-<div class="modal-dialog modal-dialog-centered modal-xl">
-<div class="modal-content">
-<button aria-label="Close" class="btn-close product-preview-close" data-bs-dismiss="modal" type="button"><span aria-hidden="true">×</span></button>
-<div class="modal-body p-0">
-<div class="product-preview-grid">
-<div class="product-preview-media">
-<img alt="Product preview" class="modal-product-img" id="previewImage" src=""/>
-</div>
-<div class="product-preview-content">
-<div class="preview-label">Product Details</div>
-<h3 id="previewTitle">Product</h3>
-<p id="previewDescription"></p>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div aria-hidden="true" class="modal fade cart-modal" id="cartModal" tabindex="-1">
-<div class="modal-dialog modal-dialog-centered">
-<div class="modal-content">
-<div class="modal-header">
-<h5 class="modal-title"><i class="bi bi-bag me-2"></i><span id="cartTitle">Your Cart</span></h5><button aria-label="Close" class="btn-close" data-bs-dismiss="modal" type="button"></button>
-</div>
-<div class="modal-body">
-<div class="cart-items" id="cartItems"></div>
-<div class="cart-footer">
-<div class="mb-3"><label class="form-label fw-bold" for="customerName">Name / Company</label><input class="form-control" id="customerName" placeholder="Your name or company" type="text"/></div>
-<div class="mb-3"><label class="form-label fw-bold" for="customerNote">Notes</label><textarea class="form-control" id="customerNote" placeholder="Specification, destination, etc." rows="3"></textarea></div><button class="checkout-wa" onclick="checkoutWhatsApp()" type="button"><i class="bi bi-whatsapp me-2"></i>Checkout via WhatsApp</button>
-</div>
-</div>
-</div>
-</div>
-</div>
-<section class="lacara-cta" id="cta">
-<div class="container">
-<div class="lacara-cta-inner">
-<div class="lacara-cta-copy text-center d-flex justify-content-center">
-<div class="">
-<!-- <div class="lacara-cta-eyebrow label" data-i18n="cta_eyebrow">
+        </div>
+      </section>
+    </div>
+  </section>
+  <div aria-hidden="true" class="modal fade modal-product" id="imagePreviewModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered modal-xl">
+      <div class="modal-content">
+        <button aria-label="Close" class="btn-close product-preview-close" data-bs-dismiss="modal" type="button"><span
+            aria-hidden="true">×</span></button>
+        <div class="modal-body p-0">
+          <div class="product-preview-grid">
+            <div class="product-preview-media">
+              <img alt="Product preview" class="modal-product-img" id="previewImage" src="" />
+            </div>
+            <div class="product-preview-content">
+              <div class="preview-label">Product Details</div>
+              <h3 id="previewTitle">Product</h3>
+              <p id="previewDescription"></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div aria-hidden="true" class="modal fade cart-modal" id="cartModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title"><i class="bi bi-bag me-2"></i><span id="cartTitle">Your Cart</span></h5><button
+            aria-label="Close" class="btn-close" data-bs-dismiss="modal" type="button"></button>
+        </div>
+        <div class="modal-body">
+          <div class="cart-items" id="cartItems"></div>
+          <div class="cart-footer">
+            <div class="mb-3"><label class="form-label fw-bold" for="customerName">Name / Company</label><input
+                class="form-control" id="customerName" placeholder="Your name or company" type="text" /></div>
+            <div class="mb-3"><label class="form-label fw-bold" for="customerNote">Notes</label><textarea
+                class="form-control" id="customerNote" placeholder="Specification, destination, etc."
+                rows="3"></textarea></div><button class="checkout-wa" onclick="checkoutWhatsApp()" type="button"><i
+                class="bi bi-whatsapp me-2"></i>Checkout via WhatsApp</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <section class="lacara-cta" id="cta">
+    <div class="container">
+      <div class="lacara-cta-inner">
+        <div class="lacara-cta-copy text-center d-flex justify-content-center">
+          <div class="">
+            <!-- <div class="lacara-cta-eyebrow label" data-i18n="cta_eyebrow">
               READY TO TASTE THE OCEAN’S FINEST?
             </div> -->
-<h2 class="lacara-cta-title" data-i18n="cta_title">
+            <h2 class="lacara-cta-title" data-i18n="cta_title">
               Let’s Bring the Best of Indonesia to Your Table.
             </h2>
-<p class="lacara-cta-desc" data-i18n="cta_desc">
+            <p class="lacara-cta-desc" data-i18n="cta_desc">
               Experience premium, sustainably sourced seafood. Contact us today
               to place your order or learn more about our products.
             </p>
-</div>
-</div>
-<div class="lacara-cta-button-wrap d-flex justify-content-center justify-content-lg-center">
-<a class="lacara-cta-button" data-i18n="cta_button" href="#contact">Get in Touch | Order Now<i class="bi bi-arrow-up-right"></i></a>
-</div>
-</div>
-</div>
-</section>
-<section class="contact-section" id="contact">
-<div class="container">
-<div class="contact-intro-inner text-center mb-5">
-<h2 class="contact-title" data-i18n="contact_title">
+          </div>
+        </div>
+        <div class="lacara-cta-button-wrap d-flex justify-content-center justify-content-lg-center">
+          <a class="lacara-cta-button" data-i18n="cta_button" href="#contact">Get in Touch | Order Now<i
+              class="bi bi-arrow-up-right"></i></a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="contact-section" id="contact">
+    <div class="container">
+      <div class="contact-intro-inner text-center mb-5">
+        <h2 class="contact-title" data-i18n="contact_title">
           Contact Us
         </h2>
-<div class="contact-line text-center"></div>
-</div>
-<div class="row align-items-stretch">
-<div class="col-lg-6">
-<p class="text-white" data-i18n="contact_desc">
+        <div class="contact-line text-center"></div>
+      </div>
+      <div class="row align-items-stretch">
+        <div class="col-lg-6">
+          <p class="text-white" data-i18n="contact_desc">
             Please send your messages/comments/inquiries here.
           </p>
-<form class="contact-form-card" id="homeContactForm">
-<div class="row g-3">
-<div class="col-md-6">
-<input class="contact-input" data-i18n-placeholder="contact_name" id="contactName" placeholder="Name*" required="" type="text"/>
-</div>
-<div class="col-md-6">
-<input class="contact-input" data-i18n-placeholder="contact_email" id="contactEmail" placeholder="E-Mail*" required="" type="email"/>
-</div>
-<div class="col-12">
-<textarea class="contact-input contact-message" data-i18n-placeholder="contact_message" id="contactMessage" placeholder="Message*" required=""></textarea>
-</div>
-<div class="col-12">
-<div class="captcha-box">
-<span id="captchaQuestion">1 + 1 = ?</span>
-<input autocomplete="off" class="contact-input" id="captchaAnswer" type="text"/>
-</div>
-</div>
-<div class="col-12">
-<button class="contact-submit" type="submit">
-<span data-i18n="contact_send">Send Now</span>
-<i class="bi bi-arrow-up-right"></i>
-</button>
-<div class="contact-status" id="contactStatus"></div>
-</div>
-</div>
-</form>
-</div>
-<div class="contact-batas"></div>
-<div class="col-lg-5 offset-lg-1">
-<div class="contact-intro">
-<div class="contact-details">
-<h2>Lacara Indonesia</h2>
-<div class="contact-detail">
-<span class="contact-icon"><i class="bi bi-telephone-fill"></i></span>
-<div>
-<small>PHONE</small><strong>+62 857-1312-5762</strong>
-</div>
-</div>
-<div class="contact-detail">
-<span class="contact-icon"><i class="bi bi-envelope-fill"></i></span>
-<div>
-<small>EMAIL</small><strong>lacaraindonesia.id</strong>
-</div>
-</div>
-<div class="contact-detail">
-<span class="contact-icon"><i class="bi bi-geo-alt-fill"></i></span>
-<div>
-<small>ADDRESS</small><strong>Sukoharjo, Central Java, Indonesia</strong>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</section>
-<footer>
-<div class="container">
-<div class="row py-lg-5">
-<div class="col-lg-5 mt-4 mb-3 my-lg-0">
-<div class="footer-title footer-logo">
-<img alt="LACARA INDONESIA logo" src="img/logo 2.png"/>
-</div>
-<p class="mt-3">
+          <form class="contact-form-card" id="homeContactForm">
+            <div class="row g-3">
+              <div class="col-md-6">
+                <input class="contact-input" data-i18n-placeholder="contact_name" id="contactName" placeholder="Name*"
+                  required="" type="text" />
+              </div>
+              <div class="col-md-6">
+                <input class="contact-input" data-i18n-placeholder="contact_email" id="contactEmail"
+                  placeholder="E-Mail*" required="" type="email" />
+              </div>
+              <div class="col-12">
+                <textarea class="contact-input contact-message" data-i18n-placeholder="contact_message"
+                  id="contactMessage" placeholder="Message*" required=""></textarea>
+              </div>
+              <div class="col-12">
+                <div class="captcha-box">
+                  <span id="captchaQuestion">1 + 1 = ?</span>
+                  <input autocomplete="off" class="contact-input" id="captchaAnswer" type="text" />
+                </div>
+              </div>
+              <div class="col-12">
+                <button class="contact-submit" type="submit">
+                  <span data-i18n="contact_send">Send Now</span>
+                  <i class="bi bi-arrow-up-right"></i>
+                </button>
+                <div class="contact-status" id="contactStatus"></div>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="contact-batas"></div>
+        <div class="col-lg-5 offset-lg-1">
+          <div class="contact-intro">
+            <div class="contact-details">
+              <h2>Lacara Indonesia</h2>
+              <div class="contact-detail">
+                <span class="contact-icon"><i class="bi bi-telephone-fill"></i></span>
+                <div>
+                  <small>PHONE</small><strong>+62 857-1312-5762</strong>
+                </div>
+              </div>
+              <div class="contact-detail">
+                <span class="contact-icon"><i class="bi bi-envelope-fill"></i></span>
+                <div>
+                  <small>EMAIL</small><strong>lacaraindonesia.id</strong>
+                </div>
+              </div>
+              <div class="contact-detail">
+                <span class="contact-icon"><i class="bi bi-geo-alt-fill"></i></span>
+                <div>
+                  <small>ADDRESS</small><strong>Sukoharjo, Central Java, Indonesia</strong>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <footer>
+    <div class="container">
+      <div class="row py-lg-5">
+        <div class="col-lg-5 mt-4 mb-3 my-lg-0">
+          <div class="footer-title footer-logo">
+            <img alt="LACARA INDONESIA logo" src="img/logo 2.png" />
+          </div>
+          <p class="mt-3">
             Premium fresh and frozen seafood from Indonesia, responsibly
             sourced and prepared for global markets.
           </p>
-</div>
-<div class="col-12 col-lg-3 offset-lg-1 my-4 my-lg-0">
-<h6 class="text-white pb-2" data-i18n="footer_overview">Overview</h6>
-<a class="footer-link" href="#about">
-<p>About us</p>
-</a>
-<a class="footer-link" href="#products">
-<p>Our Products</p>
-</a>
-<a class="footer-link" href="#gallery">
-<p>Our Gallery</p>
-</a>
-<a class="footer-link" href="#contact">
-<p>Contact us</p>
-</a>
-</div>
-<div class="col-12 col-lg-3 mt-2 mb-4 my-lg-0">
-<h6 class="text-white pb-2" data-i18n="footer_location">Location</h6>
-<p>
-            PT. MUARA ANGKE JAYA<br/>Muara Angke, Penjaringan<br/>Jakarta,
+        </div>
+        <div class="col-12 col-lg-3 offset-lg-1 my-4 my-lg-0">
+          <h6 class="text-white pb-2" data-i18n="footer_overview">Overview</h6>
+          <a class="footer-link" href="#about">
+            <p>About us</p>
+          </a>
+          <a class="footer-link" href="#products">
+            <p>Our Products</p>
+          </a>
+          <a class="footer-link" href="#gallery">
+            <p>Our Gallery</p>
+          </a>
+          <a class="footer-link" href="#contact">
+            <p>Contact us</p>
+          </a>
+        </div>
+        <div class="col-12 col-lg-3 mt-2 mb-4 my-lg-0">
+          <h6 class="text-white pb-2" data-i18n="footer_location">Location</h6>
+          <p>
+            PT. MUARA ANGKE JAYA<br />Muara Angke, Penjaringan<br />Jakarta,
             Indonesia
           </p>
-</div>
-</div>
-<!-- <hr style="border-color: #444444" /> -->
-</div>
-<section class="location-section" id="location">
-<div class="container">
-<div class="location-map-wrap">
-<iframe height="350" src="https://www.openstreetmap.org/export/embed?bbox=111.03817462921144%2C-6.712516103878979%2C111.09482288360597%2C-6.674581791420616&amp;layer=mapnik&amp;marker=-6.693549316090589%2C111.06649875640869" style="border: 1px solid black" width="425"></iframe><br/><small><a href="https://www.openstreetmap.org/?mlat=-6.69355&amp;mlon=111.06650#map=15/-6.69355/111.06650">View
-              Larger Map</a></small><br/><small><a href="https://www.openstreetmap.org/#map=19/-6.671722/111.105792">View Larger
+        </div>
+      </div>
+      <!-- <hr style="border-color: #444444" /> -->
+    </div>
+    <section class="location-section" id="location">
+      <div class="container">
+        <div class="location-map-wrap">
+          <iframe height="350"
+            src="https://www.openstreetmap.org/export/embed?bbox=111.03817462921144%2C-6.712516103878979%2C111.09482288360597%2C-6.674581791420616&amp;layer=mapnik&amp;marker=-6.693549316090589%2C111.06649875640869"
+            style="border: 1px solid black" width="425"></iframe><br /><small><a
+              href="https://www.openstreetmap.org/?mlat=-6.69355&amp;mlon=111.06650#map=15/-6.69355/111.06650">View
+              Larger Map</a></small><br /><small><a
+              href="https://www.openstreetmap.org/#map=19/-6.671722/111.105792">View Larger
               Map</a></small>
-<div class="map-label">
-<span class="map-pin"><i class="bi bi-geo-alt-fill"></i></span>
-<div>
-<small>OUR LOCATION</small><strong>Sukoharjo, Central Java, Indonesia</strong>
-</div>
-</div>
-<a class="map-open" href="https://www.openstreetmap.org/?mlat=-8.765&amp;mlon=115.215#map=13/-8.765/115.215" rel="noopener" target="_blank">Open larger map <span>↗</span></a>
-</div>
-</div>
-</section>
-<div class="copyright-bar">
-<div class="container">
-<small>Copyright © 2015 LACARA INDONESIA, All rights reserved.</small>
-</div>
-</div>
-</footer>
-<a aria-label="Kembali ke atas" class="back-to-top" href="#home" id="backToTop"><i class="bi bi-arrow-up"></i></a>
-<a class="wa" href="https://wa.me/6285713125762"><i class="bi bi-whatsapp"></i></a>
-<script>
+          <div class="map-label">
+            <span class="map-pin"><i class="bi bi-geo-alt-fill"></i></span>
+            <div>
+              <small>OUR LOCATION</small><strong>Sukoharjo, Central Java, Indonesia</strong>
+            </div>
+          </div>
+          <a class="map-open" href="https://www.openstreetmap.org/?mlat=-8.765&amp;mlon=115.215#map=13/-8.765/115.215"
+            rel="noopener" target="_blank">Open larger map <span>↗</span></a>
+        </div>
+      </div>
+    </section>
+    <div class="copyright-bar">
+      <div class="container">
+        <small>Copyright © 2015 LACARA INDONESIA, All rights reserved.</small>
+      </div>
+    </div>
+  </footer>
+  <a aria-label="Kembali ke atas" class="back-to-top" href="#home" id="backToTop"><i class="bi bi-arrow-up"></i></a>
+  <a class="wa" href="https://wa.me/6285713125762"><i class="bi bi-whatsapp"></i></a>
+  <script>
     const t = {
       en: {
         nav_home: "Home",
@@ -3541,7 +3697,7 @@
       initProductPage();
     }
   </script>
-<script>
+  <script>
     // Back-to-top shortcut — one simple controller.
     (function () {
       const button = document.getElementById("backToTop");
@@ -3561,7 +3717,7 @@
       window.addEventListener("load", updateBackToTop);
     })();
   </script>
-<script>
+  <script>
     function toggleMobileProducts() {
       const sub = document.getElementById('mobileProductSub');
       const toggle = document.querySelector('.mobile-product-toggle');
@@ -3570,7 +3726,7 @@
       toggle.classList.toggle('expanded', open);
     }
   </script>
-<script>
+  <script>
     const WHATSAPP_NUMBER = "6285713125762";
     let cart = JSON.parse(localStorage.getItem("lacara-cart") || "[]");
     function saveCart() { localStorage.setItem("lacara-cart", JSON.stringify(cart)); updateCartCount() }
@@ -3686,7 +3842,8 @@
       if (lang === "id") {
         message = "Halo LACARA INDONESIA, saya ingin melakukan pemesanan / meminta penawaran:%0A%0A";
         cart.forEach((item, index) => {
-          message += `${index + 1}. ${encodeURIComponent(item.name)} x ${item.qty}%0A`;
+          const itemName = item.nameId || item.nameEn || item.name || "-";
+          message += `${index + 1}. ${encodeURIComponent(itemName)} x ${item.qty}%0A`;
         });
         message += `%0ANama / Perusahaan: ${encodeURIComponent(name)}`;
         message += `%0ACatatan: ${encodeURIComponent(note)}`;
@@ -3694,7 +3851,8 @@
       } else {
         message = "Hello LACARA INDONESIA, I would like to place an order / request a quotation:%0A%0A";
         cart.forEach((item, index) => {
-          message += `${index + 1}. ${encodeURIComponent(item.name)} x ${item.qty}%0A`;
+          const itemName = item.nameEn || item.nameId || item.name || "-";
+          message += `${index + 1}. ${encodeURIComponent(itemName)} x ${item.qty}%0A`;
         });
         message += `%0AName / Company: ${encodeURIComponent(name)}`;
         message += `%0ANotes: ${encodeURIComponent(note)}`;
@@ -3705,8 +3863,8 @@
     }
     updateCartCount(); renderCart();
   </script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-<script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
     function filterCategory(category, button) {
       document.querySelectorAll(".catalog-filter-btn").forEach(b => b.classList.remove("active"));
       button.classList.add("active");
@@ -3728,7 +3886,7 @@
       }
     }
   </script>
-<script>
+  <script>
     (function () {
       function pathName(href) {
         try { return new URL(href, location.href).pathname.split('/').pop() || 'index'; }
@@ -3784,7 +3942,7 @@
       });
     })();
   </script>
-<script>
+  <script>
     // Mobile sidebar controller — standalone, no Bootstrap Offcanvas dependency
     (function () {
       function initMobileSidebar() {
@@ -3836,7 +3994,7 @@
       }
     })();
   </script>
-<script>
+  <script>
     (function () {
       const nav = document.querySelector('.navbar');
       const revealEls = document.querySelectorAll('.product-category, .category-head, .product-item, .catalog > .container > .text-center');
@@ -3851,4 +4009,5 @@
     })();
   </script>
 </body>
+
 </html>
