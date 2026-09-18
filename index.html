@@ -164,7 +164,7 @@
             About LACARA INDONESIA
           </div>
           <h4 class="title mt-2 mt-lg-0" data-i18n="about_title">
-            Quality Fish & Onions, From Indonesia to the World
+            Quality Fish <span class="ampersand">&amp;</span> Onions, From Indonesia to the World
           </h4>
           <p class="lead-copy mt-3 mt-lg-4" data-i18n="about_p1">
             Founded in 2015, LACARA INDONESIA has established itself as a
@@ -209,7 +209,7 @@
                 Premium Indonesian onions, carefully selected and prepared for
                 commercial customers.
               </p>
-              <a href="products.html#bawang" class="top-btn d-inline-block" data-i18n="view_onions">View
+              <a href="product.html#bawang" class="top-btn d-inline-block" data-i18n="view_onions">View
                 Bawang <i class="bi bi-arrow-right ms-2"></i></a>
             </div>
           </article>
@@ -224,14 +224,14 @@
                 Fresh and frozen Indonesian seafood including tuna, snapper,
                 octopus, king fish and more.
               </p>
-              <a href="products.html#fishes" class="top-btn d-inline-block" data-i18n="view_fishes">View
+              <a href="product.html#fishes" class="top-btn d-inline-block" data-i18n="view_fishes">View
                 Fishes <i class="bi bi-arrow-right ms-2"></i></a>
             </div>
           </article>
         </div>
       </div>
       <div class="text-center mt-5">
-        <a href="products.html" class="btn product-all-btn" data-i18n="view_all_products">View All Products <i
+        <a href="product.html#fishes" class="btn product-all-btn" data-i18n="view_all_products">View All Products <i
             class="bi bi-arrow-up-right ms-2"></i></a>
       </div>
     </div>
@@ -464,8 +464,11 @@
           if (sameFile && (sameHash || (!href.includes("#") && !hash))) el.classList.add("active");
         });
 
-        if (!hash && (currentFile.includes("fishmarket-home") || currentFile === "index" || currentFile === "")) {
-          document.querySelectorAll('a[href="#home"]').forEach((a) => a.classList.add("active"));
+        // if (!hash && (currentFile.includes("index") || currentFile === "index" || currentFile === "")) {
+        //   document.querySelectorAll('a[href="#home"]').forEach((a) => a.classList.add("active"));
+        // }
+        if (!hash && (currentFile.includes("index") || currentFile === "index" || currentFile === "")) {
+          document.querySelectorAll('a[href="index.html"]').forEach((a) => a.classList.add("active"));
         }
         if (hash) {
           document.querySelectorAll('a[href="' + hash + '"]').forEach((a) => a.classList.add("active"));

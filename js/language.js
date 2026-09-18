@@ -20,7 +20,7 @@ const translations = {
         hero_products: "Explore Products",
         get_touch: "Get in Touch | Order Now",
         about_label: "About LACARA INDONESIA",
-        about_title: "Quality Fish & Onions, From Indonesia to the World",
+       about_title: 'Quality Fish <span class="ampersand">&amp;</span> Onions, From Indonesia to the World',
         about_p1:
             "Founded in 2015, LACARA INDONESIA has established itself as a seafood producer and wholesaler focused on premium-quality seafood. We source responsibly and combine years of industry expertise with modern processing and packaging facilities.",
         about_p2:
@@ -36,7 +36,7 @@ const translations = {
         fish_title: "Fishes",
         fish_desc:
             "Fresh and frozen Indonesian seafood including tuna, snapper, octopus, king fish and more.",
-        view_onions: "View Bawang",
+        view_onions: "View Onion",
         view_fishes: "View Fishes",
         view_all_products: "View All Products",
         products_desc:
@@ -110,8 +110,7 @@ const translations = {
         hero_products: "Lihat Produk",
         get_touch: "Hubungi Kami",
         about_label: "Tentang LACARA INDONESIA",
-        about_title:
-            "Ikan & Bawang Berkualitas,<br>Dari Indonesia untuk Dunia",
+        about_title: 'Ikan dan Bawang Berkualitas, Dari Indonesia untuk Dunia',
         about_p1:
             "Didirikan pada tahun 2015, LACARA INDONESIA merupakan produsen dan grosir seafood yang berfokus pada produk berkualitas premium. Kami menerapkan sumber yang bertanggung jawab serta menggabungkan pengalaman industri dengan fasilitas pengolahan dan pengemasan modern.",
         about_p2:

@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html lang="en">
+<html lang="id">
 
 <head>
   <meta charset="utf-8" />
@@ -739,7 +739,7 @@
       align-items: center;
       background:
         linear-gradient(90deg, rgba(0, 0, 0, 0.88), rgba(0, 0, 0, 0.42) 52%, rgba(0, 0, 0, 0.05)),
-        url("https://images.unsplash.com/photo-1544943910-4c1dc44aab44?auto=format&fit=crop&w=2200&q=90") center / cover !important;
+        url("https://plus.unsplash.com/premium_photo-1756988925844-280e89a34ae3?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D") center / cover !important;
       color: #fff;
     }
 
@@ -2015,7 +2015,7 @@
       padding: 92px 0 96px;
       margin: 0 !important;
       border: 0 !important;
-      background: #244f68 !important;
+      background: #000000 !important;
       color: #fff;
     }
 
@@ -2024,8 +2024,8 @@
       position: absolute;
       inset: 0;
       pointer-events: none;
-      background-image: url("img/assets/Artboard1.png");
-      opacity: 6%;
+      background-image: url("img/assets/bgwave.png");
+      opacity: 0.06;
       background-size: cover;
       z-index: -2;
     }
@@ -2653,8 +2653,8 @@
 <body>
   <nav class="navbar navbar-expand-lg sticky-top">
     <div class="container py-2">
-      <a aria-label="LACARA INDONESIA" class="navbar-brand brand logo-brand" href="index.html"><img alt="LACARA INDONESIA logo"
-          src="img/logo 2.png" /></a>
+      <a aria-label="LACARA INDONESIA" class="navbar-brand brand logo-brand" href="index.html"><img
+          alt="LACARA INDONESIA logo" src="img/logo 2.png" /></a>
       <button aria-controls="mobileNav" aria-expanded="false" aria-label="Open menu"
         class="navbar-toggler border-0 shadow-none" type="button">
         <i class="bi bi-list fs-2"></i>
@@ -2669,7 +2669,7 @@
           </li>
           <li class="nav-item dropdown">
             <a aria-expanded="false" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" data-i18n="nav_products"
-              href="#products" role="button">Product</a>
+              href="#product" role="button">Product</a>
             <ul class="dropdown-menu dropdown-menu-end border-0 shadow-sm">
               <li>
                 <a class="dropdown-item" data-i18n="nav_onion" href="product.html#bawang">Bawang</a>
@@ -3604,7 +3604,7 @@
     }
 
     function renderProductDescriptions() {
-      const lang = localStorage.getItem("product-lang") || "en";
+      const lang = localStorage.getItem("product-lang") || "id";
       const readMore = lang === "id" ? "Baca Selengkapnya" : "Read More";
       const readLess = lang === "id" ? "Lebih Sedikit" : "Read Less";
 
@@ -3635,7 +3635,7 @@
       const card = el.closest(".product");
       const titleEl = card?.querySelector("[data-product-name-en]");
       const descEl = card?.querySelector("[data-product-desc-en]");
-      const lang = localStorage.getItem("product-lang") || "en";
+      const lang = localStorage.getItem("product-lang") || "id";
       const title = titleEl ? (lang === "id" ? titleEl.dataset.productNameId : titleEl.dataset.productNameEn) : "Product";
       const desc = descEl ? (lang === "id" ? descEl.dataset.productDescId : descEl.dataset.productDescEn) : "";
       const modalImg = document.getElementById("previewImage");
@@ -3686,7 +3686,7 @@
     }
     function filterProducts(cat, b) { document.querySelectorAll(".filter button").forEach(x => x.classList.remove("active")); b.classList.add("active"); document.querySelectorAll(".product-item").forEach(x => x.style.display = cat === "all" || x.classList.contains(cat) ? "" : "none") }
     function initProductPage() {
-      setLang(localStorage.getItem("product-lang") || "en");
+      setLang(localStorage.getItem("product-lang") || "id");
       initLoadMore();
       renderProductDescriptions();
     }
@@ -3730,12 +3730,12 @@
     const WHATSAPP_NUMBER = "6285713125762";
     let cart = JSON.parse(localStorage.getItem("lacara-cart") || "[]");
     function saveCart() { localStorage.setItem("lacara-cart", JSON.stringify(cart)); updateCartCount() }
-    function updateCartCount() { const count = cart.reduce((n, i) => n + i.qty, 0); const b = document.getElementById("cartCount"); if (b) b.textContent = count; const mb = document.getElementById("mobileCartCount"); if (mb) mb.textContent = count; const labels = document.querySelectorAll("[data-mobile-cart-label]"); const lang = localStorage.getItem("product-lang") || "en"; labels.forEach(e => e.textContent = lang === "id" ? "Keranjang Belanja" : "Shopping Cart") }
-    function addToCart(btn) { const card = btn.closest(".product"), el = card?.querySelector("[data-product-name-en]"), en = el?.dataset.productNameEn || btn.dataset.product, id = el?.dataset.productNameId || en, item = cart.find(i => (i.nameEn || i.name) === en); if (item) { item.nameEn = en; item.nameId = id; item.qty++ } else cart.push({ nameEn: en, nameId: id, qty: 1 }); saveCart(); renderCart(); btn.classList.add("added"); const label = btn.querySelector("[data-cart-add-label]"); if (label) { const lang = localStorage.getItem("product-lang") || "en", old = label.textContent; label.textContent = lang === "id" ? "Ditambahkan" : "Added"; setTimeout(() => { label.textContent = t[lang].quote; btn.classList.remove("added") }, 900) } }
+    function updateCartCount() { const count = cart.reduce((n, i) => n + i.qty, 0); const b = document.getElementById("cartCount"); if (b) b.textContent = count; const mb = document.getElementById("mobileCartCount"); if (mb) mb.textContent = count; const labels = document.querySelectorAll("[data-mobile-cart-label]"); const lang = localStorage.getItem("product-lang") || "id"; labels.forEach(e => e.textContent = lang === "id" ? "Keranjang Belanja" : "Shopping Cart") }
+    function addToCart(btn) { const card = btn.closest(".product"), el = card?.querySelector("[data-product-name-en]"), en = el?.dataset.productNameEn || btn.dataset.product, id = el?.dataset.productNameId || en, item = cart.find(i => (i.nameEn || i.name) === en); if (item) { item.nameEn = en; item.nameId = id; item.qty++ } else cart.push({ nameEn: en, nameId: id, qty: 1 }); saveCart(); renderCart(); btn.classList.add("added"); const label = btn.querySelector("[data-cart-add-label]"); if (label) { const lang = localStorage.getItem("product-lang") || "id", old = label.textContent; label.textContent = lang === "id" ? "Ditambahkan" : "Added"; setTimeout(() => { label.textContent = t[lang].quote; btn.classList.remove("added") }, 900) } }
     function changeQty(i, a) { if (!cart[i]) return; cart[i].qty += a; if (cart[i].qty <= 0) cart.splice(i, 1); saveCart(); renderCart() }
     function removeFromCart(i) { cart.splice(i, 1); saveCart(); renderCart() }
     function escapeHtml(v) { return String(v).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&#039;") }
-    function renderCart() { const c = document.getElementById("cartItems"); if (!c) return; const lang = localStorage.getItem("product-lang") || "en"; if (!cart.length) { c.innerHTML = `<div class="cart-empty"><i class="bi bi-bag fs-2 d-block mb-2"></i>${lang === "id" ? "Keranjang masih kosong." : "Your cart is empty."}</div>`; return } c.innerHTML = cart.map((x, i) => { const name = lang === "id" ? (x.nameId || x.nameEn || x.name) : (x.nameEn || x.name); return `<div class="cart-item"><div><div class="cart-item-name">${escapeHtml(name)}</div><div class="cart-item-controls"><button class="qty-btn" type="button" onclick="changeQty(${i},-1)">−</button><span class="qty-number">${x.qty}</span><button class="qty-btn" type="button" onclick="changeQty(${i},1)">+</button></div></div><div><button class="cart-remove" type="button" onclick="removeFromCart(${i})"><i class="bi bi-trash3 me-1"></i>${lang === "id" ? "Hapus" : "Remove"}</button></div></div>` }).join("") }
+    function renderCart() { const c = document.getElementById("cartItems"); if (!c) return; const lang = localStorage.getItem("product-lang") || "id"; if (!cart.length) { c.innerHTML = `<div class="cart-empty"><i class="bi bi-bag fs-2 d-block mb-2"></i>${lang === "id" ? "Keranjang masih kosong." : "Your cart is empty."}</div>`; return } c.innerHTML = cart.map((x, i) => { const name = lang === "id" ? (x.nameId || x.nameEn || x.name) : (x.nameEn || x.name); return `<div class="cart-item"><div><div class="cart-item-name">${escapeHtml(name)}</div><div class="cart-item-controls"><button class="qty-btn" type="button" onclick="changeQty(${i},-1)">−</button><span class="qty-number">${x.qty}</span><button class="qty-btn" type="button" onclick="changeQty(${i},1)">+</button></div></div><div><button class="cart-remove" type="button" onclick="removeFromCart(${i})"><i class="bi bi-trash3 me-1"></i>${lang === "id" ? "Hapus" : "Remove"}</button></div></div>` }).join("") }
     function openCart() { renderCart(); bootstrap.Modal.getOrCreateInstance(document.getElementById("cartModal")).show() }
     function closeMobileNavAndOpenCart() {
       const sidebar = document.getElementById("mobileNav");
@@ -3784,7 +3784,7 @@
       if (!button) return;
       const products = getCategoryProducts(category);
       const visibleCount = products.filter(p => !p.hidden && !p.classList.contains("is-hidden")).length;
-      const lang = localStorage.getItem("product-lang") || "en";
+      const lang = localStorage.getItem("product-lang") || "id";
 
       if (visibleCount >= products.length) {
         button.classList.add("is-finished");
@@ -3826,7 +3826,7 @@
     }
 
     function checkoutWhatsApp() {
-      const lang = localStorage.getItem("product-lang") || "en";
+      const lang = localStorage.getItem("product-lang") || "id";
 
       if (!cart.length) {
         alert(lang === "id"
@@ -3893,12 +3893,17 @@
         catch (e) { return ''; }
       }
       function setActiveNav() {
-        const currentFile = location.pathname.split('/').pop() || 'fishmarket-home-updated.html';
+        const currentFile = location.pathname.split('/').pop() || 'product.html';
         const hash = location.hash;
 
         document.querySelectorAll('.navbar .nav-link, .mobile-menu>a, .sidebar-item, .sidebar-sub a, .mobile-product-sub a').forEach(el => {
           el.classList.remove('active');
           const href = el.getAttribute('href');
+
+          if (currentFile === 'product.html' && hash !== '#contact') {
+            document.querySelector('.navbar .dropdown-toggle[href="#product"]')
+              ?.classList.add('active');
+          }
           if (!href || href === '#') return;
 
           const sameFile = pathName(href) === currentFile;
