@@ -7072,7 +7072,13 @@
     display: none !important;
   }
 </style>
-\n</head>
+\n
+<style id="lacara-product-nav-stable">
+.navbar .navbar-nav > .nav-item > a[href="product.html"].active { background:#111 !important; color:#c89d20 !important; border-radius:6px; font-weight:700 !important; }
+.navbar .navbar-nav > .nav-item > a[href="product.html"].active::after { content:"" !important; display:block !important; position:absolute; left:.65rem; right:.65rem; bottom:.28rem; height:2px; background:#c89d20; transform:scaleX(1) !important; }
+.navbar .navbar-nav > .nav-item:has(> a[href="product.html"]) > .dropdown-menu {display:none !important;}
+</style>
+</head>
 
 <body>
   <nav class="navbar navbar-expand-lg sticky-top theme-light">
@@ -7091,7 +7097,7 @@
           <li class="nav-item">
             <a class="nav-link" href="index.html#about">About Us</a>
           </li>
-          <li class="nav-item"><a class="nav-link" href="product.html">Products</a></li>
+          <li class="nav-item"><a class="nav-link active lacara-current-page" href="product.html" aria-current="page">Products</a></li>
           <li class="nav-item">
             <a class="nav-link" href="#contact">Contact Us</a>
           </li>
@@ -8727,7 +8733,7 @@
     })();
   </script>
 
-  <script src="js/components/header.js"></script>
+  <!-- Static navbar is defined above; external header.js omitted to avoid replacing it with dropdown navigation. -->
 
   <!-- Accessible slideshow preview for Fried Shallots and Shallot Oil -->
   <dialog aria-labelledby="foodImagePreviewTitle" class="food-image-preview-dialog" id="foodImagePreview">
@@ -8899,49 +8905,53 @@
 </script>
 
 
-<script id="lacara-navbar-active-final-js">
-(() => {
-  function applyActiveNav() {
-    const path = (window.location.pathname || "/").replace(/\/+$/, "").toLowerCase();
-    const currentFile = path.split("/").pop() || "index.html";
-    const isProductPage = currentFile === "product.html" || /\/product(?:\/|$)/i.test(path);
 
-    const links = document.querySelectorAll(".navbar .navbar-nav .nav-link, .mobile-menu > a");
-    links.forEach(link => {
-      link.classList.remove("active", "lacara-current-page");
-      link.removeAttribute("aria-current");
-    });
+<script id="lacara-product-variant-clicks">
+document.addEventListener('click', function (event) {
+  const friedButton = event.target.closest('#bawang [data-variant]');
+  const oilButton = event.target.closest('#shallot-oil [data-oil-variant]');
+  const button = friedButton || oilButton;
+  if (!button) return;
 
-    links.forEach(link => {
-      const href = link.getAttribute("href") || "";
-      let target;
-      try { target = new URL(href, window.location.href); } catch (_) { return; }
-      const targetPath = target.pathname.replace(/\/+$/, "").toLowerCase();
-      const targetFile = targetPath.split("/").pop() || "index.html";
-      const matches = isProductPage
-        ? targetFile === "product.html"
-        : targetFile === currentFile || (currentFile === "index.html" && (href === "/" || targetFile === "index.html"));
+  const fried = Boolean(friedButton);
+  const section = fried ? document.getElementById('bawang') : document.getElementById('shallot-oil');
+  const panel = section && section.querySelector('[data-food-preview]');
+  const image = panel && panel.querySelector('img');
+  if (!panel || !image) return;
 
-      if (matches) {
-        link.classList.add("active", "lacara-current-page");
-        link.setAttribute("aria-current", "page");
-      }
-    });
-  }
+  const map = fried ? {
+    original: ['Fried Shallots — Original', 'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=1200&q=85'],
+    balado: ['Fried Shallots — Balado', 'https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?auto=format&fit=crop&w=1200&q=85'],
+    spicy: ['Fried Shallots — Spicy', 'https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=1200&q=85']
+  } : {
+    'fried-rice': ['Shallot Oil — Fried rice', 'https://images.unsplash.com/photo-1512058564366-18510be2db19?auto=format&fit=crop&w=1200&q=85'],
+    noodles: ['Shallot Oil — Noodles', 'https://images.unsplash.com/photo-1569718212165-3a8278d5f624?auto=format&fit=crop&w=1200&q=85'],
+    soups: ['Shallot Oil — Soups', 'https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=1200&q=85'],
+    'stir-fries': ['Shallot Oil — Stir-fries', 'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=1200&q=85'],
+    porridge: ['Shallot Oil — Porridge', 'https://images.unsplash.com/photo-1604908176997-125f25cc6f3d?auto=format&fit=crop&w=1200&q=85'],
+    meatballs: ['Shallot Oil — Meatballs', 'https://images.unsplash.com/photo-1529042410759-befb1204b468?auto=format&fit=crop&w=1200&q=85'],
+    broths: ['Shallot Oil — Broths', 'https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=1200&q=85'],
+    vegetables: ['Shallot Oil — Vegetables', 'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=1200&q=85'],
+    'meat-seafood': ['Shallot Oil — Meat & seafood', 'https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=1200&q=85']
+  };
+  const key = fried ? button.dataset.variant : button.dataset.oilVariant;
+  const item = map[key];
+  if (!item) return;
 
-  // header.js may inject or rebuild the navbar after this script runs.
-  if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", applyActiveNav);
-  } else {
-    applyActiveNav();
-  }
+  image.src = item[1];
+  image.alt = item[0] + ' (temporary Unsplash image)';
+  panel.dataset.previewTitle = item[0];
+  panel.setAttribute('aria-label', 'Preview image: ' + item[0]);
 
-  const observer = new MutationObserver(() => applyActiveNav());
-  observer.observe(document.documentElement, { childList: true, subtree: true });
-  window.addEventListener("pageshow", applyActiveNav);
-  window.addEventListener("popstate", applyActiveNav);
-})();
+  const selector = button.closest('ul');
+  if (selector) selector.querySelectorAll('button').forEach(function (b) {
+    const active = b === button;
+    b.classList.toggle('is-active', active);
+    b.setAttribute('aria-pressed', String(active));
+  });
+});
 </script>
+
 </body>
 
 </html>
