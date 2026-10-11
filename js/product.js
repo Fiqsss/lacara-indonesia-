@@ -38,8 +38,6 @@ const t = {
     grouper:
       "Firm, moist white flesh with delicate flavor. Available as hand-trimmed fillet.",
 
-    quote: "Add to Cart",
-
     ctaey: "Ready to Order?",
     ctatitle: "Let's Build Your Supply.",
     ctadesc:
@@ -52,7 +50,7 @@ const t = {
     title: "Produk Premium<br>Dari Indonesia",
     desc:
       "Bersumber secara bertanggung jawab, diproses secara profesional, dan disiapkan untuk pasar internasional.",
-    label: "Katalog Produk",
+    label: "Product Catalog",
     heading: "Produk Terbaik Kami",
 
     onionLabel: "Bawang",
@@ -86,8 +84,6 @@ const t = {
 
     grouper:
       "Daging putih yang lembut dan firm dengan rasa delicat. Tersedia dalam bentuk fillet.",
-
-    quote: "Tambah ke Keranjang",
 
     ctaey: "Siap Memesan?",
     ctatitle: "Mari Bangun Pasokan Anda.",
@@ -149,7 +145,6 @@ function setLanguage(l) { setLang(l); }
 
 function setLang(l) {
     document.querySelectorAll("[data-k]").forEach(e => e.innerHTML = t[l][e.dataset.k]);
-    document.querySelectorAll("[data-cart-add-label]").forEach(e => e.innerText = t[l].quote);
     document.querySelectorAll(".lang-switch button").forEach(btn => {
         btn.classList.toggle("active", btn.id.endsWith(l.toUpperCase()));
     });
@@ -158,25 +153,9 @@ function setLang(l) {
         updateLoadMoreButton(button.dataset.category, button);
     });
 
-    const nameLabel = document.querySelector('label[for="customerName"]');
-    const noteLabel = document.querySelector('label[for="customerNote"]');
-    const nameInput = document.getElementById("customerName");
-    const noteInput = document.getElementById("customerNote");
-
-    if (nameLabel) nameLabel.innerText = l === "id" ? "Nama / Perusahaan" : "Name / Company";
-    if (noteLabel) noteLabel.innerText = l === "id" ? "Catatan" : "Notes";
-    if (nameInput) nameInput.placeholder = l === "id" ? "Nama atau perusahaan Anda" : "Your name or company";
-    if (noteInput) noteInput.placeholder = l === "id"
-        ? "Spesifikasi, tujuan pengiriman, dll."
-        : "Specification, destination, etc.";
-
-
     document.querySelectorAll("[data-product-name-en]").forEach(e => { e.innerText = l === "id" ? e.dataset.productNameId : e.dataset.productNameEn; });
     document.querySelectorAll("[data-product-desc-en]").forEach(e => { e.innerText = l === "id" ? e.dataset.productDescId : e.dataset.productDescEn; e.dataset.expanded = "false"; });
     renderProductDescriptions();
-    document.querySelectorAll("[data-cart-nav-label]").forEach(e => e.textContent = l === "id" ? "Keranjang" : "Cart");
-    updateCartCount();
-    renderCart();
 }
 function filterProducts(cat, b) { document.querySelectorAll(".filter button").forEach(x => x.classList.remove("active")); b.classList.add("active"); document.querySelectorAll(".product-item").forEach(x => x.style.display = cat === "all" || x.classList.contains(cat) ? "" : "none") }
 setLang(localStorage.getItem("product-lang") || "en");

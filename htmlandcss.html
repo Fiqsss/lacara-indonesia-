@@ -1,7 +1,7 @@
   <nav class="navbar navbar-expand-lg sticky-top">
     <div class="container py-2">
-      <a class="navbar-brand brand logo-brand" href="/" aria-label="LACARA INDONESIA"><img src="img/logo 2.png"
-          alt="LACARA INDONESIA logo" /></a>
+      <a class="navbar-brand brand logo-brand" href="/" aria-label="LACARA INDONESIA"><img src="img/logo/logo.png"
+          alt="LACARA Indonesia" /></a>
       <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="offcanvas"
         data-bs-target="#mobileNav" aria-controls="mobileNav" aria-expanded="false" aria-label="Open menu">
         <i class="bi bi-list fs-2"></i>
@@ -18,7 +18,7 @@
 
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#products" role="button" data-bs-toggle="dropdown"
-              aria-expanded="false" data-i18n="nav_products">Product</a>
+              aria-expanded="false" data-i18n="nav_products">Products</a>
             <ul class="dropdown-menu dropdown-menu-end border-0 shadow-sm">
               <li>
                 <a class="dropdown-item" href="product.html" data-i18n="nav_onion">Bawang</a>
@@ -29,16 +29,16 @@
             </ul>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/#contact" data-i18n="nav_contact">Contact</a>
+            <a class="nav-link" href="/#contact" data-i18n="nav_contact">Contact Us</a>
           </li>
           <!-- <li class="nav-item">
             <a class="nav-link" href="#gallery" data-i18n="nav_gallery">Gallery</a>
           </li> -->
           <li class="nav-item ms-lg-2 mt-2 mt-lg-0">
-            <button type="button" class="cart-btn" onclick="openCart()" aria-label="Open shopping cart">
-              <i class="bi bi-bag"></i> <span class="cart-label">Cart</span> <span class="cart-count"
-                id="cartCount">0</span>
-            </button>
+            <a class="quote-btn" href="product.html#seafood">
+              <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M6 3h8l4 4v14H6z"/><path d="M14 3v5h5M9 13h6m-6 4h6"/></svg>
+              Request a Quotation
+            </a>
           </li>
           <li class="nav-item ms-lg-2 mt-2 mt-lg-0">
             <div class="mobile-bottom">
@@ -56,13 +56,12 @@
       </div>
     </div>
   </nav>
-
   <!-- Mobile Navigation -->
   <div class="offcanvas offcanvas-end mobile-nav" tabindex="-1" id="mobileNav" aria-labelledby="mobileNavLabel"
     aria-hidden="true">
     <div class="offcanvas-header">
       <div class="brand logo-brand mobile-logo-brand" id="mobileNavLabel">
-        <img src="img/logo 2.png" alt="LACARA INDONESIA logo" />
+        <img src="img/logo/logo.png" alt="LACARA Indonesia" />
       </div>
       <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
     </div>
@@ -73,21 +72,19 @@
 
         <button class="mobile-product-toggle active" type="button" onclick="toggleMobileProducts()"
           aria-expanded="false">
-          <span data-i18n="nav_products">Product</span>
+          <span data-i18n="nav_products">Products</span>
           <i class="bi bi-chevron-down" id="mobileProductChevron"></i>
         </button>
         <div class="mobile-product-sub" id="mobileProductSub">
           <a href="product.html" data-i18n="nav_onion">Bawang</a>
           <a href="product.html#fishes" data-i18n="nav_fishes">Fishes</a>
         </div>
-        <a href="/#contact" data-i18n="nav_contact">Contact</a>
+        <a href="/#contact" data-i18n="nav_contact">Contact Us</a>
         <!-- <a href="#gallery" data-i18n="nav_gallery">Gallery</a> -->
-        <button type="button" class="mobile-cart-btn"
-          onclick="openCart(); bootstrap.Offcanvas.getOrCreateInstance(document.getElementById('mobileNav')).hide();"
-          aria-label="Open shopping cart">
-          <span><i class="bi bi-bag me-2"></i><span data-mobile-cart-label>Shopping Cart</span></span>
-          <span class="mobile-cart-count" id="mobileCartCount">0</span>
-        </button>
+        <a class="mobile-quote-btn" href="product.html#seafood">
+          <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M6 3h8l4 4v14H6z"/><path d="M14 3v5h5M9 13h6m-6 4h6"/></svg>
+          Request a Quotation
+        </a>
       </div>
       <div class="mobile-bottom">
         <div class="lang-switch mb-3">
