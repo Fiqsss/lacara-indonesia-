@@ -1213,6 +1213,11 @@
     }
 
 
+    /* Lightbox semantic tokens (kept in this HTML file) */
+    :root {
+      --lightbox-control-bg-outside: rgba(255, 255, 255, 0.14);
+    }
+
     /* =========================================================
    08. PRODUCT PREVIEW MODAL
    ========================================================= */
@@ -5089,8 +5094,8 @@
   .hero-shell > .seafood-intro-copy,
   .hero-shell > .hero-actions,
   .hero-shell > .seafood-actions {
-    width: min(100%, 640px);
-    max-width: 640px;
+    width: min(100%, 800px);
+    max-width: 800px;
     margin-left: 0;
     text-align: left;
   }
@@ -5124,7 +5129,7 @@
 
   .hero-shell > .food-hero-intro,
   .hero-shell > .seafood-intro-copy {
-    max-width: 640px;
+    max-width: 800px;
     margin: 0;
     color: var(--text-on-photo);
     font-size: 17px;
@@ -5623,10 +5628,6 @@
         height: 88dvh;
         max-height: 88dvh;
       }
-    }
-
-    .seafood-filter-wrap {
-      /* position: sticky; */
     }
   }
 
@@ -7043,41 +7044,339 @@
 
 
 
-<style id="lacara-navbar-active-final-css">
-  /* Match the existing Home active pill styling exactly */
-  .navbar .navbar-nav .nav-link.lacara-current-page {
-    background: #111 !important;
-    color: #c89d20 !important;
-    border-radius: 6px !important;
-    font-weight: 700 !important;
+\n
+<style id="lacara-shallot-local-images-ratio">
+  #bawang .food-product-image,
+  #shallot-oil .food-product-image {
+    width: 100% !important;
+    height: auto !important;
+    min-height: 0 !important;
+    aspect-ratio: 4 / 5 !important;
+    overflow: hidden !important;
+    padding: 0 !important;
+  }
+  #bawang .food-product-image > img,
+  #shallot-oil .food-product-image > img {
+    position: absolute !important;
+    inset: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    max-height: none !important;
+    min-height: 100% !important;
+    object-fit: cover !important;
+    object-position: center !important;
+  }
+</style>
+
+<style id="lacara-clean-food-preview">
+  #foodImagePreview.food-image-preview-dialog {
+    position: fixed; inset: 0; width: 100%; height: 100%; max-width: none; max-height: none;
+    margin: 0; padding: 16px; border: 0; border-radius: 0; overflow: hidden;
+    display: none; flex-direction: column; align-items: center; justify-content: center; gap: 0;
+    color: var(--white); background: var(--lightbox-bg); box-shadow: none; box-sizing: border-box;
+    z-index: 2147483000; overscroll-behavior: contain;
+  }
+  #foodImagePreview.food-image-preview-dialog[open] { display: flex; animation: lightboxFadeIn 200ms ease both; }
+  #foodImagePreview.food-image-preview-dialog::backdrop { background: transparent; backdrop-filter: blur(6px); }
+  #foodImagePreview .food-image-preview-head { display: none !important; }
+  #foodImagePreview .food-slideshow-stage {
+    position: relative; display: inline-flex; align-items: center; justify-content: center;
+    width: fit-content; max-width: 100%; min-width: 0; min-height: 0; height: auto;
+    max-height: 78vh; max-height: 78dvh; padding: 0; margin: 0; overflow: visible;
+    background: transparent; touch-action: pan-y; flex: 0 1 auto;
+  }
+  #foodImagePreview .food-image-preview-content {
+    position: relative; display: flex; align-items: center; justify-content: center;
+    width: auto; max-width: min(100%, 1100px); min-width: 0; min-height: 0; height: auto;
+    max-height: 78vh; max-height: 78dvh; flex: 0 1 auto;
+  }
+  #foodImagePreview .food-image-preview-content img,
+  #foodImagePreview .food-image-preview-content svg {
+    display: block; width: auto; height: auto; max-width: min(100%, 1100px);
+    max-height: 78vh; max-height: 78dvh; object-fit: contain; border: 0; border-radius: 12px;
+    background: transparent; opacity: 1; transition: opacity 150ms ease;
+  }
+  #foodImagePreview .food-image-preview-content img.is-loading { opacity: 0; }
+  #foodImagePreview .food-lightbox-placeholder {
+    width: min(72vw, 440px); aspect-ratio: 4 / 5; max-height: 78dvh; border-radius: 12px;
+    background: var(--lightbox-control-bg); animation: lightboxPlaceholderPulse 1.1s ease-in-out infinite alternate;
+  }
+  #foodImagePreview .food-lightbox-close,
+  #foodImagePreview .food-slideshow-control {
+    position: fixed; z-index: 4; display: grid; place-items: center; padding: 0;
+    border: 1px solid var(--lightbox-control-border); border-radius: 50%; color: var(--white);
+    background: var(--lightbox-control-bg); backdrop-filter: blur(4px); box-shadow: none; cursor: pointer;
+    transition: background 160ms ease, opacity 160ms ease;
+  }
+  #foodImagePreview .food-lightbox-close { top: 16px; right: 16px; width: 44px; height: 44px; }
+  #foodImagePreview .food-lightbox-close svg { width: 20px; height: 20px; }
+  #foodImagePreview .food-slideshow-control { position: absolute; top: 50%; width: 40px; height: 40px; transform: translateY(-50%); }
+  #foodImagePreview .food-slideshow-prev { left: 8px; }
+  #foodImagePreview .food-slideshow-next { right: 8px; }
+  #foodImagePreview .food-lightbox-close:hover,
+  #foodImagePreview .food-slideshow-control:hover { background: var(--lightbox-control-hover-bg); }
+  #foodImagePreview .food-slideshow-control:active { background: var(--lightbox-control-hover-bg); }
+  #foodImagePreview .food-slideshow-control svg { width: 20px; height: 20px; }
+  #foodImagePreview .food-slideshow-footer {
+    display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px;
+    width: min(100%, 1100px); min-width: 0; padding: 0; margin: 16px 0 0; border: 0;
+    color: var(--white); background: transparent; font: 400 15px/1.4 Manrope, sans-serif; text-align: center;
+  }
+  #foodImagePreview .food-lightbox-caption-row { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: center; gap: 8px 12px; max-width: 100%; overflow-wrap: anywhere; }
+  #foodImagePreview #foodImagePreviewCaption { margin: 0; color: var(--white); font: inherit; }
+  #foodImagePreview #foodPreviewCounter { color: var(--lightbox-caption-muted); font: inherit; }
+  #foodImagePreview .food-slideshow-dots { display: flex; align-items: center; justify-content: center; gap: 4px; }
+  #foodImagePreview .food-slideshow-dots button { display: grid; place-items: center; width: 24px; height: 24px; flex: 0 0 24px; padding: 0; border: 0; border-radius: 50%; background: transparent; cursor: pointer; }
+  #foodImagePreview .food-slideshow-dots button::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--white); opacity: .35; }
+  #foodImagePreview .food-slideshow-dots button[aria-current="true"]::before { background: var(--gold); opacity: 1; }
+  @keyframes lightboxFadeIn { from { opacity: 0; transform: scale(.98); } to { opacity: 1; transform: scale(1); } }
+  @keyframes lightboxPlaceholderPulse { from { opacity: .55; } to { opacity: 1; } }
+  @media (min-width: 768px) {
+    #foodImagePreview.food-image-preview-dialog { padding: 32px; }
+    #foodImagePreview .food-slideshow-stage {
+      display: flex; flex-direction: row; align-items: center; justify-content: center; gap: 20px;
+      width: 100%; max-width: 1280px; min-width: 0; height: auto; max-height: none; flex: 0 1 auto;
+    }
+    #foodImagePreview .food-slideshow-control {
+      position: static; top: auto; left: auto; right: auto; transform: none;
+      width: 48px; height: 48px; flex: 0 0 48px; background: var(--lightbox-control-bg-outside);
+      backdrop-filter: none; border: 0;
+    }
+    #foodImagePreview .food-slideshow-control svg { width: 22px; height: 22px; }
+    #foodImagePreview .food-image-preview-content {
+      flex: 0 1 auto; min-width: 0; max-width: calc(100% - 136px); width: auto;
+    }
+    #foodImagePreview .food-image-preview-content img,
+    #foodImagePreview .food-image-preview-content svg { max-width: 100%; }
+    #foodImagePreview .food-slideshow-footer { width: calc(100% - 136px); max-width: 1100px; }
+  }
+  @media (max-width: 767px) {
+    #foodImagePreview .food-slideshow-stage { max-width: calc(100vw - 32px); }
+    #foodImagePreview .food-image-preview-content { max-width: calc(100vw - 32px); }
+    #foodImagePreview .food-image-preview-content img,
+    #foodImagePreview .food-image-preview-content svg { max-width: calc(100vw - 32px); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    #foodImagePreview.food-image-preview-dialog[open], #foodImagePreview .food-lightbox-placeholder { animation: none; }
+    #foodImagePreview .food-image-preview-content img { transition: none; }
+  }
+</style>
+
+
+<style id="lacara-no-readmore-full-description">
+  #bawang .food-expandable-copy,
+  #shallot-oil .food-expandable-copy,
+  #bawang .food-expandable-copy.is-expanded,
+  #shallot-oil .food-expandable-copy.is-expanded {
+    display: block !important;
+    height: auto !important;
+    max-height: none !important;
+    overflow: visible !important;
+    -webkit-line-clamp: unset !important;
+    line-clamp: unset !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
+</style>
+
+
+<style id="lacara-product-descriptions-force-full-visible">
+  /* Keep every paragraph visible for both product descriptions. */
+  #bawang #fried-shallots-description,
+  #shallot-oil #shallot-oil-description,
+  #bawang #fried-shallots-description .food-expandable-copy,
+  #shallot-oil #shallot-oil-description .food-expandable-copy,
+  #bawang #fried-shallots-description .food-expandable-copy p,
+  #shallot-oil #shallot-oil-description .food-expandable-copy p {
+    display: block !important;
+    height: auto !important;
+    max-height: none !important;
+    overflow: visible !important;
+    -webkit-line-clamp: unset !important;
+    line-clamp: unset !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    clip: auto !important;
+    -webkit-mask-image: none !important;
+    mask-image: none !important;
+  }
+  #bawang #fried-shallots-description .food-expandable-copy,
+  #shallot-oil #shallot-oil-description .food-expandable-copy {
+    margin-top: 0 !important;
+  }
+  #bawang .food-product-copy > h2,
+  #shallot-oil .food-product-copy > h2 {
+    margin-bottom: 2px !important;
+  }
+  #bawang .food-product-copy > .accent-line,
+  #shallot-oil .food-product-copy > .accent-line {
+    margin-top: 0 !important;
+    margin-bottom: 4px !important;
+  }
+</style>
+
+<style id="navbar-active-state-single-source">
+  .navbar .nav-link[aria-current="page"],
+  .mobile-menu > a[aria-current="page"] {
+    background: var(--black) !important;
+    color: var(--gold) !important;
+    border-radius: 6px;
+    font-weight: 700;
+    position: relative;
+    outline: none;
+  }
+  .navbar .nav-link::after {
+    content: ""; position: absolute; left: .65rem; right: .65rem; bottom: .28rem;
+    height: 2px; border-radius: 999px; background: var(--gold);
+    transform: scaleX(0); transform-origin: center;
+  }
+  .navbar .nav-link[aria-current="page"]::after { transform: scaleX(1); }
+  .navbar .nav-link:not([aria-current="page"]):hover::after { transform: scaleX(1); }
+  .navbar .nav-link:focus-visible, .mobile-menu > a:focus-visible {
+    outline: 2px solid var(--focus) !important; outline-offset: 3px;
+  }
+  .navbar .nav-link:focus:not(:focus-visible), .mobile-menu > a:focus:not(:focus-visible) { outline: none; }
+  @media (prefers-reduced-motion: no-preference) { .navbar .nav-link::after { transition: transform .18s ease; } }
+</style>
+<style id="navbar-scrollspy-final-style">
+  html { scroll-behavior: smooth; }
+  #home, #about, #products, #contact, #bawang, #shallot-oil, #seafood {
+    scroll-margin-top: calc(var(--header-height, 80px) + 8px);
+  }
+  .navbar .navbar-nav > .nav-item > .nav-link,
+  .mobile-menu > a {
     position: relative;
   }
-  .navbar .navbar-nav .nav-link.lacara-current-page::after {
+  .navbar .navbar-nav > .nav-item > .nav-link::after {
     content: "";
     position: absolute;
     left: .65rem;
     right: .65rem;
     bottom: .28rem;
     height: 2px;
-    border-radius: 99px;
-    background: #c89d20;
-    transform: scaleX(1) !important;
+    border-radius: 999px;
+    background: var(--gold);
+    transform: scaleX(0);
+    transform-origin: center;
   }
+  .navbar .navbar-nav > .nav-item > .nav-link[aria-current="page"],
+  .mobile-menu > a[aria-current="page"] {
+    background: var(--black) !important;
+    color: var(--gold) !important;
+    border-radius: 6px;
+    font-weight: 700;
+  }
+  .navbar .navbar-nav > .nav-item > .nav-link[aria-current="page"]::after {
+    transform: scaleX(1);
+  }
+  .navbar .navbar-nav > .nav-item > .nav-link:not([aria-current="page"]):hover::after {
+    transform: scaleX(1);
+  }
+  .navbar .nav-link:focus-visible, .mobile-menu > a:focus-visible {
+    outline: 2px solid var(--focus);
+    outline-offset: 3px;
+  }
+  .navbar .nav-link:focus:not(:focus-visible), .mobile-menu > a:focus:not(:focus-visible) {
+    outline: none;
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    .navbar .navbar-nav > .nav-item > .nav-link:not([aria-current="page"]):hover::after { transition: transform .18s ease; }
+  }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
 </style>
 
 
-<style id="lacara-products-no-dropdown">
-  .navbar .navbar-nav > .nav-item > .nav-link[href="product.html"]::after {
-    content: none !important;
-    display: none !important;
+<style id="site-cta-send-icon-style">
+  .site-cta .site-cta-button { color: #fff !important; display: inline-flex; align-items: center; justify-content: center; gap: 10px; }
+  .site-cta .site-cta-button, .site-cta .site-cta-button span { color: #fff !important; }
+  .site-cta .site-cta-send-icon { width: 18px; height: 18px; flex: 0 0 18px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+  .site-cta .site-cta-button:hover { color: #fff !important; }
+</style>
+
+<style id="site-cta-parallax-background">
+  /* CTA background: local project asset with a subtle scroll-parallax effect */
+  #cta.site-cta {
+    position: relative !important;
+    isolation: isolate;
+    overflow: hidden;
+    background: transparent !important;
+  }
+  #cta.site-cta::before {
+    content: "";
+    position: absolute;
+    inset: -24% 0;
+    z-index: 0;
+    pointer-events: none;
+    background-image:
+      linear-gradient(90deg, rgba(10, 10, 10, .72) 0%, rgba(10, 10, 10, .48) 52%, rgba(10, 10, 10, .36) 100%),
+      url("img/assets/chase-baker-yvb8NrIhIFI-unsplash.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    transform: translate3d(0, var(--cta-parallax-offset, 0px), 0) scale(1.12);
+    transform-origin: center;
+    will-change: transform;
+  }
+  #cta.site-cta > .site-cta-inner {
+    position: relative;
+    z-index: 1;
+  }
+  @media (max-width: 767.98px) {
+    #cta.site-cta::before {
+      background-position: center center;
+      transform: translate3d(0, var(--cta-parallax-offset, 0px), 0) scale(1.16);
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    #cta.site-cta::before {
+      transform: scale(1.08);
+      will-change: auto;
+    }
   }
 </style>
-\n
-<style id="lacara-product-nav-stable">
-.navbar .navbar-nav > .nav-item > a[href="product.html"].active { background:#111 !important; color:#c89d20 !important; border-radius:6px; font-weight:700 !important; }
-.navbar .navbar-nav > .nav-item > a[href="product.html"].active::after { content:"" !important; display:block !important; position:absolute; left:.65rem; right:.65rem; bottom:.28rem; height:2px; background:#c89d20; transform:scaleX(1) !important; }
-.navbar .navbar-nav > .nav-item:has(> a[href="product.html"]) > .dropdown-menu {display:none !important;}
-</style>
+<script id="site-cta-parallax-controller">
+  (() => {
+    const initCtaParallax = () => {
+      const section = document.getElementById('cta');
+      if (!section) return;
+
+      const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+      let ticking = false;
+
+      const updateParallax = () => {
+        ticking = false;
+        if (reducedMotion.matches) {
+          section.style.setProperty('--cta-parallax-offset', '0px');
+          return;
+        }
+
+        const rect = section.getBoundingClientRect();
+        // Move the oversized background continuously as the section moves through the viewport.
+        // Unlike the previous script, this is initialized after the CTA exists in the DOM.
+        const offset = Math.max(-150, Math.min(150, -rect.top * 0.28));
+        section.style.setProperty('--cta-parallax-offset', `${offset.toFixed(1)}px`);
+      };
+
+      const requestUpdate = () => {
+        if (ticking) return;
+        ticking = true;
+        window.requestAnimationFrame(updateParallax);
+      };
+
+      window.addEventListener('scroll', requestUpdate, { passive: true });
+      window.addEventListener('resize', requestUpdate, { passive: true });
+      reducedMotion.addEventListener?.('change', requestUpdate);
+      updateParallax();
+    };
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initCtaParallax, { once: true });
+    } else {
+      initCtaParallax();
+    }
+  })();
+</script>
+
 </head>
 
 <body>
@@ -7095,9 +7394,9 @@
             <a class="nav-link" href="index.html">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="index.html#about">About Us</a>
+            <a class="nav-link" href="#about">About Us</a>
           </li>
-          <li class="nav-item"><a class="nav-link active lacara-current-page" href="product.html" aria-current="page">Products</a></li>
+          <li class="nav-item"><a class="nav-link" href="#products">Products</a></li>
           <li class="nav-item">
             <a class="nav-link" href="#contact">Contact Us</a>
           </li>
@@ -7116,34 +7415,34 @@
     </div>
     <div class="offcanvas-body">
       <div class="mobile-menu">
-        <a href="index.html">Home</a>
-        <a href="index.html#about">About Us</a>
-        <a class="mobile-products-link" href="product.html">Products</a>
+        <a href="#home">Home</a>
+        <a href="#about">About Us</a>
+        <a class="mobile-products-link" href="#products">Products</a>
         <a href="#contact">Contact Us</a>
         <!-- <a href="#gallery">Gallery</a> -->
       </div>
     </div>
   </div>
   <div aria-hidden="true" class="mobile-nav-backdrop theme-light" id="mobileNavBackdrop"></div>
-  <header class="hero theme-dark">
+  <header class="hero theme-dark" id="home">
     <div class="container hero-shell">
       <div class="eyebrow hero-eyebrow">FOOD PRODUCTS &amp; CONDIMENTS</div>
       <h1 class="hero-title">Practical Shallot Based Products</h1>
       <span aria-hidden="true" class="accent-line hero-accent-line"></span>
-      <p class="food-hero-intro">We offer a selection of convenient food products made from Indonesian shallots, including Fried Shallots and Shallot Oil. Both products are developed as practical and aromatic condiments suitable for household use, retail, food service, and wholesale markets.</p>
+      <p class="food-hero-intro" id="about">We offer a selection of convenient food products made from Indonesian shallots, including Fried Shallots and Shallot Oil. Both products are developed as practical and aromatic condiments suitable for household use, retail, food service, and wholesale markets.</p>
       <div class="food-actions hero-actions">
         <button class="food-button btn-primary" onclick="openQuoteModal()" type="button">Request Quote</button>
         <a class="food-button hero-secondary-action" href="#fried-shallots-specifications">View Specifications</a>
       </div>
     </div>
   </header>
-  <main class="food-catalog">
+  <main class="food-catalog" id="products">
     <div class="food-page-container">
       <section aria-labelledby="fried-shallots-title" class="food-product-section theme-light section" id="bawang">
         <div class="food-product-layout">
           <!-- TODO: Replace this placeholder with an approved LACARA Fried Shallots product photo. -->
           <div aria-label="Preview Fried Shallots image" class="food-product-image is-previewable" data-food-preview data-preview-title="Fried Shallots — Original" role="button" tabindex="0">
-            <img class="food-product-illustration food-variant-image" src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&amp;fit=crop&amp;w=1200&amp;q=85" alt="Temporary Unsplash food photo for LACARA Fried Shallots, Original variant" loading="lazy">
+            <img class="food-product-illustration food-variant-image" src="img/Shallots/FriedShallots/FriedShallotsOriginal.PNG" alt="LACARA Fried Shallots — Original" loading="lazy">
             <span class="food-image-preview-hint"><i aria-hidden="true" class="bi bi-zoom-in"></i><span>Click to preview</span></span>
           </div>
           <div class="food-product-copy">
@@ -7152,13 +7451,10 @@
             <span aria-hidden="true" class="accent-line"></span>
             <div class="product-desc" id="fried-shallots-description">
               <p class="food-first-paragraph">LACARA Fried Shallots are made from carefully selected Indonesian shallots, processed to achieve a crispy texture, rich aroma, savory taste, and a light, non-greasy finish. They are ideal as a topping for a wide range of dishes or can be enjoyed as a savory snack.</p>
-              <div class="food-expandable-copy">
+              <div class="food-expandable-copy food-copy-always-visible">
                 <p>To meet different consumer preferences, LACARA offers several flavor variants, including Original, Balado, and Spicy. The product is packed in an aluminium foil zipper pouch to help preserve its aroma and crispness during storage.</p>
               </div>
             </div>
-            <button aria-controls="fried-shallots-description" aria-expanded="false" class="food-read-more" type="button">
-              Read more <i aria-hidden="true" class="bi bi-chevron-down"></i>
-            </button>
             <ul aria-label="Choose Fried Shallots flavor variant" class="food-chip-list food-variant-selector">
               <li><button aria-pressed="true" class="chip is-active" data-variant="original" type="button">Original</button></li>
               <li><button aria-pressed="false" class="chip" data-variant="balado" type="button">Balado</button></li>
@@ -7179,7 +7475,7 @@
         <div class="food-product-layout is-reversed">
           <!-- TODO: Replace this placeholder with an approved LACARA Shallot Oil product photo. -->
           <div aria-label="Preview Shallot Oil image" class="food-product-image is-previewable" data-food-preview data-preview-title="Shallot Oil — Fried rice" role="button" tabindex="0">
-            <img class="food-product-illustration food-oil-variant-image" src="https://images.unsplash.com/photo-1512058564366-18510be2db19?auto=format&amp;fit=crop&amp;w=1200&amp;q=85" alt="Temporary Unsplash image representing shallot oil served with fried rice" loading="lazy">
+            <img class="food-product-illustration food-oil-variant-image" src="img/Shallots/ShallotOil/ShallotOil1.PNG" alt="LACARA Shallot Oil — Fried rice" loading="lazy">
             <span class="food-image-preview-hint"><i aria-hidden="true" class="bi bi-zoom-in"></i><span>Click to preview</span></span>
           </div>
 <div class="food-product-copy">
@@ -7188,25 +7484,12 @@
             <span aria-hidden="true" class="accent-line"></span>
             <div class="product-desc" id="shallot-oil-description">
               <p class="food-first-paragraph">LACARA Shallot Oil is made from carefully selected real shallots to deliver a distinctive savory aroma and enhance the flavor of various dishes. Conveniently packaged for everyday household use, it provides a practical way to add richer flavor and aroma without the need to prepare fresh shallots from scratch.</p>
-              <div class="food-expandable-copy">
+              <div class="food-expandable-copy food-copy-always-visible">
                 <p>Shallot oil can be used as a flavor enhancer, seasoning oil, finishing oil, or condiment for a wide range of dishes. It is suitable for fried rice, noodles, soups, stir-fries, porridge, meatballs, broths, vegetables, as well as meat and seafood dishes.</p>
                 <p>In addition to its convenience, shallot oil helps simplify food preparation while adding a deeper and more aromatic character to everyday cooking.</p>
               </div>
             </div>
-            <button aria-controls="shallot-oil-description" aria-expanded="false" class="food-read-more" type="button">
-              Read more <i aria-hidden="true" class="bi bi-chevron-down"></i>
-            </button>
-            <ul aria-label="Choose a Shallot Oil use" class="food-chip-list oil-variant-selector">
-              <li><button aria-pressed="true" class="chip is-active" data-oil-variant="fried-rice" type="button">Fried rice</button></li>
-              <li><button aria-pressed="false" class="chip" data-oil-variant="noodles" type="button">Noodles</button></li>
-              <li><button aria-pressed="false" class="chip" data-oil-variant="soups" type="button">Soups</button></li>
-              <li><button aria-pressed="false" class="chip" data-oil-variant="stir-fries" type="button">Stir-fries</button></li>
-              <li><button aria-pressed="false" class="chip" data-oil-variant="porridge" type="button">Porridge</button></li>
-              <li><button aria-pressed="false" class="chip" data-oil-variant="meatballs" type="button">Meatballs</button></li>
-              <li><button aria-pressed="false" class="chip" data-oil-variant="broths" type="button">Broths</button></li>
-              <li><button aria-pressed="false" class="chip" data-oil-variant="vegetables" type="button">Vegetables</button></li>
-              <li><button aria-pressed="false" class="chip" data-oil-variant="meat-seafood" type="button">Meat &amp; seafood</button></li>
-            </ul>
+            
             <div class="food-actions food-product-ctas">
               <button class="food-button btn-primary add-to-quote-button" data-product-id="shallot-oil" data-product-name="LACARA Shallot Oil" data-product-scientific-name="Allium cepa L." type="button">Request Quote</button>
               <a aria-label="Inquire about LACARA Shallot Oil on WhatsApp" class="food-button food-button-secondary btn-secondary" data-whatsapp-message="Hello, I would like to request a quotation for LACARA Shallot Oil." data-whatsapp-link href="#"><i aria-hidden="true" class="bi bi-whatsapp"></i><span>Inquire via WhatsApp</span></a>
@@ -7351,12 +7634,12 @@
         </fieldset>
       </div>
       <div class="quote-confirmation" hidden id="quoteConfirmation">
-        <h3>Your inquiry is ready.</h3>
-        <p>Please complete sending in WhatsApp/Email.</p>
+        <h3 id="quoteConfirmationTitle">Inquiry prepared successfully.</h3>
+        <p id="quoteConfirmationMessage">Your quotation list has been cleared. Please make sure the message was sent in WhatsApp/Email.</p>
         <div class="quote-confirmation-actions">
-          <a href="#" hidden id="quoteManualWhatsApp" rel="noopener" target="_blank">Open WhatsApp manually</a>
-          <a href="#" hidden id="quoteManualEmail">Open in default email app</a>
-          <button id="quoteClearList" type="button">Clear list</button>
+          <a href="#" hidden id="quoteManualWhatsApp" rel="noopener" target="_blank">Reopen WhatsApp message</a>
+          <a href="#" hidden id="quoteManualEmail">Reopen email draft</a>
+          <button id="quoteClearList" type="button" hidden>Clear list</button>
           <button id="quoteConfirmationClose" type="button">Close</button>
         </div>
       </div>
@@ -7381,8 +7664,7 @@
     <div class="site-cta-inner">
       <h2 class="site-cta-title" id="wholesale-cta-title">Let's Bring the Best of Indonesia to Your Business</h2>
       <div class="site-cta-actions">
-        <a class="site-cta-button" data-whatsapp-message="Hello, I would like to ask about your products." data-whatsapp-link href="#" target="_blank" rel="noopener noreferrer">Get in Touch</a>
-        <a class="site-cta-button site-cta-button--secondary" data-whatsapp-message="Hello, I would like to ask about your products." data-whatsapp-link href="#" target="_blank" rel="noopener noreferrer">Send an Inquiry <i aria-hidden="true" class="bi bi-send"></i></a>
+        <a class="site-cta-button" data-whatsapp-message="Hello, I would like to get in touch and send an inquiry about LACARA products." data-whatsapp-link href="#" target="_blank" rel="noopener noreferrer"><span>Get in Touch <span aria-hidden="true">|</span> Send an Inquiry</span><svg class="site-cta-send-icon" aria-hidden="true" viewBox="0 0 24 24" focusable="false"><path d="M22 2 15 22l-4-9-9-4 20-7ZM22 2 11 13"/></svg></a>
       </div>
     </div>
   </section>
@@ -8016,6 +8298,12 @@
           quoteSubmit.disabled = false;
           quoteSubmit.innerHTML = quoteOriginalSubmitContent;
           quoteForm.reset();
+          // The inquiry has been handed off to WhatsApp/Email. Clear the selected products
+          // so returning to the site does not show the old quotation cart again.
+          quoteListStore.clear();
+          document.getElementById("quoteClearList").hidden = true;
+          document.getElementById("quoteConfirmationTitle").textContent = "Inquiry prepared successfully.";
+          document.getElementById("quoteConfirmationMessage").textContent = "Your quotation list has been cleared. Please make sure the message was sent in WhatsApp/Email.";
           document.getElementById("quoteConditionOther").hidden = true;
           document.getElementById("quoteConditionOther").required = false;
           quoteTouchedFields.clear();
@@ -8258,67 +8546,7 @@
       }
     }
   </script>
-  <script>
-    (function () {
-      function pathName(href) {
-        try { return new URL(href, location.href).pathname.split('/').pop() || 'index'; }
-        catch (e) { return ''; }
-      }
-      function setActiveNav() {
-        const currentFile = location.pathname.split('/').pop() || 'product.html';
-        const hash = location.hash;
 
-        document.querySelectorAll('.navbar .nav-link, .mobile-menu>a, .sidebar-item, .sidebar-sub a, .mobile-product-sub a').forEach(el => {
-          el.classList.remove('active');
-          const href = el.getAttribute('href');
-
-          if (currentFile === 'product.html' && hash !== '#contact') {
-            document.querySelector('.navbar .dropdown-toggle[href="#product"]')
-              ?.classList.add('active');
-          }
-          if (!href || href === '#') return;
-
-          const sameFile = pathName(href) === currentFile;
-          const sameHash = href.includes('#') && href.split('#')[1] === hash.replace('#', '');
-
-          if (sameFile && (sameHash || (!href.includes('#') && !hash))) {
-            el.classList.add('active');
-          }
-        });
-
-        // Home on homepage
-        if (!hash && (currentFile.includes('fishmarket-home') || currentFile === '')) {
-          document.querySelectorAll('a[href="#home"]').forEach(a => a.classList.add('active'));
-        }
-
-        // Section-based active state on homepage
-        if (hash) {
-          document.querySelectorAll('a[href="' + hash + '"]').forEach(a => a.classList.add('active'));
-        }
-
-        // Product dropdown becomes active when on products page
-        if (currentFile === 'products.html') {
-          document.querySelectorAll('.navbar .dropdown-toggle, .mobile-product-toggle, .sidebar-parent').forEach(el => el.classList.add('active'));
-        }
-      }
-
-      document.addEventListener('DOMContentLoaded', setActiveNav);
-      window.addEventListener('hashchange', setActiveNav);
-
-      // Smooth section navigation + active state
-      document.addEventListener('click', function (e) {
-        const link = e.target.closest('a[href^="#"]');
-        if (!link) return;
-        const target = document.querySelector(link.getAttribute('href'));
-        if (target) {
-          e.preventDefault();
-          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-          history.replaceState(null, '', link.getAttribute('href'));
-          setTimeout(setActiveNav, 100);
-        }
-      });
-    })();
-  </script>
   <script>
     // Mobile sidebar controller — standalone, no Bootstrap Offcanvas dependency
     (function () {
@@ -8735,23 +8963,18 @@
 
   <!-- Static navbar is defined above; external header.js omitted to avoid replacing it with dropdown navigation. -->
 
-  <!-- Accessible slideshow preview for Fried Shallots and Shallot Oil -->
-  <dialog aria-labelledby="foodImagePreviewTitle" class="food-image-preview-dialog" id="foodImagePreview">
-    <div class="food-image-preview-head">
-      <div>
-        <p class="food-image-preview-label">Product Image Preview</p>
-        <h2 class="food-image-preview-title" id="foodImagePreviewTitle">Product Image</h2>
-        <p class="food-image-preview-caption" id="foodImagePreviewCaption">Product image description</p>
-      </div>
-      <button aria-label="Close image preview" class="food-image-preview-close" id="foodImagePreviewClose" type="button">&times;</button>
-    </div>
-    <div class="food-image-preview-stage food-slideshow-stage">
-      <button aria-label="Previous image" class="food-slideshow-control food-slideshow-prev" id="foodPreviewPrev" type="button">&#8249;</button>
-      <div class="food-image-preview-content" id="foodImagePreviewContent"></div>
-      <button aria-label="Next image" class="food-slideshow-control food-slideshow-next" id="foodPreviewNext" type="button">&#8250;</button>
+  <!-- Accessible simple lightbox preview for Fried Shallots and Shallot Oil -->
+  <dialog aria-label="Product image preview" aria-modal="true" class="food-image-preview-dialog" id="foodImagePreview">
+    <button aria-label="Close preview" class="food-image-preview-close food-lightbox-close" id="foodImagePreviewClose" type="button">
+      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 6L18 18M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+    </button>
+    <div class="food-image-preview-stage food-slideshow-stage" id="foodPreviewSwipeArea">
+      <button aria-label="Previous image" class="food-slideshow-control food-slideshow-prev" id="foodPreviewPrev" type="button"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+      <div class="food-image-preview-content" id="foodImagePreviewContent"><div class="food-lightbox-placeholder" aria-hidden="true"></div></div>
+      <button aria-label="Next image" class="food-slideshow-control food-slideshow-next" id="foodPreviewNext" type="button"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
     </div>
     <div class="food-slideshow-footer">
-      <span id="foodPreviewCounter">1 / 1</span>
+      <div class="food-lightbox-caption-row"><p id="foodImagePreviewCaption">Product · Variant</p><span id="foodPreviewCounter">1 / 1</span></div>
       <div class="food-slideshow-dots" id="foodPreviewDots" aria-label="Choose preview image"></div>
     </div>
   </dialog>
@@ -8767,140 +8990,86 @@
   const next = document.getElementById('foodPreviewNext');
   const counter = document.getElementById('foodPreviewCounter');
   const dots = document.getElementById('foodPreviewDots');
-  if (!dialog || !titleEl || !captionEl || !content || !close) return;
-
-  let slides = [];
-  let index = 0;
-  let activeTrigger = null;
-
+  const swipeArea = document.getElementById('foodPreviewSwipeArea');
+  if (!dialog || !captionEl || !content || !close || !prev || !next || !counter || !dots) return;
+  let slides = [], index = 0, activeTrigger = null, previousOverflow = '', touchStartX = null, touchStartY = null, renderToken = 0;
   function makeSlides(trigger) {
     const section = trigger.closest('#bawang, #shallot-oil');
     const image = trigger.querySelector('img');
     const currentTitle = trigger.dataset.previewTitle || 'Product Image';
     const isShallot = section?.id === 'bawang';
-    const isOil = section?.id === 'shallot-oil';
-    const variants = isShallot
-      ? [
-          { key: 'original', label: 'Fried Shallots — Original', description: 'Original flavor • temporary Unsplash food image' },
-          { key: 'balado', label: 'Fried Shallots — Balado', description: 'Balado flavor • temporary Unsplash food image' },
-          { key: 'spicy', label: 'Fried Shallots — Spicy', description: 'Spicy flavor • temporary Unsplash food image' }
-        ]
-      : [
-          { key: 'fried-rice', label: 'Shallot Oil — Fried rice', description: 'Suggested use: fried rice • temporary Unsplash food image' },
-          { key: 'noodles', label: 'Shallot Oil — Noodles', description: 'Suggested use: noodles • temporary Unsplash food image' },
-          { key: 'soups', label: 'Shallot Oil — Soups', description: 'Suggested use: soups • temporary Unsplash food image' },
-          { key: 'stir-fries', label: 'Shallot Oil — Stir-fries', description: 'Suggested use: stir-fries • temporary Unsplash food image' },
-          { key: 'porridge', label: 'Shallot Oil — Porridge', description: 'Suggested use: porridge • temporary Unsplash food image' },
-          { key: 'meatballs', label: 'Shallot Oil — Meatballs', description: 'Suggested use: meatballs • temporary Unsplash food image' },
-          { key: 'broths', label: 'Shallot Oil — Broths', description: 'Suggested use: broths • temporary Unsplash food image' },
-          { key: 'vegetables', label: 'Shallot Oil — Vegetables', description: 'Suggested use: vegetables • temporary Unsplash food image' },
-          { key: 'meat-seafood', label: 'Shallot Oil — Meat & seafood', description: 'Suggested use: meat & seafood • temporary Unsplash food image' }
-        ];
-
-    const buttons = section?.querySelectorAll(isShallot ? '[data-variant]' : '[data-oil-variant]');
-    const slidesFromButtons = [];
-    if (buttons?.length) {
-      buttons.forEach(button => {
-        const src = image?.src || '';
-        const key = isShallot ? button.dataset.variant : button.dataset.oilVariant;
-        const label = variants.find(v => v.key === key);
-        if (label) {
-          let url = src;
-          if (isShallot) {
-            const map = {
-              original: 'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=1400&q=85',
-              balado: 'https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?auto=format&fit=crop&w=1400&q=85',
-              spicy: 'https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=1400&q=85'
-            };
-            url = map[key] || url;
-          } else {
-            const map = {
-              'fried-rice': 'https://images.unsplash.com/photo-1512058564366-18510be2db19?auto=format&fit=crop&w=1400&q=85',
-              noodles: 'https://images.unsplash.com/photo-1569718212165-3a8278d5f624?auto=format&fit=crop&w=1400&q=85',
-              soups: 'https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=1400&q=85',
-              'stir-fries': 'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=1400&q=85',
-              porridge: 'https://images.unsplash.com/photo-1604908176997-125f25cc6f3d?auto=format&fit=crop&w=1400&q=85',
-              meatballs: 'https://images.unsplash.com/photo-1529042410759-befb1204b468?auto=format&fit=crop&w=1400&q=85',
-              broths: 'https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=1400&q=85',
-              vegetables: 'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=1400&q=85',
-              'meat-seafood': 'https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=1400&q=85'
-            };
-            url = map[key] || url;
-          }
-          slidesFromButtons.push({ ...label, src: url });
-        }
-      });
+    if (section?.id === 'shallot-oil') return { slides: [
+      { key: 'oil-1', product: 'Shallot Oil', variant: 'Photo 1', src: 'img/Shallots/ShallotOil/ShallotOil1.PNG', description: 'LACARA Shallot Oil' },
+      { key: 'oil-2', product: 'Shallot Oil', variant: 'Photo 2', src: 'img/Shallots/ShallotOil/ShallotOil2.PNG', description: 'LACARA Shallot Oil' },
+      { key: 'oil-3', product: 'Shallot Oil', variant: 'Photo 3', src: 'img/Shallots/ShallotOil/ShallotOil3.PNG', description: 'LACARA Shallot Oil' }
+    ], index: 0 };
+    const variants = [
+      { key: 'original', product: 'Fried Shallots', variant: 'Original', src: 'img/Shallots/FriedShallots/FriedShallotsOriginal.PNG' },
+      { key: 'balado', product: 'Fried Shallots', variant: 'Balado', src: 'img/Shallots/FriedShallots/FriedShallotsBalado.PNG' },
+      { key: 'spicy', product: 'Fried Shallots', variant: 'Spicy', src: 'img/Shallots/FriedShallots/FriedShallotsSpicyFried1.PNG' }
+    ];
+    const buttons = section?.querySelectorAll('[data-variant]');
+    if (isShallot && buttons?.length) {
+      const selectedKey = section.querySelector('[data-variant][aria-pressed="true"]')?.dataset.variant || 'original';
+      return { slides: variants, index: Math.max(0, variants.findIndex(v => v.key === selectedKey)) };
     }
-    if (slidesFromButtons.length) {
-      const selectedKey = isShallot
-        ? section.querySelector('[data-variant][aria-pressed="true"]')?.dataset.variant
-        : section.querySelector('[data-oil-variant][aria-pressed="true"]')?.dataset.oilVariant;
-      const selectedIndex = slidesFromButtons.findIndex(s => s.key === selectedKey);
-      return { slides: slidesFromButtons, index: Math.max(0, selectedIndex) };
-    }
-
-    if (image) return { slides: [{ label: currentTitle, description: image.alt || currentTitle, src: image.src }], index: 0 };
-    const svg = trigger.querySelector('svg');
-    return { slides: [{ label: currentTitle, description: currentTitle, svg: svg?.cloneNode(true) }], index: 0 };
+    if (image) return { slides: [{ product: currentTitle.split(/[—–-]/)[0].trim(), variant: currentTitle.split(/[—–-]/)[1]?.trim() || 'Image', src: image.src, description: image.alt || currentTitle }], index: 0 };
+    return { slides: [{ product: currentTitle, variant: 'Image', description: currentTitle }], index: 0 };
   }
-
+  function preloadAround() {
+    if (slides.length < 2) return;
+    [-1, 1].forEach(offset => { const slide = slides[(index + offset + slides.length) % slides.length]; if (slide?.src) { const img = new Image(); img.src = slide.src; } });
+  }
   function render() {
-    const slide = slides[index];
-    if (!slide) return;
-    titleEl.textContent = slide.label;
-    captionEl.textContent = slide.description;
+    const slide = slides[index]; if (!slide) return;
+    const token = ++renderToken;
+    captionEl.textContent = `${slide.product || 'Product'} · ${slide.variant || 'Image'}`;
+    dialog.setAttribute('aria-label', `${slide.product || 'Product'} image preview`);
+    counter.textContent = `${index + 1} / ${slides.length}`;
     content.replaceChildren();
     if (slide.src) {
-      const img = document.createElement('img');
-      img.src = slide.src;
-      img.alt = slide.description;
-      content.append(img);
-    } else if (slide.svg) {
-      content.append(slide.svg);
-    }
-    counter.textContent = `${index + 1} / ${slides.length}`;
+      const placeholder = document.createElement('div'); placeholder.className = 'food-lightbox-placeholder'; placeholder.setAttribute('aria-hidden', 'true');
+      const img = document.createElement('img'); img.alt = slide.description || `${slide.product} ${slide.variant}`; img.classList.add('is-loading');
+      img.addEventListener('load', () => { if (token !== renderToken) return; placeholder.remove(); img.classList.remove('is-loading'); }, { once: true });
+      img.addEventListener('error', () => { if (token !== renderToken) return; placeholder.remove(); img.classList.remove('is-loading'); }, { once: true });
+      content.append(placeholder, img); img.src = slide.src; if (img.complete && img.naturalWidth) { placeholder.remove(); img.classList.remove('is-loading'); }
+    } else { const placeholder = document.createElement('div'); placeholder.className = 'food-lightbox-placeholder'; content.append(placeholder); }
     dots.replaceChildren();
-    slides.forEach((item, i) => {
-      const dot = document.createElement('button');
-      dot.type = 'button';
-      dot.setAttribute('aria-label', `Show ${item.label}`);
-      dot.setAttribute('aria-current', String(i === index));
-      dot.addEventListener('click', () => { index = i; render(); });
-      dots.append(dot);
-    });
-    const multi = slides.length > 1;
-    prev.hidden = !multi;
-    next.hidden = !multi;
-    dots.hidden = !multi;
-    counter.hidden = !multi;
+    slides.forEach((item, i) => { const dot = document.createElement('button'); dot.type = 'button'; dot.setAttribute('aria-label', `Go to image ${i + 1}`); dot.setAttribute('aria-current', String(i === index)); dot.addEventListener('click', event => { event.stopPropagation(); index = i; render(); }); dots.append(dot); });
+    const multi = slides.length > 1; prev.hidden = !multi; next.hidden = !multi; dots.hidden = !multi; counter.hidden = !multi;
+    preloadAround();
   }
-
+  function move(step) { if (!slides.length) return; index = (index + step + slides.length) % slides.length; render(); }
   function openPreview(trigger) {
-    activeTrigger = trigger;
-    const result = makeSlides(trigger);
-    slides = result.slides;
-    index = result.index;
-    render();
-    if (!dialog.open) dialog.showModal();
+    activeTrigger = trigger; const result = makeSlides(trigger); slides = result.slides; index = result.index;
+    render(); previousOverflow = document.body.style.overflow; document.body.style.overflow = 'hidden';
+    if (!dialog.open) dialog.showModal(); close.focus({ preventScroll: true });
   }
-
+  function closePreview() { if (dialog.open) dialog.close(); }
   document.querySelectorAll('[data-food-preview]').forEach(trigger => {
     trigger.addEventListener('click', () => openPreview(trigger));
-    trigger.addEventListener('keydown', event => {
-      if (event.key === 'Enter' || event.key === ' ') {
-        event.preventDefault();
-        openPreview(trigger);
-      }
-    });
+    trigger.addEventListener('keydown', event => { if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); openPreview(trigger); } });
   });
-  prev.addEventListener('click', () => { if (slides.length) { index = (index - 1 + slides.length) % slides.length; render(); } });
-  next.addEventListener('click', () => { if (slides.length) { index = (index + 1) % slides.length; render(); } });
-  close.addEventListener('click', () => dialog.close());
-  dialog.addEventListener('click', event => { if (event.target === dialog) dialog.close(); });
+  prev.addEventListener('click', event => { event.stopPropagation(); move(-1); }); next.addEventListener('click', event => { event.stopPropagation(); move(1); }); close.addEventListener('click', event => { event.stopPropagation(); closePreview(); });
+  dialog.addEventListener('click', event => {
+    // Keep slideshow controls interactive; close only when clicking outside the photo and controls.
+    if (event.target.closest('#foodImagePreviewContent, .food-lightbox-close, .food-slideshow-control, .food-slideshow-footer')) return;
+    closePreview();
+  });
+  dialog.addEventListener('close', () => { document.body.style.overflow = previousOverflow; if (activeTrigger?.isConnected) activeTrigger.focus({ preventScroll: true }); });
+  dialog.addEventListener('cancel', event => { event.preventDefault(); closePreview(); });
   dialog.addEventListener('keydown', event => {
-    if (event.key === 'ArrowLeft') { index = (index - 1 + slides.length) % slides.length; render(); }
-    if (event.key === 'ArrowRight') { index = (index + 1) % slides.length; render(); }
+    if (event.key === 'ArrowLeft') { event.preventDefault(); move(-1); }
+    else if (event.key === 'ArrowRight') { event.preventDefault(); move(1); }
+    else if (event.key === 'Tab') {
+      const focusable = [...dialog.querySelectorAll('button:not([hidden]):not(:disabled)')];
+      if (!focusable.length) return; const first = focusable[0], last = focusable[focusable.length - 1];
+      if (event.shiftKey && document.activeElement === first) { event.preventDefault(); last.focus(); }
+      else if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first.focus(); }
+    }
   });
+  swipeArea.addEventListener('touchstart', event => { const t = event.changedTouches[0]; touchStartX = t.clientX; touchStartY = t.clientY; }, { passive: true });
+  swipeArea.addEventListener('touchend', event => { if (touchStartX === null) return; const t = event.changedTouches[0], dx = t.clientX - touchStartX, dy = t.clientY - touchStartY; if (Math.abs(dx) >= 50 && Math.abs(dx) > Math.abs(dy)) move(dx < 0 ? 1 : -1); touchStartX = touchStartY = null; }, { passive: true });
 })();
 </script>
 
@@ -8920,19 +9089,19 @@ document.addEventListener('click', function (event) {
   if (!panel || !image) return;
 
   const map = fried ? {
-    original: ['Fried Shallots — Original', 'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=1200&q=85'],
-    balado: ['Fried Shallots — Balado', 'https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?auto=format&fit=crop&w=1200&q=85'],
-    spicy: ['Fried Shallots — Spicy', 'https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=1200&q=85']
+    original: ['Fried Shallots — Original', 'img/Shallots/FriedShallots/FriedShallotsOriginal.PNG'],
+    balado: ['Fried Shallots — Balado', 'img/Shallots/FriedShallots/FriedShallotsBalado.PNG'],
+    spicy: ['Fried Shallots — Spicy', 'img/Shallots/FriedShallots/FriedShallotsSpicyFried1.PNG']
   } : {
-    'fried-rice': ['Shallot Oil — Fried rice', 'https://images.unsplash.com/photo-1512058564366-18510be2db19?auto=format&fit=crop&w=1200&q=85'],
+    'fried-rice': ['Shallot Oil — Fried rice', 'img/Shallots/ShallotOil/ShallotOil1.PNG'],
     noodles: ['Shallot Oil — Noodles', 'https://images.unsplash.com/photo-1569718212165-3a8278d5f624?auto=format&fit=crop&w=1200&q=85'],
     soups: ['Shallot Oil — Soups', 'https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=1200&q=85'],
-    'stir-fries': ['Shallot Oil — Stir-fries', 'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=1200&q=85'],
+    'stir-fries': ['Shallot Oil — Stir-fries', 'img/Shallots/ShallotOil/ShallotOil1.PNG'],
     porridge: ['Shallot Oil — Porridge', 'https://images.unsplash.com/photo-1604908176997-125f25cc6f3d?auto=format&fit=crop&w=1200&q=85'],
     meatballs: ['Shallot Oil — Meatballs', 'https://images.unsplash.com/photo-1529042410759-befb1204b468?auto=format&fit=crop&w=1200&q=85'],
     broths: ['Shallot Oil — Broths', 'https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=1200&q=85'],
     vegetables: ['Shallot Oil — Vegetables', 'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=1200&q=85'],
-    'meat-seafood': ['Shallot Oil — Meat & seafood', 'https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=1200&q=85']
+    'meat-seafood': ['Shallot Oil — Meat & seafood', 'img/Shallots/ShallotOil/ShallotOil3.PNG']
   };
   const key = fried ? button.dataset.variant : button.dataset.oilVariant;
   const item = map[key];
@@ -8951,6 +9120,248 @@ document.addEventListener('click', function (event) {
   });
 });
 </script>
+
+
+<style id="food-product-title-accent-line-final-fix">
+  /* A thin horizontal gold line, equal on both product headings. */
+  #bawang .food-product-copy > h2,
+  #shallot-oil .food-product-copy > h2 {
+    margin-bottom: 4px !important;
+  }
+  #bawang .food-product-copy > span.accent-line,
+  #shallot-oil .food-product-copy > span.accent-line {
+    display: block !important;
+    box-sizing: border-box !important;
+    flex: none !important;
+    width: 38px !important;
+    min-width: 38px !important;
+    max-width: 38px !important;
+    height: 0 !important;
+    min-height: 0 !important;
+    max-height: 0 !important;
+    padding: 0 !important;
+    border: 0 !important;
+    border-top: 3px solid #9a7910 !important;
+    border-radius: 0 !important;
+    background: transparent !important;
+    margin: 0 0 9px !important;
+    line-height: 0 !important;
+    box-shadow: none !important;
+  }
+</style>
+
+
+<script id="navbar-scrollspy-controller">
+(function () {
+  function initScrollSpy() {
+    const allLinks = Array.from(document.querySelectorAll('.navbar a[href^="#"], .mobile-menu a[href^="#"], #mobileNav a[href^="#"]'));
+    const linkById = new Map();
+    allLinks.forEach(link => {
+      const id = (link.getAttribute('href') || '').slice(1);
+      if (id && document.getElementById(id)) {
+        if (!linkById.has(id)) linkById.set(id, []);
+        linkById.get(id).push(link);
+      }
+    });
+    const ids = ['home', 'about', 'products', 'contact'].filter(id => document.getElementById(id) && linkById.has(id));
+    const targets = ids.map(id => document.getElementById(id));
+    let activeId = '';
+    function setActive(id) {
+      if (!id || !linkById.has(id) || activeId === id) return;
+      activeId = id;
+      allLinks.forEach(link => link.removeAttribute('aria-current'));
+      linkById.get(id).forEach(link => link.setAttribute('aria-current', 'page'));
+    }
+    function updateEdgeCases() {
+      if (window.scrollY < 80 && linkById.has('home')) { setActive('home'); return true; }
+      if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 4 && linkById.has('contact')) { setActive('contact'); return true; }
+      return false;
+    }
+    let observer;
+    function chooseAtCenter() {
+      if (updateEdgeCases()) return;
+      const line = window.innerHeight * 0.48;
+      let chosen = ids[0];
+      targets.forEach((target, i) => {
+        const rect = target.getBoundingClientRect();
+        if (rect.top <= line) chosen = ids[i];
+      });
+      setActive(chosen);
+    }
+    function observe() {
+      if (observer) observer.disconnect();
+      observer = new IntersectionObserver(entries => {
+        if (updateEdgeCases()) return;
+        const crossing = entries.filter(entry => entry.isIntersecting)
+          .sort((a, b) => Math.abs(a.boundingClientRect.top - window.innerHeight * .48) - Math.abs(b.boundingClientRect.top - window.innerHeight * .48));
+        if (crossing.length) setActive(crossing[0].target.id);
+        else chooseAtCenter();
+      }, { root: null, rootMargin: '-45% 0px -50% 0px', threshold: 0 });
+      targets.forEach(target => observer.observe(target));
+      chooseAtCenter();
+    }
+    document.querySelectorAll('.navbar a[href^="#"], .mobile-menu a[href^="#"], #mobileNav a[href^="#"]').forEach(link => {
+      link.addEventListener('click', () => {
+        const id = (link.getAttribute('href') || '').slice(1);
+        const mobileNav = document.getElementById('mobileNav');
+        if (mobileNav && mobileNav.classList.contains('show')) {
+          mobileNav.classList.remove('show');
+          mobileNav.classList.add('hiding');
+          mobileNav.setAttribute('aria-hidden', 'true');
+          document.body.classList.remove('mobile-nav-open');
+          const backdrop = document.getElementById('mobileNavBackdrop');
+          // Match the class used by the mobile sidebar controller.
+          if (backdrop) backdrop.classList.remove('is-open');
+          const toggle = document.querySelector('.navbar-toggler');
+          if (toggle) toggle.setAttribute('aria-expanded', 'false');
+        }
+        if (id && document.getElementById(id)) {
+          document.getElementById(id).scrollIntoView({ behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'start' });
+        }
+      });
+    });
+    window.addEventListener('scroll', chooseAtCenter, { passive: true });
+    window.addEventListener('resize', chooseAtCenter);
+    window.addEventListener('pageshow', chooseAtCenter);
+    if (location.hash) {
+      const initial = document.getElementById(decodeURIComponent(location.hash.slice(1)));
+      if (initial) requestAnimationFrame(() => initial.scrollIntoView({ behavior: 'auto', block: 'start' }));
+    }
+    observe();
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', initScrollSpy, { once: true });
+  else initScrollSpy();
+})();
+</script>
+
+<style id="site-cta-send-icon-final-override">
+#cta.site-cta .site-cta-actions > a.site-cta-button { color:#fff !important; display:inline-flex !important; align-items:center !important; justify-content:center !important; gap:10px !important; }
+#cta.site-cta .site-cta-actions > a.site-cta-button, #cta.site-cta .site-cta-actions > a.site-cta-button span { color:#fff !important; }
+#cta.site-cta .site-cta-actions > a.site-cta-button .site-cta-send-icon { display:inline-block !important; width:18px !important; height:18px !important; flex:0 0 18px !important; fill:none !important; stroke:#fff !important; stroke-width:1.8 !important; stroke-linecap:round !important; stroke-linejoin:round !important; }
+#cta.site-cta .site-cta-actions > a.site-cta-button:hover, #cta.site-cta .site-cta-actions > a.site-cta-button:hover span { color:#fff !important; }
+</style>
+
+<style id="desktop-hero-typography-refinement">
+  /* Clearly larger desktop hero typography; mobile remains unchanged. */
+  @media screen and (min-width: 1024px) {
+    header#home.hero .hero-shell h1.hero-title,
+    #seafood.seafood-section .seafood-container.hero-shell h2.seafood-title {
+      font-size: clamp(3.5rem, 4.4vw, 4.5rem) !important;
+      line-height: 1.08 !important;
+      letter-spacing: -0.025em !important;
+    }
+
+    header#home.hero .hero-shell p.food-hero-intro,
+    #seafood.seafood-section .seafood-container.hero-shell p.seafood-intro-copy {
+      font-size: 19px !important;
+      line-height: 1.75 !important;
+      max-width: 720px !important;
+    }
+  }
+</style>
+
+<style id="mobile-hero-vertical-center-only">
+  @media (max-width: 767.98px) {
+    /* Vertically center the hero content only; preserve its original left alignment. */
+    header#home.hero .hero-shell,
+    #seafood.seafood-section .seafood-container.hero-shell {
+      display: flex !important;
+      flex-direction: column !important;
+      align-items: stretch !important;
+      justify-content: center !important;
+      text-align: left !important;
+      margin-inline: auto !important;
+    }
+
+    header#home.hero .hero-shell > .hero-eyebrow,
+    header#home.hero .hero-shell > .hero-title,
+    header#home.hero .hero-shell > .food-hero-intro,
+    #seafood.seafood-section .seafood-container.hero-shell > .seafood-eyebrow,
+    #seafood.seafood-section .seafood-container.hero-shell > .seafood-title,
+    #seafood.seafood-section .seafood-container.hero-shell > .seafood-intro-copy {
+      width: 100% !important;
+      max-width: 720px !important;
+      margin-left: 0 !important;
+      margin-right: 0 !important;
+      text-align: left !important;
+      align-self: stretch !important;
+    }
+
+    header#home.hero .hero-shell .hero-accent-line,
+    #seafood.seafood-section .seafood-container.hero-shell .hero-accent-line {
+      align-self: flex-start !important;
+    }
+
+    header#home.hero .hero-shell .hero-actions,
+    #seafood.seafood-section .seafood-container.hero-shell .seafood-actions {
+      justify-content: flex-start !important;
+      align-items: center !important;
+      width: 100%;
+    }
+  }
+
+
+  /* Hero Request Quote buttons: force readable white text on gold */
+  header#home.hero .hero-shell .hero-actions > button.btn-primary,
+  #seafood.seafood-section .seafood-container.hero-shell .seafood-actions > button.btn-primary {
+    color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff !important;
+  }
+</style>
+
+
+<style id="mobile-cta-contact-gap-fix-v3">
+  /* Mobile: preserve the moving parallax layer, but extend it far enough
+     beyond the CTA edges that scrolling cannot reveal a white strip. */
+  @media (max-width: 767.98px) {
+    #cta.site-cta {
+      margin: 0 !important;
+      margin-bottom: 0 !important;
+      border: 0 !important;
+      background: #06232b !important;
+    }
+
+    #cta.site-cta::before {
+      content: "" !important;
+      display: block !important;
+      inset: -65% 0 !important;
+      background-position: center center !important;
+      transform: translate3d(0, var(--cta-parallax-offset, 0px), 0) scale(1.16) !important;
+      will-change: transform;
+    }
+
+    #cta.site-cta + #contact.contact-section {
+      margin-top: 0 !important;
+      border-top: 0 !important;
+    }
+  }
+</style>
+
+<style id="site-cta-solid-black-background-final">
+  /* CTA solid black background: no image or parallax layer */
+  #cta.site-cta {
+    background: #000000 !important;
+    background-image: none !important;
+    position: relative !important;
+    isolation: isolate;
+  }
+  #cta.site-cta::before {
+    content: "" !important;
+    position: absolute !important;
+    inset: 0 !important;
+    display: block !important;
+    background: #000000 !important;
+    background-image: none !important;
+    transform: none !important;
+    animation: none !important;
+    pointer-events: none;
+    z-index: 0;
+  }
+  #cta.site-cta > .site-cta-inner {
+    position: relative;
+    z-index: 1;
+  }
+</style>
 
 </body>
 
