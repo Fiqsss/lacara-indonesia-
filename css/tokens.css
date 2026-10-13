@@ -115,12 +115,7 @@
     color: var(--btn-primary-text);
   }
 
-  .btn-main {
-    border: 1px solid var(--btn-primary-bg) !important;
-    background: var(--btn-primary-bg) !important;
-    color: var(--btn-primary-text) !important;
-    font-weight: 600;
-  }
+
 
   .btn-main:hover {
     border-color: var(--btn-primary-bg-hover) !important;
