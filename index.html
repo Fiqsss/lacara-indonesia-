@@ -5132,7 +5132,35 @@ footer.theme-dark .copyright-bar small {
 </style>
 <link href="css/tokens.css" rel="stylesheet"/>
 <link href="css/site-components.css" rel="stylesheet"/>
-</link></head>
+</link>
+<style id="hero-fixed-background-scroll-fix">
+/* HERO FIX: background images stay viewport-fixed while hero text scrolls normally. */
+#home.hero.hero-slideshow .hero-slide {
+  background-attachment: fixed !important;
+}
+/* Keep the slideshow viewport behavior consistent without fixing the text/content layer. */
+#home.hero.hero-slideshow .hero-slides {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+#home.hero.hero-slideshow .hero-inner {
+  position: relative;
+  z-index: 2;
+}
+@media (max-width: 767.98px) {
+  /* Fixed attachment is supported on modern mobile browsers; avoid changing hero layout. */
+  #home.hero.hero-slideshow .hero-slide {
+    background-attachment: fixed !important;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  #home.hero.hero-slideshow .hero-slide {
+    background-attachment: scroll !important;
+  }
+}
+</style>
+</head>
 <body>
 <nav class="navbar navbar-expand-lg sticky-top theme-light">
 <div class="container py-2">
