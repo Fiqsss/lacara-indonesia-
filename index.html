@@ -1,25 +1,18 @@
 <!DOCTYPE html>
 
 <html lang="en">
-
 <head>
-  <meta name="theme-color" content="#0D0D0D" />
-  <meta charset="utf-8" />
-  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-  <title>PT. LACARA FOOD INDONESIA — Selected Indonesian Products for Global Markets</title>
-
-  <link rel="icon" type="image/png" href="img/logo/logo.png">
-  <link href="https://fonts.googleapis.com" rel="preconnect" />
-  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
-  <link
-    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&amp;family=Playfair+Display:wght@500;600;700&amp;display=swap"
-    rel="stylesheet" />
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" />
-  
-  <style data-embedded-from="css/style2.css">
-
-
+<meta content="#0D0D0D" name="theme-color"/>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>PT. LACARA FOOD INDONESIA — Selected Indonesian Products for Global Markets</title>
+<link href="img/logo/logo.png" rel="icon" type="image/png"/>
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&amp;family=Playfair+Display:wght@500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet"/>
+<style data-embedded-from="css/style2.css">
     /* =========================================================
    LACARA INDONESIA — ORGANIZED STYLE SHEET
    Each section keeps its desktop + tablet + mobile rules together.
@@ -52,7 +45,7 @@
       font-family: "DM Sans", sans-serif;
       background: var(--white);
       color: var(--text);
-}
+    }
 
     h1,
     h2,
@@ -174,13 +167,13 @@
     .hero h1 {
       font-size: clamp(3.1rem, 7vw, 6.2rem);
       line-height: 0.95;
-      max-width: 850px;
+      /* max-width: 850px; */
     }
 
     .hero p {
-      max-width: 650px;
+      /* max-width: 650px; */
       line-height: 1.8;
-      color: var(--muted);
+      color: white;
     }
 
     .hero-slideshow {
@@ -1090,19 +1083,38 @@
       color: var(--white);
     }
 
+    /* FIX: keep the map label and address on separate, readable lines */
+    .map-label > div {
+      display: flex;
+      flex: 1 1 auto;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+      gap: 4px;
+      min-width: 0;
+    }
+
     .map-label small {
       display: block;
+      position: static;
+      margin: 0;
       color: var(--accent);
       font-size: 8px;
+      line-height: 1.35;
       letter-spacing: 0.16em;
       font-weight: 800;
-      margin-bottom: 3px;
     }
 
     .map-label strong {
       display: block;
+      position: static;
+      margin: 0;
       color: var(--muted);
       font-size: 12px;
+      line-height: 1.4;
+      font-weight: 700;
+      white-space: normal;
+      overflow-wrap: anywhere;
     }
 
     .map-open {
@@ -1794,12 +1806,13 @@
       color: var(--white) !important;
     }
 
-      .btn-main {
-    border: 1px solid var(--btn-primary-bg) !important;
-    background: var(--btn-primary-bg) !important;
-    color: white;
-    font-weight: 600;
-  }
+    .btn-main {
+      border: 1px solid var(--btn-primary-bg) !important;
+      background: var(--btn-primary-bg) !important;
+      color: white;
+      font-weight: 600;
+    }
+
     .btn-outline {
       background: var(--white) !important;
       border-color: var(--white) !important;
@@ -2174,10 +2187,10 @@
         padding-inline: 0;
       }
     }
-  
 
-/* NAVBAR + MOBILE SIDEBAR — disalin dari product.html */
-/* =========================================================
+
+    /* NAVBAR + MOBILE SIDEBAR — disalin dari product.html */
+    /* =========================================================
    NAVBAR & NAVIGATION
    ========================================================= */
     .navbar {
@@ -2730,383 +2743,493 @@
       }
     }
 
-    
 
-/* =========================================================
+
+    /* =========================================================
    TAMBAHAN CSS 03: lacara-navbar-active-state
    Urutan dipertahankan agar aturan override tetap bekerja.
    ========================================================= */
 
-/* Clear, consistent active state for desktop and mobile navigation */
-  .navbar .navbar-nav > .nav-item > .nav-link {
-    position: relative;
-    transition: color .2s ease;
-  }
-  .navbar .navbar-nav > .nav-item > .nav-link::after {
-    content: "";
-    position: absolute;
-    left: .75rem;
-    right: .75rem;
-    bottom: .28rem;
-    height: 2px;
-    background: var(--accent, #c89d20);
-    border-radius: 99px;
-    transform: scaleX(0);
-    transform-origin: center;
-    transition: transform .2s ease;
-  }
-  .navbar .navbar-nav > .nav-item > .nav-link.active,
-  .navbar .navbar-nav > .nav-item > .nav-link[aria-current="page"],
-  .navbar .navbar-nav > .nav-item > .nav-link.nav-parent-active {
-    color: var(--accent, #9c7600) !important;
-    font-weight: 600;
-  }
-  .navbar .navbar-nav > .nav-item > .nav-link.active::after,
-  .navbar .navbar-nav > .nav-item > .nav-link[aria-current="page"]::after,
-  .navbar .navbar-nav > .nav-item > .nav-link.nav-parent-active::after {
-    transform: scaleX(1);
-  }
-  .navbar .dropdown-menu .dropdown-item.active,
-  .navbar .dropdown-menu .dropdown-item[aria-current="page"] {
-    color: var(--accent, #9c7600) !important;
-    background: color-mix(in srgb, var(--accent, #c89d20) 12%, white);
-    font-weight: 600;
-  }
-  .mobile-menu > a.active,
-  .mobile-menu .mobile-product-sub a.active,
-  .mobile-menu .mobile-product-toggle.active {
-    color: var(--accent, #9c7600) !important;
-    font-weight: 700;
-    position: relative;
-  }
-  .mobile-menu > a.active::before,
-  .mobile-menu .mobile-product-sub a.active::before {
-    content: "";
-    display: inline-block;
-    width: 5px;
-    height: 5px;
-    margin: 0 9px 2px 0;
-    border-radius: 50%;
-    background: var(--accent, #c89d20);
-  }
-  .mobile-menu .mobile-product-toggle.active {
-    background: color-mix(in srgb, var(--accent, #c89d20) 9%, transparent);
-    border-radius: 6px;
-  }
+    /* Clear, consistent active state for desktop and mobile navigation */
+    .navbar .navbar-nav>.nav-item>.nav-link {
+      position: relative;
+      transition: color .2s ease;
+    }
+
+    .navbar .navbar-nav>.nav-item>.nav-link::after {
+      content: "";
+      position: absolute;
+      left: .75rem;
+      right: .75rem;
+      bottom: .28rem;
+      height: 2px;
+      background: var(--accent, #c89d20);
+      border-radius: 99px;
+      transform: scaleX(0);
+      transform-origin: center;
+      transition: transform .2s ease;
+    }
+
+    .navbar .navbar-nav>.nav-item>.nav-link.active,
+    .navbar .navbar-nav>.nav-item>.nav-link[aria-current="page"],
+    .navbar .navbar-nav>.nav-item>.nav-link.nav-parent-active {
+      color: var(--accent, #9c7600) !important;
+      font-weight: 600;
+    }
+
+    .navbar .navbar-nav>.nav-item>.nav-link.active::after,
+    .navbar .navbar-nav>.nav-item>.nav-link[aria-current="page"]::after,
+    .navbar .navbar-nav>.nav-item>.nav-link.nav-parent-active::after {
+      transform: scaleX(1);
+    }
+
+    .navbar .dropdown-menu .dropdown-item.active,
+    .navbar .dropdown-menu .dropdown-item[aria-current="page"] {
+      color: var(--accent, #9c7600) !important;
+      background: color-mix(in srgb, var(--accent, #c89d20) 12%, white);
+      font-weight: 600;
+    }
+
+    .mobile-menu>a.active,
+    .mobile-menu .mobile-product-sub a.active,
+    .mobile-menu .mobile-product-toggle.active {
+      color: var(--accent, #9c7600) !important;
+      font-weight: 700;
+      position: relative;
+    }
+
+    .mobile-menu>a.active::before,
+    .mobile-menu .mobile-product-sub a.active::before {
+      content: "";
+      display: inline-block;
+      width: 5px;
+      height: 5px;
+      margin: 0 9px 2px 0;
+      border-radius: 50%;
+      background: var(--accent, #c89d20);
+    }
+
+    .mobile-menu .mobile-product-toggle.active {
+      background: color-mix(in srgb, var(--accent, #c89d20) 9%, transparent);
+      border-radius: 6px;
+    }
 
 
 
 
-/* =========================================================
+    /* =========================================================
    TAMBAHAN CSS 09: navbar-active-state-single-source
    Urutan dipertahankan agar aturan override tetap bekerja.
    ========================================================= */
 
-.navbar .nav-link[aria-current="page"],
-  .mobile-menu > a[aria-current="page"] {
-    background: var(--black) !important;
-    color: var(--gold) !important;
-    border-radius: 6px;
-    font-weight: 700;
-    position: relative;
-    outline: none;
-  }
-  .navbar .nav-link::after {
-    content: ""; position: absolute; left: .65rem; right: .65rem; bottom: .28rem;
-    height: 2px; border-radius: 999px; background: var(--gold);
-    transform: scaleX(0); transform-origin: center;
-  }
-  .navbar .nav-link[aria-current="page"]::after { transform: scaleX(1); }
-  .navbar .nav-link:not([aria-current="page"]):hover::after { transform: scaleX(1); }
-  .navbar .nav-link:focus-visible, .mobile-menu > a:focus-visible {
-    outline: 2px solid var(--focus) !important; outline-offset: 3px;
-  }
-  .navbar .nav-link:focus:not(:focus-visible), .mobile-menu > a:focus:not(:focus-visible) { outline: none; }
-  @media (prefers-reduced-motion: no-preference) { .navbar .nav-link::after { transition: transform .18s ease; } }
+    .navbar .nav-link[aria-current="page"],
+    .mobile-menu>a[aria-current="page"] {
+      background: var(--black) !important;
+      color: var(--gold) !important;
+      border-radius: 6px;
+      font-weight: 700;
+      position: relative;
+      outline: none;
+    }
+
+    .navbar .nav-link::after {
+      content: "";
+      position: absolute;
+      left: .65rem;
+      right: .65rem;
+      bottom: .28rem;
+      height: 2px;
+      border-radius: 999px;
+      background: var(--gold);
+      transform: scaleX(0);
+      transform-origin: center;
+    }
+
+    .navbar .nav-link[aria-current="page"]::after {
+      transform: scaleX(1);
+    }
+
+    .navbar .nav-link:not([aria-current="page"]):hover::after {
+      transform: scaleX(1);
+    }
+
+    .navbar .nav-link:focus-visible,
+    .mobile-menu>a:focus-visible {
+      outline: 2px solid var(--focus) !important;
+      outline-offset: 3px;
+    }
+
+    .navbar .nav-link:focus:not(:focus-visible),
+    .mobile-menu>a:focus:not(:focus-visible) {
+      outline: none;
+    }
+
+    @media (prefers-reduced-motion: no-preference) {
+      .navbar .nav-link::after {
+        transition: transform .18s ease;
+      }
+    }
 
 
 
 
-/* =========================================================
+    /* =========================================================
    TAMBAHAN CSS 10: navbar-scrollspy-final-style
    Urutan dipertahankan agar aturan override tetap bekerja.
    ========================================================= */
 
-  #home, #about, #products, #contact, #bawang, #shallot-oil, #seafood {
-    scroll-margin-top: calc(var(--header-height, 80px) + 8px);
-  }
-  .navbar .navbar-nav > .nav-item > .nav-link,
-  .mobile-menu > a {
-    position: relative;
-  }
-  .navbar .navbar-nav > .nav-item > .nav-link::after {
-    content: "";
-    position: absolute;
-    left: .65rem;
-    right: .65rem;
-    bottom: .28rem;
-    height: 2px;
-    border-radius: 999px;
-    background: var(--gold);
-    transform: scaleX(0);
-    transform-origin: center;
-  }
-  .navbar .navbar-nav > .nav-item > .nav-link[aria-current="page"],
-  .mobile-menu > a[aria-current="page"] {
-    background: var(--black) !important;
-    color: var(--gold) !important;
-    border-radius: 6px;
-    font-weight: 700;
-  }
-  .navbar .navbar-nav > .nav-item > .nav-link[aria-current="page"]::after {
-    transform: scaleX(1);
-  }
-  .navbar .navbar-nav > .nav-item > .nav-link:not([aria-current="page"]):hover::after {
-    transform: scaleX(1);
-  }
-  .navbar .nav-link:focus-visible, .mobile-menu > a:focus-visible {
-    outline: 2px solid var(--focus);
-    outline-offset: 3px;
-  }
-  @media (prefers-reduced-motion: no-preference) {
-    .navbar .navbar-nav > .nav-item > .nav-link:not([aria-current="page"]):hover::after { transition: transform .18s ease; }
-  }
-  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+    #home,
+    #about,
+    #products,
+    #contact,
+    #bawang,
+    #shallot-oil,
+    #seafood {
+      scroll-margin-top: calc(var(--header-height, 80px) + 8px);
+    }
+
+    .navbar .navbar-nav>.nav-item>.nav-link,
+    .mobile-menu>a {
+      position: relative;
+    }
+
+    .navbar .navbar-nav>.nav-item>.nav-link::after {
+      content: "";
+      position: absolute;
+      left: .65rem;
+      right: .65rem;
+      bottom: .28rem;
+      height: 2px;
+      border-radius: 999px;
+      background: var(--gold);
+      transform: scaleX(0);
+      transform-origin: center;
+    }
+
+    .navbar .navbar-nav>.nav-item>.nav-link[aria-current="page"],
+    .mobile-menu>a[aria-current="page"] {
+      background: var(--black) !important;
+      color: var(--gold) !important;
+      border-radius: 6px;
+      font-weight: 700;
+    }
+
+    .navbar .navbar-nav>.nav-item>.nav-link[aria-current="page"]::after {
+      transform: scaleX(1);
+    }
+
+    .navbar .navbar-nav>.nav-item>.nav-link:not([aria-current="page"]):hover::after {
+      transform: scaleX(1);
+    }
+
+    .navbar .nav-link:focus-visible,
+    .mobile-menu>a:focus-visible {
+      outline: 2px solid var(--focus);
+      outline-offset: 3px;
+    }
+
+    @media (prefers-reduced-motion: no-preference) {
+      .navbar .navbar-nav>.nav-item>.nav-link:not([aria-current="page"]):hover::after {
+        transition: transform .18s ease;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+    }
 
 
-/* =========================================================
+    /* =========================================================
    TAMBAHAN CSS 11: site-cta-send-icon-style
    Urutan dipertahankan agar aturan override tetap bekerja.
    ========================================================= */
 
-.site-cta .site-cta-button { color: #fff !important; display: inline-flex; align-items: center; justify-content: center; gap: 10px; }
-  .site-cta .site-cta-button, .site-cta .site-cta-button span { color: #fff !important; }
-  .site-cta .site-cta-send-icon { width: 18px; height: 18px; flex: 0 0 18px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
-  .site-cta .site-cta-button:hover { color: #fff !important; }
+    .site-cta .site-cta-button {
+      color: #fff !important;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .site-cta .site-cta-button,
+    .site-cta .site-cta-button span {
+      color: #fff !important;
+    }
+
+    .site-cta .site-cta-send-icon {
+      width: 18px;
+      height: 18px;
+      flex: 0 0 18px;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 1.8;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .site-cta .site-cta-button:hover {
+      color: #fff !important;
+    }
 
 
-/* =========================================================
+    /* =========================================================
    TAMBAHAN CSS 12: site-cta-parallax-background
    Urutan dipertahankan agar aturan override tetap bekerja.
    ========================================================= */
 
-/* CTA background: local project asset with a subtle scroll-parallax effect */
-  #cta.site-cta {
-    position: relative !important;
-    isolation: isolate;
-    overflow: hidden;
-    background: transparent !important;
-  }
-  #cta.site-cta::before {
-    content: "";
-    position: absolute;
-    inset: -24% 0;
-    z-index: 0;
-    pointer-events: none;
-    background-image:
-      linear-gradient(90deg, rgba(10, 10, 10, .72) 0%, rgba(10, 10, 10, .48) 52%, rgba(10, 10, 10, .36) 100%),
-      url("img/assets/chase-baker-yvb8NrIhIFI-unsplash.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center center;
-    transform: translate3d(0, var(--cta-parallax-offset, 0px), 0) scale(1.12);
-    transform-origin: center;
-    will-change: transform;
-  }
-  #cta.site-cta > .site-cta-inner {
-    position: relative;
-    z-index: 1;
-  }
-  @media (max-width: 767.98px) {
+    /* CTA background: local project asset with a subtle scroll-parallax effect */
+    #cta.site-cta {
+      position: relative !important;
+      isolation: isolate;
+      overflow: hidden;
+      background: transparent !important;
+    }
+
     #cta.site-cta::before {
+      content: "";
+      position: absolute;
+      inset: -24% 0;
+      z-index: 0;
+      pointer-events: none;
+      background-image:
+        linear-gradient(90deg, rgba(10, 10, 10, .72) 0%, rgba(10, 10, 10, .48) 52%, rgba(10, 10, 10, .36) 100%),
+        url("img/assets/chase-baker-yvb8NrIhIFI-unsplash.jpg");
+      background-repeat: no-repeat;
+      background-size: cover;
       background-position: center center;
-      transform: translate3d(0, var(--cta-parallax-offset, 0px), 0) scale(1.16);
+      transform: translate3d(0, var(--cta-parallax-offset, 0px), 0) scale(1.12);
+      transform-origin: center;
+      will-change: transform;
     }
-  }
-  @media (prefers-reduced-motion: reduce) {
-    #cta.site-cta::before {
-      transform: scale(1.08);
-      will-change: auto;
+
+    #cta.site-cta>.site-cta-inner {
+      position: relative;
+      z-index: 1;
     }
-  }
+
+    @media (max-width: 767.98px) {
+      #cta.site-cta::before {
+        background-position: center center;
+        transform: translate3d(0, var(--cta-parallax-offset, 0px), 0) scale(1.16);
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      #cta.site-cta::before {
+        transform: scale(1.08);
+        will-change: auto;
+      }
+    }
 
 
-/* =========================================================
+    /* =========================================================
    TAMBAHAN CSS 13: food-product-title-accent-line-final-fix
    Urutan dipertahankan agar aturan override tetap bekerja.
    ========================================================= */
 
-/* A thin horizontal gold line, equal on both product headings. */
-  #bawang .food-product-copy > h2,
-  #shallot-oil .food-product-copy > h2 {
-    margin-bottom: 4px !important;
-  }
-  #bawang .food-product-copy > span.accent-line,
-  #shallot-oil .food-product-copy > span.accent-line {
-    display: block !important;
-    box-sizing: border-box !important;
-    flex: none !important;
-    width: 38px !important;
-    min-width: 38px !important;
-    max-width: 38px !important;
-    height: 0 !important;
-    min-height: 0 !important;
-    max-height: 0 !important;
-    padding: 0 !important;
-    border: 0 !important;
-    border-top: 3px solid #9a7910 !important;
-    border-radius: 0 !important;
-    background: transparent !important;
-    margin: 0 0 9px !important;
-    line-height: 0 !important;
-    box-shadow: none !important;
-  }
+    /* A thin horizontal gold line, equal on both product headings. */
+    #bawang .food-product-copy>h2,
+    #shallot-oil .food-product-copy>h2 {
+      margin-bottom: 4px !important;
+    }
+
+    #bawang .food-product-copy>span.accent-line,
+    #shallot-oil .food-product-copy>span.accent-line {
+      display: block !important;
+      box-sizing: border-box !important;
+      flex: none !important;
+      width: 38px !important;
+      min-width: 38px !important;
+      max-width: 38px !important;
+      height: 0 !important;
+      min-height: 0 !important;
+      max-height: 0 !important;
+      padding: 0 !important;
+      border: 0 !important;
+      border-top: 3px solid #9a7910 !important;
+      border-radius: 0 !important;
+      background: transparent !important;
+      margin: 0 0 9px !important;
+      line-height: 0 !important;
+      box-shadow: none !important;
+    }
 
 
-/* =========================================================
+    /* =========================================================
    TAMBAHAN CSS 14: site-cta-send-icon-final-override
    Urutan dipertahankan agar aturan override tetap bekerja.
    ========================================================= */
 
-#cta.site-cta .site-cta-actions > a.site-cta-button { color:#fff !important; display:inline-flex !important; align-items:center !important; justify-content:center !important; gap:10px !important; }
-#cta.site-cta .site-cta-actions > a.site-cta-button, #cta.site-cta .site-cta-actions > a.site-cta-button span { color:#fff !important; }
-#cta.site-cta .site-cta-actions > a.site-cta-button .site-cta-send-icon { display:inline-block !important; width:18px !important; height:18px !important; flex:0 0 18px !important; fill:none !important; stroke:#fff !important; stroke-width:1.8 !important; stroke-linecap:round !important; stroke-linejoin:round !important; }
-#cta.site-cta .site-cta-actions > a.site-cta-button:hover, #cta.site-cta .site-cta-actions > a.site-cta-button:hover span { color:#fff !important; }
+    #cta.site-cta .site-cta-actions>a.site-cta-button {
+      color: #fff !important;
+      display: inline-flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      gap: 10px !important;
+    }
+
+    #cta.site-cta .site-cta-actions>a.site-cta-button,
+    #cta.site-cta .site-cta-actions>a.site-cta-button span {
+      color: #fff !important;
+    }
+
+    #cta.site-cta .site-cta-actions>a.site-cta-button .site-cta-send-icon {
+      display: inline-block !important;
+      width: 18px !important;
+      height: 18px !important;
+      flex: 0 0 18px !important;
+      fill: none !important;
+      stroke: #fff !important;
+      stroke-width: 1.8 !important;
+      stroke-linecap: round !important;
+      stroke-linejoin: round !important;
+    }
+
+    #cta.site-cta .site-cta-actions>a.site-cta-button:hover,
+    #cta.site-cta .site-cta-actions>a.site-cta-button:hover span {
+      color: #fff !important;
+    }
 
 
-/* =========================================================
+    /* =========================================================
    TAMBAHAN CSS 15: desktop-hero-typography-refinement
    Urutan dipertahankan agar aturan override tetap bekerja.
    ========================================================= */
 
-/* Clearly larger desktop hero typography; mobile remains unchanged. */
-  @media screen and (min-width: 1024px) {
-    header#home.hero .hero-shell h1.hero-title,
-    #seafood.seafood-section .seafood-container.hero-shell h2.seafood-title {
-      font-size: clamp(3.5rem, 4.4vw, 4.5rem) !important;
-      line-height: 1.08 !important;
-      letter-spacing: -0.025em !important;
+    /* Clearly larger desktop hero typography; mobile remains unchanged. */
+    @media screen and (min-width: 1024px) {
+
+      header#home.hero .hero-shell h1.hero-title,
+      #seafood.seafood-section .seafood-container.hero-shell h2.seafood-title {
+        font-size: clamp(3.5rem, 4.4vw, 4.5rem) !important;
+        line-height: 1.08 !important;
+        letter-spacing: -0.025em !important;
+      }
+
+      header#home.hero .hero-shell p.food-hero-intro,
+      #seafood.seafood-section .seafood-container.hero-shell p.seafood-intro-copy {
+        font-size: 19px !important;
+        line-height: 1.75 !important;
+        max-width: 720px !important;
+      }
     }
 
-    header#home.hero .hero-shell p.food-hero-intro,
-    #seafood.seafood-section .seafood-container.hero-shell p.seafood-intro-copy {
-      font-size: 19px !important;
-      line-height: 1.75 !important;
-      max-width: 720px !important;
-    }
-  }
 
-
-/* =========================================================
+    /* =========================================================
    TAMBAHAN CSS 16: mobile-hero-vertical-center-only
    Urutan dipertahankan agar aturan override tetap bekerja.
    ========================================================= */
 
-@media (max-width: 767.98px) {
-    /* Vertically center the hero content only; preserve its original left alignment. */
-    header#home.hero .hero-shell,
-    #seafood.seafood-section .seafood-container.hero-shell {
-      display: flex !important;
-      flex-direction: column !important;
-      align-items: stretch !important;
-      justify-content: center !important;
-      text-align: left !important;
-      margin-inline: auto !important;
+    @media (max-width: 767.98px) {
+
+      /* Vertically center the hero content only; preserve its original left alignment. */
+      header#home.hero .hero-shell,
+      #seafood.seafood-section .seafood-container.hero-shell {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: stretch !important;
+        justify-content: center !important;
+        text-align: left !important;
+        margin-inline: auto !important;
+      }
+
+      header#home.hero .hero-shell>.hero-eyebrow,
+      header#home.hero .hero-shell>.hero-title,
+      header#home.hero .hero-shell>.food-hero-intro,
+      #seafood.seafood-section .seafood-container.hero-shell>.seafood-eyebrow,
+      #seafood.seafood-section .seafood-container.hero-shell>.seafood-title,
+      #seafood.seafood-section .seafood-container.hero-shell>.seafood-intro-copy {
+        width: 100% !important;
+        max-width: 720px !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        text-align: left !important;
+        align-self: stretch !important;
+      }
+
+      header#home.hero .hero-shell .hero-accent-line,
+      #seafood.seafood-section .seafood-container.hero-shell .hero-accent-line {
+        align-self: flex-start !important;
+      }
+
+      header#home.hero .hero-shell .hero-actions,
+      #seafood.seafood-section .seafood-container.hero-shell .seafood-actions {
+        justify-content: flex-start !important;
+        align-items: center !important;
+        width: 100%;
+      }
     }
 
-    header#home.hero .hero-shell > .hero-eyebrow,
-    header#home.hero .hero-shell > .hero-title,
-    header#home.hero .hero-shell > .food-hero-intro,
-    #seafood.seafood-section .seafood-container.hero-shell > .seafood-eyebrow,
-    #seafood.seafood-section .seafood-container.hero-shell > .seafood-title,
-    #seafood.seafood-section .seafood-container.hero-shell > .seafood-intro-copy {
-      width: 100% !important;
-      max-width: 720px !important;
-      margin-left: 0 !important;
-      margin-right: 0 !important;
-      text-align: left !important;
-      align-self: stretch !important;
+
+    /* Hero Request Quote buttons: force readable white text on gold */
+    header#home.hero .hero-shell .hero-actions>button.btn-primary,
+    #seafood.seafood-section .seafood-container.hero-shell .seafood-actions>button.btn-primary {
+      color: #ffffff !important;
+      -webkit-text-fill-color: #ffffff !important;
     }
 
-    header#home.hero .hero-shell .hero-accent-line,
-    #seafood.seafood-section .seafood-container.hero-shell .hero-accent-line {
-      align-self: flex-start !important;
-    }
 
-    header#home.hero .hero-shell .hero-actions,
-    #seafood.seafood-section .seafood-container.hero-shell .seafood-actions {
-      justify-content: flex-start !important;
-      align-items: center !important;
-      width: 100%;
-    }
-  }
-
-
-  /* Hero Request Quote buttons: force readable white text on gold */
-  header#home.hero .hero-shell .hero-actions > button.btn-primary,
-  #seafood.seafood-section .seafood-container.hero-shell .seafood-actions > button.btn-primary {
-    color: #ffffff !important;
-    -webkit-text-fill-color: #ffffff !important;
-  }
-
-
-/* =========================================================
+    /* =========================================================
    TAMBAHAN CSS 17: mobile-cta-contact-gap-fix-v3
    Urutan dipertahankan agar aturan override tetap bekerja.
    ========================================================= */
 
-/* Mobile: preserve the moving parallax layer, but extend it far enough
+    /* Mobile: preserve the moving parallax layer, but extend it far enough
      beyond the CTA edges that scrolling cannot reveal a white strip. */
-  @media (max-width: 767.98px) {
-    #cta.site-cta {
-      margin: 0 !important;
-      margin-bottom: 0 !important;
-      border: 0 !important;
-      background: #06232b !important;
+    @media (max-width: 767.98px) {
+      #cta.site-cta {
+        margin: 0 !important;
+        margin-bottom: 0 !important;
+        border: 0 !important;
+        background: #06232b !important;
+      }
+
+      #cta.site-cta::before {
+        content: "" !important;
+        display: block !important;
+        inset: -65% 0 !important;
+        background-position: center center !important;
+        transform: translate3d(0, var(--cta-parallax-offset, 0px), 0) scale(1.16) !important;
+        will-change: transform;
+      }
+
+      #cta.site-cta+#contact.contact-section {
+        margin-top: 0 !important;
+        border-top: 0 !important;
+      }
     }
 
-    #cta.site-cta::before {
-      content: "" !important;
-      display: block !important;
-      inset: -65% 0 !important;
-      background-position: center center !important;
-      transform: translate3d(0, var(--cta-parallax-offset, 0px), 0) scale(1.16) !important;
-      will-change: transform;
-    }
 
-    #cta.site-cta + #contact.contact-section {
-      margin-top: 0 !important;
-      border-top: 0 !important;
-    }
-  }
-
-
-/* =========================================================
+    /* =========================================================
    TAMBAHAN CSS 18: site-cta-solid-black-background-final
    Urutan dipertahankan agar aturan override tetap bekerja.
    ========================================================= */
 
-/* CTA solid black background: no image or parallax layer */
-  #cta.site-cta {
-    background: #000000 !important;
-    background-image: none !important;
-    position: relative !important;
-    isolation: isolate;
-  }
-  #cta.site-cta::before {
-    content: "" !important;
-    position: absolute !important;
-    inset: 0 !important;
-    display: block !important;
-    background: #000000 !important;
-    background-image: none !important;
-    transform: none !important;
-    animation: none !important;
-    pointer-events: none;
-    z-index: 0;
-  }
+    /* CTA solid black background: no image or parallax layer */
+    #cta.site-cta {
+      background: #000000 !important;
+      background-image: none !important;
+      position: relative !important;
+      isolation: isolate;
+    }
 
-  
+    #cta.site-cta::before {
+      content: "" !important;
+      position: absolute !important;
+      inset: 0 !important;
+      display: block !important;
+      background: #000000 !important;
+      background-image: none !important;
+      transform: none !important;
+      animation: none !important;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+
 
     /* =========================================================
        ABOUT SECTION — refined responsive layout
@@ -3178,7 +3301,7 @@
 
     #about .about-description:not(.is-expanded)::after {
       height: 76px;
-      background: linear-gradient(to bottom, rgba(255,255,255,0), #fff 96%);
+      background: linear-gradient(to bottom, rgba(255, 255, 255, 0), #fff 96%);
     }
 
     #about .about-description.is-expanded {
@@ -3369,6 +3492,7 @@
     }
 
     @media (prefers-reduced-motion: reduce) {
+
       #about.about-reveal,
       #about .about-description,
       #about .about-cta-primary,
@@ -3382,7 +3506,7 @@
       }
     }
 
-  
+
 
     /* OUR PRODUCTS — styles scoped to this section only */
     #products.home-products {
@@ -3400,12 +3524,19 @@
       background: var(--products-cream) !important;
       padding: clamp(64px, 7vw, 100px) 0;
     }
+
     #products.home-products::before {
       background-image: none;
       background-color: var(--products-cream);
       opacity: 1;
     }
-    #products .products-heading { max-width: 850px; margin: 0 auto 36px; text-align: center; }
+
+    #products .products-heading {
+      max-width: 850px;
+      margin: 0 auto 36px;
+      text-align: center;
+    }
+
     #products .products-eyebrow,
     #products .product-category-label {
       color: #8A6D1F !important;
@@ -3416,6 +3547,7 @@
       text-transform: uppercase;
       margin-bottom: 12px;
     }
+
     #products .products-title {
       color: var(--products-ink) !important;
       font-family: 'Playfair Display', Georgia, serif;
@@ -3423,66 +3555,262 @@
       line-height: 1.2;
       margin: 0;
     }
-    #products .products-title-accent { display: block; width: 40px; height: 3px; background: var(--products-gold); margin: 18px auto 16px; }
-    #products .products-intro { max-width: 720px; margin: 0 auto; color: var(--products-body); font-size: 16px; line-height: 1.7; }
-    #products .product-feature-row { align-items: stretch; }
-    #products .product-feature-column { display: flex; }
+
+    #products .products-title-accent {
+      display: block;
+      width: 40px;
+      height: 3px;
+      background: var(--products-gold);
+      margin: 18px auto 16px;
+    }
+
+    #products .products-intro {
+      max-width: 720px;
+      margin: 0 auto;
+      color: var(--products-body);
+      font-size: 16px;
+      line-height: 1.7;
+    }
+
+    #products .product-feature-row {
+      align-items: stretch;
+    }
+
+    #products .product-feature-column {
+      display: flex;
+    }
+
     #products .product-feature-card {
-      width: 100%; height: 100%; min-width: 0; display: flex; flex-direction: column;
-      background: #fff; border: 1px solid #eee !important; border-radius: var(--products-radius);
-      overflow: hidden; box-shadow: 0 8px 24px rgba(0,0,0,.08) !important;
+      width: 100%;
+      height: 100%;
+      min-width: 0;
+      display: flex;
+      flex-direction: column;
+      background: #fff;
+      border: 1px solid #eee !important;
+      border-radius: var(--products-radius);
+      overflow: hidden;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, .08) !important;
       transition: transform .35s ease, box-shadow .35s ease;
     }
-    #products .product-feature-card:hover { transform: translateY(-4px); box-shadow: 0 14px 32px rgba(0,0,0,.13) !important; }
-    #products .product-feature-image {
-      position: relative; width: 100%; height: auto; aspect-ratio: 4 / 3; flex: 0 0 auto;
-      background-size: cover; background-position: center; filter: contrast(1.05) saturate(1.05);
-      transform: scale(1); transition: transform .4s ease; overflow: hidden;
+
+    #products .product-feature-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 14px 32px rgba(0, 0, 0, .13) !important;
     }
-    #products .product-feature-image::after { content: ''; position: absolute; inset: 45% 0 0; background: linear-gradient(to bottom, transparent, rgba(0,0,0,.22)); pointer-events: none; }
-    #products .product-feature-card:hover .product-feature-image { transform: scale(1.04); }
-    #products .product-feature-content { padding: var(--products-space); display: flex; flex: 1 1 auto; flex-direction: column; align-items: flex-start; }
-    #products .product-category-label { margin-bottom: 10px !important; }
-    #products .product-feature-content h3 { font-family: 'Playfair Display', Georgia, serif; font-size: clamp(26px, 2.2vw, 28px); line-height: 1.25; color: var(--products-ink) !important; margin: 0 0 12px; }
-    #products .product-feature-content p { color: var(--products-body) !important; font-size: 16px; line-height: 1.7; margin: 0 0 24px; min-height: 0; max-width: none; }
-    #products .product-card-action { width: 100%; margin-top: auto; padding-top: 20px; border-top: 1px solid #eee; }
-    #products .btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 48px; border-radius: 10px; padding: 12px 22px; font-family: inherit; font-size: 15px; line-height: 1.4; font-weight: 700; text-decoration: none !important; box-shadow: none; transition: color .25s ease, background-color .25s ease, border-color .25s ease, transform .25s ease; }
-    #products .btn-secondary { background: transparent !important; border: 1px solid var(--products-gold) !important; color: var(--products-gold-dark) !important; }
-    #products .btn-secondary i { transition: transform .25s ease; }
-    #products .btn-secondary:hover { background: rgba(212,175,79,.12) !important; border-color: var(--products-gold) !important; color: #6F5516 !important; }
-    #products .btn-secondary:hover i { transform: translateX(4px); }
-    #products .products-all-wrap { display: flex; justify-content: center; margin-top: 48px; }
-    #products .btn-primary { min-height: 50px; padding: 14px 28px; background: var(--products-gold-primary) !important; border: 1px solid transparent !important; color: #111 !important; }
-    #products .btn-primary:hover { background: #E9CA75 !important; color: #111 !important; transform: translateY(-1px); }
-    #products .btn-primary i { transition: transform .25s ease; }
-    #products .btn-primary:hover i { transform: translateX(3px); }
-    #products .btn:focus-visible { outline: 3px solid #765A13 !important; outline-offset: 3px; }
+
+    #products .product-feature-image {
+      position: relative;
+      width: 100%;
+      height: auto;
+      aspect-ratio: 4 / 3;
+      flex: 0 0 auto;
+      background-size: cover;
+      background-position: center;
+      filter: contrast(1.05) saturate(1.05);
+      transform: scale(1);
+      transition: transform .4s ease;
+      overflow: hidden;
+    }
+
+    #products .product-feature-image::after {
+      content: '';
+      position: absolute;
+      inset: 45% 0 0;
+      background: linear-gradient(to bottom, transparent, rgba(0, 0, 0, .22));
+      pointer-events: none;
+    }
+
+    #products .product-feature-card:hover .product-feature-image {
+      transform: scale(1.04);
+    }
+
+    #products .product-feature-content {
+      padding: var(--products-space);
+      display: flex;
+      flex: 1 1 auto;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    #products .product-category-label {
+      margin-bottom: 10px !important;
+    }
+
+    #products .product-feature-content h3 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(26px, 2.2vw, 28px);
+      line-height: 1.25;
+      color: var(--products-ink) !important;
+      margin: 0 0 12px;
+    }
+
+    #products .product-feature-content p {
+      color: var(--products-body) !important;
+      font-size: 16px;
+      line-height: 1.7;
+      margin: 0 0 24px;
+      min-height: 0;
+      max-width: none;
+    }
+
+    #products .product-card-action {
+      width: 100%;
+      margin-top: auto;
+      padding-top: 20px;
+      border-top: 1px solid #eee;
+    }
+
+    #products .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-height: 48px;
+      border-radius: 10px;
+      padding: 12px 22px;
+      font-family: inherit;
+      font-size: 15px;
+      line-height: 1.4;
+      font-weight: 700;
+      text-decoration: none !important;
+      box-shadow: none;
+      transition: color .25s ease, background-color .25s ease, border-color .25s ease, transform .25s ease;
+    }
+
+    #products .btn-secondary {
+      background: transparent !important;
+      border: 1px solid var(--products-gold) !important;
+      color: var(--products-gold-dark) !important;
+    }
+
+    #products .btn-secondary i {
+      transition: transform .25s ease;
+    }
+
+    #products .btn-secondary:hover {
+      background: rgba(212, 175, 79, .12) !important;
+      border-color: var(--products-gold) !important;
+      color: #6F5516 !important;
+    }
+
+    #products .btn-secondary:hover i {
+      transform: translateX(4px);
+    }
+
+    #products .products-all-wrap {
+      display: flex;
+      justify-content: center;
+      margin-top: 48px;
+    }
+
+    #products .btn-primary {
+      min-height: 50px;
+      padding: 14px 28px;
+      background: var(--products-gold-primary) !important;
+      border: 1px solid transparent !important;
+      color: #111 !important;
+    }
+
+    #products .btn-primary:hover {
+      background: #E9CA75 !important;
+      color: #111 !important;
+      transform: translateY(-1px);
+    }
+
+    #products .btn-primary i {
+      transition: transform .25s ease;
+    }
+
+    #products .btn-primary:hover i {
+      transform: translateX(3px);
+    }
+
+    #products .btn:focus-visible {
+      outline: 3px solid #765A13 !important;
+      outline-offset: 3px;
+    }
+
     #products.products-reveal .products-heading,
     #products.products-reveal .product-feature-column,
-    #products.products-reveal .products-all-wrap { opacity: 0; transform: translateY(18px); transition: opacity .65s ease, transform .65s ease; }
-    #products.products-reveal .product-feature-column:nth-child(2) { transition-delay: 100ms; }
+    #products.products-reveal .products-all-wrap {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity .65s ease, transform .65s ease;
+    }
+
+    #products.products-reveal .product-feature-column:nth-child(2) {
+      transition-delay: 100ms;
+    }
+
     #products.products-reveal.products-visible .products-heading,
     #products.products-reveal.products-visible .product-feature-column,
-    #products.products-reveal.products-visible .products-all-wrap { opacity: 1; transform: translateY(0); }
+    #products.products-reveal.products-visible .products-all-wrap {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
     @media (max-width: 767px) {
-      #products.home-products { padding: 60px 0; }
-      #products .products-heading { margin-bottom: 28px; }
-      #products .products-intro { font-size: 15px; }
-      #products .product-feature-content { padding: 24px; }
-      #products .product-feature-content h3 { font-size: 26px; }
-      #products .product-card-action .btn { width: 100%; }
-      #products .products-all-wrap { margin-top: 32px; }
+      #products.home-products {
+        padding: 60px 0;
+      }
+
+      #products .products-heading {
+        margin-bottom: 28px;
+      }
+
+      #products .products-intro {
+        font-size: 15px;
+      }
+
+      #products .product-feature-content {
+        padding: 24px;
+      }
+
+      #products .product-feature-content h3 {
+        font-size: 26px;
+      }
+
+      #products .product-card-action .btn {
+        width: 100%;
+      }
+
+      #products .products-all-wrap {
+        margin-top: 32px;
+      }
     }
+
     @media (max-width: 380px) {
-      #products .product-feature-content { padding: 20px; }
-      #products .btn { width: 100%; padding-left: 14px; padding-right: 14px; }
+      #products .product-feature-content {
+        padding: 20px;
+      }
+
+      #products .btn {
+        width: 100%;
+        padding-left: 14px;
+        padding-right: 14px;
+      }
     }
+
     @media (prefers-reduced-motion: reduce) {
-      #products .product-feature-card, #products .product-feature-image, #products .btn,
-      #products .products-heading, #products .product-feature-column, #products .products-all-wrap,
-      #products .btn-secondary i, #products .btn-primary i { transition: none !important; }
-      #products.products-reveal .products-heading, #products.products-reveal .product-feature-column,
-      #products.products-reveal .products-all-wrap { opacity: 1; transform: none; }
+
+      #products .product-feature-card,
+      #products .product-feature-image,
+      #products .btn,
+      #products .products-heading,
+      #products .product-feature-column,
+      #products .products-all-wrap,
+      #products .btn-secondary i,
+      #products .btn-primary i {
+        transition: none !important;
+      }
+
+      #products.products-reveal .products-heading,
+      #products.products-reveal .product-feature-column,
+      #products.products-reveal .products-all-wrap {
+        opacity: 1;
+        transform: none;
+      }
     }
 
 
@@ -3508,17 +3836,22 @@
       background: linear-gradient(120deg, #0A0A0A 0%, #1A1A1A 100%) !important;
       text-align: center;
     }
+
     #cta.site-cta::before {
       content: "";
       position: absolute;
       inset: 0;
       z-index: -1;
       pointer-events: none;
-      background: linear-gradient(120deg, rgba(10,10,10,.88), rgba(26,26,26,.88)),
+      background: linear-gradient(120deg, rgba(10, 10, 10, .88), rgba(26, 26, 26, .88)),
         url("img/assets/chase-baker-yvb8NrIhIFI-unsplash.jpg") center/cover no-repeat;
       opacity: .25;
     }
-    #cta.site-cta::after { content: none !important; }
+
+    #cta.site-cta::after {
+      content: none !important;
+    }
+
     #cta.site-cta .site-cta-inner {
       width: min(100%, 860px);
       margin: 0 auto;
@@ -3531,10 +3864,12 @@
       transform: translateY(18px);
       transition: opacity .65s ease, transform .65s ease;
     }
+
     #cta.site-cta.cta-visible .site-cta-inner {
       opacity: 1;
       transform: translateY(0);
     }
+
     #cta.site-cta .site-cta-eyebrow {
       margin: 0 0 16px;
       color: var(--cta-gold) !important;
@@ -3542,6 +3877,7 @@
       letter-spacing: .22em;
       text-transform: uppercase;
     }
+
     #cta.site-cta .site-cta-title {
       max-width: 820px;
       margin: 0;
@@ -3553,6 +3889,7 @@
       letter-spacing: -.02em;
       text-shadow: none;
     }
+
     #cta.site-cta .site-cta-accent {
       display: block;
       width: 40px;
@@ -3561,12 +3898,14 @@
       background: var(--cta-gold);
       flex: 0 0 auto;
     }
+
     #cta.site-cta .site-cta-desc {
       max-width: 650px;
       margin: 20px auto 0;
       color: var(--cta-muted) !important;
       font: 400 16px/1.7 "DM Sans", sans-serif;
     }
+
     #cta.site-cta .site-cta-actions {
       display: flex;
       flex-wrap: wrap;
@@ -3576,15 +3915,16 @@
       margin-top: 28px;
       width: 100%;
     }
-    #cta.site-cta .site-cta-actions > .site-cta-button {
+
+    #cta.site-cta .site-cta-actions>.site-cta-button {
       display: inline-flex !important;
       align-items: center;
       justify-content: center;
       gap: 10px;
-      min-height: 54px;
+      /* min-height: 54px; */
       width: auto;
       margin: 0;
-      padding: 16px 32px;
+      /* padding: 16px 32px; */
       border: 1px solid var(--cta-gold) !important;
       border-radius: var(--cta-radius) !important;
       font: 700 15px/1.25 "DM Sans", sans-serif !important;
@@ -3594,380 +3934,1525 @@
       box-shadow: none;
       transition: background-color .2s ease, color .2s ease, border-color .2s ease, transform .2s ease;
     }
-    #cta.site-cta .site-cta-actions > .site-cta-button.btn-primary {
+
+    #cta.site-cta .site-cta-actions>.site-cta-button.btn-primary {
       background: var(--cta-gold-button) !important;
       border-color: var(--cta-gold-button) !important;
       color: var(--cta-ink) !important;
     }
-    #cta.site-cta .site-cta-actions > .site-cta-button.btn-primary:hover {
+
+    #cta.site-cta .site-cta-actions>.site-cta-button.btn-primary:hover {
       background: var(--cta-gold-hover) !important;
       border-color: var(--cta-gold-hover) !important;
       color: var(--cta-ink) !important;
       transform: translateY(-1px);
     }
-    #cta.site-cta .site-cta-actions > .site-cta-button.btn-secondary {
+
+    #cta.site-cta .site-cta-actions>.site-cta-button.btn-secondary {
       background: transparent !important;
       border-color: var(--cta-gold) !important;
       color: var(--cta-gold) !important;
     }
-    #cta.site-cta .site-cta-actions > .site-cta-button.btn-secondary:hover {
-      background: rgba(212,175,79,.12) !important;
+
+    #cta.site-cta .site-cta-actions>.site-cta-button.btn-secondary:hover {
+      background: rgba(212, 175, 79, .12) !important;
       color: #F3D987 !important;
       transform: translateY(-1px);
     }
-    #cta.site-cta .site-cta-button i { font-size: 1rem; line-height: 1; }
+
+    #cta.site-cta .site-cta-button i {
+      font-size: 1rem;
+      line-height: 1;
+    }
+
     #cta.site-cta .site-cta-trust {
       margin: 22px 0 0;
       color: #B0B0B0 !important;
       font: 400 13px/1.7 "DM Sans", sans-serif;
       letter-spacing: .01em;
     }
-    #cta.site-cta .site-cta-trust span { display: inline-block; padding: 0 5px; color: var(--cta-gold); }
+
+    #cta.site-cta .site-cta-trust span {
+      display: inline-block;
+      padding: 0 5px;
+      color: var(--cta-gold);
+    }
+
+    #cta.site-cta .site-cta-trust strong {
+      color: inherit;
+      font-weight: 700;
+    }
+
     #cta.site-cta .site-cta-button:focus-visible {
       outline: 3px solid #FFFFFF !important;
       outline-offset: 4px;
     }
+
     @media (max-width: 767.98px) {
-      #cta.site-cta { padding: 56px 18px; }
-      #cta.site-cta .site-cta-title { font-size: 28px; line-height: 1.2; }
-      #cta.site-cta .site-cta-desc { font-size: 16px; }
-      #cta.site-cta .site-cta-actions { flex-direction: column; gap: 12px; margin-top: 24px; }
-      #cta.site-cta .site-cta-actions > .site-cta-button { width: 100%; max-width: 420px; min-height: 54px; }
-      #cta.site-cta .site-cta-trust { max-width: 360px; margin-top: 20px; }
+      #cta.site-cta {
+        padding: 56px 18px;
+      }
+
+      #cta.site-cta .site-cta-title {
+        font-size: 28px;
+        line-height: 1.2;
+      }
+
+      #cta.site-cta .site-cta-desc {
+        font-size: 16px;
+      }
+
+      #cta.site-cta .site-cta-actions {
+        flex-direction: column;
+        gap: 12px;
+        margin-top: 24px;
+      }
+
+      #cta.site-cta .site-cta-actions>.site-cta-button {
+        /* width: 100%; */
+        max-width: 420px;
+        min-height: 54px;
+      }
+
+      #cta.site-cta .site-cta-trust {
+        max-width: 360px;
+        margin-top: 20px;
+      }
     }
+
     @media (prefers-reduced-motion: reduce) {
+
       #cta.site-cta .site-cta-inner,
-      #cta.site-cta .site-cta-button { transition: none !important; }
-      #cta.site-cta .site-cta-inner { opacity: 1; transform: none; }
+      #cta.site-cta .site-cta-button {
+        transition: none !important;
+      }
+
+      #cta.site-cta .site-cta-inner {
+        opacity: 1;
+        transform: none;
+      }
     }
+  
+
+    /* =========================================================
+       FOOTER TYPOGRAPHY — keep original styling, update font sizes
+       Responsive layout continues to use the original Bootstrap grid.
+       ========================================================= */
+    footer h6 {
+      font-size: 20px !important;
+    }
+
+    footer .footer-description {
+      font-size: 15px !important;
+      line-height: 1.7;
+    }
+
+    footer .footer-link {
+      font-size: 16px !important;
+    }
+
+    footer > .container > .row > div:nth-child(3) > p {
+      font-size: 15px !important;
+      line-height: 1.6;
+    }
+
+    footer .copyright-bar small {
+      font-size: 13px !important;
+      line-height: 1.6;
+    }
+
+    @media (max-width: 767.98px) {
+      footer > .container > .row > div + div {
+        margin-top: 1.5rem;
+      }
+    }
+
+
+/* =========================================================
+   PT LACARA FOOD INDONESIA — FOOTER SYSTEM
+   Footer-only responsive typography, spacing and layout.
+   ========================================================= */
+footer.theme-dark {
+  --footer-bg: #0A0A0A;
+  --footer-text: #C8C8C8;
+  --footer-tagline: #CFCFCF;
+  --footer-heading: #FFFFFF;
+  --footer-company: #E0E0E0;
+  --footer-copyright: #8A8A8A;
+  --footer-divider: #2A2A2A;
+  --footer-font-mobile: 15px;
+  --footer-font-link: 16px;
+  --footer-font-heading: 20px;
+  --footer-font-copyright: 13px;
+  --footer-space-1: 8px;
+  --footer-space-2: 16px;
+  --footer-space-3: 20px;
+  --footer-space-4: 32px;
+  --footer-space-5: 36px;
+  --footer-space-6: 48px;
+  color: var(--footer-text);
+  background: var(--footer-bg) !important;
+  padding: var(--footer-space-6) 0 0 !important;
+}
+footer.theme-dark > .container {
+  width: 100%;
+  max-width: 1264px;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin-left: auto;
+  margin-right: auto;
+}
+footer.theme-dark > .container > .row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--footer-space-5) 0;
+  margin: 0;
+  padding: 0 !important;
+  align-items: start;
+}
+footer.theme-dark > .container > .row > div {
+  width: 100%;
+  max-width: none;
+  min-width: 0;
+  margin: 0 !important;
+  padding: 0 !important;
+  justify-self: stretch;
+  align-self: start;
+}
+footer.theme-dark .footer-title.footer-logo {
+  margin: 0 !important;
+  padding: 0 !important;
+  line-height: 0;
+}
+footer.theme-dark .footer-title.footer-logo img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+footer.theme-dark .footer-description {
+  margin: var(--footer-space-3) 0 0 !important;
+  max-width: 480px;
+  color: var(--footer-tagline) !important;
+  font-size: var(--footer-font-mobile) !important;
+  font-weight: 400;
+  line-height: 1.7 !important;
+}
+footer.theme-dark h6 {
+  margin: 0 0 var(--footer-space-2) !important;
+  padding: 0 !important;
+  color: var(--footer-heading) !important;
+  font-size: var(--footer-font-heading) !important;
+  font-weight: 600 !important;
+  line-height: 1.3;
+  text-transform: none !important;
+  letter-spacing: normal;
+}
+footer.theme-dark .footer-link {
+  display: flex;
+  align-items: center;
+  width: fit-content;
+  min-height: 44px;
+  margin: 0 !important;
+  padding: 0;
+  color: var(--footer-text) !important;
+  font-size: var(--footer-font-link) !important;
+  font-weight: 400;
+  line-height: 1.4 !important;
+  text-decoration: none;
+  transition: color .2s ease;
+}
+footer.theme-dark .footer-link p {
+  margin: 0 !important;
+  padding: 0;
+  color: inherit !important;
+  font-size: inherit !important;
+  line-height: inherit !important;
+}
+footer.theme-dark .footer-link + .footer-link {
+  margin-top: var(--footer-space-1) !important;
+}
+footer.theme-dark .footer-link:hover,
+footer.theme-dark .footer-link:focus-visible,
+footer.theme-dark .footer-link:active {
+  color: #FFFFFF !important;
+}
+footer.theme-dark .footer-link:focus-visible {
+  outline: 2px solid #FFFFFF;
+  outline-offset: 3px;
+}
+footer.theme-dark > .container > .row > div:nth-child(3) > p {
+  margin: 0 !important;
+  color: var(--footer-text) !important;
+  font-size: var(--footer-font-mobile) !important;
+  font-weight: 400;
+  line-height: 1.7 !important;
+}
+footer.theme-dark > .container > .row > div:nth-child(3) > p br {
+  display: block;
+  content: "";
+}
+footer.theme-dark > .container > .row > div:nth-child(3) > p br + * {
+  color: var(--footer-company);
+}
+footer.theme-dark .copyright-bar {
+  margin: var(--footer-space-4) 0 0 !important;
+  padding: var(--footer-space-2) 0 24px !important;
+  border-top: 1px solid var(--footer-divider);
+  text-align: center;
+}
+footer.theme-dark .copyright-bar > .container {
+  width: 100%;
+  max-width: 1264px;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin: 0 auto;
+}
+footer.theme-dark .copyright-bar small {
+  display: block;
+  margin: 0;
+  color: var(--footer-copyright) !important;
+  font-size: var(--footer-font-copyright) !important;
+  line-height: 1.6;
+  text-align: center;
+}
+@media (min-width: 768px) {
+  footer.theme-dark {
+    --footer-font-mobile: 15px;
+  }
+  footer.theme-dark > .container,
+  footer.theme-dark .copyright-bar > .container {
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+  footer.theme-dark > .container > .row {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 40px;
+    row-gap: var(--footer-space-5);
+  }
+  footer.theme-dark > .container > .row > div:first-child {
+    grid-column: 1 / -1;
+    max-width: 480px;
+  }
+  footer.theme-dark > .container > .row > div:nth-child(2),
+  footer.theme-dark > .container > .row > div:nth-child(3) {
+    grid-column: auto;
+  }
+}
+@media (min-width: 1024px) {
+  footer.theme-dark {
+    --footer-font-mobile: 16px;
+    --footer-font-copyright: 14px;
+  }
+  footer.theme-dark > .container,
+  footer.theme-dark .copyright-bar > .container {
+    max-width: 1296px;
+    padding-left: 48px;
+    padding-right: 48px;
+  }
+  footer.theme-dark > .container > .row {
+    grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr) minmax(0, 1fr);
+    column-gap: 64px;
+    row-gap: 0;
+  }
+  footer.theme-dark > .container > .row > div:first-child {
+    grid-column: auto;
+    max-width: none;
+  }
+  footer.theme-dark .footer-description {
+    max-width: 380px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  footer.theme-dark .footer-link {
+    transition: none;
+  }
+}
+
+
+
+/* FOOTER + MAP SPACING REFINEMENT */
+footer.theme-dark {
+  padding: 0 !important;
+  overflow: visible !important;
+}
+/* Content block: symmetric top/bottom padding, responsive by breakpoint. */
+footer.theme-dark > .container:first-child {
+  padding-top: 40px !important;
+  padding-bottom: 40px !important;
+  overflow: visible !important;
+}
+/* Keep the map flush with its wrapper and remove legacy iframe line breaks. */
+footer.theme-dark .location-section,
+footer.theme-dark section.location-section {
+  margin: 0 !important;
+  padding: 0 !important;
+  line-height: 0 !important;
+  overflow: visible !important;
+}
+footer.theme-dark .location-section > .container {
+  width: 100% !important;
+  max-width: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+footer.theme-dark .location-map-wrap {
+  display: block !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  height: 320px !important;
+  min-height: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  line-height: 0 !important;
+  border: 0 !important;
+  overflow: hidden !important;
+}
+footer.theme-dark .location-map-wrap iframe {
+  display: block !important;
+  width: 100% !important;
+  height: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: 0 !important;
+}
+/* The legacy map links create unwanted inline line-box gaps beneath the iframe. */
+footer.theme-dark .location-map-wrap > br,
+footer.theme-dark .location-map-wrap > small {
+  display: none !important;
+}
+/* No gap between map and copyright divider. */
+footer.theme-dark .copyright-bar {
+  margin: 0 !important;
+  padding: 20px 20px !important;
+  border-top: 1px solid #2A2A2A !important;
+}
+footer.theme-dark .copyright-bar > .container {
+  padding: 0 !important;
+  margin: 0 auto !important;
+}
+/* Keep floating controls clear of the map action and copyright. */
+.whatsapp {
+  right: 16px !important;
+  bottom: 20px !important;
+}
+.back-to-top {
+  right: 16px !important;
+  bottom: 87px !important;
+}
+footer.theme-dark .map-open {
+  right: 84px !important;
+}
+@media (min-width: 768px) {
+  footer.theme-dark > .container:first-child {
+    padding-top: 48px !important;
+    padding-bottom: 48px !important;
+  }
+  footer.theme-dark .location-map-wrap {
+    height: 400px !important;
+  }
+  footer.theme-dark .map-open {
+    right: 100px !important;
+  }
+}
+@media (min-width: 1024px) {
+  footer.theme-dark > .container:first-child {
+    padding-top: 64px !important;
+    padding-bottom: 64px !important;
+  }
+}
+@media (max-width: 767.98px) {
+  footer.theme-dark .copyright-bar {
+    padding: 20px 20px 72px !important;
+  }
+  .whatsapp {
+    right: 16px !important;
+    bottom: 20px !important;
+  }
+  .back-to-top {
+    right: 16px !important;
+    bottom: 82px !important;
+  }
+  footer.theme-dark .map-open {
+    right: 84px !important;
+    bottom: 14px !important;
+  }
+}
+
+
+
+/* DESKTOP FOOTER ALIGNMENT — 1024PX AND UP ONLY */
+@media (min-width: 1024px) {
+  footer.theme-dark > .container:first-child {
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 1200px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    padding: 64px 48px !important;
+  }
+
+  footer.theme-dark > .container:first-child > .row {
+    display: grid;
+    grid-template-columns: 1.6fr 1fr 1fr;
+    column-gap: 64px;
+    row-gap: 0;
+    align-items: start;
+  }
+
+  footer.theme-dark > .container:first-child > .row > div {
+    min-width: 0;
+    margin: 0 !important;
+    padding: 0 !important;
+    align-self: start;
+  }
+
+  /* Logo and tagline share the same left edge. */
+  footer.theme-dark .footer-title.footer-logo {
+    margin: 0 !important;
+    padding: 0 !important;
+    line-height: 0;
+  }
+
+  footer.theme-dark .footer-title.footer-logo img {
+    display: block;
+    width: auto;
+    height: 56px;
+    max-width: 100%;
+    margin: 0 !important;
+    padding: 0 !important;
+    object-fit: contain;
+    object-position: left center;
+  }
+
+  footer.theme-dark .footer-description {
+    max-width: 400px;
+    margin: 20px 0 0 !important;
+    font-size: 16px !important;
+    line-height: 1.7 !important;
+    color: #CFCFCF !important;
+  }
+
+  /* Keep both headings aligned and their content starting at the same line. */
+  footer.theme-dark > .container:first-child > .row > div:nth-child(2) > h6,
+  footer.theme-dark > .container:first-child > .row > div:nth-child(3) > h6 {
+    min-height: 26px;
+    margin: 8px 0 20px !important;
+    padding: 0 !important;
+    color: #FFFFFF !important;
+    font-size: 20px !important;
+    font-weight: 600 !important;
+    line-height: 1.3;
+    text-transform: none !important;
+    letter-spacing: normal;
+  }
+
+  footer.theme-dark > .container:first-child > .row > div:nth-child(2) {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  footer.theme-dark > .container:first-child > .row > div:nth-child(2) .footer-link {
+    min-height: 0;
+    margin: 0 !important;
+    padding: 0;
+    font-size: 16px !important;
+    line-height: 1.4 !important;
+    color: #C8C8C8 !important;
+    transition: color 0.2s ease;
+  }
+
+  footer.theme-dark > .container:first-child > .row > div:nth-child(2) .footer-link + .footer-link {
+    margin-top: 14px !important;
+  }
+
+  footer.theme-dark > .container:first-child > .row > div:nth-child(2) .footer-link:hover,
+  footer.theme-dark > .container:first-child > .row > div:nth-child(2) .footer-link:focus-visible,
+  footer.theme-dark > .container:first-child > .row > div:nth-child(2) .footer-link:active {
+    color: #FFFFFF !important;
+  }
+
+  footer.theme-dark > .container:first-child > .row > div:nth-child(3) > p {
+    max-width: 260px;
+    margin: 0 !important;
+    font-size: 16px !important;
+    line-height: 1.7 !important;
+    color: #C8C8C8 !important;
+  }
+
+  footer.theme-dark > .container:first-child > .row > div:nth-child(3) > p strong,
+  footer.theme-dark > .container:first-child > .row > div:nth-child(3) > p b {
+    font-weight: 500;
+    color: #E0E0E0 !important;
+  }
+}
+
+
+
+    /* CTA lineonion background — final scoped override */
+    #cta.site-cta {
+      position: relative !important;
+      isolation: isolate;
+      overflow: hidden !important;
+      background: linear-gradient(120deg, #0A0A0A 0%, #1A1A1A 100%) !important;
+    }
+
+    #cta.site-cta::before {
+      content: "" !important;
+      position: absolute !important;
+      inset: 0 !important;
+      z-index: 0 !important;
+      pointer-events: none;
+      background: url("img/assets/lineonion.png") center / cover no-repeat !important;
+      opacity: 0.2 !important;
+      filter: brightness(0) invert(1) !important;
+      transform: none !important;
+      will-change: auto !important;
+    }
+
+    #cta.site-cta::after {
+      content: "" !important;
+      position: absolute !important;
+      inset: 0 !important;
+      z-index: 0 !important;
+      pointer-events: none;
+      background: radial-gradient(ellipse at center, rgba(10,10,10,0.85) 0%, rgba(10,10,10,0) 70%) !important;
+    }
+
+    #cta.site-cta > .site-cta-inner,
+    #cta.site-cta .site-cta-eyebrow,
+    #cta.site-cta .site-cta-title,
+    #cta.site-cta .site-cta-accent,
+    #cta.site-cta .site-cta-desc,
+    #cta.site-cta .site-cta-actions,
+    #cta.site-cta .site-cta-trust,
+    #cta.site-cta .site-cta-button {
+      position: relative;
+      z-index: 1;
+    }
+
+    @media (max-width: 767.98px) {
+      #cta.site-cta::before {
+        background-size: auto 100% !important;
+        opacity: 0.15 !important;
+      }
+    }
+
+
+
+/* HERO DESKTOP REFINEMENT — 1024px and wider only */
+@media (min-width: 1024px) {
+  #home.hero.hero-slideshow {
+    --hero-content-max: 1200px;
+    --hero-side-padding: 48px;
+    --hero-copy-max: 760px;
+    --hero-gold: var(--accent, #D4AF4F);
+    display: flex;
+    align-items: center;
+    min-height: 90vh;
+    height: auto;
+    padding: 0;
+    overflow: hidden;
+    isolation: isolate;
+  }
+
+  #home.hero.hero-slideshow .hero-slideshow-overlay {
+    z-index: 1;
+    pointer-events: none;
+    background:
+      linear-gradient(0deg, rgba(10,10,10,0.5) 0%, rgba(10,10,10,0) 38%),
+      linear-gradient(90deg, rgba(10,10,10,0.88) 0%, rgba(10,10,10,0.65) 40%, rgba(10,10,10,0.15) 75%, rgba(10,10,10,0) 100%) !important;
+  }
+
+  #home.hero.hero-slideshow > .container.hero-inner {
+    box-sizing: border-box;
+    width: 100%;
+    max-width: var(--hero-content-max);
+    margin: 0 auto;
+    padding: 0 var(--hero-side-padding) !important;
+    position: relative;
+    z-index: 2;
+  }
+
+  #home.hero.hero-slideshow .hero-inner > .row,
+  #home.hero.hero-slideshow .hero-inner > .row > .col-lg-12 {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  #home.hero.hero-slideshow .hero-inner > .row > .col-lg-12 {
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 760px;
+    flex: 0 1 760px;
+    text-align: left;
+  }
+
+  #home.hero.hero-slideshow .hero-inner .eyebrow.label {
+    margin: 0 0 16px !important;
+    color: var(--hero-gold) !important;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    font-size: 12px;
+  }
+  #home.hero.hero-slideshow .hero-inner .eyebrow.label {
+    font-size: 0;
+  }
+  #home.hero.hero-slideshow .hero-inner .eyebrow.label::after {
+    content: "WELCOME TO PT. LACARA FOOD INDONESIA";
+    display: block;
+    font: 700 12px/1.4 "DM Sans", sans-serif;
+    letter-spacing: .18em;
+    color: var(--hero-gold);
+  }
+
+  #home.hero.hero-slideshow .hero-inner h1 {
+    width: 100%;
+    max-width: 760px;
+    margin: 0 0 24px !important;
+    color: #FFFFFF;
+    font-family: "Playfair Display", Georgia, serif;
+    font-size: clamp(40px, 4.4vw, 60px);
+    line-height: 1.15;
+    text-wrap: balance;
+    text-shadow: 0 2px 18px rgba(0,0,0,.45);
+  }
+
+  #home.hero.hero-slideshow .hero-inner p {
+    width: 100%;
+    max-width: 680px;
+    margin: 0 0 32px !important;
+    text-align: left;
+    color: #EDEDED !important;
+    font-size: 17px;
+    line-height: 1.7;
+    text-shadow: 0 1px 12px rgba(0,0,0,.6);
+  }
+
+  #home.hero.hero-slideshow .hero-inner .d-flex.gap-3 {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 14px !important;
+    margin-top: 0 !important;
+  }
+
+  #home.hero.hero-slideshow .hero-inner .btn-main,
+  #home.hero.hero-slideshow .hero-inner .btn-outline {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    min-height: 56px;
+    padding: 16px 28px;
+    border-radius: 10px !important;
+    font-weight: 700;
+    text-decoration: none;
+    transition: background-color .2s ease, border-color .2s ease, color .2s ease, transform .2s ease;
+  }
+
+  #home.hero.hero-slideshow .hero-inner .btn-main {
+    background: #E0BC5C !important;
+    border: 1px solid #E0BC5C !important;
+    color: #111111 !important;
+  }
+  #home.hero.hero-slideshow .hero-inner .btn-main:hover {
+    background: #F0D078 !important;
+    border-color: #F0D078 !important;
+    color: #111111 !important;
+    transform: translateY(-1px);
+  }
+
+  #home.hero.hero-slideshow .hero-inner .btn-outline {
+    background: rgba(10,10,10,.35) !important;
+    border: 1px solid #D4AF4F !important;
+    color: #FFFFFF !important;
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+  }
+  #home.hero.hero-slideshow .hero-inner .btn-outline:hover {
+    background: rgba(212,175,79,.15) !important;
+    border-color: #D4AF4F !important;
+    color: #FFFFFF !important;
+    transform: translateY(-1px);
+  }
+
+  #home.hero.hero-slideshow .hero-slide-dots {
+    left: max(48px, calc((100vw - 1200px) / 2 + 48px));
+    right: auto;
+    bottom: 40px;
+    z-index: 3;
+    gap: 8px;
+  }
+  #home.hero.hero-slideshow .hero-dot {
+    background: rgba(255,255,255,.4);
+  }
+  #home.hero.hero-slideshow .hero-dot.active {
+    background: #D4AF4F;
+  }
+}
+
+
+/* HERO MOBILE ALIGNMENT — under 768px only */
+@media (max-width: 767px) {
+  #home.hero.hero-slideshow {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    width: 100%;
+    min-height: 100svh;
+    height: auto;
+    padding: 72px 24px 72px;
+    overflow-x: hidden;
+    overflow-y: visible;
+    text-align: center;
+    isolation: isolate;
+  }
+
+  #home.hero.hero-slideshow .hero-slideshow-overlay {
+    z-index: 1;
+    pointer-events: none;
+    background: linear-gradient(rgba(8, 10, 12, .76), rgba(8, 10, 12, .76)) !important;
+  }
+
+  /* Single centered content wrapper: all hero elements share the same edges. */
+  #home.hero.hero-slideshow > .container.hero-inner {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 340px;
+    min-height: calc(100svh - 144px);
+    height: auto;
+    margin: 0 auto;
+    padding: 0 !important;
+    position: relative;
+    z-index: 2;
+    text-align: center;
+  }
+
+  #home.hero.hero-slideshow .hero-inner > .row,
+  #home.hero.hero-slideshow .hero-inner > .row > .col-lg-12 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 340px;
+    flex: 0 1 auto;
+    margin: 0 auto !important;
+    padding: 0 !important;
+    text-align: center;
+  }
+
+  #home.hero.hero-slideshow .hero-inner .eyebrow.label {
+    margin: 0 0 16px !important;
+    padding: 0 !important;
+    color: var(--accent, #D4AF4F) !important;
+    font-size: 0 !important;
+    line-height: 0;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    text-align: center;
+  }
+  #home.hero.hero-slideshow .hero-inner .eyebrow.label::after {
+    content: "WELCOME TO PT. LACARA FOOD INDONESIA";
+    display: block;
+    color: var(--accent, #D4AF4F);
+    font: 700 11px/1.4 "DM Sans", sans-serif;
+    letter-spacing: .12em;
+  }
+
+  #home.hero.hero-slideshow .hero-inner h1 {
+    width: 100%;
+    max-width: 340px;
+    margin: 0 0 18px !important;
+    padding: 0 !important;
+    color: #FFFFFF !important;
+    font-family: "Playfair Display", Georgia, serif;
+    font-size: clamp(30px, 8.5vw, 38px) !important;
+    line-height: 1.2 !important;
+    text-align: center;
+    text-wrap: balance;
+    text-shadow: 0 2px 16px rgba(0,0,0,.7);
+  }
+
+  #home.hero.hero-slideshow .hero-inner p {
+    display: block;
+    width: 100%;
+    max-width: 340px;
+    margin: 0 0 24px !important;
+    padding: 0 !important;
+    color: #F0F0F0 !important;
+    font-size: 14.5px !important;
+    line-height: 1.65 !important;
+    text-align: center;
+    text-wrap: balance;
+    text-shadow: 0 1px 8px rgba(0,0,0,.85);
+    overflow: visible;
+    max-height: none !important;
+    display: block !important;
+    -webkit-line-clamp: unset;
+    line-clamp: unset;
+  }
+
+  #home.hero.hero-slideshow .hero-inner .d-flex.gap-3 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 340px;
+    gap: 12px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+  #home.hero.hero-slideshow .hero-inner .btn-main,
+  #home.hero.hero-slideshow .hero-inner .btn-outline {
+    box-sizing: border-box;
+    display: flex;
+    width: 100% !important;
+    max-width: 340px;
+    min-height: 52px;
+    margin: 0 !important;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+
+  #home.hero.hero-slideshow .hero-slide-dots {
+    position: absolute;
+    left: 50% !important;
+    right: auto !important;
+    bottom: 28px !important;
+    z-index: 3;
+    gap: 8px;
+    transform: translateX(-50%) !important;
+  }
+  #home.hero.hero-slideshow .hero-dot { background: rgba(255,255,255,.65); }
+  #home.hero.hero-slideshow .hero-dot.active { background: var(--accent, #D4AF4F); }
+
+  /* Floating WhatsApp stays clear of hero CTAs and slider indicators. */
+  a.whatsapp {
+    position: fixed !important;
+    width: 52px !important;
+    height: 52px !important;
+    right: 16px !important;
+    bottom: 20px !important;
+    z-index: 99;
+  }
+}
+
+
+
+/* COPYRIGHT BAR + FLOATING CONTROLS — targeted update only */
+footer.theme-dark .copyright-bar {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  box-sizing: border-box !important;
+  min-height: 64px !important;
+  width: 100% !important;
+  margin: 0 !important;
+  padding: 20px 20px !important;
+  border-top: 1px solid #2A2A2A !important;
+  background: #0D0D0D !important;
+  text-align: center !important;
+}
+footer.theme-dark .copyright-bar > .container {
+  width: 100% !important;
+  max-width: 1264px !important;
+  margin: 0 auto !important;
+  padding: 0 !important;
+  text-align: center !important;
+}
+footer.theme-dark .copyright-bar small {
+  display: block !important;
+  margin: 0 !important;
+  color: #8A8A8A !important;
+  font-size: 13px !important;
+  line-height: 1.6 !important;
+  text-align: center !important;
+  text-wrap: balance;
+}
+.whatsapp,
+.back-to-top {
+  position: fixed !important;
+  right: 16px !important;
+  z-index: 9999 !important;
+  box-sizing: border-box !important;
+  width: 48px !important;
+  height: 48px !important;
+  min-width: 48px !important;
+  min-height: 48px !important;
+}
+.whatsapp { bottom: 20px !important; }
+.back-to-top { bottom: 80px !important; }
+@media (min-width: 1024px) {
+  footer.theme-dark .copyright-bar small { font-size: 14px !important; }
+}
+@media (max-width: 767.98px) {
+  footer.theme-dark .copyright-bar { padding: 20px 72px !important; }
+}
+
+
+
+    /* ABOUT MOBILE TITLE ALIGNMENT — mobile only */
+    @media (max-width: 767px) {
+      #about .title {
+        font-size: 30px;
+        line-height: 1.2;
+        font-weight: 600;
+        color: #111;
+        text-wrap: balance;
+      }
+
+      #about .title::after {
+        display: block;
+        width: 40px;
+        height: 3px;
+        margin-top: 14px;
+        margin-left: 0;
+        margin-right: auto;
+        background: #D4AF4F;
+      }
+
+      #about .about-description {
+        margin-top: 20px;
+      }
+    }
+
+
+
+/* HERO COPY: separate intro and sourcing paragraph */
+#home.hero.hero-slideshow .hero-inner .hero-intro {
+  margin-bottom: 12px !important;
+}
+#home.hero.hero-slideshow .hero-inner .hero-source-paragraph {
+  margin-top: 0 !important;
+}
+@media (max-width: 767px) {
+  #home.hero.hero-slideshow .hero-inner .hero-intro {
+    margin-bottom: 12px !important;
+  }
+  #home.hero.hero-slideshow .hero-inner .hero-source-paragraph {
+    margin-bottom: 24px !important;
+  }
+}
+
+
+/* HERO DESKTOP WIDTH FIX — keep tablet/mobile rules unchanged */
+@media (min-width: 1024px) {
+  #home.hero.hero-slideshow > .container.hero-inner {
+    width: 100%;
+    max-width: 1400px;
+    padding-left: clamp(32px, 5vw, 72px) !important;
+    padding-right: clamp(32px, 5vw, 72px) !important;
+    margin-left: auto;
+    margin-right: auto;
+    box-sizing: border-box;
+  }
+
+  #home.hero.hero-slideshow .hero-inner > .row {
+    display: flex;
+    width: 100%;
+    max-width: none;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+
+  #home.hero.hero-slideshow .hero-inner > .row > .col-lg-12 {
+    box-sizing: border-box;
+    display: block;
+    width: 100%;
+    max-width: none;
+    flex: 0 0 100%;
+    min-width: 0;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    text-align: left;
+  }
+
+  /* The column fills the row; only text lines stay intentionally readable. */
+  #home.hero.hero-slideshow .hero-inner h1 {
+    width: 100%;
+    max-width: 900px;
+  }
+
+  #home.hero.hero-slideshow .hero-inner p {
+    width: 100%;
+    max-width: 760px;
+  }
+}
+
+
+/* DESKTOP ALIGNMENT — navbar logo, hero content, and slider indicators share one container */
+@media (min-width: 1024px) {
+  :root {
+    --container-max: 1200px;
+    --container-pad: 48px;
+  }
+
+  /* Match the navbar's inner content line to the hero container. */
+  .navbar > .container {
+    width: 100%;
+    max-width: var(--container-max);
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: var(--container-pad) !important;
+    padding-right: var(--container-pad) !important;
+    box-sizing: border-box;
+  }
+
+  /* Shared desktop container for the hero copy. */
+  #home.hero.hero-slideshow > .hero-inner.container-fluid {
+    width: 100%;
+    max-width: var(--container-max);
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: var(--container-pad) !important;
+    padding-right: var(--container-pad) !important;
+    box-sizing: border-box;
+  }
+
+  #home.hero.hero-slideshow .hero-inner > .row {
+    width: 100%;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+
+  #home.hero.hero-slideshow .hero-inner > .row > .col-lg-12 {
+    width: 100%;
+    max-width: none;
+    flex: 0 0 100%;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    box-sizing: border-box;
+    text-align: left;
+  }
+
+  /* Indicators use the same max-width, side padding, and centered container geometry. */
+  #home.hero.hero-slideshow > .hero-slide-dots {
+    position: absolute;
+    left: 0;
+    right: 0;
+    width: 100%;
+    max-width: var(--container-max);
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: var(--container-pad);
+    padding-right: var(--container-pad);
+    bottom: 40px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 8px;
+    transform: none !important;
+    z-index: 3;
+  }
+
+  #home.hero.hero-slideshow .hero-dot {
+    background: rgba(255, 255, 255, .4);
+  }
+
+  #home.hero.hero-slideshow .hero-dot.active {
+    background: #D4AF4F;
+  }
+}
+
+
+
+/* PRODUCTS SUBMENU — scoped additions; preserve existing navbar/sidebar theme */
+.navbar .navbar-nav > .nav-item.has-submenu { position: relative; }
+.navbar .products-menu-link { display: inline-flex; align-items: center; gap: 7px; }
+.products-chevron, .mobile-products-chevron { display: inline-block; font-size: .72em; transition: transform .2s ease; }
+.navbar .has-submenu:hover > .products-menu-link .products-chevron,
+.navbar .has-submenu:focus-within > .products-menu-link .products-chevron,
+.navbar .has-submenu.submenu-open > .products-menu-link .products-chevron { transform: rotate(180deg); }
+.navbar .submenu { list-style: none; position: absolute; top: 100%; left: 0; min-width: 200px; margin: 0; padding: 8px; z-index: 2000; background: #fff; border-radius: 12px; box-shadow: 0 12px 32px rgba(0,0,0,.12); opacity: 0; visibility: hidden; pointer-events: none; transform: translateY(8px); transition: opacity .2s ease, transform .2s ease, visibility .2s ease; }
+.navbar .submenu::before { content: ""; position: absolute; left: 0; right: 0; top: -8px; height: 8px; }
+.navbar .submenu a { display: block; padding: 10px 16px; border-radius: 8px; color: #555; text-decoration: none; white-space: nowrap; font: inherit; }
+.navbar .submenu a:hover, .navbar .submenu a:focus-visible { background: #F7F5EF; color: #B8932F; outline: none; }
+.navbar .has-submenu:hover > .submenu,
+.navbar .has-submenu:focus-within > .submenu,
+.navbar .has-submenu.submenu-open > .submenu { opacity: 1; visibility: visible; pointer-events: auto; transform: translateY(0); }
+.navbar .has-submenu > .products-menu-link[aria-expanded="true"] { color: var(--accent, #B8932F); }
+/* Mobile Products accordion: same full-row rhythm as the other sidebar items. */
+.mobile-products-item { display: block; width: 100%; margin: 0; padding: 0; }
+.mobile-menu > .mobile-products-item > .mobile-products-toggle-row {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  width: 100%; min-height: 0; margin: 0 0 6px; padding: 16px 4px;
+  box-sizing: border-box; border: 0; border-bottom: 1px solid var(--bg-alt);
+  border-radius: 7px !important; background: none; color: inherit;
+  font: inherit; font-weight: 700; text-align: center; text-decoration: none;
+  cursor: pointer; transition: background-color .22s ease, color .22s ease;
+}
+.mobile-products-toggle-row .mobile-products-chevron { flex: 0 0 auto; font-size: 12px; line-height: 1; transition: transform .25s ease; }
+.mobile-products-toggle-row[aria-expanded="true"] .mobile-products-chevron { transform: rotate(180deg); }
+.mobile-menu > .mobile-products-item > .mobile-products-toggle-row:hover,
+.mobile-menu > .mobile-products-item > .mobile-products-toggle-row:focus-visible { background: var(--bg-alt) !important; color: var(--text) !important; outline-offset: -2px; }
+.mobile-menu > .mobile-products-item > .mobile-products-toggle-row.active,
+.mobile-menu > .mobile-products-item > .mobile-products-toggle-row[aria-current="page"] { background: var(--black) !important; color: var(--gold) !important; font-weight: 700; }
+.mobile-menu .mobile-product-sub { display: block; max-height: 0; opacity: 0; overflow: hidden; transition: max-height .25s ease, opacity .25s ease; }
+.mobile-menu .mobile-product-sub > a { display: flex; align-items: center; justify-content: center; min-height: 44px; box-sizing: border-box; padding: 10px 12px; margin: 0; border-bottom: 1px solid var(--bg-alt); background: #fff; color: #666 !important; font-size: 15px; font-weight: 500; text-align: center; text-decoration: none; overflow: hidden; }
+.mobile-menu .mobile-product-sub.is-open { max-height: 220px; opacity: 1; }
+.mobile-menu .mobile-product-sub > a:hover,
+.mobile-menu .mobile-product-sub > a:focus-visible,
+.mobile-menu .mobile-product-sub > a[aria-current="page"] { color: #B8932F !important; background: #F7F5EF !important; outline-offset: -2px; }
+.mobile-menu .mobile-product-sub > a:last-child { border-bottom: 1px solid var(--bg-alt); }
+@media (min-width: 992px) {
+  .navbar .has-submenu > .submenu { display: block; }
+  .mobile-products-item, .mobile-product-sub, .mobile-product-toggle { display: none !important; }
+}
+@media (max-width: 991.98px) {
+  #desktopNav .has-submenu > .submenu { display: none; }
+  .mobile-products-item { display: block; }
+  .mobile-menu .mobile-product-sub > a { width: 100%; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .navbar .submenu, .products-chevron, .mobile-products-chevron, .mobile-menu .mobile-product-sub, .mobile-products-toggle-row { transition: none !important; }
+}
+
 </style>
-
-  <link rel="stylesheet" href="css/tokens.css" />
-  <link rel="stylesheet" href="css/site-components.css" />
-</head>
-
+<link href="css/tokens.css" rel="stylesheet"/>
+<link href="css/site-components.css" rel="stylesheet"/>
+</link></head>
 <body>
-  <nav class="navbar navbar-expand-lg sticky-top theme-light">
-    <div class="container py-2">
-      <a aria-label="LACARA INDONESIA" class="navbar-brand brand logo-brand" href="index.html"><img
-          alt="LACARA Indonesia" src="img/logo/logo 2.png" /></a>
-      <button aria-controls="mobileNav" aria-expanded="false" aria-label="Open menu"
-        class="navbar-toggler border-0 shadow-none" type="button">
-        <i class="bi bi-list fs-2"></i>
-      </button>
-      <div class="collapse navbar-collapse" id="desktopNav">
-        <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-1">
-          <li class="nav-item">
-            <a class="nav-link" href="#home">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#about">About Us</a>
-          </li>
-          <li class="nav-item"><a class="nav-link" href="product.html">Products</a></li>
-          <li class="nav-item">
-            <a class="nav-link" href="#contact">Contact Us</a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
-  <!-- Mobile Navigation -->
-  <div aria-hidden="true" aria-labelledby="mobileNavLabel" class="offcanvas offcanvas-end mobile-nav theme-light"
-    id="mobileNav" tabindex="-1">
-    <div class="offcanvas-header">
-      <div class="brand logo-brand mobile-logo-brand" id="mobileNavLabel">
-        <img alt="LACARA Indonesia" src="img/logo/logo 2.png" />
-      </div>
-      <button aria-label="Close" class="btn-close" id="mobileNavClose" type="button"></button>
-    </div>
-    <div class="offcanvas-body">
-      <div class="mobile-menu">
-        <a href="#home">Home</a>
-        <a href="#about">About Us</a>
-        <a class="mobile-products-link" href="product.html">Products</a>
-        <a href="#contact">Contact Us</a>
-        <!-- <a href="#gallery">Gallery</a> -->
-      </div>
-    </div>
-  </div>
-  <div aria-hidden="true" class="mobile-nav-backdrop theme-light" id="mobileNavBackdrop"></div>
-  <header class="hero hero-slideshow theme-dark" id="home">
-    <div aria-hidden="true" class="hero-slides">
-      <div class="hero-slide active" style='
+<nav class="navbar navbar-expand-lg sticky-top theme-light">
+<div class="container py-2">
+<a aria-label="LACARA INDONESIA" class="navbar-brand brand logo-brand" href="index.html"><img alt="LACARA Indonesia" src="img/logo/logo 2.png"/></a>
+<button aria-controls="mobileNav" aria-expanded="false" aria-label="Open menu" class="navbar-toggler border-0 shadow-none" type="button">
+<i class="bi bi-list fs-2"></i>
+</button>
+<div class="collapse navbar-collapse" id="desktopNav">
+<ul class="navbar-nav ms-auto align-items-lg-center gap-lg-1">
+<li class="nav-item">
+<a class="nav-link" href="#home">Home</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="#about">About Us</a>
+</li>
+<li class="nav-item has-submenu">
+<a class="nav-link products-menu-link" href="product.html" aria-haspopup="true" aria-expanded="false">Products <i class="bi bi-chevron-down products-chevron" aria-hidden="true"></i></a>
+<ul class="submenu" aria-label="Product categories">
+<li><a href="product.html?category=fried-shallots">Fried Shallots</a></li>
+<li><a href="product.html?category=shallot-oil">Shallot Oil</a></li>
+<li><a href="product.html?category=fishes">Fishes</a></li>
+</ul>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="#contact">Contact Us</a>
+</li>
+</ul>
+</div>
+</div>
+</nav>
+<!-- Mobile Navigation -->
+<div aria-hidden="true" aria-labelledby="mobileNavLabel" class="offcanvas offcanvas-end mobile-nav theme-light" id="mobileNav" tabindex="-1">
+<div class="offcanvas-header">
+<div class="brand logo-brand mobile-logo-brand" id="mobileNavLabel">
+<img alt="LACARA Indonesia" src="img/logo/logo 2.png"/>
+</div>
+<button aria-label="Close" class="btn-close" id="mobileNavClose" type="button"></button>
+</div>
+<div class="offcanvas-body">
+<div class="mobile-menu">
+<a href="#home">Home</a>
+<a href="#about">About Us</a>
+<div class="mobile-products-item">
+<button class="mobile-products-toggle-row" type="button" aria-expanded="false" aria-controls="mobileProductsSubmenu">
+<span>Products</span><i class="bi bi-chevron-down mobile-products-chevron" aria-hidden="true"></i>
+</button>
+<div class="mobile-product-sub" id="mobileProductsSubmenu" aria-hidden="true">
+<a href="product.html">All Products</a>
+<a href="product.html?category=fried-shallots">Fried Shallots</a>
+<a href="product.html?category=shallot-oil">Shallot Oil</a>
+<a href="product.html?category=fishes">Fishes</a>
+</div>
+</div>
+<a href="#contact">Contact Us</a>
+<!-- <a href="#gallery">Gallery</a> -->
+</div>
+</div>
+</div>
+<div aria-hidden="true" class="mobile-nav-backdrop theme-light" id="mobileNavBackdrop"></div>
+<header class="hero hero-slideshow theme-dark" id="home">
+<div aria-hidden="true" class="hero-slides">
+<div class="hero-slide active" style='
             background-image: url("img/fish/RedSnapper/Red\ Snapper\ -\ 1.jpg");
           '></div>
-      <div class="hero-slide" style='
+<div class="hero-slide" style='
             background-image: url("img/fish/KerapuLodi/Kerapu\ Lodi-Slide\ 1.jpg");
           '></div>
-      <div class="hero-slide" style='
+<div class="hero-slide" style='
             background-image: url("img/Shallots/FriedShallots/FriedShallotsAll.PNG");
           '></div>
-      <div class="hero-slide" style='
+<div class="hero-slide" style='
             background-image: url("img/Shallots/ShallotOil/ShallotOil1.PNG");
           '></div>
-    </div>
-    <div class="hero-slideshow-overlay"></div>
-    <div class="container hero-inner d-flex align-items-center justify-content-center">
-      <div class="row">
-        <div class="col-lg-12">
-          <div class="eyebrow mb-2 mt-5 label">
+</div>
+<div class="hero-slideshow-overlay"></div>
+<div class="container hero-inner px-5">
+<div class="row">
+<div class="col-lg-12">
+<div class="eyebrow mb-2 mt-5 label">
             Welcome to PT. Lacara Food Indonesia.
           </div>
-          <h1>Indonesia’s Selected Products for the Global Market</h1>
-          <p class="mt-4">
-            PT. LACARA FOOD INDONESIA is an international trading company specializing in selected Indonesian food
-            products and condiments, as well as seafood and marine products. Our products are sourced from experienced
-            farmers, fishermen, and trusted supply partners across Indonesia. Each product is carefully selected,
-            handled, and packed according to high standards to maintain its quality and condition until it reaches our
-            buyers.
-          </p>
-          <div class="d-flex gap-3 flex-wrap mt-4">
-            <a class="btn btn-main" href="product.html">Explore Products <i class="bi bi-arrow-right ms-2"></i></a><a
-              class="btn btn-outline" href="#contact">Get in Touch</a>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div aria-label="Hero image slides" class="hero-slide-dots">
-      <button aria-label="Show slide 1" class="hero-dot active" data-slide="0" type="button"></button>
-      <button aria-label="Show slide 2" class="hero-dot" data-slide="1" type="button"></button>
-      <button aria-label="Show slide 3" class="hero-dot" data-slide="2" type="button"></button>
-      <button aria-label="Show slide 4" class="hero-dot" data-slide="3" type="button"></button>
-    </div>
-  </header>
-  <section class="intro d-flex align-items-center justify-content-center theme-light section" id="about">
-    <div class="container">
-      <div class="row align-items-center">
-        <div class="col-lg-5">
-          <div class="intro-img"></div>
-        </div>
-        <div class="col-lg-6 offset-lg-1">
-          <div class="label mt-4 mb-0 mb-lg-3 mt-lg-0"></div>
-          <h4 class="title mt-2 mt-lg-0">About PT Lacara Food Indonesia</h4>
-          <div class="about-description" id="aboutDescription">
-            <p class="lead-copy mt-3 mt-lg-4">PT LACARA FOOD INDONESIA is a trusted international trading company based
+<h1>Indonesia’s Selected Products for the Global Market</h1>
+<p class="mt-4 hero-intro">PT. LACARA FOOD INDONESIA is an international trading company specializing in selected Indonesian food products and condiments, as well as seafood and marine products.</p>
+<p class="hero-source-paragraph">Our products are sourced from experienced farmers, fishermen, and trusted supply partners across Indonesia. Each product is carefully selected, handled, and packed according to high standards to maintain its quality and condition until it reaches our buyers.</p>
+<div class="d-flex gap-3 flex-wrap mt-4">
+<a class="btn btn-main" href="product.html">Explore Products <i class="bi bi-arrow-right ms-2"></i></a><a class="btn btn-outline" href="#contact">Get in Touch</a>
+</div>
+</div>
+</div>
+</div>
+<div aria-label="Hero image slides" class="hero-slide-dots">
+<button aria-label="Show slide 1" class="hero-dot active" data-slide="0" type="button"></button>
+<button aria-label="Show slide 2" class="hero-dot" data-slide="1" type="button"></button>
+<button aria-label="Show slide 3" class="hero-dot" data-slide="2" type="button"></button>
+<button aria-label="Show slide 4" class="hero-dot" data-slide="3" type="button"></button>
+</div>
+</header>
+<section class="intro d-flex align-items-center justify-content-center theme-light section" id="about">
+<div class="container">
+<div class="row align-items-center">
+<div class="col-lg-5">
+<div class="intro-img"></div>
+</div>
+<div class="col-lg-6 offset-lg-1">
+<div class="label mt-4 mb-0 mb-lg-3 mt-lg-0"></div>
+<h4 class="title mt-2 mt-lg-0">About PT Lacara Food Indonesia</h4>
+<div class="about-description" id="aboutDescription">
+<p class="lead-copy mt-3 mt-lg-4">PT LACARA FOOD INDONESIA is a trusted international trading company based
               in Pati, Central Java, Indonesia.</p>
-            <p class="lead-copy">Inspired by Indonesia’s rich natural resources, we provide a carefully selected range
+<p class="lead-copy">Inspired by Indonesia’s rich natural resources, we provide a carefully selected range
               of products sourced from experienced farmers, fishermen, producers, and trusted supply partners across the
               Indonesian archipelago, particularly from Java, Sumatra, and Kalimantan.</p>
-            <p class="lead-copy">Every product we offer undergoes a careful selection process with a strong emphasis on
+<p class="lead-copy">Every product we offer undergoes a careful selection process with a strong emphasis on
               quality, consistency, and reliability. From sourcing and sorting to handling, packing, and shipment
               preparation, we apply high standards throughout each stage to help maintain product quality and ensure
               that products arrive at our buyers in proper condition.</p>
-            <p class="lead-copy">For our Seafood &amp; Marine Products, we place particular attention on proper
+<p class="lead-copy">For our Seafood &amp; Marine Products, we place particular attention on proper
               handling, storage, and packaging to help preserve freshness and product quality throughout the
               distribution process. For our Food Products &amp; Condiments, we focus on carefully selected raw
               materials, consistent production processes, and appropriate packaging to support the requirements of both
               domestic and international markets.</p>
-            <p class="lead-copy">At PT LACARA FOOD INDONESIA, international trade is not only about delivering products.
+<p class="lead-copy">At PT LACARA FOOD INDONESIA, international trade is not only about delivering products.
               It is also about building trust, maintaining strong business relationships, and creating long-term
               partnerships.</p>
-            <p class="lead-copy">Guided by our core values of Quality, Integrity, and Reliability, we are committed to
+<p class="lead-copy">Guided by our core values of Quality, Integrity, and Reliability, we are committed to
               being a dependable trading partner in bringing selected Indonesian products to distributors, importers,
               businesses, and consumers across international markets.</p>
-          </div>
-          <button class="about-expand-link" id="aboutReadMore" type="button" aria-expanded="false"
-            aria-controls="aboutDescription">Read more ▾</button>
-
-          <div class="about-actions d-flex flex-row flex-wrap align-items-center gap-3">
-            <a class="about-cta-primary" href="#products">Explore Our Products</a>
-            <!-- <a class="about-cta-secondary" href="#cta">Read Our Story</a> -->
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <section class="products home-products theme-light section" id="products">
-    <div class="container">
-      <div class="products-heading">
-        <div class="label products-eyebrow">OUR PRODUCTS</div>
-        <h2 class="title products-title">Bringing Selected Indonesian Products Further</h2>
-        <span class="products-title-accent" aria-hidden="true"></span>
-      </div>
-      <div class="row g-4 product-feature-row">
-        <div class="col-12 col-md-6 product-feature-column">
-          <article class="product-feature-card">
-            <div class="product-feature-image onion-feature" role="img" aria-label="Indonesian food products and onions"></div>
-            <div class="product-feature-content">
-              <div class="label product-category-label">CATEGORY 01</div>
-              <h3>Food Products &amp; Condiments</h3>
-              <p>Premium Indonesian onions, carefully selected and prepared for commercial customers.</p>
-              <div class="product-card-action">
-                <a class="btn btn-secondary" href="product.html#bawang">View Food Products <i class="bi bi-arrow-right" aria-hidden="true"></i></a>
-              </div>
-            </div>
-          </article>
-        </div>
-        <div class="col-12 col-md-6 product-feature-column">
-          <article class="product-feature-card">
-            <div class="product-feature-image fish-feature" role="img" aria-label="Indonesian seafood and marine products"></div>
-            <div class="product-feature-content">
-              <div class="label product-category-label">CATEGORY 02</div>
-              <h3>Seafood &amp; Marine Products</h3>
-              <p>Fresh and frozen Indonesian seafood including tuna, snapper, octopus, king fish and more.</p>
-              <div class="product-card-action">
-                <a class="btn btn-secondary" href="product.html#seafood">View Seafood <i class="bi bi-arrow-right" aria-hidden="true"></i></a>
-              </div>
-            </div>
-          </article>
-        </div>
-      </div>
-      <div class="products-all-wrap">
-        <a class="btn btn-primary" href="product.html#fishes">View All Products <i class="bi bi-arrow-right" aria-hidden="true"></i></a>
-      </div>
-    </div>
-  </section>
-  <section class="site-cta theme-dark section" id="cta" aria-labelledby="siteCtaTitle">
-    <div class="site-cta-inner">
-      <p class="site-cta-eyebrow">GET IN TOUCH</p>
-      <h2 class="site-cta-title" id="siteCtaTitle">Let's Bring the Best of Indonesia to Your Business</h2>
-      <span class="site-cta-accent" aria-hidden="true"></span>
-      <!-- <p class="site-cta-desc">Tell us your product needs, volume, and destination. Our team will respond within 24 hours.</p> -->
-      <div class="site-cta-actions">
-        <a class="btn btn-primary site-cta-button" href="#contact">
-           Get in Touch | Send an Inquiry <i aria-hidden="true" class="bi bi-send"></i>
-        </a>
-      </div>
-      <p class="site-cta-trust">Based in Pati, Central Java <span aria-hidden="true">•</span> Export-ready packing <span aria-hidden="true">•</span> Quality sorting</p>
-    </div>
-  </section>
-  <section class="contact-section theme-dark section" id="contact">
-    <div class="container">
-      <div class="contact-intro-inner text-center mb-5">
-        <h2 class="contact-title">Contact Us</h2>
-        <div class="contact-line text-center"></div>
-        <p>Please send your messages/comments/inquiries here.</p>
-      </div>
-      <div class="row align-items-stretch">
-        <div class="col-lg-6">
-          <form class="contact-form-card" id="homeContactForm">
-            <div class="row g-3">
-              <div class="col-md-6">
-                <input class="contact-input" id="contactName" placeholder="Name*" required="" type="text" />
-              </div>
-              <div class="col-md-6">
-                <input class="contact-input" id="contactEmail" placeholder="E-Mail*" required="" type="email" />
-              </div>
-              <div class="col-12">
-                <textarea class="contact-input contact-message" id="contactMessage" placeholder="Message*"
-                  required=""></textarea>
-              </div>
-              <div class="col-12">
-                <label class="captcha-label" for="captchaAnswer">Security check</label>
-                <div class="captcha-box">
-                  <span id="captchaQuestion">1 + 1 = ?</span>
-                  <input aria-label="Security check answer" autocomplete="off" class="contact-input" id="captchaAnswer"
-                    type="text" />
-                </div>
-              </div>
-              <div class="col-12">
-                <button class="contact-submit" type="submit">
-                  <span>Send Now</span>
-                  <i class="bi bi-arrow-up-right"></i>
-                </button>
-                <div class="contact-status" id="contactStatus"></div>
-              </div>
-            </div>
-          </form>
-        </div>
-        <div class="contact-batas"></div>
-        <div class="col-lg-5 offset-lg-1">
-          <div class="contact-intro">
-            <div class="contact-details">
-              <h2>Lacara Indonesia</h2>
-              <div class="contact-detail">
-                <span class="contact-icon"><i class="bi bi-telephone-fill"></i></span>
-                <div>
-                  <small>PHONE</small>
-                  <strong><a data-contact-whatsapp-display href="#">
-                      </svg><span data-contact-number></span></a></strong>
-                </div>
-              </div>
-              <div class="contact-detail">
-                <span class="contact-icon"><i class="bi bi-envelope-fill"></i></span>
-                <div>
-                  <small>EMAIL</small><strong><a data-contact-email href="#"></a></strong>
-                </div>
-              </div>
-              <div class="contact-detail">
-                <span class="contact-icon"><i class="bi bi-geo-alt-fill"></i></span>
-                <div>
-                  <small>ADDRESS</small><strong>Sukoharjo, Central Java, Indonesia</strong>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <footer class="theme-dark">
-    <div class="container">
-      <div class="row py-lg-5">
-        <div class="col-lg-5 mt-4 mb-3 my-lg-0">
-          <div class="footer-title footer-logo">
-            <img alt="LACARA Indonesia" src="img/logo/logo 2.png" />
-          </div>
-          <p class="footer-description mt-3">
+</div>
+<button aria-controls="aboutDescription" aria-expanded="false" class="about-expand-link" id="aboutReadMore" type="button">Read more ▾</button>
+<div class="about-actions d-flex flex-row flex-wrap align-items-center gap-3">
+<a class="about-cta-primary" href="#products">Explore Our Products</a>
+<!-- <a class="about-cta-secondary" href="#cta">Read Our Story</a> -->
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="products home-products theme-light section" id="products">
+<div class="container">
+<div class="products-heading">
+<div class="label products-eyebrow">OUR PRODUCTS</div>
+<h2 class="title products-title">Bringing Selected Indonesian Products Further</h2>
+<span aria-hidden="true" class="products-title-accent"></span>
+</div>
+<div class="row g-4 product-feature-row">
+<div class="col-12 col-md-6 product-feature-column">
+<article class="product-feature-card">
+<div aria-label="Indonesian food products and onions" class="product-feature-image onion-feature" role="img"></div>
+<div class="product-feature-content">
+<div class="label product-category-label">CATEGORY 01</div>
+<h3>Food Products &amp; Condiments</h3>
+<p>Premium Indonesian onions, carefully selected and prepared for commercial customers.</p>
+<div class="product-card-action">
+<a class="btn btn-secondary" href="product.html#bawang">View Food Products <i aria-hidden="true" class="bi bi-arrow-right"></i></a>
+</div>
+</div>
+</article>
+</div>
+<div class="col-12 col-md-6 product-feature-column">
+<article class="product-feature-card">
+<div aria-label="Indonesian seafood and marine products" class="product-feature-image fish-feature" role="img"></div>
+<div class="product-feature-content">
+<div class="label product-category-label">CATEGORY 02</div>
+<h3>Seafood &amp; Marine Products</h3>
+<p>Fresh and frozen Indonesian seafood including tuna, snapper, octopus, king fish and more.</p>
+<div class="product-card-action">
+<a class="btn btn-secondary" href="product.html#seafood">View Seafood <i aria-hidden="true" class="bi bi-arrow-right"></i></a>
+</div>
+</div>
+</article>
+</div>
+</div>
+<div class="products-all-wrap">
+<a class="btn btn-primary" href="product.html#fishes">View All Products <i aria-hidden="true" class="bi bi-arrow-right"></i></a>
+</div>
+</div>
+</section>
+<section aria-labelledby="siteCtaTitle" class="site-cta theme-dark section" id="cta">
+<div class="site-cta-inner">
+<p class="site-cta-eyebrow">GET IN TOUCH</p>
+<h2 class="site-cta-title" id="siteCtaTitle">Let's Bring the Best of Indonesia to Your Business</h2>
+<span aria-hidden="true" class="site-cta-accent"></span>
+<!-- <p class="site-cta-desc">Tell us your product needs, volume, and destination. Our team will respond within 24 hours.</p> -->
+<div class="site-cta-actions">
+<a class="btn btn-primary site-cta-button" href="#contact">
+          Get in Touch | Send an Inquiry <i aria-hidden="true" class="bi bi-send"></i>
+</a>
+</div>
+<p class="site-cta-trust">Fried Shallots <span aria-hidden="true">•</span> Shallot Oil <span aria-hidden="true">•</span> Seafood <span aria-hidden="true">•</span> Marine Products</p>
+</div>
+</section>
+<section class="contact-section theme-dark section" id="contact">
+<div class="container">
+<div class="contact-intro-inner text-center mb-5">
+<h2 class="contact-title">Contact Us</h2>
+<div class="contact-line text-center"></div>
+<p>Please send your messages/comments/inquiries here.</p>
+</div>
+<div class="row align-items-stretch">
+<div class="col-lg-6">
+<form class="contact-form-card" id="homeContactForm">
+<div class="row g-3">
+<div class="col-md-6">
+<input class="contact-input" id="contactName" placeholder="Name*" required="" type="text"/>
+</div>
+<div class="col-md-6">
+<input class="contact-input" id="contactEmail" placeholder="E-Mail*" required="" type="email"/>
+</div>
+<div class="col-12">
+<textarea class="contact-input contact-message" id="contactMessage" placeholder="Message*" required=""></textarea>
+</div>
+<div class="col-12">
+<label class="captcha-label" for="captchaAnswer">Security check</label>
+<div class="captcha-box">
+<span id="captchaQuestion">1 + 1 = ?</span>
+<input aria-label="Security check answer" autocomplete="off" class="contact-input" id="captchaAnswer" type="text"/>
+</div>
+</div>
+<div class="col-12">
+<button class="contact-submit" type="submit">
+<span>Send Now</span>
+<i class="bi bi-arrow-up-right"></i>
+</button>
+<div class="contact-status" id="contactStatus"></div>
+</div>
+</div>
+</form>
+</div>
+<div class="contact-batas"></div>
+<div class="col-lg-5 offset-lg-1">
+<div class="contact-intro">
+<div class="contact-details">
+<h2>Lacara Indonesia</h2>
+<div class="contact-detail">
+<span class="contact-icon"><i class="bi bi-telephone-fill"></i></span>
+<div>
+<small>PHONE</small>
+<strong><a data-contact-whatsapp-display="" href="#">
+<span data-contact-number=""></span></a></strong>
+</div>
+</div>
+<div class="contact-detail">
+<span class="contact-icon"><i class="bi bi-envelope-fill"></i></span>
+<div>
+<small>EMAIL</small><strong><a data-contact-email="" href="#"></a></strong>
+</div>
+</div>
+<div class="contact-detail">
+<span class="contact-icon"><i class="bi bi-geo-alt-fill"></i></span>
+<div>
+<small>ADDRESS</small><strong>Sukoharjo, Central Java, Indonesia</strong>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<footer class="theme-dark">
+<div class="container">
+<div class="row py-lg-5">
+<div class="col-lg-5 mt-4 mb-3 my-lg-0">
+<div class="footer-title footer-logo">
+<img alt="LACARA Indonesia" src="img/logo/logo 2.png"/>
+</div>
+<p class="footer-description mt-3">
             Connecting Indonesia’s rich natural resources with international markets. LACARA delivers carefully selected
             seafood and food products with a commitment to quality, integrity, and reliability.
           </p>
-        </div>
-        <div class="col-12 col-lg-3 offset-lg-1 my-4 my-lg-0">
-          <h6 class="text-white pb-2">Overview</h6>
-          <a class="footer-link" href="#about">
-            <p>About us</p>
-          </a>
-          <a class="footer-link" href="#products">
-            <p>Our Products</p>
-          </a>
-          <a class="footer-link" href="#gallery">
-            <p>Our Gallery</p>
-          </a>
-          <a class="footer-link" href="#contact">
-            <p>Contact us</p>
-          </a>
-        </div>
-        <div class="col-12 col-lg-3 mt-2 mb-4 my-lg-0">
-          <h6 class="text-white pb-2">Location</h6>
-          <p>PT. LACARA FOOD INDONESIA<br />Pati, Central Java, Indonesia 59118</p>
-        </div>
-      </div>
-      <!-- <hr style="border-color: var(--muted)" /> -->
-    </div>
-    <section class="location-section theme-light section" id="location">
-      <div class="container">
-        <div class="location-map-wrap">
-          <iframe height="350"
-            src="https://www.openstreetmap.org/export/embed?bbox=111.03817462921144%2C-6.712516103878979%2C111.09482288360597%2C-6.674581791420616&amp;layer=mapnik&amp;marker=-6.693549316090589%2C111.06649875640869"
-            style="border: 1px solid black" width="425"></iframe><br /><small><a
-              href="https://www.openstreetmap.org/?mlat=-6.69355&amp;mlon=111.06650#map=15/-6.69355/111.06650">View
-              Larger Map</a></small><br /><small><a
-              href="https://www.openstreetmap.org/#map=19/-6.671722/111.105792">View Larger
+</div>
+<div class="col-12 col-lg-3 offset-lg-1 my-4 my-lg-0">
+<h6 class="text-white pb-2">Overview</h6>
+<a class="footer-link" href="#about">
+<p>About us</p>
+</a>
+<a class="footer-link" href="#products">
+<p>Our Products</p>
+</a>
+<a class="footer-link" href="#gallery">
+<p>Our Gallery</p>
+</a>
+<a class="footer-link" href="#contact">
+<p>Contact us</p>
+</a>
+</div>
+<div class="col-12 col-lg-3 mt-2 mb-4 my-lg-0">
+<h6 class="text-white pb-2">Location</h6>
+<p>PT. LACARA FOOD INDONESIA<br/>Pati, Central Java, Indonesia 59118</p>
+</div>
+</div>
+<!-- <hr style="border-color: var(--muted)" /> -->
+</div>
+<section class="location-section theme-light section" id="location">
+<div class="container">
+<div class="location-map-wrap">
+<iframe height="350" src="https://www.openstreetmap.org/export/embed?bbox=111.03817462921144%2C-6.712516103878979%2C111.09482288360597%2C-6.674581791420616&amp;layer=mapnik&amp;marker=-6.693549316090589%2C111.06649875640869" style="border: 1px solid black" width="425"></iframe><br/><small><a href="https://www.openstreetmap.org/?mlat=-6.69355&amp;mlon=111.06650#map=15/-6.69355/111.06650">View
+              Larger Map</a></small><br/><small><a href="https://www.openstreetmap.org/#map=19/-6.671722/111.105792">View Larger
               Map</a></small>
-          <div class="map-label">
-            <span class="map-pin"><i class="bi bi-geo-alt-fill"></i></span>
-            <div>
-              <small>OUR LOCATION</small><strong>Pati, Central Java, Indonesia</strong>
-            </div>
-          </div>
-          <a class="map-open" href="https://www.openstreetmap.org/?mlat=-8.765&amp;mlon=115.215#map=13/-8.765/115.215"
-            rel="noopener" target="_blank">Open larger map <span>↗</span></a>
-        </div>
-      </div>
-    </section>
-    <div class="copyright-bar">
-      <div class="container">
-        <small>Copyright © 2015 LACARA INDONESIA, All rights reserved.</small>
-      </div>
-    </div>
-  </footer>
-  <a aria-label="Back to top" class="back-to-top" href="#home" id="backToTop"><i class="bi bi-arrow-up"></i></a>
-  <a class="whatsapp bg-success" data-whatsapp-link
-    data-whatsapp-message="Hello, I would like to ask about your products." href="#"><i class="bi bi-whatsapp"></i></a>
-  <script src="js/config/contact.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-  <script>
+<div class="map-label">
+<span class="map-pin"><i class="bi bi-geo-alt-fill"></i></span>
+<div>
+<small>OUR LOCATION</small><strong>Pati, Central Java, Indonesia</strong>
+</div>
+</div>
+<a class="map-open" href="https://www.openstreetmap.org/?mlat=-8.765&amp;mlon=115.215#map=13/-8.765/115.215" rel="noopener" target="_blank">Open larger map <span>↗</span></a>
+</div>
+</div>
+</section>
+<div class="copyright-bar">
+<div class="container">
+<small>© 2026 PT Lacara Food Indonesia. All rights reserved.</small>
+</div>
+</div>
+</footer>
+<a aria-label="Back to top" class="back-to-top" href="#home" id="backToTop"><i class="bi bi-arrow-up"></i></a>
+<a class="whatsapp bg-success" data-whatsapp-link="" data-whatsapp-message="Hello, I would like to ask about your products." href="#"><i class="bi bi-whatsapp"></i></a>
+<script src="js/config/contact.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
     // Back-to-top shortcut — one simple controller.
     (function () {
       const button = document.getElementById("backToTop");
@@ -3987,7 +5472,7 @@
       window.addEventListener("load", updateBackToTop);
     })();
   </script>
-  <script>
+<script>
     (function () {
       const track = document.getElementById("testimonialTrack"),
         viewport = document.querySelector(".testimonial-viewport"),
@@ -4040,7 +5525,7 @@
       restart();
     })();
   </script>
-  <script>
+<script>
     // Contact form -> WhatsApp
     (function () {
       const form = document.getElementById("homeContactForm");
@@ -4126,7 +5611,7 @@
       });
     })();
   </script>
-  <script>
+<script>
     (function () {
       const slides = [...document.querySelectorAll(".hero-slide")];
       const dots = [...document.querySelectorAll(".hero-dot")];
@@ -4155,7 +5640,7 @@
     })();
 
   </script>
-  <script>
+<script>
 
     (function () {
       const section = document.getElementById("about");
@@ -4183,9 +5668,7 @@
     })();
 
   </script>
-
-
-  <script>
+<script>
     // Mobile sidebar controller — standalone, no Bootstrap Offcanvas dependency
     (function () {
       function initMobileSidebar() {
@@ -4237,8 +5720,7 @@
       }
     })();
   </script>
-
-  <script id="navbar-scrollspy-controller">
+<script id="navbar-scrollspy-controller">
     (function () {
       function initScrollSpy() {
         const allLinks = Array.from(document.querySelectorAll('.navbar a[href^="#"], .mobile-menu a[href^="#"], #mobileNav a[href^="#"]'));
@@ -4253,7 +5735,7 @@
         const ids = ['home', 'about', 'products', 'contact'].filter(id => document.getElementById(id) && linkById.has(id));
         const targets = ids.map(id => document.getElementById(id));
         let activeId = '';
-        
+
         function setActive(id) {
           if (!id || !linkById.has(id) || activeId === id) return;
           activeId = id;
@@ -4321,8 +5803,7 @@
       else initScrollSpy();
     })();
   </script>
-
-  <script>
+<script>
     (function () {
       const section = document.getElementById('products');
       if (!section) return;
@@ -4342,8 +5823,7 @@
       observer.observe(section);
     })();
   </script>
-
-  <script>
+<script>
     (function () {
       const cta = document.getElementById('cta');
       if (!cta) return;
@@ -4362,6 +5842,77 @@
       observer.observe(cta);
     })();
   </script>
-</body>
 
+<script id="products-submenu-controller">
+(() => {
+  const desktopItem = document.querySelector('.navbar .has-submenu');
+  const desktopLink = desktopItem?.querySelector('.products-menu-link');
+  const mobileToggle = document.querySelector('.mobile-products-toggle-row');
+  const mobileSub = document.getElementById('mobileProductsSubmenu');
+  const mobileNav = document.getElementById('mobileNav');
+  const mobileMenu = document.querySelector('.mobile-menu');
+  mobileNav?.addEventListener('hidden.bs.offcanvas', () => setMobileOpen(false));
+  const isMobile = () => window.matchMedia('(max-width: 991.98px)').matches;
+
+  function setMobileOpen(open) {
+    if (!mobileToggle || !mobileSub) return;
+    mobileToggle.setAttribute('aria-expanded', String(open));
+    mobileSub.setAttribute('aria-hidden', String(!open));
+    mobileSub.classList.toggle('is-open', open);
+    mobileToggle.classList.toggle('open', open);
+  }
+  mobileToggle?.addEventListener('click', (event) => {
+    event.preventDefault();
+    setMobileOpen(mobileToggle.getAttribute('aria-expanded') !== 'true');
+  });
+  mobileSub?.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      setMobileOpen(false);
+      const closeButton = document.getElementById('mobileNavClose');
+      if (closeButton && isMobile()) closeButton.click();
+    });
+  });
+  desktopLink?.addEventListener('click', () => {
+    // The Products label remains a normal link; its aria state is reset on navigation.
+    desktopLink.setAttribute('aria-expanded', 'false');
+  });
+  desktopItem?.addEventListener('mouseenter', () => desktopLink?.setAttribute('aria-expanded', 'true'));
+  desktopItem?.addEventListener('mouseleave', () => desktopLink?.setAttribute('aria-expanded', 'false'));
+  desktopItem?.addEventListener('focusin', () => desktopLink?.setAttribute('aria-expanded', 'true'));
+  desktopItem?.addEventListener('focusout', (event) => {
+    if (!desktopItem.contains(event.relatedTarget)) desktopLink?.setAttribute('aria-expanded', 'false');
+  });
+  document.addEventListener('keydown', event => {
+    if (event.key !== 'Escape') return;
+    desktopItem?.classList.remove('submenu-open');
+    desktopLink?.setAttribute('aria-expanded', 'false');
+    setMobileOpen(false);
+    if (desktopItem?.contains(document.activeElement)) desktopLink?.focus();
+  });
+  document.addEventListener('click', event => {
+    if (desktopItem && !desktopItem.contains(event.target)) {
+      desktopItem.classList.remove('submenu-open');
+      desktopLink?.setAttribute('aria-expanded', 'false');
+    }
+    if (mobileMenu && !mobileMenu.contains(event.target) && !mobileNav?.contains(event.target)) setMobileOpen(false);
+  });
+  // Mark Products active when the current URL is product.html, including category links.
+  const current = new URL(window.location.href);
+  if (current.pathname.toLowerCase().endsWith('/product.html') || current.pathname.toLowerCase() === 'product.html') {
+    desktopLink?.classList.add('nav-parent-active');
+    mobileMenu?.querySelector('.mobile-products-toggle-row')?.classList.add('active');
+    desktopLink?.setAttribute('aria-current', 'page');
+    mobileMenu?.querySelector('.mobile-products-toggle-row')?.setAttribute('aria-current', 'page');
+  }
+  const currentCategory = current.searchParams.get('category');
+  if (currentCategory) {
+    const targetHref = `product.html?category=${currentCategory}`;
+    document.querySelectorAll('.submenu a, .mobile-product-sub a').forEach(link => {
+      if (link.getAttribute('href') === targetHref) link.setAttribute('aria-current', 'page');
+    });
+  }
+})();
+</script>
+
+</body>
 </html>

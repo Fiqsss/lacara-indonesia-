@@ -7,8 +7,8 @@
 <meta content="#0D0D0D" name="theme-color"/>
 <title>Our Products — LACARA INDONESIA</title>
 <link href="img/logo/logo.png" rel="icon" type="image/png"/>
-<link href="css/tokens.css" rel="stylesheet">
-<link href="css/site-components.css" rel="stylesheet"/>
+<link href="css/tokens.css" rel="stylesheet"/>
+<link href="css/site-components.css" rel="stylesheet">
 <!-- CSS khusus halaman Product -->
 <script src="js/config/contact.js"></script>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Cormorant+Garamond:wght@500;600;700&amp;display=swap" rel="stylesheet"/>
@@ -4076,7 +4076,60 @@
       }.seafood-catalog .seafood-fish-grid>li>.seafood-fish-card .seafood-fish-name {
         min-height: 0;
         margin-bottom: 4px;
-      }}</style>
+      }}
+
+/* Navbar submenu styles copied from index.html */
+/* PRODUCTS SUBMENU — scoped additions; preserve existing navbar/sidebar theme */
+.navbar .navbar-nav > .nav-item.has-submenu { position: relative; }
+.navbar .products-menu-link { display: inline-flex; align-items: center; gap: 7px; }
+.products-chevron, .mobile-products-chevron { display: inline-block; font-size: .72em; transition: transform .2s ease; }
+.navbar .has-submenu:hover > .products-menu-link .products-chevron,
+.navbar .has-submenu:focus-within > .products-menu-link .products-chevron,
+.navbar .has-submenu.submenu-open > .products-menu-link .products-chevron { transform: rotate(180deg); }
+.navbar .submenu { list-style: none; position: absolute; top: 100%; left: 0; min-width: 200px; margin: 0; padding: 8px; z-index: 2000; background: #fff; border-radius: 12px; box-shadow: 0 12px 32px rgba(0,0,0,.12); opacity: 0; visibility: hidden; pointer-events: none; transform: translateY(8px); transition: opacity .2s ease, transform .2s ease, visibility .2s ease; }
+.navbar .submenu::before { content: ""; position: absolute; left: 0; right: 0; top: -8px; height: 8px; }
+.navbar .submenu a { display: block; padding: 10px 16px; border-radius: 8px; color: #555; text-decoration: none; white-space: nowrap; font: inherit; }
+.navbar .submenu a:hover, .navbar .submenu a:focus-visible { background: #F7F5EF; color: #B8932F; outline: none; }
+.navbar .has-submenu:hover > .submenu,
+.navbar .has-submenu:focus-within > .submenu,
+.navbar .has-submenu.submenu-open > .submenu { opacity: 1; visibility: visible; pointer-events: auto; transform: translateY(0); }
+.navbar .has-submenu > .products-menu-link[aria-expanded="true"] { color: var(--accent, #B8932F); }
+/* Mobile Products accordion: same full-row rhythm as the other sidebar items. */
+.mobile-products-item { display: block; width: 100%; margin: 0; padding: 0; }
+.mobile-menu > .mobile-products-item > .mobile-products-toggle-row {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  width: 100%; min-height: 0; margin: 0 0 6px; padding: 16px 4px;
+  box-sizing: border-box; border: 0; border-bottom: 1px solid var(--bg-alt);
+  border-radius: 7px !important; background: none; color: inherit;
+  font: inherit; font-weight: 700; text-align: center; text-decoration: none;
+  cursor: pointer; transition: background-color .22s ease, color .22s ease;
+}
+.mobile-products-toggle-row .mobile-products-chevron { flex: 0 0 auto; font-size: 12px; line-height: 1; transition: transform .25s ease; }
+.mobile-products-toggle-row[aria-expanded="true"] .mobile-products-chevron { transform: rotate(180deg); }
+.mobile-menu > .mobile-products-item > .mobile-products-toggle-row:hover,
+.mobile-menu > .mobile-products-item > .mobile-products-toggle-row:focus-visible { background: var(--bg-alt) !important; color: var(--text) !important; outline-offset: -2px; }
+.mobile-menu > .mobile-products-item > .mobile-products-toggle-row.active,
+.mobile-menu > .mobile-products-item > .mobile-products-toggle-row[aria-current="page"] { background: var(--black) !important; color: var(--gold) !important; font-weight: 700; }
+.mobile-menu .mobile-product-sub { display: block; max-height: 0; opacity: 0; overflow: hidden; transition: max-height .25s ease, opacity .25s ease; }
+.mobile-menu .mobile-product-sub > a { display: flex; align-items: center; justify-content: center; min-height: 44px; box-sizing: border-box; padding: 10px 12px; margin: 0; border-bottom: 1px solid var(--bg-alt); background: #fff; color: #666 !important; font-size: 15px; font-weight: 500; text-align: center; text-decoration: none; overflow: hidden; }
+.mobile-menu .mobile-product-sub.is-open { max-height: 220px; opacity: 1; }
+.mobile-menu .mobile-product-sub > a:hover,
+.mobile-menu .mobile-product-sub > a:focus-visible,
+.mobile-menu .mobile-product-sub > a[aria-current="page"] { color: #B8932F !important; background: #F7F5EF !important; outline-offset: -2px; }
+.mobile-menu .mobile-product-sub > a:last-child { border-bottom: 1px solid var(--bg-alt); }
+@media (min-width: 992px) {
+  .navbar .has-submenu > .submenu { display: block; }
+  .mobile-products-item, .mobile-product-sub, .mobile-product-toggle { display: none !important; }
+}
+@media (max-width: 991.98px) {
+  #desktopNav .has-submenu > .submenu { display: none; }
+  .mobile-products-item { display: block; }
+  .mobile-menu .mobile-product-sub > a { width: 100%; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .navbar .submenu, .products-chevron, .mobile-products-chevron, .mobile-menu .mobile-product-sub, .mobile-products-toggle-row { transition: none !important; }
+}
+</style>
 <script id="site-cta-parallax-controller">
     (() => {
       const initCtaParallax = () => {
@@ -4130,12 +4183,19 @@
 <div class="collapse navbar-collapse" id="desktopNav">
 <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-1">
 <li class="nav-item">
-<a class="nav-link" href="index.html">Home</a>
+<a class="nav-link" href="index.html#home">Home</a>
 </li>
 <li class="nav-item">
 <a class="nav-link" href="index.html#about">About Us</a>
 </li>
-<li class="nav-item"><a class="nav-link" href="product.html">Products</a></li>
+<li class="nav-item has-submenu">
+<a aria-current="page" aria-expanded="false" aria-haspopup="true" class="nav-link products-menu-link nav-parent-active" href="product.html">Products <i aria-hidden="true" class="bi bi-chevron-down products-chevron"></i></a>
+<ul aria-label="Product categories" class="submenu">
+<li><a href="product.html?category=fried-shallots">Fried Shallots</a></li>
+<li><a href="product.html?category=shallot-oil">Shallot Oil</a></li>
+<li><a href="product.html?category=fishes">Fishes</a></li>
+</ul>
+</li>
 <li class="nav-item">
 <a class="nav-link" href="index.html#contact">Contact Us</a>
 </li>
@@ -4147,15 +4207,25 @@
 <div aria-hidden="true" aria-labelledby="mobileNavLabel" class="offcanvas offcanvas-end mobile-nav theme-light" id="mobileNav" tabindex="-1">
 <div class="offcanvas-header">
 <div class="brand logo-brand mobile-logo-brand" id="mobileNavLabel">
-<img alt="LACARA Indonesia" src="img/logo/logo.png"/>
+<img alt="LACARA Indonesia" src="img/logo/logo 2.png"/>
 </div>
 <button aria-label="Close" class="btn-close" id="mobileNavClose" type="button"></button>
 </div>
 <div class="offcanvas-body">
 <div class="mobile-menu">
-<a href="index.html">Home</a>
+<a href="index.html#home">Home</a>
 <a href="index.html#about">About Us</a>
-<a class="mobile-products-link" href="#products">Products</a>
+<div class="mobile-products-item">
+<button aria-controls="mobileProductsSubmenu" aria-current="page" aria-expanded="false" class="mobile-products-toggle-row active" type="button">
+<span>Products</span><i aria-hidden="true" class="bi bi-chevron-down mobile-products-chevron"></i>
+</button>
+<div aria-hidden="true" class="mobile-product-sub" id="mobileProductsSubmenu">
+<a aria-current="page" class="active" href="product.html">All Products</a>
+<a href="product.html?category=fried-shallots">Fried Shallots</a>
+<a href="product.html?category=shallot-oil">Shallot Oil</a>
+<a href="product.html?category=fishes">Fishes</a>
+</div>
+</div>
 <a href="index.html#contact">Contact Us</a>
 <!-- <a href="#gallery">Gallery</a> -->
 </div>
@@ -4290,9 +4360,9 @@
 <button aria-label="Close photo preview" class="seafood-preview-close" type="button">×</button>
 <div class="seafood-preview-stage">
 <button aria-label="Previous photo" class="seafood-preview-control seafood-preview-previous" type="button">‹</button>
-<img alt="" class="seafood-preview-image">
+<img alt="" class="seafood-preview-image"/>
 <button aria-label="Next photo" class="seafood-preview-control seafood-preview-next" type="button">›</button>
-</img></div>
+</div>
 <div class="seafood-preview-caption">
 <strong></strong>
 <span class="seafood-preview-count"></span>
@@ -5996,5 +6066,105 @@
       }
     })();
   </script>
-</body>
+<script id="products-submenu-controller">
+(() => {
+  const desktopItem = document.querySelector('.navbar .has-submenu');
+  const desktopLink = desktopItem?.querySelector('.products-menu-link');
+  const mobileToggle = document.querySelector('.mobile-products-toggle-row');
+  const mobileSub = document.getElementById('mobileProductsSubmenu');
+  const mobileNav = document.getElementById('mobileNav');
+  const mobileMenu = document.querySelector('.mobile-menu');
+  mobileNav?.addEventListener('hidden.bs.offcanvas', () => setMobileOpen(false));
+  const isMobile = () => window.matchMedia('(max-width: 991.98px)').matches;
+
+  function setMobileOpen(open) {
+    if (!mobileToggle || !mobileSub) return;
+    mobileToggle.setAttribute('aria-expanded', String(open));
+    mobileSub.setAttribute('aria-hidden', String(!open));
+    mobileSub.classList.toggle('is-open', open);
+    mobileToggle.classList.toggle('open', open);
+  }
+  mobileToggle?.addEventListener('click', (event) => {
+    event.preventDefault();
+    setMobileOpen(mobileToggle.getAttribute('aria-expanded') !== 'true');
+  });
+  mobileSub?.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      setMobileOpen(false);
+      const closeButton = document.getElementById('mobileNavClose');
+      if (closeButton && isMobile()) closeButton.click();
+    });
+  });
+  desktopLink?.addEventListener('click', () => {
+    // The Products label remains a normal link; its aria state is reset on navigation.
+    desktopLink.setAttribute('aria-expanded', 'false');
+  });
+  desktopItem?.addEventListener('mouseenter', () => desktopLink?.setAttribute('aria-expanded', 'true'));
+  desktopItem?.addEventListener('mouseleave', () => desktopLink?.setAttribute('aria-expanded', 'false'));
+  desktopItem?.addEventListener('focusin', () => desktopLink?.setAttribute('aria-expanded', 'true'));
+  desktopItem?.addEventListener('focusout', (event) => {
+    if (!desktopItem.contains(event.relatedTarget)) desktopLink?.setAttribute('aria-expanded', 'false');
+  });
+  document.addEventListener('keydown', event => {
+    if (event.key !== 'Escape') return;
+    desktopItem?.classList.remove('submenu-open');
+    desktopLink?.setAttribute('aria-expanded', 'false');
+    setMobileOpen(false);
+    if (desktopItem?.contains(document.activeElement)) desktopLink?.focus();
+  });
+  document.addEventListener('click', event => {
+    if (desktopItem && !desktopItem.contains(event.target)) {
+      desktopItem.classList.remove('submenu-open');
+      desktopLink?.setAttribute('aria-expanded', 'false');
+    }
+    if (mobileMenu && !mobileMenu.contains(event.target) && !mobileNav?.contains(event.target)) setMobileOpen(false);
+  });
+  // Mark Products active when the current URL is product.html, including category links.
+  const current = new URL(window.location.href);
+  if (current.pathname.toLowerCase().endsWith('/product.html') || current.pathname.toLowerCase() === 'product.html') {
+    desktopLink?.classList.add('nav-parent-active');
+    mobileMenu?.querySelector('.mobile-products-toggle-row')?.classList.add('active');
+    desktopLink?.setAttribute('aria-current', 'page');
+    mobileMenu?.querySelector('.mobile-products-toggle-row')?.setAttribute('aria-current', 'page');
+  }
+  const currentCategory = current.searchParams.get('category');
+  if (currentCategory) {
+    const targetHref = `product.html?category=${currentCategory}`;
+    document.querySelectorAll('.submenu a, .mobile-product-sub a').forEach(link => {
+      if (link.getAttribute('href') === targetHref) link.setAttribute('aria-current', 'page');
+    });
+  }
+
+  // Product-page category scroll support; preserve the original product content.
+  const categoryTargets = {
+    'fried-shallots': ['bawang', 'fried-shallots'],
+    'shallot-oil': ['shallot-oil'],
+    'fishes': ['seafood', 'fishes']
+  };
+  function scrollToCategory(category, updateUrl) {
+    const ids = categoryTargets[category];
+    if (!ids) return;
+    const target = ids.map(id => document.getElementById(id)).find(Boolean);
+    if (!target) return;
+    target.scrollIntoView({behavior: 'smooth', block: 'start'});
+    if (updateUrl) history.replaceState(null, '', `?category=${encodeURIComponent(category)}`);
+  }
+  document.querySelectorAll('#mobileProductsSubmenu a[href*="category="], .navbar .submenu a[href*="category="]').forEach(link => {
+    link.addEventListener('click', event => {
+      const url = new URL(link.href, window.location.href);
+      if (!url.pathname.toLowerCase().endsWith('/product.html') && !url.pathname.toLowerCase().endsWith('product.html')) return;
+      const category = url.searchParams.get('category');
+      if (!category || !categoryTargets[category]) return;
+      const targetIds = categoryTargets[category];
+      if (!targetIds.some(id => document.getElementById(id))) return;
+      event.preventDefault();
+      scrollToCategory(category, true);
+      if (isMobile()) document.getElementById('mobileNavClose')?.click();
+    });
+  });
+  if ((current.pathname.toLowerCase().endsWith('/product.html') || current.pathname.toLowerCase() === 'product.html') && currentCategory) {
+    window.addEventListener('load', () => setTimeout(() => scrollToCategory(currentCategory, false), 80), {once:true});
+  }
+})();
+</script></body>
 </html>
