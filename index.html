@@ -525,7 +525,7 @@
 
     .intro-img {
       height: 575px;
-      background: url("https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=1200&q=90") center/cover;
+      background: url("img/fish/bgimgikan01.jpg") center/cover;
     }
 
     .intro {
@@ -706,6 +706,13 @@
           transparent 50%,
           color-mix(in srgb, var(--accent) 16%, transparent)),
         url("img/fish/RedSnapper/Red\ Snapper\ -\ 1.jpg");
+    }
+
+    .shallot-oil-feature {
+      background-image: linear-gradient(180deg,
+          transparent 50%,
+          color-mix(in srgb, var(--accent) 16%, transparent)),
+        url("img/Shallots/ShallotOil/ShallotOil1.PNG");
     }
 
     .top-btn,
@@ -5129,6 +5136,15 @@ footer.theme-dark .copyright-bar small {
   .navbar .submenu, .products-chevron, .mobile-products-chevron, .mobile-menu .mobile-product-sub, .mobile-products-toggle-row { transition: none !important; }
 }
 
+
+    /* Refined ampersand only in the Seafood & Marine Products feature card */
+    .product-feature-card h3 .product-title-ampersand {
+      font-family: "DM Sans", Arial, sans-serif;
+      font-size: inherit;
+      font-weight: inherit;
+      letter-spacing: normal;
+      vertical-align: baseline;
+    }
 </style>
 <link href="css/tokens.css" rel="stylesheet"/>
 <link href="css/site-components.css" rel="stylesheet"/>
@@ -5306,28 +5322,41 @@ footer.theme-dark .copyright-bar small {
 <span aria-hidden="true" class="products-title-accent"></span>
 </div>
 <div class="row g-4 product-feature-row">
-<div class="col-12 col-md-6 product-feature-column">
+<div class="col-12 col-md-4 product-feature-column">
 <article class="product-feature-card">
-<div aria-label="Indonesian food products and onions" class="product-feature-image onion-feature" role="img"></div>
+<div aria-label="Indonesian fried shallots" class="product-feature-image onion-feature" role="img"></div>
 <div class="product-feature-content">
 <div class="label product-category-label">CATEGORY 01</div>
-<h3>Food Products &amp; Condiments</h3>
-<p>Premium Indonesian onions, carefully selected and prepared for commercial customers.</p>
+<h3>Fried Shallots</h3>
+<p>Crispy Indonesian fried shallots, carefully prepared to deliver rich aroma, texture, and consistent quality for foodservice and retail.</p>
 <div class="product-card-action">
-<a class="btn btn-secondary" href="product.html#bawang">View Food Products <i aria-hidden="true" class="bi bi-arrow-right"></i></a>
+<a class="btn btn-secondary" href="product.html#bawang">View Fried Shallots <i aria-hidden="true" class="bi bi-arrow-right"></i></a>
 </div>
 </div>
 </article>
 </div>
-<div class="col-12 col-md-6 product-feature-column">
+<div class="col-12 col-md-4 product-feature-column">
+<article class="product-feature-card">
+<div aria-label="Indonesian shallot oil" class="product-feature-image shallot-oil-feature" role="img"></div>
+<div class="product-feature-content">
+<div class="label product-category-label">CATEGORY 02</div>
+<h3>Shallot Oil</h3>
+<p>Flavorful shallot oil made for versatile culinary use, offering a distinctive Indonesian taste for kitchens, food producers, and distributors.</p>
+<div class="product-card-action">
+<a class="btn btn-secondary" href="product.html#shallot-oil">View Shallot Oil <i aria-hidden="true" class="bi bi-arrow-right"></i></a>
+</div>
+</div>
+</article>
+</div>
+<div class="col-12 col-md-4 product-feature-column">
 <article class="product-feature-card">
 <div aria-label="Indonesian seafood and marine products" class="product-feature-image fish-feature" role="img"></div>
 <div class="product-feature-content">
-<div class="label product-category-label">CATEGORY 02</div>
-<h3>Seafood &amp; Marine Products</h3>
-<p>Fresh and frozen Indonesian seafood including tuna, snapper, octopus, king fish and more.</p>
+<div class="label product-category-label">CATEGORY 03</div>
+<h3>Seafood <span class="product-title-ampersand">&amp;</span> Marine Products</h3>
+<p>Selected fresh and frozen Indonesian seafood, including tuna, snapper, octopus, and other marine products sourced for global markets.</p>
 <div class="product-card-action">
-<a class="btn btn-secondary" href="product.html#seafood">View Seafood <i aria-hidden="true" class="bi bi-arrow-right"></i></a>
+<a class="btn btn-secondary" href="product.html#seafood">View Seafood &amp; Marine Products <i aria-hidden="true" class="bi bi-arrow-right"></i></a>
 </div>
 </div>
 </article>
@@ -5349,7 +5378,7 @@ footer.theme-dark .copyright-bar small {
           Get in Touch | Send an Inquiry <i aria-hidden="true" class="bi bi-send"></i>
 </a>
 </div>
-<p class="site-cta-trust">Fried Shallots <span aria-hidden="true">•</span> Shallot Oil <span aria-hidden="true">•</span> Seafood <span aria-hidden="true">•</span> Marine Products</p>
+<p class="site-cta-trust">Fried Shallots <span aria-hidden="true">•</span> Shallot Oil <span aria-hidden="true">•</span> Seafood and Marine Products</p>
 </div>
 </section>
 <section class="contact-section theme-dark section" id="contact">

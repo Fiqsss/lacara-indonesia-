@@ -6137,6 +6137,28 @@
       }
     }
 
+    /* Product navbar scroll targets use the shared header token. */
+    #bawang,
+    #shallot-oil,
+    #seafood,
+    #fish-catalog,
+    #cta,
+    #contact {
+      scroll-margin-top: calc(var(--header-height) + 8px);
+    }
+
+    .navbar .submenu a[aria-current="page"],
+    .mobile-product-sub a[aria-current="page"] {
+      background: var(--black);
+      color: var(--accent);
+    }
+
+    .navbar .products-menu-link.nav-parent-active,
+    .mobile-products-toggle-row[aria-current="page"] {
+      background: var(--black);
+      color: var(--accent) !important;
+    }
+
 </style>
   <script id="site-cta-parallax-controller">
     (() => {
@@ -6181,6 +6203,65 @@
     })();
   </script>
   </link>
+
+  <style id="product-hero-desktop-type-scale">
+    /* Desktop-only typography refinement for the product hero sections. */
+    @media (min-width: 992px) {
+      .hero h1 {
+        max-width: 1040px;
+        font-size: clamp(4.2rem, 5.8vw, 6.4rem) !important;
+        line-height: 0.98 !important;
+      }
+
+      .food-hero-intro {
+        max-width: 900px;
+        margin-top: 28px;
+        font-size: 1.3rem;
+        line-height: 1.8;
+      }
+
+      .hero .eyebrow {
+        font-size: 0.82rem;
+      }
+
+      .food-actions {
+        margin-top: 36px;
+      }
+
+      .seafood-title {
+        max-width: 1000px;
+        font-size: clamp(3.2rem, 5.1vw, 4.6rem);
+        line-height: 1.06;
+      }
+
+      .seafood-intro-copy {
+        max-width: 900px;
+        font-size: 1.3rem;
+        line-height: 1.8;
+      }
+
+      .seafood-eyebrow {
+        font-size: 0.82rem;
+      }
+
+      .seafood-actions {
+        margin-top: 34px;
+      }
+
+      .seafood-actions .food-button {
+        min-height: 54px;
+        padding: 14px 26px;
+        font-size: 1rem;
+      }
+
+      .food-button {
+        min-height: 54px;
+        padding: 14px 26px;
+        font-size: 1rem;
+      }
+    }
+  </style>
+
 </head>
 
 <body>
@@ -6205,9 +6286,10 @@
               class="nav-link products-menu-link nav-parent-active" href="product.html">Products <i aria-hidden="true"
                 class="bi bi-chevron-down products-chevron"></i></a>
             <ul aria-label="Product categories" class="submenu">
-              <li><a href="product.html?category=fried-shallots">Fried Shallots</a></li>
-              <li><a href="product.html?category=shallot-oil">Shallot Oil</a></li>
-              <li><a href="product.html?category=fishes">Fishes</a></li>
+              <li><a data-spy="products" href="product.html">All Products</a></li>
+              <li><a data-spy="bawang" href="#bawang">Fried Shallots</a></li>
+              <li><a data-spy="shallot-oil" href="#shallot-oil">Shallot Oil</a></li>
+              <li><a data-spy="fishes" href="#seafood">Fishes</a></li>
             </ul>
           </li>
           <li class="nav-item">
@@ -6236,10 +6318,10 @@
             <span>Products</span><i aria-hidden="true" class="bi bi-chevron-down mobile-products-chevron"></i>
           </button>
           <div aria-hidden="true" class="mobile-product-sub" id="mobileProductsSubmenu">
-            <a aria-current="page" class="active" href="product.html">All Products</a>
-            <a href="product.html?category=fried-shallots">Fried Shallots</a>
-            <a href="product.html?category=shallot-oil">Shallot Oil</a>
-            <a href="product.html?category=fishes">Fishes</a>
+            <a data-spy="products" href="product.html">All Products</a>
+            <a data-spy="bawang" href="#bawang">Fried Shallots</a>
+            <a data-spy="shallot-oil" href="#shallot-oil">Shallot Oil</a>
+            <a data-spy="fishes" href="#seafood">Fishes</a>
           </div>
         </div>
         <a href="index.html#contact">Contact Us</a>
@@ -6368,7 +6450,7 @@
         </div>
       </div>
     </section>
-    <section aria-labelledby="fish-catalog-title" class="seafood-section seafood-catalog theme-light section">
+    <section aria-labelledby="fish-catalog-title" class="seafood-section seafood-catalog theme-light section" id="fish-catalog">
       <div class="seafood-container">
         <h3 class="seafood-catalog-title" id="fish-catalog-title">Fish Catalog</h3>
         <p class="seafood-catalog-subtitle">12 species · Fresh or frozen · Wholesale &amp; export</p>
@@ -7910,227 +7992,19 @@
     });
   </script>
   <script id="navbar-scrollspy-controller">
-    (function () {
-      function initScrollSpy() {
-        const currentPage = window.location.pathname
-          .split('/')
-          .pop()
-          .toLowerCase();
-
-        const isProductPage = currentPage === 'product.html';
-
-        const allNavLinks = document.querySelectorAll(
-          '.navbar .nav-link, .mobile-menu a, #mobileNav a'
-        );
-
-        // ==========================================
-        // 1. RESET STATUS ACTIVE NAVBAR
-        // ==========================================
-        allNavLinks.forEach(link => {
-          link.classList.remove('active');
-          link.removeAttribute('aria-current');
-        });
-
-        // ==========================================
-        // 2. HALAMAN PRODUCT.HTML
-        // ==========================================
-        if (isProductPage) {
-          allNavLinks.forEach(link => {
-            const href = (link.getAttribute('href') || '')
-              .trim()
-              .toLowerCase();
-
-            const isProductLink =
-              href === 'product.html' ||
-              href.endsWith('/product.html') ||
-              link.classList.contains('mobile-products-link') ||
-              (
-                link.closest('.mobile-menu, #mobileNav') &&
-                href === '#products'
-              );
-
-            if (isProductLink) {
-              link.classList.add('active');
-              link.setAttribute('aria-current', 'page');
-            }
-          });
-
-          return;
-        }
-
-        // ==========================================
-        // 3. SCROLLSPY UNTUK HALAMAN INDEX
-        // ==========================================
-        const allLinks = Array.from(document.querySelectorAll(
-          '.navbar a[href^="#"], .mobile-menu a[href^="#"], #mobileNav a[href^="#"]'
-        ));
-
-        const linkById = new Map();
-
-        allLinks.forEach(link => {
-          const id = (link.getAttribute('href') || '').slice(1);
-
-          if (id && document.getElementById(id)) {
-            if (!linkById.has(id)) {
-              linkById.set(id, []);
-            }
-
-            linkById.get(id).push(link);
-          }
-        });
-
-        const ids = ['home', 'about', 'products', 'contact'].filter(
-          id => document.getElementById(id) && linkById.has(id)
-        );
-
-        const targets = ids.map(id => document.getElementById(id));
-        let activeId = '';
-
-        function setActive(id) {
-          if (!id || !linkById.has(id) || activeId === id) return;
-
-          activeId = id;
-
-          allNavLinks.forEach(link => {
-            link.classList.remove('active');
-            link.removeAttribute('aria-current');
-          });
-
-          linkById.get(id).forEach(link => {
-            link.classList.add('active');
-            link.setAttribute('aria-current', 'page');
-          });
-        }
-
-        function updateEdgeCases() {
-          if (window.scrollY < 80 && linkById.has('home')) {
-            setActive('home');
-            return true;
-          }
-
-          if (
-            window.innerHeight + window.scrollY >=
-            document.documentElement.scrollHeight - 4 &&
-            linkById.has('contact')
-          ) {
-            setActive('contact');
-            return true;
-          }
-
-          return false;
-        }
-
-        function chooseAtCenter() {
-          if (updateEdgeCases()) return;
-
-          const line = window.innerHeight * 0.48;
-          let chosen = ids[0];
-
-          targets.forEach((target, index) => {
-            if (target.getBoundingClientRect().top <= line) {
-              chosen = ids[index];
-            }
-          });
-
-          setActive(chosen);
-        }
-
-        const observer = new IntersectionObserver(entries => {
-          if (updateEdgeCases()) return;
-
-          const crossing = entries
-            .filter(entry => entry.isIntersecting)
-            .sort((a, b) =>
-              Math.abs(a.boundingClientRect.top - window.innerHeight * 0.48) -
-              Math.abs(b.boundingClientRect.top - window.innerHeight * 0.48)
-            );
-
-          if (crossing.length) {
-            setActive(crossing[0].target.id);
-          } else {
-            chooseAtCenter();
-          }
-        }, {
-          root: null,
-          rootMargin: '-45% 0px -50% 0px',
-          threshold: 0
-        });
-
-        targets.forEach(target => observer.observe(target));
-
-        // ==========================================
-        // 4. KLIK MENU DAN MOBILE NAVIGATION
-        // ==========================================
-        allLinks.forEach(link => {
-          link.addEventListener('click', () => {
-            const id = (link.getAttribute('href') || '').slice(1);
-            const mobileNav = document.getElementById('mobileNav');
-
-            if (mobileNav && mobileNav.classList.contains('show')) {
-              mobileNav.classList.remove('show');
-              mobileNav.classList.add('hiding');
-              mobileNav.setAttribute('aria-hidden', 'true');
-              document.body.classList.remove('mobile-nav-open');
-
-              const backdrop = document.getElementById('mobileNavBackdrop');
-              if (backdrop) backdrop.classList.remove('is-open');
-
-              const toggle = document.querySelector('.navbar-toggler');
-              if (toggle) toggle.setAttribute('aria-expanded', 'false');
-            }
-
-            if (id && document.getElementById(id)) {
-              document.getElementById(id).scrollIntoView({
-                behavior: window.matchMedia(
-                  '(prefers-reduced-motion: reduce)'
-                ).matches ? 'auto' : 'smooth',
-                block: 'start'
-              });
-            }
-          });
-        });
-
-        window.addEventListener('scroll', chooseAtCenter, { passive: true });
-        window.addEventListener('resize', chooseAtCenter);
-        window.addEventListener('pageshow', chooseAtCenter);
-
-        if (location.hash) {
-          const initial = document.getElementById(
-            decodeURIComponent(location.hash.slice(1))
-          );
-
-          if (initial) {
-            requestAnimationFrame(() => {
-              initial.scrollIntoView({
-                behavior: 'auto',
-                block: 'start'
-              });
-            });
-          }
-        }
-
-        chooseAtCenter();
-      }
-
-      if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', initScrollSpy, {
-          once: true
-        });
-      } else {
-        initScrollSpy();
-      }
-    })();
-  </script>
-  <script id="products-submenu-controller">
     (() => {
+      const currentPage = window.location.pathname.split('/').pop().toLowerCase();
+      const isProductPage = currentPage === 'product.html';
+      const allNavLinks = Array.from(document.querySelectorAll(
+        '.navbar a, .mobile-menu a, .mobile-menu button, #mobileNav a, #mobileNav button'
+      ));
       const desktopItem = document.querySelector('.navbar .has-submenu');
       const desktopLink = desktopItem?.querySelector('.products-menu-link');
       const mobileToggle = document.querySelector('.mobile-products-toggle-row');
       const mobileSub = document.getElementById('mobileProductsSubmenu');
       const mobileNav = document.getElementById('mobileNav');
       const mobileMenu = document.querySelector('.mobile-menu');
-      mobileNav?.addEventListener('hidden.bs.offcanvas', () => setMobileOpen(false));
-      const isMobile = () => window.matchMedia('(max-width: 991.98px)').matches;
+      const prefersReducedMotion = () => window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
       function setMobileOpen(open) {
         if (!mobileToggle || !mobileSub) return;
@@ -8139,25 +8013,141 @@
         mobileSub.classList.toggle('is-open', open);
         mobileToggle.classList.toggle('open', open);
       }
-      mobileToggle?.addEventListener('click', (event) => {
+
+      function setActive(link, active) {
+        if (!link) return;
+        link.classList.toggle('active', active);
+        link.classList.toggle('nav-parent-active', active && link === desktopLink);
+        if (active) link.setAttribute('aria-current', 'page');
+        else link.removeAttribute('aria-current');
+      }
+
+      const productSpyLinks = {
+        products: [
+          ...document.querySelectorAll('[data-spy="products"]')
+        ],
+        bawang: [
+          ...document.querySelectorAll('[data-spy="bawang"]')
+        ],
+        'shallot-oil': [
+          ...document.querySelectorAll('[data-spy="shallot-oil"]')
+        ],
+        fishes: [
+          ...document.querySelectorAll('[data-spy="fishes"]')
+        ]
+      };
+
+      function updateNavSpy() {
+        if (isProductPage) {
+          const navLinks = document.querySelectorAll(
+            '.navbar a, .navbar button, .mobile-menu a, .mobile-menu button, #mobileNav a, #mobileNav button'
+          );
+          navLinks.forEach(link => {
+            link.classList.remove('active', 'nav-parent-active');
+            link.removeAttribute('aria-current');
+          });
+
+          const sections = [
+            { id: 'bawang', key: 'bawang' },
+            { id: 'shallot-oil', key: 'shallot-oil' },
+            { id: 'seafood', key: 'fishes' },
+            { id: 'fish-catalog', key: 'fishes' },
+            { id: 'cta', key: 'contact' },
+            { id: 'contact', key: 'contact' }
+          ];
+          let spyKey = 'products';
+          sections.forEach(section => {
+            const target = document.getElementById(section.id);
+            if (target && target.getBoundingClientRect().top <= window.innerHeight * 0.4) {
+              spyKey = section.key;
+            }
+          });
+          if (window.innerHeight + window.scrollY >=
+              Math.max(document.documentElement.scrollHeight, document.body.scrollHeight) - 4) {
+            spyKey = 'contact';
+          }
+
+          const contactLinks = Array.from(navLinks).filter(link =>
+            link.matches('.navbar .nav-link, .mobile-menu > a') &&
+            /#contact$/i.test(link.getAttribute('href') || '')
+          );
+
+          if (spyKey === 'contact') {
+            contactLinks.forEach(link => setActive(link, true));
+            return;
+          }
+
+          const parentActive = ['products', 'bawang', 'shallot-oil', 'fishes'].includes(spyKey);
+          setActive(desktopLink, parentActive);
+          setActive(mobileToggle, parentActive);
+          (productSpyLinks[spyKey] || []).forEach(link => setActive(link, true));
+          return;
+        }
+
+        // Existing index-page scroll-spy, now routed through the shared updater.
+        const links = Array.from(document.querySelectorAll(
+          '.navbar a[href^="#"], .mobile-menu a[href^="#"], #mobileNav a[href^="#"]'
+        ));
+        const ids = ['home', 'about', 'products', 'contact'].filter(id =>
+          document.getElementById(id) && links.some(link => link.getAttribute('href') === `#${id}`)
+        );
+        const atBottom = window.innerHeight + window.scrollY >=
+          document.documentElement.scrollHeight - 4;
+        let activeId = atBottom ? 'contact' : (window.scrollY < 80 ? 'home' : ids[0]);
+        ids.forEach(id => {
+          const target = document.getElementById(id);
+          if (target && target.getBoundingClientRect().top <= window.innerHeight * 0.4) activeId = id;
+        });
+        if (atBottom) activeId = 'contact';
+        allNavLinks.forEach(link => {
+          link.classList.remove('active', 'nav-parent-active');
+          link.removeAttribute('aria-current');
+        });
+        links.filter(link => link.getAttribute('href') === `#${activeId}`).forEach(link => setActive(link, true));
+      }
+
+      document.querySelectorAll('.navbar .submenu a, #mobileProductsSubmenu a').forEach(link => {
+        const spy = link.dataset.spy;
+        if (!spy) return;
+        if (spy === 'products') link.setAttribute('href', 'product.html');
+        else if (spy === 'bawang') link.setAttribute('href', '#bawang');
+        else if (spy === 'shallot-oil') link.setAttribute('href', '#shallot-oil');
+        else if (spy === 'fishes') link.setAttribute('href', '#seafood');
+        link.addEventListener('click', event => {
+          if (!isProductPage) return;
+          const targetId = spy === 'products' ? 'top' :
+            spy === 'bawang' ? 'bawang' :
+            spy === 'shallot-oil' ? 'shallot-oil' : 'seafood';
+          const target = targetId === 'top' ? document.documentElement : document.getElementById(targetId);
+          if (!target) return;
+          event.preventDefault();
+          target.scrollIntoView({ behavior: prefersReducedMotion() ? 'auto' : 'smooth', block: 'start' });
+          if (window.matchMedia('(max-width: 991.98px)').matches) {
+            setMobileOpen(false);
+            document.getElementById('mobileNavClose')?.click();
+          }
+        });
+      });
+
+      mobileToggle?.addEventListener('click', event => {
         event.preventDefault();
         setMobileOpen(mobileToggle.getAttribute('aria-expanded') !== 'true');
       });
-      mobileSub?.querySelectorAll('a').forEach(link => {
-        link.addEventListener('click', () => {
+      mobileNav?.addEventListener('show.bs.offcanvas', () => {
+        updateNavSpy();
+        const activeSubItem = mobileSub?.querySelector('a[aria-current="page"]');
+        if (activeSubItem) {
+          setMobileOpen(true);
+          activeSubItem.scrollIntoView({ block: 'nearest' });
+        } else {
           setMobileOpen(false);
-          const closeButton = document.getElementById('mobileNavClose');
-          if (closeButton && isMobile()) closeButton.click();
-        });
+        }
       });
-      desktopLink?.addEventListener('click', () => {
-        // The Products label remains a normal link; its aria state is reset on navigation.
-        desktopLink.setAttribute('aria-expanded', 'false');
-      });
+      mobileNav?.addEventListener('hidden.bs.offcanvas', () => setMobileOpen(false));
       desktopItem?.addEventListener('mouseenter', () => desktopLink?.setAttribute('aria-expanded', 'true'));
       desktopItem?.addEventListener('mouseleave', () => desktopLink?.setAttribute('aria-expanded', 'false'));
       desktopItem?.addEventListener('focusin', () => desktopLink?.setAttribute('aria-expanded', 'true'));
-      desktopItem?.addEventListener('focusout', (event) => {
+      desktopItem?.addEventListener('focusout', event => {
         if (!desktopItem.contains(event.relatedTarget)) desktopLink?.setAttribute('aria-expanded', 'false');
       });
       document.addEventListener('keydown', event => {
@@ -8165,60 +8155,21 @@
         desktopItem?.classList.remove('submenu-open');
         desktopLink?.setAttribute('aria-expanded', 'false');
         setMobileOpen(false);
-        if (desktopItem?.contains(document.activeElement)) desktopLink?.focus();
       });
-      document.addEventListener('click', event => {
-        if (desktopItem && !desktopItem.contains(event.target)) {
-          desktopItem.classList.remove('submenu-open');
-          desktopLink?.setAttribute('aria-expanded', 'false');
-        }
-        if (mobileMenu && !mobileMenu.contains(event.target) && !mobileNav?.contains(event.target)) setMobileOpen(false);
-      });
-      // Mark Products active when the current URL is product.html, including category links.
-      const current = new URL(window.location.href);
-      if (current.pathname.toLowerCase().endsWith('/product.html') || current.pathname.toLowerCase() === 'product.html') {
-        desktopLink?.classList.add('nav-parent-active');
-        mobileMenu?.querySelector('.mobile-products-toggle-row')?.classList.add('active');
-        desktopLink?.setAttribute('aria-current', 'page');
-        mobileMenu?.querySelector('.mobile-products-toggle-row')?.setAttribute('aria-current', 'page');
-      }
-      const currentCategory = current.searchParams.get('category');
-      if (currentCategory) {
-        const targetHref = `product.html?category=${currentCategory}`;
-        document.querySelectorAll('.submenu a, .mobile-product-sub a').forEach(link => {
-          if (link.getAttribute('href') === targetHref) link.setAttribute('aria-current', 'page');
-        });
-      }
 
-      // Product-page category scroll support; preserve the original product content.
-      const categoryTargets = {
-        'fried-shallots': ['bawang', 'fried-shallots'],
-        'shallot-oil': ['shallot-oil'],
-        'fishes': ['seafood', 'fishes']
-      };
-      function scrollToCategory(category, updateUrl) {
-        const ids = categoryTargets[category];
-        if (!ids) return;
-        const target = ids.map(id => document.getElementById(id)).find(Boolean);
-        if (!target) return;
-        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        if (updateUrl) history.replaceState(null, '', `?category=${encodeURIComponent(category)}`);
-      }
-      document.querySelectorAll('#mobileProductsSubmenu a[href*="category="], .navbar .submenu a[href*="category="]').forEach(link => {
-        link.addEventListener('click', event => {
-          const url = new URL(link.href, window.location.href);
-          if (!url.pathname.toLowerCase().endsWith('/product.html') && !url.pathname.toLowerCase().endsWith('product.html')) return;
-          const category = url.searchParams.get('category');
-          if (!category || !categoryTargets[category]) return;
-          const targetIds = categoryTargets[category];
-          if (!targetIds.some(id => document.getElementById(id))) return;
-          event.preventDefault();
-          scrollToCategory(category, true);
-          if (isMobile()) document.getElementById('mobileNavClose')?.click();
-        });
-      });
-      if ((current.pathname.toLowerCase().endsWith('/product.html') || current.pathname.toLowerCase() === 'product.html') && currentCategory) {
-        window.addEventListener('load', () => setTimeout(() => scrollToCategory(currentCategory, false), 80), { once: true });
+      window.addEventListener('scroll', updateNavSpy, { passive: true });
+      window.addEventListener('resize', updateNavSpy, { passive: true });
+      window.addEventListener('pageshow', updateNavSpy);
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', () => {
+          updateNavSpy();
+          if (isProductPage && location.hash) {
+            const target = document.getElementById(decodeURIComponent(location.hash.slice(1)));
+            if (target) requestAnimationFrame(() => target.scrollIntoView({ block: 'start', behavior: 'auto' }));
+          }
+        }, { once: true });
+      } else {
+        updateNavSpy();
       }
     })();
   </script>
