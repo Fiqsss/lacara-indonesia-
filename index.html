@@ -528,7 +528,7 @@
 
     .intro-img {
       height: 575px;
-      background: url("img/fish/bgimgikan01.jpg") center/cover;
+      background: url("img/assets/intro/intro1.png") center/cover;
     }
 
     .intro {
@@ -1227,9 +1227,9 @@
       position: absolute;
       inset: 0;
       pointer-events: none;
-      background-image: url("../img/assets/bgwave.png");
+      background-image: url("img/assets/contactus/B56FD78B-EBFC-449D-8425-39ADE438EBDB.png");
       background-size: cover;
-      opacity: 0.06;
+      /* opacity: 0.06; */
       z-index: -2;
     }
 
@@ -1908,7 +1908,7 @@
       min-height: 0;
       padding: 112px 20px;
       background-color: var(--black) !important;
-      background-image: var(--cta-photo-overlay), url("images/cta-bg.jpg"), linear-gradient(var(--black), var(--black)) !important;
+      background-image: var(--cta-photo-overlay), url("img/assets/cta/cta1.png"), linear-gradient(var(--black), var(--black)) !important;
     }
 
     .lacara-cta::before,
@@ -3005,11 +3005,10 @@
       z-index: 0;
       pointer-events: none;
       background-image:
-        linear-gradient(90deg, rgba(10, 10, 10, .72) 0%, rgba(10, 10, 10, .48) 52%, rgba(10, 10, 10, .36) 100%),
-        url("img/assets/chase-baker-yvb8NrIhIFI-unsplash.jpg");
+        url("img/assets/cta/cta1.png");
       background-repeat: no-repeat;
       background-size: cover;
-      background-position: center center;
+      background-position: center right;
       transform: translate3d(0, var(--cta-parallax-offset, 0px), 0) scale(1.12);
       transform-origin: center;
       will-change: transform;
@@ -3022,7 +3021,7 @@
 
     @media (max-width: 767.98px) {
       #cta.site-cta::before {
-        background-position: center center;
+        background-position: center right;
         transform: translate3d(0, var(--cta-parallax-offset, 0px), 0) scale(1.16);
       }
     }
@@ -3201,7 +3200,7 @@
         content: "" !important;
         display: block !important;
         inset: -65% 0 !important;
-        background-position: center center !important;
+        background-position: center right !important;
         transform: translate3d(0, var(--cta-parallax-offset, 0px), 0) scale(1.16) !important;
         will-change: transform;
       }
@@ -3220,8 +3219,6 @@
 
     /* CTA solid black background: no image or parallax layer */
     #cta.site-cta {
-      background: #000000 !important;
-      background-image: none !important;
       position: relative !important;
       isolation: isolate;
     }
@@ -3231,7 +3228,6 @@
       position: absolute !important;
       inset: 0 !important;
       display: block !important;
-      background: #000000 !important;
       background-image: none !important;
       transform: none !important;
       animation: none !important;
@@ -3876,7 +3872,6 @@
       padding: 80px 24px;
       margin: 0;
       color: #FFFFFF;
-      background: linear-gradient(120deg, #0A0A0A 0%, #1A1A1A 100%) !important;
       text-align: center;
     }
 
@@ -3886,8 +3881,6 @@
       inset: 0;
       z-index: -1;
       pointer-events: none;
-      background: linear-gradient(120deg, rgba(10, 10, 10, .88), rgba(26, 26, 26, .88)),
-        url("img/assets/chase-baker-yvb8NrIhIFI-unsplash.jpg") center/cover no-repeat;
       opacity: .25;
     }
 
@@ -4034,6 +4027,13 @@
     @media (max-width: 767.98px) {
       #cta.site-cta {
         padding: 56px 18px;
+      }
+
+      #cta.site-cta::before {
+        background-position: left center;
+        transform: translate3d(0,
+            var(--cta-parallax-offset, 0px),
+            0) scale(1.16);
       }
 
       #cta.site-cta .site-cta-title {
@@ -4587,7 +4587,7 @@
       position: relative !important;
       isolation: isolate;
       overflow: hidden !important;
-      background: linear-gradient(120deg, #0A0A0A 0%, #1A1A1A 100%) !important;
+      background: #111111 !important;
     }
 
     #cta.site-cta::before {
@@ -4596,9 +4596,8 @@
       inset: 0 !important;
       z-index: 0 !important;
       pointer-events: none;
-      background: url("img/assets/lineonion.png") center / cover no-repeat !important;
-      opacity: 0.2 !important;
-      filter: brightness(0) invert(1) !important;
+      background: url("img/assets/cta/cta1.png") center left / cover no-repeat !important;
+      filter: none !important;
       transform: none !important;
       will-change: auto !important;
     }
@@ -4609,7 +4608,7 @@
       inset: 0 !important;
       z-index: 0 !important;
       pointer-events: none;
-      background: radial-gradient(ellipse at center, rgba(10, 10, 10, 0.85) 0%, rgba(10, 10, 10, 0) 70%) !important;
+      /* background: radial-gradient(ellipse at center, rgba(10, 10, 10, 0.85) 0%, rgba(10, 10, 10, 0) 70%) !important; */
     }
 
     #cta.site-cta>.site-cta-inner,
@@ -4627,10 +4626,66 @@
     @media (max-width: 767.98px) {
       #cta.site-cta::before {
         background-size: auto 100% !important;
-        opacity: 0.15 !important;
+        /* opacity: 0.15 !important;*/
       }
     }
 
+
+
+
+
+    /* CTA-to-Contact seamless fade: final override */
+    #cta.site-cta {
+      margin-bottom: -1px !important;
+      border-bottom: 0 !important;
+    }
+
+    #cta.site-cta::after {
+      content: "" !important;
+      position: absolute !important;
+      left: 0 !important;
+      right: 0 !important;
+      top: auto !important;
+      bottom: 0 !important;
+      width: 100% !important;
+      height: clamp(150px, 35%, 210px) !important;
+      inset-inline: 0 !important;
+      pointer-events: none !important;
+      z-index: 1 !important;
+      /* Keep the team photo clear; fade only the lower edge into Contact Us. */
+      background: linear-gradient(
+        to bottom,
+        rgba(10, 10, 10, 0) 0%,
+        rgba(10, 10, 10, 0) 38%,
+        rgba(10, 10, 10, 0.28) 66%,
+        rgba(10, 10, 10, 0.72) 84%,
+        var(--black) 100%
+      ) !important;
+    }
+
+    #cta.site-cta > .site-cta-inner,
+    #cta.site-cta .site-cta-eyebrow,
+    #cta.site-cta .site-cta-title,
+    #cta.site-cta .site-cta-accent,
+    #cta.site-cta .site-cta-desc,
+    #cta.site-cta .site-cta-actions,
+    #cta.site-cta .site-cta-trust,
+    #cta.site-cta .site-cta-button {
+      position: relative !important;
+      z-index: 2 !important;
+    }
+
+    #cta.site-cta + #contact.contact-section {
+      margin-top: 0 !important;
+      border-top: 0 !important;
+      background-color: var(--black) !important;
+    }
+
+    @media (max-width: 767.98px) {
+      #cta.site-cta::after {
+        height: clamp(100px, 30%, 135px) !important;
+      }
+    }
 
 
     /* HERO DESKTOP REFINEMENT — 1024px and wider only */
@@ -5534,16 +5589,16 @@
   <header class="hero hero-slideshow theme-dark" id="home">
     <div aria-hidden="true" class="hero-slides">
       <div class="hero-slide active" style='
-            background-image: url("img/fish/RedSnapper/Red\ Snapper\ -\ 1.jpg");
+            background-image: url("img/assets/hero/hero1.png");
           '></div>
       <div class="hero-slide" style='
-            background-image: url("img/fish/KerapuLodi/Kerapu\ Lodi-Slide\ 1.jpg");
+            background-image: url("img/assets/hero/hero2.png");
           '></div>
       <div class="hero-slide" style='
-            background-image: url("img/Shallots/FriedShallots/FriedShallotsAll.PNG");
+            background-image: url("img/assets/hero/hero3.png");
           '></div>
       <div class="hero-slide" style='
-            background-image: url("img/Shallots/ShallotOil/ShallotOil1.PNG");
+            background-image: url("img/assets/hero/hero4.png");
           '></div>
     </div>
     <div class="hero-slideshow-overlay "></div>
@@ -5662,8 +5717,8 @@
               <p>Selected fresh and frozen Indonesian seafood, including tuna, snapper, octopus, and other marine
                 products sourced for global markets.</p>
               <div class="product-card-action">
-                <a class="btn btn-secondary" href="product.html#seafood">View Seafood <i
-                    aria-hidden="true" class="bi bi-arrow-right"></i></a>
+                <a class="btn btn-secondary" href="product.html#seafood">View Seafood <i aria-hidden="true"
+                    class="bi bi-arrow-right"></i></a>
               </div>
             </div>
           </article>
@@ -5677,17 +5732,17 @@
   </section>
   <section aria-labelledby="siteCtaTitle" class="site-cta theme-dark section" id="cta">
     <div class="site-cta-inner">
-      <p class="site-cta-eyebrow">GET IN TOUCH</p>
+      <p class="site-cta-eyebrow">Send an Inquiry</p>
       <h2 class="site-cta-title" id="siteCtaTitle">Let's Bring the Best of Indonesia to Your Business</h2>
       <span aria-hidden="true" class="site-cta-accent"></span>
       <!-- <p class="site-cta-desc">Tell us your product needs, volume, and destination. Our team will respond within 24 hours.</p> -->
       <div class="site-cta-actions">
         <a class="btn btn-primary site-cta-button" href="#contact">
-          Get in Touch | Send an Inquiry <i aria-hidden="true" class="bi bi-send"></i>
+          Get in Touch <i aria-hidden="true" class="bi bi-send"></i>
         </a>
       </div>
-      <p class="site-cta-trust">Fried Shallots <span aria-hidden="true">•</span> Shallot Oil <span
-          aria-hidden="true">•</span> Seafood and Marine Products</p>
+      <p class="site-cta-trust">Food Products and Condiments<span aria-hidden="true">•</span> Seafood and Marine
+        Products <span aria-hidden="true"></span></p>
     </div>
   </section>
   <section class="contact-section theme-dark section" id="contact">
@@ -5695,7 +5750,7 @@
       <div class="contact-intro-inner text-center mb-5">
         <h2 class="contact-title">Contact Us</h2>
         <div class="contact-line text-center"></div>
-        <p>Please send your messages/comments/inquiries here.</p>
+        <p>For product inquiries and business partnerships, please contact our team</p>
       </div>
       <div class="row align-items-stretch">
         <div class="col-lg-6">
@@ -5751,7 +5806,7 @@
               <div class="contact-detail">
                 <span class="contact-icon"><i class="bi bi-geo-alt-fill"></i></span>
                 <div>
-                  <small>ADDRESS</small><strong>Sukoharjo, Central Java, Indonesia</strong>
+                  <small>ADDRESS</small><strong>Jl. Amarta Raya, Kutoharjo, Kec. Pati, Kabupaten Pati, Jawa Tengah 59118, Indonesia</strong>
                 </div>
               </div>
             </div>
@@ -5780,16 +5835,13 @@
           <a class="footer-link" href="#products">
             <p>Our Products</p>
           </a>
-          <a class="footer-link" href="#gallery">
-            <p>Our Gallery</p>
-          </a>
           <a class="footer-link" href="#contact">
             <p>Contact us</p>
           </a>
         </div>
         <div class="col-12 col-lg-3 mt-2 mb-4 my-lg-0">
           <h6 class="text-white pb-2">Location</h6>
-          <p>PT. LACARA FOOD INDONESIA<br />Pati, Central Java, Indonesia 59118</p>
+          <p>PT. LACARA FOOD INDONESIA<br />Jl. Amarta Raya, Kutoharjo, Kec. Pati, Kabupaten Pati, Jawa Tengah 59118, Indonesia</p>
         </div>
       </div>
       <!-- <hr style="border-color: var(--muted)" /> -->
@@ -5797,20 +5849,21 @@
     <section class="location-section theme-light section" id="location">
       <div class="container">
         <div class="location-map-wrap">
-          <iframe height="350"
-            src="https://www.openstreetmap.org/export/embed?bbox=111.03817462921144%2C-6.712516103878979%2C111.09482288360597%2C-6.674581791420616&amp;layer=mapnik&amp;marker=-6.693549316090589%2C111.06649875640869"
-            style="border: 1px solid black" width="425"></iframe><br /><small><a
-              href="https://www.openstreetmap.org/?mlat=-6.69355&amp;mlon=111.06650#map=15/-6.69355/111.06650">View
-              Larger Map</a></small><br /><small><a
-              href="https://www.openstreetmap.org/#map=19/-6.671722/111.105792">View Larger
-              Map</a></small>
+          <iframe
+            title="Map to PT. Lacara Food Indonesia, Jl. Amarta Raya, Kutoharjo, Pati"
+            height="350"
+            src="https://maps.google.com/maps?q=PT.%20Lacara%20Food%20Indonesia%2C%20Jl.%20Amarta%20Raya%2C%20Kutoharjo%2C%20Kec.%20Pati%2C%20Kabupaten%20Pati%2C%20Jawa%20Tengah%2059118%2C%20Indonesia&amp;z=17&amp;output=embed"
+            style="border: 0"
+            width="425"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"></iframe>
           <div class="map-label">
             <span class="map-pin"><i class="bi bi-geo-alt-fill"></i></span>
             <div>
-              <small>OUR LOCATION</small><strong>Pati, Central Java, Indonesia</strong>
+              <small>OUR LOCATION</small><strong>Jl. Amarta Raya, Kutoharjo, Kec. Pati, Kabupaten Pati, Jawa Tengah 59118, Indonesia</strong>
             </div>
           </div>
-          <a class="map-open" href="https://www.openstreetmap.org/?mlat=-8.765&amp;mlon=115.215#map=13/-8.765/115.215"
+          <a class="map-open" href="https://www.google.com/maps/search/?api=1&amp;query=PT.%20Lacara%20Food%20Indonesia%2C%20Jl.%20Amarta%20Raya%2C%20Kutoharjo%2C%20Pati%2C%20Jawa%20Tengah%2059118"
             rel="noopener" target="_blank">Open larger map <span>↗</span></a>
         </div>
       </div>
