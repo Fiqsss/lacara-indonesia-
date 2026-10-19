@@ -389,6 +389,16 @@
     }
 
     /* REDUCED MOTION */
+
+    @media (max-width: 306px) {
+      #products .product-feature-content h3 {
+        white-space: normal;
+        font-size: 16px;
+        line-height: 1.25;
+        overflow-wrap: normal;
+      }
+    }
+
     @media (prefers-reduced-motion: reduce) {
       .hero-slide {
         transition: none;
@@ -3581,8 +3591,12 @@
     #products .product-feature-row {
       display: grid;
       grid-template-columns: minmax(0, 1fr);
-      gap: 24px;
+      gap: clamp(20px, 2.4vw, 32px);
       align-items: stretch;
+      /* Match the full left-to-right content width of the About section. */
+      width: 100%;
+      max-width: none;
+      margin-inline: auto;
     }
 
     #products .product-feature-column {
@@ -3591,15 +3605,10 @@
       width: 100%;
     }
 
+    /* Two category cards stay centered on desktop instead of leaving an empty third column. */
     @media (min-width: 600px) {
       #products .product-feature-row {
         grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-    }
-
-    @media (min-width: 992px) {
-      #products .product-feature-row {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
       }
     }
 
@@ -3627,6 +3636,7 @@
       width: 100%;
       height: auto;
       aspect-ratio: 4 / 3;
+      max-height: 360px;
       flex: 0 0 auto;
       background-size: cover;
       background-position: center;
@@ -3657,7 +3667,8 @@
     }
 
     #products .product-category-label {
-      margin-bottom: 7px !important;
+      display: none !important;
+      margin-bottom: 0 !important;
     }
 
     #products .product-feature-content h3 {
@@ -3807,11 +3818,43 @@
       }
 
       #products .product-feature-content h3 {
-        font-size: clamp(22px, 5.5vw, 26px);
+        /* Ukuran judul mengikuti referensi: jelas lebih besar dari deskripsi. */
+        font-size: clamp(18px, 5.2vw, 20px);
+        font-weight: 600;
+        line-height: 1.25;
+        letter-spacing: -0.4px;
+        white-space: nowrap;
+        max-width: 100%;
+        transform: scaleX(.94);
+        transform-origin: left center;
+        margin-right: -6%;
+        overflow: visible;
+      }
+
+      #products .product-feature-content p {
+        /* Deskripsi mengikuti skala referensi, tetap lebih kecil dari judul. */
+        font-size: 13px;
+        line-height: 1.65;
+        margin-bottom: 20px;
       }
 
       #products .product-card-action .btn {
         width: 100%;
+        min-height: 42px;
+        padding: 10px 13px;
+        gap: 8px;
+        font-size: 13px;
+        line-height: 1.35;
+      }
+
+      #products .product-card-action .btn i {
+        font-size: 13px;
+      }
+
+      #products .products-all-wrap .btn {
+        min-height: 42px;
+        padding: 11px 20px;
+        font-size: 13px;
       }
 
       #products .products-all-wrap {
@@ -3824,10 +3867,32 @@
         padding: 20px;
       }
 
+      #products .product-feature-content h3 {
+        font-size: clamp(17px, 5.1vw, 19px);
+        letter-spacing: -0.4px;
+        transform: scaleX(.92);
+        margin-right: -5%;
+      }
+
+      #products .product-feature-content p {
+        font-size: 12.5px;
+        line-height: 1.65;
+      }
+
       #products .btn {
         width: 100%;
-        padding-left: 14px;
-        padding-right: 14px;
+        padding-left: 12px;
+        padding-right: 12px;
+        font-size: 12px;
+      }
+
+      #products .product-card-action .btn {
+        min-height: 40px;
+        font-size: 12px;
+      }
+
+      #products .products-all-wrap .btn {
+        font-size: 12px;
       }
     }
 
@@ -5544,7 +5609,6 @@
               aria-expanded="false">Products <i class="bi bi-chevron-down products-chevron" aria-hidden="true"></i></a>
             <ul class="submenu" aria-label="Product categories">
               <li><a href="product.html?category=fried-shallots">Fried Shallots</a></li>
-              <li><a href="product.html?category=shallot-oil">Shallot Oil</a></li>
               <li><a href="product.html?category=fishes">Fishes</a></li>
             </ul>
           </li>
@@ -5574,10 +5638,8 @@
             <span>Products</span><i class="bi bi-chevron-down mobile-products-chevron" aria-hidden="true"></i>
           </button>
           <div class="mobile-product-sub" id="mobileProductsSubmenu" aria-hidden="true">
-            <a href="product.html">All Products</a>
-            <a href="product.html?category=fried-shallots">Fried Shallots</a>
-            <a href="product.html?category=shallot-oil">Shallot Oil</a>
-            <a href="product.html?category=fishes">Fishes</a>
+            <a href="product.html?category=fried-shallots">Food Products and Condiments </a>
+            <a href="product.html#seafood">Seafood and Marine Products</a>
           </div>
         </div>
         <a href="#contact">Contact Us</a>
@@ -5682,26 +5744,12 @@
             <div aria-label="Indonesian fried shallots" class="product-feature-image onion-feature" role="img"></div>
             <div class="product-feature-content">
               <div class="label product-category-label">CATEGORY 01</div>
-              <h3>Fried Shallots</h3>
-              <p>Crispy Indonesian fried shallots, carefully prepared to deliver rich aroma, texture, and consistent
-                quality for foodservice and retail.</p>
+              <h3>Food Products and Condiments</h3>
+              <p>Discover selected Indonesian food products and condiments, including crispy fried shallots and
+                flavorful shallot oil, prepared to deliver authentic taste and consistent quality for foodservice,
+                retail, and international markets.</p>
               <div class="product-card-action">
-                <a class="btn btn-secondary" href="product.html#bawang">View Fried Shallots <i aria-hidden="true"
-                    class="bi bi-arrow-right"></i></a>
-              </div>
-            </div>
-          </article>
-        </div>
-        <div class="product-feature-column">
-          <article class="product-feature-card">
-            <div aria-label="Indonesian shallot oil" class="product-feature-image shallot-oil-feature" role="img"></div>
-            <div class="product-feature-content">
-              <div class="label product-category-label">CATEGORY 02</div>
-              <h3>Shallot Oil</h3>
-              <p>Flavorful shallot oil made for versatile culinary use, offering a distinctive Indonesian taste for
-                kitchens, food producers, and distributors.</p>
-              <div class="product-card-action">
-                <a class="btn btn-secondary" href="product.html#shallot-oil">View Shallot Oil <i aria-hidden="true"
+                <a class="btn btn-secondary" href="product.html#bawang">View Food Products <i aria-hidden="true"
                     class="bi bi-arrow-right"></i></a>
               </div>
             </div>
@@ -5712,12 +5760,12 @@
             <div aria-label="Indonesian seafood and marine products" class="product-feature-image fish-feature"
               role="img"></div>
             <div class="product-feature-content">
-              <div class="label product-category-label">CATEGORY 03</div>
-              <h3>Seafood <span class="amp">&amp;</span> Marine Products</h3>
-              <p>Selected fresh and frozen Indonesian seafood, including tuna, snapper, octopus, and other marine
-                products sourced for global markets.</p>
+              <div class="label product-category-label">CATEGORY 02</div>
+              <h3>Seafood and Marine Products</h3>
+              <p>Explore selected Indonesian seafood, including kingfish, grouper, snapper, and other marine products,
+                carefully sourced to support quality, freshness, and the needs of international buyers.</p>
               <div class="product-card-action">
-                <a class="btn btn-secondary" href="product.html#seafood">View Seafood <i aria-hidden="true"
+                <a class="btn btn-secondary" href="product.html#seafood">View Seafood Products <i aria-hidden="true"
                     class="bi bi-arrow-right"></i></a>
               </div>
             </div>
@@ -5732,13 +5780,13 @@
   </section>
   <section aria-labelledby="siteCtaTitle" class="site-cta theme-dark section" id="cta">
     <div class="site-cta-inner">
-      <p class="site-cta-eyebrow">Send an Inquiry</p>
+      <p class="site-cta-eyebrow">Get in Touch</p>
       <h2 class="site-cta-title" id="siteCtaTitle">Let's Bring the Best of Indonesia to Your Business</h2>
       <span aria-hidden="true" class="site-cta-accent"></span>
       <!-- <p class="site-cta-desc">Tell us your product needs, volume, and destination. Our team will respond within 24 hours.</p> -->
       <div class="site-cta-actions">
         <a class="btn btn-primary site-cta-button" href="#contact">
-          Get in Touch <i aria-hidden="true" class="bi bi-send"></i>
+         Send an Inquiry <i aria-hidden="true" class="bi bi-send"></i>
         </a>
       </div>
       <p class="site-cta-trust">Food Products and Condiments<span aria-hidden="true">•</span> Seafood and Marine
@@ -5857,14 +5905,12 @@
             width="425"
             loading="lazy"
             referrerpolicy="no-referrer-when-downgrade"></iframe>
-          <div class="map-label">
+          <!-- <div class="map-label">
             <span class="map-pin"><i class="bi bi-geo-alt-fill"></i></span>
             <div>
               <small>OUR LOCATION</small><strong>Jl. Amarta Raya, Kutoharjo, Kec. Pati, Kabupaten Pati, Jawa Tengah 59118, Indonesia</strong>
             </div>
-          </div>
-          <a class="map-open" href="https://www.google.com/maps/search/?api=1&amp;query=PT.%20Lacara%20Food%20Indonesia%2C%20Jl.%20Amarta%20Raya%2C%20Kutoharjo%2C%20Pati%2C%20Jawa%20Tengah%2059118"
-            rel="noopener" target="_blank">Open larger map <span>↗</span></a>
+          </div> -->
         </div>
       </div>
     </section>
@@ -6340,6 +6386,178 @@
       }
     })();
   </script>
+
+
+  <style id="cta-button-and-trustline-responsive-fix">
+    /* Match the inquiry button to the gold View All Products button. */
+    #cta.site-cta .site-cta-actions > a.site-cta-button.btn-primary {
+      min-height: 50px !important;
+      padding: 14px 28px !important;
+      border-radius: 10px !important;
+      font: 700 15px/1.25 "DM Sans", sans-serif !important;
+      background: var(--products-gold-primary, #e4bd54) !important;
+      border: 1px solid transparent !important;
+      color: #111 !important;
+      gap: 8px !important;
+      box-shadow: none !important;
+    }
+    #cta.site-cta .site-cta-actions > a.site-cta-button.btn-primary i {
+      color: currentColor !important;
+      font-size: 15px !important;
+    }
+    #cta.site-cta .site-cta-actions > a.site-cta-button.btn-primary:hover {
+      background: #e9ca75 !important;
+      border-color: transparent !important;
+      color: #111 !important;
+    }
+    /* Keep both product categories on one line on mobile. */
+    #cta.site-cta .site-cta-trust {
+      white-space: nowrap !important;
+      width: max-content !important;
+      max-width: calc(100vw - 24px) !important;
+      margin-left: auto !important;
+      margin-right: auto !important;
+      font-size: clamp(9px, 2.5vw, 12px) !important;
+      line-height: 1.35 !important;
+      letter-spacing: -0.15px !important;
+    }
+    #cta.site-cta .site-cta-trust span[aria-hidden="true"] {
+      display: inline !important;
+      margin: 0 5px !important;
+    }
+    @media (max-width: 767.98px) {
+      #cta.site-cta .site-cta-actions > a.site-cta-button.btn-primary {
+        min-height: 42px !important;
+        padding: 11px 20px !important;
+        font-size: 13px !important;
+        line-height: 1.35 !important;
+        border-radius: 9px !important;
+      }
+      #cta.site-cta .site-cta-actions > a.site-cta-button.btn-primary i {
+        font-size: 13px !important;
+      }
+    }
+  </style>
+
+
+
+  <style id="mobile-cta-contact-spacing-fix">
+    /* Tighten the vertical gap between the closing CTA and Contact Us on mobile only. */
+    @media (max-width: 767.98px) {
+      #cta.site-cta {
+        padding-top: 48px !important;
+        padding-bottom: 26px !important;
+      }
+      #cta.site-cta + #contact.contact-section {
+        padding-top: 10px !important;
+      }
+      #cta.site-cta + #contact.contact-section .contact-intro-inner {
+        margin-bottom: 30px !important;
+      }
+    }
+  </style>
+
+
+
+  <style id="contact-submit-cta-match">
+    /* Match the contact form submit button to the gold CTA button. */
+    #contact.contact-section .contact-submit {
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      gap: 10px !important;
+      width: 100% !important;
+      min-width: 0 !important;
+      height: 52px !important;
+      min-height: 52px !important;
+      padding: 0 20px !important;
+      background: #E0BC5C !important;
+      border: 1px solid #E0BC5C !important;
+      border-radius: 10px !important;
+      color: #111111 !important;
+      -webkit-text-fill-color: #111111 !important;
+      font-family: "DM Sans", sans-serif !important;
+      font-size: 15px !important;
+      font-weight: 700 !important;
+      line-height: 1.2 !important;
+      box-sizing: border-box !important;
+    }
+    #contact.contact-section .contact-submit span,
+    #contact.contact-section .contact-submit i {
+      color: #111111 !important;
+      -webkit-text-fill-color: #111111 !important;
+    }
+    #contact.contact-section .contact-submit:hover,
+    #contact.contact-section .contact-submit:focus-visible {
+      background: #D4AF4F !important;
+      border-color: #D4AF4F !important;
+      color: #111111 !important;
+      -webkit-text-fill-color: #111111 !important;
+    }
+    #contact.contact-section .contact-submit:hover span,
+    #contact.contact-section .contact-submit:hover i {
+      color: #111111 !important;
+      -webkit-text-fill-color: #111111 !important;
+    }
+  </style>
+
+
+  <style id="cta-buttons-match-products-button-final">
+    /* Keep the CTA button the same width as View All Products. */
+    #products .products-all-wrap > a.btn.btn-primary,
+    #cta.site-cta .site-cta-actions > a.site-cta-button.btn-primary {
+      box-sizing: border-box !important;
+      width: 177px !important;
+      min-width: 177px !important;
+      max-width: 177px !important;
+      justify-content: center !important;
+      color: #111 !important;
+      -webkit-text-fill-color: #111 !important;
+    }
+    #products .products-all-wrap > a.btn.btn-primary i,
+    #cta.site-cta .site-cta-actions > a.site-cta-button.btn-primary i {
+      color: #111 !important;
+      -webkit-text-fill-color: #111 !important;
+    }
+    #products .products-all-wrap > a.btn.btn-primary:hover,
+    #cta.site-cta .site-cta-actions > a.site-cta-button.btn-primary:hover {
+      color: #111 !important;
+      -webkit-text-fill-color: #111 !important;
+    }
+    @media (max-width: 767.98px) {
+      #products .products-all-wrap > a.btn.btn-primary,
+      #cta.site-cta .site-cta-actions > a.site-cta-button.btn-primary {
+        width: 177px !important;
+        min-width: 177px !important;
+        max-width: 177px !important;
+      }
+    }
+  </style>
+
+
+  <style id="cta-button-height-match-products">
+    /* Match both width and height of Send an Inquiry to View All Products. */
+    #products .products-all-wrap > a.btn.btn-primary,
+    #cta.site-cta .site-cta-actions > a.site-cta-button.btn-primary {
+      box-sizing: border-box !important;
+      min-height: 50px !important;
+      height: 50px !important;
+      padding-top: 0 !important;
+      padding-bottom: 0 !important;
+      display: inline-flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+    }
+    @media (max-width: 767.98px) {
+      #products .products-all-wrap > a.btn.btn-primary,
+      #cta.site-cta .site-cta-actions > a.site-cta-button.btn-primary {
+        min-height: 42px !important;
+        height: 42px !important;
+        padding-top: 0 !important;
+        padding-bottom: 0 !important;
+      }
+    }
+  </style>
 
 </body>
 
