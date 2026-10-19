@@ -4718,17 +4718,15 @@
       pointer-events: none !important;
       z-index: 1 !important;
       /* Keep the team photo clear; fade only the lower edge into Contact Us. */
-      background: linear-gradient(
-        to bottom,
-        rgba(10, 10, 10, 0) 0%,
-        rgba(10, 10, 10, 0) 38%,
-        rgba(10, 10, 10, 0.28) 66%,
-        rgba(10, 10, 10, 0.72) 84%,
-        var(--black) 100%
-      ) !important;
+      background: linear-gradient(to bottom,
+          rgba(10, 10, 10, 0) 0%,
+          rgba(10, 10, 10, 0) 38%,
+          rgba(10, 10, 10, 0.28) 66%,
+          rgba(10, 10, 10, 0.72) 84%,
+          var(--black) 100%) !important;
     }
 
-    #cta.site-cta > .site-cta-inner,
+    #cta.site-cta>.site-cta-inner,
     #cta.site-cta .site-cta-eyebrow,
     #cta.site-cta .site-cta-title,
     #cta.site-cta .site-cta-accent,
@@ -4740,7 +4738,7 @@
       z-index: 2 !important;
     }
 
-    #cta.site-cta + #contact.contact-section {
+    #cta.site-cta+#contact.contact-section {
       margin-top: 0 !important;
       border-top: 0 !important;
       background-color: var(--black) !important;
@@ -4828,7 +4826,7 @@
         margin: 0 0 24px !important;
         color: #FFFFFF;
         font-family: "Playfair Display", Georgia, serif;
-        font-size: clamp(40px, 4.4vw, 60px);
+        font-size: clamp(30px, 4.4vw, 60px);
         line-height: 1.15;
         text-wrap: balance;
         text-shadow: 0 2px 18px rgba(0, 0, 0, .45);
@@ -4996,7 +4994,7 @@
         padding: 0 !important;
         color: #FFFFFF !important;
         font-family: "Playfair Display", Georgia, serif;
-        font-size: clamp(30px, 8.5vw, 38px) !important;
+        font-size: clamp(30px, 80.5vw, 38px);
         line-height: 1.2 !important;
         text-align: center;
         text-wrap: balance;
@@ -5078,6 +5076,11 @@
     }
 
 
+    @media (max-width: 380px) {
+      #home.hero.hero-slideshow .hero-inner h1 {
+        font-size: clamp(25px, 80.5vw, 25px) !important;
+      }
+    }
 
     /* COPYRIGHT BAR + FLOATING CONTROLS — targeted update only */
     footer.theme-dark .copyright-bar {
@@ -5788,7 +5791,7 @@
       <!-- <p class="site-cta-desc">Tell us your product needs, volume, and destination. Our team will respond within 24 hours.</p> -->
       <div class="site-cta-actions">
         <a class="btn btn-primary site-cta-button" href="#contact">
-         Send an Inquiry <i aria-hidden="true" class="bi bi-send"></i>
+          Send an Inquiry <i aria-hidden="true" class="bi bi-send"></i>
         </a>
       </div>
       <p class="site-cta-trust">Food Products and Condiments<span aria-hidden="true">•</span> Seafood and Marine
@@ -5856,7 +5859,8 @@
               <div class="contact-detail">
                 <span class="contact-icon"><i class="bi bi-geo-alt-fill"></i></span>
                 <div>
-                  <small>ADDRESS</small><strong>Jl. Amarta Raya, Kutoharjo, Kec. Pati, Kabupaten Pati, Jawa Tengah 59118, Indonesia</strong>
+                  <small>ADDRESS</small><strong>Jl. Amarta Raya, Kutoharjo, Kec. Pati, Kabupaten Pati, Jawa Tengah
+                    59118, Indonesia</strong>
                 </div>
               </div>
             </div>
@@ -5891,7 +5895,8 @@
         </div>
         <div class="col-12 col-lg-3 mt-2 mb-4 my-lg-0">
           <h6 class="text-white pb-2">Location</h6>
-          <p>PT. LACARA FOOD INDONESIA<br />Jl. Amarta Raya, Kutoharjo, Kec. Pati, Kabupaten Pati, Jawa Tengah 59118, Indonesia</p>
+          <p>PT. LACARA FOOD INDONESIA<br />Jl. Amarta Raya, Kutoharjo, Kec. Pati, Kabupaten Pati, Jawa Tengah 59118,
+            Indonesia</p>
         </div>
       </div>
       <!-- <hr style="border-color: var(--muted)" /> -->
@@ -5899,14 +5904,9 @@
     <section class="location-section theme-light section" id="location">
       <div class="container">
         <div class="location-map-wrap">
-          <iframe
-            title="Map to PT. Lacara Food Indonesia, Jl. Amarta Raya, Kutoharjo, Pati"
-            height="350"
+          <iframe title="Map to PT. Lacara Food Indonesia, Jl. Amarta Raya, Kutoharjo, Pati" height="350"
             src="https://maps.google.com/maps?q=PT.%20Lacara%20Food%20Indonesia%2C%20Jl.%20Amarta%20Raya%2C%20Kutoharjo%2C%20Kec.%20Pati%2C%20Kabupaten%20Pati%2C%20Jawa%20Tengah%2059118%2C%20Indonesia&amp;z=17&amp;output=embed"
-            style="border: 0"
-            width="425"
-            loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade"></iframe>
+            style="border: 0" width="425" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
           <!-- <div class="map-label">
             <span class="map-pin"><i class="bi bi-geo-alt-fill"></i></span>
             <div>
@@ -6392,7 +6392,7 @@
 
   <style id="cta-button-and-trustline-responsive-fix">
     /* Match the inquiry button to the gold View All Products button. */
-    #cta.site-cta .site-cta-actions > a.site-cta-button.btn-primary {
+    #cta.site-cta .site-cta-actions>a.site-cta-button.btn-primary {
       min-height: 50px !important;
       padding: 14px 28px !important;
       border-radius: 10px !important;
@@ -6403,15 +6403,18 @@
       gap: 8px !important;
       box-shadow: none !important;
     }
-    #cta.site-cta .site-cta-actions > a.site-cta-button.btn-primary i {
+
+    #cta.site-cta .site-cta-actions>a.site-cta-button.btn-primary i {
       color: currentColor !important;
       font-size: 15px !important;
     }
-    #cta.site-cta .site-cta-actions > a.site-cta-button.btn-primary:hover {
+
+    #cta.site-cta .site-cta-actions>a.site-cta-button.btn-primary:hover {
       background: #e9ca75 !important;
       border-color: transparent !important;
       color: #111 !important;
     }
+
     /* Keep both product categories on one line on mobile. */
     #cta.site-cta .site-cta-trust {
       white-space: nowrap !important;
@@ -6423,19 +6426,22 @@
       line-height: 1.35 !important;
       letter-spacing: -0.15px !important;
     }
+
     #cta.site-cta .site-cta-trust span[aria-hidden="true"] {
       display: inline !important;
       margin: 0 5px !important;
     }
+
     @media (max-width: 767.98px) {
-      #cta.site-cta .site-cta-actions > a.site-cta-button.btn-primary {
+      #cta.site-cta .site-cta-actions>a.site-cta-button.btn-primary {
         min-height: 42px !important;
         padding: 11px 20px !important;
         font-size: 13px !important;
         line-height: 1.35 !important;
         border-radius: 9px !important;
       }
-      #cta.site-cta .site-cta-actions > a.site-cta-button.btn-primary i {
+
+      #cta.site-cta .site-cta-actions>a.site-cta-button.btn-primary i {
         font-size: 13px !important;
       }
     }
@@ -6450,10 +6456,12 @@
         padding-top: 48px !important;
         padding-bottom: 26px !important;
       }
-      #cta.site-cta + #contact.contact-section {
+
+      #cta.site-cta+#contact.contact-section {
         padding-top: 10px !important;
       }
-      #cta.site-cta + #contact.contact-section .contact-intro-inner {
+
+      #cta.site-cta+#contact.contact-section .contact-intro-inner {
         margin-bottom: 30px !important;
       }
     }
@@ -6484,11 +6492,13 @@
       line-height: 1.2 !important;
       box-sizing: border-box !important;
     }
+
     #contact.contact-section .contact-submit span,
     #contact.contact-section .contact-submit i {
       color: #111111 !important;
       -webkit-text-fill-color: #111111 !important;
     }
+
     #contact.contact-section .contact-submit:hover,
     #contact.contact-section .contact-submit:focus-visible {
       background: #D4AF4F !important;
@@ -6496,6 +6506,7 @@
       color: #111111 !important;
       -webkit-text-fill-color: #111111 !important;
     }
+
     #contact.contact-section .contact-submit:hover span,
     #contact.contact-section .contact-submit:hover i {
       color: #111111 !important;
@@ -6506,8 +6517,8 @@
 
   <style id="cta-buttons-match-products-button-final">
     /* Keep the CTA button the same width as View All Products. */
-    #products .products-all-wrap > a.btn.btn-primary,
-    #cta.site-cta .site-cta-actions > a.site-cta-button.btn-primary {
+    #products .products-all-wrap>a.btn.btn-primary,
+    #cta.site-cta .site-cta-actions>a.site-cta-button.btn-primary {
       box-sizing: border-box !important;
       width: 177px !important;
       min-width: 177px !important;
@@ -6516,19 +6527,23 @@
       color: #111 !important;
       -webkit-text-fill-color: #111 !important;
     }
-    #products .products-all-wrap > a.btn.btn-primary i,
-    #cta.site-cta .site-cta-actions > a.site-cta-button.btn-primary i {
+
+    #products .products-all-wrap>a.btn.btn-primary i,
+    #cta.site-cta .site-cta-actions>a.site-cta-button.btn-primary i {
       color: #111 !important;
       -webkit-text-fill-color: #111 !important;
     }
-    #products .products-all-wrap > a.btn.btn-primary:hover,
-    #cta.site-cta .site-cta-actions > a.site-cta-button.btn-primary:hover {
+
+    #products .products-all-wrap>a.btn.btn-primary:hover,
+    #cta.site-cta .site-cta-actions>a.site-cta-button.btn-primary:hover {
       color: #111 !important;
       -webkit-text-fill-color: #111 !important;
     }
+
     @media (max-width: 767.98px) {
-      #products .products-all-wrap > a.btn.btn-primary,
-      #cta.site-cta .site-cta-actions > a.site-cta-button.btn-primary {
+
+      #products .products-all-wrap>a.btn.btn-primary,
+      #cta.site-cta .site-cta-actions>a.site-cta-button.btn-primary {
         width: 177px !important;
         min-width: 177px !important;
         max-width: 177px !important;
@@ -6539,8 +6554,8 @@
 
   <style id="cta-button-height-match-products">
     /* Match both width and height of Send an Inquiry to View All Products. */
-    #products .products-all-wrap > a.btn.btn-primary,
-    #cta.site-cta .site-cta-actions > a.site-cta-button.btn-primary {
+    #products .products-all-wrap>a.btn.btn-primary,
+    #cta.site-cta .site-cta-actions>a.site-cta-button.btn-primary {
       box-sizing: border-box !important;
       min-height: 50px !important;
       height: 50px !important;
@@ -6550,16 +6565,18 @@
       align-items: center !important;
       justify-content: center !important;
     }
+
     @media (max-width: 767.98px) {
-      #products .products-all-wrap > a.btn.btn-primary,
-      #cta.site-cta .site-cta-actions > a.site-cta-button.btn-primary {
+
+      #products .products-all-wrap>a.btn.btn-primary,
+      #cta.site-cta .site-cta-actions>a.site-cta-button.btn-primary {
         min-height: 42px !important;
         height: 42px !important;
         padding-top: 0 !important;
         padding-bottom: 0 !important;
       }
     }
-  
+
     /* MOBILE HERO 4:5 — keep the slideshow area close to a portrait 4:5 frame */
     @media (max-width: 767.98px) {
       #home.hero.hero-slideshow {
@@ -6575,7 +6592,7 @@
         align-items: center;
       }
 
-      #home.hero.hero-slideshow > .container.hero-inner {
+      #home.hero.hero-slideshow>.container.hero-inner {
         width: 100%;
         max-width: 390px;
         min-height: 0;
@@ -6585,8 +6602,8 @@
         justify-content: center;
       }
 
-      #home.hero.hero-slideshow .hero-inner > .row,
-      #home.hero.hero-slideshow .hero-inner > .row > .col-lg-12 {
+      #home.hero.hero-slideshow .hero-inner>.row,
+      #home.hero.hero-slideshow .hero-inner>.row>.col-lg-12 {
         width: 100%;
         max-width: 100%;
         margin: 0 !important;
@@ -6602,12 +6619,6 @@
         line-height: 1.3;
       }
 
-      #home.hero.hero-slideshow .hero-inner h1 {
-        max-width: 100%;
-        margin-bottom: 12px !important;
-        font-size: clamp(26px, 7.5vw, 34px) !important;
-        line-height: 1.08 !important;
-      }
 
       #home.hero.hero-slideshow .hero-inner p {
         max-width: 100%;
@@ -6647,16 +6658,12 @@
         padding-right: 15px !important;
       }
 
-      #home.hero.hero-slideshow .hero-inner h1 {
-        font-size: 26px !important;
-      }
 
       #home.hero.hero-slideshow .hero-inner p {
         font-size: 12px !important;
         line-height: 1.4 !important;
       }
     }
-
   </style>
 
 </body>
