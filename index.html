@@ -6559,6 +6559,156 @@
     }
   </style>
 
+
+
+  <style id="scroll-reveal-animations">
+    /* Smooth reveal effects as content enters the viewport */
+    .scroll-reveal {
+      opacity: 0;
+      transform: translate3d(0, 28px, 0);
+      transition:
+        opacity 700ms cubic-bezier(.22, 1, .36, 1),
+        transform 700ms cubic-bezier(.22, 1, .36, 1);
+      transition-delay: var(--reveal-delay, 0ms);
+      will-change: opacity, transform;
+    }
+    .scroll-reveal.reveal-from-left { transform: translate3d(-32px, 0, 0); }
+    .scroll-reveal.reveal-from-right { transform: translate3d(32px, 0, 0); }
+    .scroll-reveal.is-visible {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+      will-change: auto;
+    }
+    /* Small lift on product cards after they appear */
+    #products .product-feature-card.scroll-reveal.is-visible {
+      transition:
+        opacity 700ms cubic-bezier(.22, 1, .36, 1),
+        transform 700ms cubic-bezier(.22, 1, .36, 1),
+        box-shadow 300ms ease;
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .scroll-reveal,
+      .scroll-reveal.reveal-from-left,
+      .scroll-reveal.reveal-from-right {
+        opacity: 1 !important;
+        transform: none !important;
+        transition: none !important;
+        will-change: auto !important;
+      }
+    }
+  </style>
+
+  <script id="scroll-reveal-script">
+    (() => {
+      const initScrollReveal = () => {
+        const groups = [
+          ['#about .intro-img', 'reveal-from-left'],
+          ['#about .row > [class*="col-"]', ''],
+          ['#products .section-heading, #products .products-heading, #products .eyebrow, #products h2', ''],
+          ['#products .product-feature-card, #products .product-card', ''],
+          ['#products .products-all-wrap', ''],
+          ['#cta .site-cta-inner > *, #cta .site-cta-copy, #cta .site-cta-actions', ''],
+          ['#contact .contact-intro, #contact .contact-form-card, #contact .contact-form, #contact .contact-intro-inner', ''],
+          ['#location .location-heading, #location .location-map-wrap', ''],
+          ['footer .row > [class*="col-"], footer .copyright-bar', '']
+        ];
+
+        const elements = new Set();
+        groups.forEach(([selector]) => {
+          document.querySelectorAll(selector).forEach(el => elements.add(el));
+        });
+
+        // If the page uses alternate markup, animate each section's main content too.
+        document.querySelectorAll('main section.section, body > section.section').forEach(section => {
+          const heading = section.querySelector('h1, h2');
+          if (heading) elements.add(heading);
+        });
+
+        let delayIndex = 0;
+        elements.forEach(el => {
+          if (el.closest('header, nav')) return;
+          el.classList.add('scroll-reveal');
+          if (el.matches('#about .intro-img, #contact .contact-intro, #location .location-heading')) {
+            el.classList.add('reveal-from-left');
+          }
+          if (el.matches('#contact .contact-form-card, #location .location-map-wrap')) {
+            el.classList.add('reveal-from-right');
+          }
+          el.style.setProperty('--reveal-delay', `${(delayIndex % 4) * 90}ms`);
+          delayIndex++;
+        });
+
+        if (!('IntersectionObserver' in window)) {
+          elements.forEach(el => el.classList.add('is-visible'));
+          return;
+        }
+
+        const observer = new IntersectionObserver((entries, obs) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('is-visible');
+              obs.unobserve(entry.target);
+            }
+          });
+        }, {
+          threshold: 0.12,
+          rootMargin: '0px 0px -45px 0px'
+        });
+
+        elements.forEach(el => {
+          if (el.classList.contains('scroll-reveal')) observer.observe(el);
+        });
+      };
+
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initScrollReveal, { once: true });
+      } else {
+        initScrollReveal();
+      }
+    })();
+  </script>
+
+
+  <style id="hero-load-animations">
+    @keyframes heroContentEnter {
+      from { opacity: 0; transform: translateY(28px); filter: blur(3px); }
+      to { opacity: 1; transform: translateY(0); filter: blur(0); }
+    }
+    #home .hero-load-reveal {
+      opacity: 0;
+      transform: translateY(28px);
+    }
+    #home .hero-load-reveal.hero-loaded {
+      animation: heroContentEnter 850ms cubic-bezier(.2,.75,.25,1) both;
+      animation-delay: var(--hero-delay, 0ms);
+    }
+    @media (prefers-reduced-motion: reduce) {
+      #home .hero-load-reveal { opacity: 1; transform: none; }
+      #home .hero-load-reveal.hero-loaded { animation: none; }
+    }
+  </style>
+  <script id="hero-load-animation-script">
+    (() => {
+      const runHeroIntro = () => {
+        const hero = document.querySelector('#home');
+        if (!hero) return;
+        const items = hero.querySelectorAll('.hero-inner .eyebrow, .hero-inner h1, .hero-inner .hero-intro, .hero-inner .hero-source-paragraph, .hero-inner .d-flex');
+        items.forEach((el, index) => {
+          el.classList.add('hero-load-reveal');
+          el.style.setProperty('--hero-delay', `${index * 160}ms`);
+        });
+        requestAnimationFrame(() => requestAnimationFrame(() => {
+          items.forEach(el => el.classList.add('hero-loaded'));
+        }));
+      };
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', runHeroIntro, { once: true });
+      } else {
+        runHeroIntro();
+      }
+    })();
+  </script>
+
 </body>
 
 </html>
