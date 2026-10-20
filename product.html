@@ -6262,6 +6262,159 @@
     }
   </style>
 
+
+  <!-- Tablet-only product layout: equal-height image/copy columns and bottom-aligned actions. -->
+  <style id="lacara-product-tablet-layout-fix">
+    @media (min-width: 768px) and (max-width: 1023.98px) {
+      /* All product sections use the same two-column rule; reversed sections swap sides. */
+      .food-product-layout,
+      .food-product-layout.is-reversed {
+        display: grid !important;
+        grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr) !important;
+        grid-template-areas: "media content" !important;
+        align-items: stretch !important;
+        gap: 32px !important;
+      }
+
+      .food-product-layout.is-reversed {
+        grid-template-areas: "content media" !important;
+      }
+
+      /* The image fills the full grid-row height for consistent column alignment. */
+      .food-product-layout > .food-product-image {
+        grid-area: media !important;
+        box-sizing: border-box !important;
+        width: 100% !important;
+        height: 100% !important;
+        min-width: 0 !important;
+        min-height: 0 !important;
+        aspect-ratio: 4 / 5 !important;
+        align-self: stretch !important;
+        position: relative !important;
+        overflow: hidden !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        border-radius: 12px !important;
+      }
+
+      .food-product-layout > .food-product-image > img {
+        position: absolute !important;
+        inset: 0 !important;
+        display: block !important;
+        width: 100% !important;
+        height: 100% !important;
+        max-width: 100% !important;
+        max-height: none !important;
+        object-fit: cover !important;
+        object-position: center !important;
+      }
+
+      .food-product-layout > .food-product-copy {
+        grid-area: content !important;
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: flex-start !important;
+        align-self: stretch !important;
+        min-width: 0 !important;
+        max-width: 100% !important;
+        height: 100% !important;
+        min-height: 0 !important;
+        position: static !important;
+        transform: none !important;
+      }
+
+      .food-product-copy > .food-product-kicker {
+        margin-bottom: 8px !important;
+      }
+
+      .food-product-copy > h2 {
+        font-size: clamp(30px, 3.6vw, 38px) !important;
+      }
+
+      .food-product-copy > .product-desc {
+        max-width: 100% !important;
+        min-width: 0 !important;
+        max-height: none !important;
+        overflow: visible !important;
+      }
+
+      .food-product-copy > .product-desc p {
+        font-size: 14px !important;
+        line-height: 1.6 !important;
+        margin-bottom: 10px !important;
+        overflow-wrap: break-word !important;
+        word-break: normal !important;
+      }
+
+      .food-product-copy > .product-desc p:last-child {
+        margin-bottom: 0 !important;
+      }
+
+      .food-product-copy > .food-chip-list,
+      .food-product-copy > .food-variant-selector {
+        display: flex !important;
+        flex-wrap: wrap !important;
+        align-items: center !important;
+        gap: 12px !important;
+        margin-top: 12px !important;
+        margin-bottom: 0 !important;
+      }
+
+      .food-product-copy .food-chip-list > li {
+        flex: 0 0 auto !important;
+        margin: 0 !important;
+        padding: 0 !important;
+      }
+
+      .food-product-copy .food-chip-list .chip {
+        white-space: nowrap !important;
+      }
+
+      /* Push both CTA buttons to the bottom of every product copy column. */
+      .food-product-copy > .food-product-ctas,
+      .food-product-copy > .food-actions.food-product-ctas {
+        display: flex !important;
+        flex-direction: row !important;
+        flex-wrap: nowrap !important;
+        align-items: center !important;
+        justify-content: flex-start !important;
+        gap: 12px !important;
+        width: 100% !important;
+        min-width: 0 !important;
+        margin-top: auto !important;
+        padding-top: 18px !important;
+      }
+
+      .food-product-copy > .food-product-ctas > .food-button {
+        display: inline-flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        flex: 0 1 auto !important;
+        width: auto !important;
+        min-width: 0 !important;
+        max-width: none !important;
+        box-sizing: border-box !important;
+        padding-left: 16px !important;
+        padding-right: 16px !important;
+        font-size: 13px !important;
+        white-space: nowrap !important;
+        line-height: 1.2 !important;
+      }
+
+      .food-product-image .food-image-preview-hint {
+        position: absolute !important;
+        right: 12px !important;
+        bottom: 12px !important;
+        z-index: 3 !important;
+      }
+
+      /* Keep room for any fixed quote control at the end of the product list. */
+      .food-product-section:last-of-type {
+        padding-bottom: 96px !important;
+      }
+    }
+  </style>
+
 </head>
 
 <body>
