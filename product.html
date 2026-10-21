@@ -4037,9 +4037,9 @@
 
     .quote-product-row {
       display: grid;
-      grid-template-columns: minmax(0, 1fr) auto auto;
+      grid-template-columns: minmax(0, 1fr) auto;
       align-items: center;
-      gap: 8px;
+      gap: 12px;
       padding: 12px 14px;
       border: 1px solid var(--card-border);
       border-radius: 12px;
@@ -4063,44 +4063,6 @@
       font-size: 12px;
       font-style: italic;
       overflow-wrap: anywhere;
-    }
-
-    .quote-qty-stepper {
-      display: inline-flex;
-      height: 36px;
-      align-items: center;
-      gap: 6px;
-      padding: 2px;
-      border: 1px solid var(--card-border);
-      border-radius: 8px;
-    }
-
-    .quote-qty-stepper button {
-      width: 28px;
-      height: 28px;
-      padding: 0;
-      border: 0;
-      border-radius: 6px;
-      background: var(--bg-alt);
-      color: var(--text);
-      font: inherit;
-      font-size: 18px;
-      line-height: 1;
-      cursor: pointer;
-    }
-
-    .quote-qty-stepper button:disabled {
-      color: var(--muted);
-      cursor: not-allowed;
-      opacity: 0.55;
-    }
-
-    .quote-qty-stepper output {
-      min-width: 18px;
-      color: var(--text);
-      text-align: center;
-      font-size: 13px;
-      font-variant-numeric: tabular-nums;
     }
 
     .quote-product-remove {
@@ -6839,7 +6801,6 @@
     let quoteSubmitTimeout;
     let quoteWhatsAppURL = "";
     let quoteOriginalSubmitContent = quoteSubmit.innerHTML;
-    let lastQuoteUnitTotal = null;
 
     const quoteFieldDefinitions = [
       {
@@ -6893,9 +6854,7 @@
     function renderQuoteProducts() {
       quoteProductChips.replaceChildren();
       const items = quoteListStore.items;
-      let total = 0;
       items.forEach(function (product) {
-        total += product.qty;
         const row = document.createElement("div");
         row.className = "quote-product-row";
         const identity = document.createElement("div");
@@ -6909,27 +6868,6 @@
           scientificName.textContent = product.scientificName;
           identity.append(scientificName);
         }
-        const stepper = document.createElement("div");
-        stepper.className = "quote-qty-stepper";
-        stepper.setAttribute("aria-label", "Quantity for " + product.name);
-        const decrease = document.createElement("button");
-        decrease.type = "button";
-        decrease.setAttribute("aria-label", "Decrease " + product.name + " quantity");
-        decrease.textContent = "−";
-        decrease.disabled = product.qty <= 1;
-        decrease.addEventListener("click", function () {
-          if (product.qty > 1) quoteListStore.setQty(product.id, product.qty - 1);
-        });
-        const quantity = document.createElement("output");
-        quantity.textContent = String(product.qty);
-        const increase = document.createElement("button");
-        increase.type = "button";
-        increase.setAttribute("aria-label", "Increase " + product.name + " quantity");
-        increase.textContent = "+";
-        increase.addEventListener("click", function () {
-          quoteListStore.setQty(product.id, product.qty + 1);
-        });
-        stepper.append(decrease, quantity, increase);
         const remove = document.createElement("button");
         remove.className = "quote-product-remove";
         remove.type = "button";
@@ -6938,21 +6876,23 @@
         remove.addEventListener("click", function () {
           quoteListStore.remove(product.id);
         });
-        row.append(identity, stepper, remove);
+        row.append(identity, remove);
         quoteProductChips.append(row);
       });
       document.getElementById("quoteProductsEmpty").hidden = items.length > 0;
-      document.getElementById("quoteProductsTotal").textContent = total + (total === 1 ? " item in your list" : " items in your list");
+      document.getElementById("quoteProductsTotal").textContent = items.length + (items.length === 1 ? " product in your list" : " products in your list");
     }
 
+    let lastQuoteProductTotal = null;
+
     function updateQuoteBadges(items) {
-      const total = items.reduce(function (sum, item) { return sum + item.qty; }, 0);
-      const quantityChanged = lastQuoteUnitTotal !== null && total !== lastQuoteUnitTotal;
-      lastQuoteUnitTotal = total;
+      const total = items.length;
+      const productCountChanged = lastQuoteProductTotal !== null && total !== lastQuoteProductTotal;
+      lastQuoteProductTotal = total;
       document.querySelectorAll("[data-quote-count]").forEach(function (badge) {
         badge.textContent = String(total);
         badge.hidden = total === 0;
-        if (quantityChanged && total > 0) {
+        if (productCountChanged && total > 0) {
           badge.classList.remove("is-popping");
           void badge.offsetWidth;
           badge.classList.add("is-popping");
@@ -6966,9 +6906,8 @@
         }
       });
       document.querySelectorAll("[data-quote-qty-for]").forEach(function (marker) {
-        const product = items.find(function (item) { return item.id === marker.dataset.quoteQtyFor; });
-        marker.textContent = product ? "x" + product.qty : "";
-        marker.hidden = !product;
+        marker.textContent = "";
+        marker.hidden = true;
       });
     }
 
@@ -7027,9 +6966,9 @@
       });
     });
 
-    function showQuoteToast(product, quantity) {
+    function showQuoteToast(product) {
       const toast = document.getElementById("quoteToast");
-      document.getElementById("quoteToastMessage").textContent = product.name + " added to quotation list (x" + quantity + ")";
+      document.getElementById("quoteToastMessage").textContent = product.name + " added to quotation list";
       toast.hidden = false;
       window.clearTimeout(quoteToastTimeout);
       quoteToastTimeout = window.setTimeout(function () { toast.hidden = true; }, 3000);
@@ -7090,11 +7029,10 @@
     }
 
     function addCatalogProduct(product, button) {
-      const quantity = quoteListStore.add(product);
-      if (!quantity) return;
+      quoteListStore.add(product);
       showAddedButtonState(button, product);
       animateQuoteAdd(button);
-      showQuoteToast(product, quantity);
+      showQuoteToast(product);
     }
 
     function focusQuoteControl(control) {
@@ -7276,11 +7214,19 @@
         destinationType: quoteForm.querySelector('input[name="destinationType"]:checked').value,
         destination: document.getElementById("quoteDestination").value,
         requirements: document.getElementById("quoteRequirements").value,
-        items: quoteListStore.items
+        items: quoteListStore.items.map(function (item) { return { name: item.name, scientificName: item.scientificName || "" }; })
       };
-      const message = buildQuotationMessage(formData, formData.items);
+      const oldClosingSentence = "Thank you. Please advise availability, pricing, and shipping arrangements.";
+      const newClosingSentence = "Thank you. Kindly provide details on product availability, pricing, and shipping arrangements.";
+      const message = buildQuotationMessage(formData, formData.items).replace(oldClosingSentence, newClosingSentence);
       const sendVia = quoteForm.querySelector('input[name="sendVia"]:checked').value;
       const emailLinks = sendVia === "Email" ? sendQuotationEmail(formData) : null;
+      if (emailLinks && typeof emailLinks.url === "string") {
+        // Keep the same closing sentence in generated email inquiries when the shared template contains it.
+        emailLinks.url = emailLinks.url
+          .replace(oldClosingSentence, newClosingSentence)
+          .replace(encodeURIComponent(oldClosingSentence), encodeURIComponent(newClosingSentence));
+      }
       quoteWhatsAppURL = sendVia === "WhatsApp" ? buildWhatsAppLink(message) : "";
       try {
         const targetUrl = sendVia === "WhatsApp" ? quoteWhatsAppURL : emailLinks.url;
