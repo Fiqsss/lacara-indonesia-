@@ -7218,7 +7218,9 @@
       };
       const oldClosingSentence = "Thank you. Please advise availability, pricing, and shipping arrangements.";
       const newClosingSentence = "Thank you. Kindly provide details on product availability, pricing, and shipping arrangements.";
-      const message = buildQuotationMessage(formData, formData.items).replace(oldClosingSentence, newClosingSentence);
+      const message = buildQuotationMessage(formData, formData.items)
+        .replace(oldClosingSentence, newClosingSentence)
+        .replace(/\s+\(x\d+\)/g, "");
       const sendVia = quoteForm.querySelector('input[name="sendVia"]:checked').value;
       const emailLinks = sendVia === "Email" ? sendQuotationEmail(formData) : null;
       if (emailLinks && typeof emailLinks.url === "string") {
