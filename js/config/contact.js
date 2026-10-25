@@ -3,7 +3,7 @@
     whatsappDisplay: "+62 857-1312-5762",
     whatsappNumber: "6285713125762",
     whatsappBase: "https://wa.me/6285713125762",
-    email: "Lacarafoodofficial@gmail.com"
+    email: "sales@lacarafoodindonesia.com"
   });
 
   function buildWhatsAppLink(message) {
