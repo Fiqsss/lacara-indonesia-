@@ -26,7 +26,7 @@
     const heading = function (text) { return plainText ? text : "*" + text + "*"; };
     const productLines = products.length
       ? products.map(function (item, index) {
-        return (index + 1) + ". " + singleLine(item.name) + " (x" + Number(item.qty || 1) + ")";
+        return (index + 1) + ". " + singleLine(item.name) ;
       })
       : ["-"];
     const lines = [];
